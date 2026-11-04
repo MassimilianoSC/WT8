@@ -1,0 +1,51 @@
+{
+  "version": "1",
+  "source": "Regole dei permessi come DATI (D-94, architettura §3); R-16 chiuso (D-120, D-121): si cambiano qui, non nel codice. ADMIN è il flag globale dell'utente (D-17).",
+  "admin": {
+    "rule": "D-17, D-94: l'ADMIN può eseguire TUTTI i comandi di 'actions' (anche archivio, ripristino e cancellazione) e modificare i campi di qualunque gruppo, ma con GLI STESSI vincoli di stato degli altri utenti: pratica archiviata o no, stati ammessi, numero di iterazioni, iterazione corrente. Non modifica mirror né calcolati non modificabili. Ogni voce di 'actions' e 'transversal' lo dichiara con \"admin\": true.",
+    "source": "D-17, D-94, memoria 08/10"
+  },
+  "occurrences": {
+    "rule": "D-18, D-22, D-94: modifica i MASTER del proprio gruppo (stessa appartenenza template + gruppo) solo se il gruppo è abilitato dall'Assegna; l'ADMIN supera gruppo e Assegna ma non archivio, iterazione passata, mirror né calcolati non modificabili.",
+    "reasonOrder": ["ARCHIVED", "PAST_ITERATION", "MIRROR", "COMPUTED", "NOT_MY_GROUP", "NOT_ASSIGNED"]
+  },
+  "transversal": {
+    "fatturato": { "groups": [], "roles": ["PM"], "admin": true, "source": "D-121 (2): solo PM e ADMIN, come Fatturabile" },
+    "fatturabile": { "groups": [], "roles": ["PM"], "admin": true, "source": "D-37, D-120" }
+  },
+  "noteOperative": {
+    "rule": "D-121: una nota per gruppo. La scrive chi può modificare un MASTER del gruppo (ownerGroup = gruppo della nota: membro del gruppo sul gestore, gruppo abilitato dall'Assegna, mai su archiviata o iterazione passata; ADMIN). La vedono il proprio gruppo, i PM leader del gestore e l'ADMIN (lib/practice/notes.ts), in scheda, storico ed export.",
+    "source": "D-121"
+  },
+  "actions": {
+    "create": { "roles": ["PM"], "admin": true, "source": "D-20" },
+    "assign": { "roles": ["PM"], "admin": true, "targets": ["AIE", "UT_PE", "DL"], "notArchived": true, "source": "D-21, D-94, D-120 C1" },
+    "changeStato": { "roles": ["PM"], "admin": true, "notArchived": true, "source": "D-23" },
+    "archive": { "roles": ["PM", "DL"], "admin": true, "notArchived": true, "states": ["TERMINATO", "KO"], "source": "D-23, D-28" },
+    "restore": { "roles": ["PM"], "admin": true, "archivedOnly": true, "source": "D-23" },
+    "delete": { "roles": ["PM"], "admin": true, "notArchived": true, "states": ["CREATA"], "maxIterations": 1, "source": "D-27, D-100 (D2)" },
+    "rework": { "roles": ["PM"], "admin": true, "allowArchived": true, "source": "D-26, D-94" },
+    "resubmit": { "roles": ["PM"], "leader": true, "admin": true, "notArchived": true, "source": "D-25" }
+  },
+  "assignNotifications": {
+    "rule": "D-21: a ogni Assegna notifica in-app e mail a ogni membro attivo dei gruppi destinatari. Destinatari aggiuntivi: quando la destinazione comprende whenTargetsInclude, si avvisano anche i membri attivi di notify per quel gestore.",
+    "extraRecipients": [
+      { "whenTargetsInclude": "UT_PE", "notify": ["DL"], "source": "D-116, D-120 B1: a ogni Assegna verso UT/PE (\"per il momento\" secondo il collaboratore); sostituisce il collegamento al campo Assegnazione PE di D-94" }
+    ]
+  },
+  "lists": {
+    "rule": "D-40, D-100 (D1): le liste CONFIGURABLE le modificano i leader del gruppo della lista per quel gestore e l'ADMIN; le CONTROLLED e le liste comuni solo l'ADMIN (e solo le etichette)."
+  },
+  "alertClose": {
+    "rule": "D-46: chiusura manuale per i team leader del gruppo competente e per l'ADMIN.",
+    "byRule": {
+      "OFFERTA_ODA": { "groups": ["PM_PERMESSI"], "source": "D-44, contratto §8" },
+      "FATTURABILE_KO": {
+        "groups": [],
+        "manualClose": false,
+        "source": "D-131, D-137 A-02, contratto §8 v0.3.5",
+        "note": "Mai con la chiusura generica, nemmeno l'ADMIN: si chiude solo con la decisione su Fatturabile nel salvataggio dei campi (anche NO → NO)."
+      }
+    }
+  }
+}

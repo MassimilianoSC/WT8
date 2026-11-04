@@ -1,0 +1,150 @@
+{
+  "version": "1",
+  "source": "docs/proposte/ARCHITETTURA_BACKEND_v1.md §2.1, §2.3, §2.6, §5.1 adottati con D-89…D-99; ogni riga è verificata dal compilatore su #riga, flowId ed etichetta dell'MD.",
+  "templates": {
+    "ILIAD": { "label": "ILIAD", "file": "ASSOCIAZIONI_CAMPI_ILIAD.md" },
+    "TOWERNET": { "label": "TOWERNET", "file": "ASSOCIAZIONI_CAMPI_TOWERNET.md" },
+    "TIM_FIBERCOP": { "label": "TIM / FIBERCOP", "file": "ASSOCIAZIONI_CAMPI_TIM-FIBERCOP.md" },
+    "INWIT": { "label": "INWIT", "file": "ASSOCIAZIONI_CAMPI_INWIT.md" },
+    "FASTWEB_VODAFONE": { "label": "FASTWEB / VODAFONE", "file": "ASSOCIAZIONI_CAMPI_FASTWEB-VODAFONE.md" },
+    "LEONARDO": { "label": "LEONARDO", "file": "ASSOCIAZIONI_CAMPI_LEONARDO.md" }
+  },
+  "teams": { "PM/Permessi": "PM_PERMESSI", "UT+PE": "UT_PE", "AIE": "AIE", "DL": "DL" },
+  "sections": {
+    "PM_PERMESSI|Core Anagrafica Sito": "PM_PERMESSI.CORE",
+    "PM_PERMESSI|Dati Anagrafici Secondari": "PM_PERMESSI.DATI_SECONDARI",
+    "PM_PERMESSI|Fase Preliminare": "PM_PERMESSI.FASE_PRELIMINARE",
+    "PM_PERMESSI|Pacchetto Permessi": "PM_PERMESSI.PACCHETTO_PERMESSI",
+    "PM_PERMESSI|Iter Autorizzativo": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+    "PM_PERMESSI|Ufficio Tecnico / Progettazione Esecutiva": "PM_PERMESSI.UT_PE",
+    "PM_PERMESSI|Fatturazione": "PM_PERMESSI.FATTURAZIONE",
+    "AIE|Fase AIE": "AIE.FASE_AIE",
+    "UT_PE|UT": "UT_PE.UT",
+    "UT_PE|PE": "UT_PE.PE",
+    "DL|Direzione Lavori": "DL.DIREZIONE_LAVORI"
+  },
+  "required": {
+    "rule": "D-38: obbligatori alla creazione (sul master)",
+    "flowIds": { "F001": "Codice G7", "F002": "Codice Sito", "F003": "Nome Sito", "F004": "Committente", "F005": "Cliente Finale" }
+  },
+  "parents": {
+    "Tipologia sito": { "ILIAD": "#10/F010", "TOWERNET": "#10/F010", "TIM_FIBERCOP": "#10/F010", "INWIT": "#10/F010", "FASTWEB_VODAFONE": "#10/F010", "LEONARDO": "#10/F010" },
+    "Gestore Tenant": { "ILIAD": "#20/F020", "TOWERNET": "#15/F015", "TIM_FIBERCOP": "#21/F021", "INWIT": "#18/F018", "FASTWEB_VODAFONE": "#20/F020", "LEONARDO": "#16/F016" },
+    "AIE": { "ILIAD": "#55/F052", "TIM_FIBERCOP": "#43/F042", "FASTWEB_VODAFONE": "#38/F037", "LEONARDO": "#32/F032" },
+    "Parere Arpa": { "ILIAD": "#85/F077", "TOWERNET": "#52/F052", "TIM_FIBERCOP": "#60/F059", "INWIT": "#62/F059", "FASTWEB_VODAFONE": "#52/F051", "LEONARDO": "#50/F052" },
+    "Esito parere Arpa": { "ILIAD": "#86/F078", "TOWERNET": "#53/F053", "TIM_FIBERCOP": "#61/F060", "INWIT": "#63/F060", "FASTWEB_VODAFONE": "#53/F052", "LEONARDO": "#51/F053" },
+    "Nome Ente": { "ILIAD": "#88/F080", "TOWERNET": "#56/F056", "TIM_FIBERCOP": "#64/F063", "INWIT": "#66/F063", "FASTWEB_VODAFONE": "#55/F054", "LEONARDO": "#54/F056" },
+    "PE": { "ILIAD": "#100/F092", "TOWERNET": "#72/F072", "TIM_FIBERCOP": "#76/F086", "INWIT": "#81/F078", "FASTWEB_VODAFONE": "#61/F060", "LEONARDO": "#68/F063" },
+    "Regione": { "ILIAD": "#6/F006", "TOWERNET": "#6/F006", "TIM_FIBERCOP": "#6/F006", "INWIT": "#6/F006", "FASTWEB_VODAFONE": "#6/F006", "LEONARDO": "#6/F006" },
+    "PSC": { "FASTWEB_VODAFONE": "#97/F074", "LEONARDO": "#115/F093" },
+    "Deposito sismico": { "ILIAD": "#179/F150", "TOWERNET": "#122/F106", "TIM_FIBERCOP": "#131/F107", "INWIT": "#134/F116", "FASTWEB_VODAFONE": "#111/F097", "LEONARDO": "#129/F107" },
+    "Revit": { "ILIAD": "#32/F032", "TIM_FIBERCOP": "#31/F031", "INWIT": "#32/F031" },
+    "CARATTERIZZAZIONE": { "ILIAD": "#43/F043" },
+    "MW": { "ILIAD": "#56/F053" },
+    "Richiesta integrazione": { "ILIAD": "#81/F073", "TOWERNET": "#48/F048", "TIM_FIBERCOP": "#56/F055", "INWIT": "#58/F055", "LEONARDO": "#46/F048" },
+    "Vincoli": { "ILIAD": "#31/F031", "TOWERNET": "#23/F023", "TIM_FIBERCOP": "#30/F030", "INWIT": "#28/F027", "FASTWEB_VODAFONE": "#32/F032", "LEONARDO": "#24/F024" },
+    "Committente": { "ILIAD": "#4/F004", "TIM_FIBERCOP": "#4/F004", "FASTWEB_VODAFONE": "#4/F004", "LEONARDO": "#4/F004" },
+    "ODA": { "ILIAD": "#119/F102", "TOWERNET": "#13/F013", "TIM_FIBERCOP": "#16/F016", "INWIT": "#14/F014", "FASTWEB_VODAFONE": "#15/F015", "LEONARDO": "#14/F014" },
+    "All. 18": { "LEONARDO": "#38/F040" },
+    "Proprietà / Host": { "TIM_FIBERCOP": "#17/F017", "FASTWEB_VODAFONE": "#16/F016" }
+  },
+  "repeatGroups": {
+    "TENANT": { "label": "Tenant", "members": {
+      "ILIAD": ["#20/F020", "#21/F021", "#22/F022"], "TOWERNET": ["#15/F015", "#16/F016", "#17/F017"],
+      "TIM_FIBERCOP": ["#21/F021", "#22/F022", "#23/F023"], "INWIT": ["#18/F018", "#19/F019", "#20/F020"],
+      "FASTWEB_VODAFONE": ["#20/F020", "#21/F021", "#22/F022"], "LEONARDO": ["#16/F016", "#17/F017", "#18/F018"] } },
+    "INTEGRAZIONE": { "label": "Integrazioni", "members": {
+      "ILIAD": ["#81/F073", "#82/F074", "#83/F075"], "TOWERNET": ["#48/F048", "#49/F049", "#50/F050"],
+      "TIM_FIBERCOP": ["#56/F055", "#57/F056", "#58/F057"], "INWIT": ["#58/F055", "#59/F056", "#60/F057"],
+      "LEONARDO": ["#46/F048", "#47/F049", "#48/F050"] } },
+    "ARPA": { "label": "Cicli ARPA", "members": {
+      "ILIAD": ["#84/F076", "#85/F077", "#86/F078", "#87/F079"], "TOWERNET": ["#51/F051", "#52/F052", "#53/F053", "#54/F054", "#55/F055"],
+      "TIM_FIBERCOP": ["#59/F058", "#60/F059", "#61/F060", "#62/F061", "#63/F062"], "INWIT": ["#61/F058", "#62/F059", "#63/F060", "#64/F061", "#65/F062"],
+      "FASTWEB_VODAFONE": ["#51/F050", "#52/F051", "#53/F052", "#54/F053"], "LEONARDO": ["#49/F051", "#50/F052", "#51/F053", "#52/F054", "#53/F055"] } },
+    "ENTE": { "label": "Enti", "members": {
+      "ILIAD": ["#88/F080", "#89/F081", "#90/F082", "#91/F083"], "TOWERNET": ["#56/F056", "#57/F057", "#58/F058", "#59/F059", "#60/F060"],
+      "TIM_FIBERCOP": ["#64/F063", "#65/F064", "#66/F065", "#67/F066", "#68/F067"], "INWIT": ["#66/F063", "#67/F064", "#68/F065", "#69/F066", "#70/F067"],
+      "FASTWEB_VODAFONE": ["#55/F054", "#56/F055", "#57/F056", "#58/F057", "#59/F058"], "LEONARDO": ["#54/F056", "#55/F057", "#56/F058", "#57/F059", "#58/F060"] } },
+    "ODA": { "label": "ODA", "members": {
+      "ILIAD": ["#119/F102", "#120/F103"], "TOWERNET": ["#13/F013", "#14/F014"], "TIM_FIBERCOP": ["#16/F016"],
+      "INWIT": ["#14/F014", "#15/F015"], "FASTWEB_VODAFONE": ["#15/F015"], "LEONARDO": ["#14/F014"] } },
+    "VINCOLI": { "label": "Vincoli", "fixed": true, "members": {
+      "ILIAD": ["#31/F031"], "TOWERNET": ["#23/F023"], "TIM_FIBERCOP": ["#30/F030"], "INWIT": ["#28/F027"],
+      "FASTWEB_VODAFONE": ["#32/F032"], "LEONARDO": ["#24/F024"] } }
+  },
+  "computed": {
+    "TIPOLOGIA_ATTIVITA_PE": {
+      "description": "Automatica: = Progetto se presente e valorizzato, altrimenti = Incarico / Lavorazione (D-32).",
+      "manualOverride": false,
+      "bindings": {
+        "ILIAD": { "output": "#168/F142", "inputs": { "incarico": "#15/F015", "progetto": "#16/F016" } },
+        "TOWERNET": { "output": "#113/F098", "inputs": { "incarico": "#12/F012" } },
+        "TIM_FIBERCOP": { "output": "#122/F099", "inputs": { "incarico": "#14/F014", "progetto": "#15/F015" } },
+        "INWIT": { "output": "#125/F108", "inputs": { "incarico": "#12/F012", "progetto": "#13/F013" } },
+        "FASTWEB_VODAFONE": { "output": "#103/F080", "inputs": { "incarico": "#13/F013" } },
+        "LEONARDO": { "output": "#121/F099", "inputs": { "incarico": "#13/F013" } }
+      }
+    },
+    "FORECAST_GEOLOGICA": {
+      "description": "Assegnazione Geologica + 15 giorni di calendario (D-34).",
+      "manualOverride": false,
+      "bindings": {
+        "ILIAD": { "output": "#96/F088", "inputs": { "assegnazione": "#95/F087" } },
+        "TOWERNET": { "output": "#68/F068", "inputs": { "assegnazione": "#67/F067" } },
+        "TIM_FIBERCOP": { "output": "#73/F083", "inputs": { "assegnazione": "#72/F082" } },
+        "INWIT": { "output": "#77/F074", "inputs": { "assegnazione": "#76/F073" } },
+        "LEONARDO": { "output": "#63/F070", "inputs": { "assegnazione": "#62/F069" } }
+      }
+    },
+    "FORECAST_OTTENIMENTO_PERMESSI": {
+      "description": "Protocollo + 67 giorni di calendario, spostato dall'ultima integrazione se mancano al massimo 15 giorni (D-42, D-84, D-85). Modificabile a mano: da quel momento il calcolo si ferma.",
+      "manualOverride": true,
+      "bindings": {
+        "TOWERNET": { "output": "#45/F045", "inputs": { "protocollo": "#44/F044", "richiestaIntegrazione": "#48/F048", "invioIntegrazione": "#50/F050" } },
+        "INWIT": { "output": "#55/F052", "inputs": { "protocollo": "#54/F051", "richiestaIntegrazione": "#58/F055", "invioIntegrazione": "#60/F057" } },
+        "LEONARDO": { "output": "#44/F046", "inputs": { "protocollo": "#43/F045", "richiestaIntegrazione": "#46/F048", "invioIntegrazione": "#48/F050" } }
+      }
+    },
+    "FORECAST_PROTOCOLLO_ILIAD": {
+      "description": "Data assegnazione + 30 giorni di calendario (D-42).",
+      "manualOverride": false,
+      "bindings": {
+        "ILIAD": { "output": "#28/F028", "inputs": { "dataAssegnazione": "#27/F027" } }
+      }
+    }
+  },
+  "userFields": {
+    "rule": "D-39 e D-93(4): USER, USERS solo con 'possibilità di inserire più tecnici'; NESSUNO dove l'MD lo prevede",
+    "labels": {
+      "Tecnico PP": "PERMESSI",
+      "Tecnico AIE": "AIE",
+      "Responsabile interno AIE": "AIE",
+      "Tecnico UT": "UT",
+      "VS/AS incaricata da": "UT",
+      "Tecnico Caratterizzazione": "UT",
+      "Tecnico PE": "PE",
+      "PE incaricato da": "PE",
+      "Tecnico PSC": "PE",
+      "Tecnico deposito sismico": "DL"
+    }
+  },
+  "constraints": [
+    { "code": "MONUMENTALE", "label": "Monumentale", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "SOPRINTENDENZA", "defaultEnteLabel": "Soprintendenza" },
+    { "code": "ARCHEOLOGICO", "label": "Archeologico", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "SOPRINTENDENZA", "defaultEnteLabel": "Soprintendenza" },
+    { "code": "PAESAGGISTICO", "label": "Paesaggistico", "stateList": "STATO_VINCOLO_PAA", "enteList": { "listId": "ENTE_VINCOLO_PAESAGGISTICO", "kind": "CONTROLLED" }, "defaultEnte": null, "defaultEnteLabel": null },
+    { "code": "PARCO", "label": "Parco", "stateList": "STATO_VINCOLO_PAA", "enteList": { "listId": "ENTE_VINCOLO_PARCO", "kind": "CONFIGURABLE" }, "defaultEnte": null, "defaultEnteLabel": null },
+    { "code": "AEROPORTUALE", "label": "Aeroportuale", "stateList": "STATO_VINCOLO_PAN", "enteList": { "listId": "ENTE_VINCOLO_AEROPORTUALE", "kind": "CONTROLLED" }, "defaultEnte": null, "defaultEnteLabel": null },
+    { "code": "IDROGEOLOGICO", "label": "Idrogeologico", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "COMUNE", "defaultEnteLabel": "Comune" },
+    { "code": "FASCIA_CIMITERIALE", "label": "Fascia di rispetto — Cimiteriale", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "COMUNE", "defaultEnteLabel": "Comune" },
+    { "code": "FASCIA_POZZI", "label": "Fascia di rispetto — Pozzi", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "COMUNE", "defaultEnteLabel": "Comune" },
+    { "code": "FASCIA_CORSI_ACQUA", "label": "Fascia di rispetto — Corsi d’acqua", "stateList": "STATO_VINCOLO_PAN", "enteList": null, "defaultEnte": "COMUNE", "defaultEnteLabel": "Comune" },
+    { "code": "ALTRO", "label": "Altro", "stateList": "STATO_VINCOLO_ALTRO", "enteList": { "listId": "ENTE_VINCOLO_ALTRO", "kind": "CONFIGURABLE" }, "defaultEnte": null, "defaultEnteLabel": null },
+    { "code": "AMBIENTALI_NATURALISTICI", "label": "Vincoli Ambientali Naturalistici", "stateList": "STATO_VINCOLO_NATURALISTICI", "enteList": { "listId": "ENTE_VINCOLO_NATURALISTICI", "kind": "CONTROLLED" }, "defaultEnte": null, "defaultEnteLabel": null }
+  ],
+  "constraintStateLists": {
+    "STATO_VINCOLO_PAN": { "kind": "CONTROLLED", "values": ["PRESENTE", "ASSENTE", "NON_PERTINENTE"] },
+    "STATO_VINCOLO_PAA": { "kind": "CONTROLLED", "values": ["PRESENTE", "ASSENTE", "ASSOLTO"] },
+    "STATO_VINCOLO_ALTRO": { "kind": "CONTROLLED", "values": ["PRESENTE", "ASSENTE", "ASSOLTO", "NON_PERTINENTE"] },
+    "STATO_VINCOLO_NATURALISTICI": { "kind": "CONFIGURABLE", "values": ["PRESENTE", "ASSENTE", "ASSOLTO", "NON_PERTINENTE"], "provisional": "D-99, conferma a C (R-16)" }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "version": "1",
+  "source": "Guida §17.10, architettura §6.1–§6.2 (D-97), D-43: soglie in giorni lavorativi; 'una settimana' = 7 giorni di calendario. Solo le soglie sono configurabili dall'ADMIN (D-46): destinatari e chiusure no. Esclusa FATTURABILE_KO (nessuna soglia). Le due regole ODA FASTWEB-VODAFONE seguono D-116 (Guida §17.10 corretta): destinatari PM + leader PM/Permessi; spec descrive campi, codici e chiusura per il motore degli alert (B7).",
+  "rules": [
+    { "ruleId": "SOPRALLUOGO", "label": "Data sopralluogo: giorni dopo la Data assegnazione", "days": 7, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "VERBALE", "label": "Invio verbale di sopralluogo: giorni dopo la Data sopralluogo", "days": 3, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "FORECAST_UT", "label": "Forecast UT: giorni prima, se Invio AS/VS è vuoto", "days": 2, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "FORECAST_PE", "label": "Forecast PE: giorni prima, se Invio PE è vuoto", "days": 4, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "FORECAST_AIE", "label": "Forecast AIE: giorni prima, se Approvazione AIE è vuota", "days": 2, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "PERMESSI", "label": "Forecast Ottenimento Permessi: giorni dopo, se Ottenimento Permessi è vuoto", "days": 3, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "PARERE_ARPA", "label": "Forecast Parere Arpa: giorni dopo, se Parere Arpa è vuoto", "days": 3, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] },
+    { "ruleId": "CDMS_EM", "label": "Invio CDMS (Cellnex): giorni dopo, se EM (data) è vuota; promemoria settimanale", "days": 7, "unit": "CALENDAR_DAYS", "templates": ["ILIAD"] },
+    { "ruleId": "OFFERTA_ODA", "label": "Invio Offerta: giorni dopo, fino alla chiusura manuale; promemoria settimanale", "days": 7, "unit": "CALENDAR_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT"] },
+    { "ruleId": "ODA_FV_ASSEGNAZIONE", "label": "Stato ODA da richiedere: giorni dopo la Data assegnazione", "days": 1, "unit": "WORKING_DAYS", "templates": ["FASTWEB_VODAFONE"], "spec": { "from": "F025", "subject": "F014", "openWhen": ["DA_RICHIEDERE"], "closeWhenNot": ["DA_RICHIEDERE"], "recipients": "PM + leader PM_PERMESSI", "source": "D-116" } },
+    { "ruleId": "ODA_FV_PACCHETTO", "label": "ODA non presenti: giorni dopo l'Invio Pacchetto Permessi", "days": 1, "unit": "WORKING_DAYS", "templates": ["FASTWEB_VODAFONE"], "spec": { "from": "F046", "subject": "F014", "openWhen": ["DA_RICHIEDERE", "RICHIESTI"], "closeWhen": ["PRESENTI"], "recipients": "PM + leader PM_PERMESSI", "source": "D-116" } },
+    { "ruleId": "FINE_LAVORI_DL", "label": "Fine lavori: giorni dopo il Forecast CIL, se Data FL è vuota", "days": 20, "unit": "WORKING_DAYS", "templates": ["ILIAD", "TOWERNET", "TIM_FIBERCOP", "INWIT", "FASTWEB_VODAFONE", "LEONARDO"] }
+  ]
+}

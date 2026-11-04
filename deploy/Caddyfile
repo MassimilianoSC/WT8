@@ -1,0 +1,40 @@
+# PracticeHub — proxy HTTPS dedicato (K3, D-153, D-154). Indipendente dal proxy dell'intranet (porte 80/443).
+# Il certificato è un file fornito da M (mkcert, deploy/README.md): niente certificati automatici né richieste in rete.
+{
+	admin off
+	auto_https off
+	# Certificato autofirmato: nessun server OCSP da interrogare.
+	ocsp_stapling off
+}
+
+:8443 {
+	tls /certs/practicehub.crt /certs/practicehub.key {
+		protocols tls1.2 tls1.3
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	# L'import accetta file fino a 5 MB (B9): margine per l'invio multipart.
+	request_body {
+		max_size 8MB
+	}
+
+	# Assistente AI (contratto §13.2): risposta in NDJSON che deve arrivare riga per riga. Niente compressione e nessun
+	# buffer (flush_interval -1) su questa rotta; il limite di 16 KiB del corpo lo applica l'app.
+	handle /api/assistant/messages {
+		reverse_proxy app:3000 {
+			flush_interval -1
+		}
+	}
+
+	handle {
+		encode zstd gzip
+		reverse_proxy app:3000
+	}
+}

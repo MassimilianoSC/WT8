@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PracticeHub — Domande aperte v8</title>
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f4f4f4; --fg:#0a0a0a; --fg2:#555; --line:#0a0a0a; --line2:#d6d6d6;
+  --accent:#002EA6; --red:#E60000; --amber:#C98A00; --gray:#777; --green:#00A35C;
+  --sel:#e8edfb; --card:#ffffff; --mark:#fff3b0;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --bg2:#181818; --fg:#f2f2f2; --fg2:#a8a8a8; --line:#f2f2f2; --line2:#333;
+    --accent:#6f8dff; --red:#ff4d4d; --amber:#f0b429; --gray:#999; --green:#2ecc8a;
+    --sel:#1b2340; --card:#121212; --mark:#5a4b00;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --bg2:#181818; --fg:#f2f2f2; --fg2:#a8a8a8; --line:#f2f2f2; --line2:#333;
+  --accent:#6f8dff; --red:#ff4d4d; --amber:#f0b429; --gray:#999; --green:#2ecc8a;
+  --sel:#1b2340; --card:#121212; --mark:#5a4b00;
+}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans)}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:var(--bg);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+button:hover{background:var(--fg);color:var(--bg)}
+button.primary{background:var(--fg);color:var(--bg)}
+button.primary:hover{background:var(--accent);border-color:var(--accent)}
+input[type=text],input[type=search],select,textarea{background:var(--bg);border:1px solid var(--line2);padding:6px 8px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+textarea{min-height:56px;resize:vertical}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:13.5px}
+th,td{border:1px solid var(--line2);padding:5px 7px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:600}
+code{font-family:var(--mono);font-size:.88em;background:var(--bg2);padding:0 3px}
+
+/* layout */
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.topin{display:flex;gap:16px;align-items:center;padding:10px 20px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:18px}
+.brand small{display:block;font-weight:400;font-size:12px;color:var(--fg2);letter-spacing:0}
+.prog{flex:1;min-width:180px}
+.bar{height:8px;border:1px solid var(--line);position:relative;background:var(--bg2)}
+.bar>i{position:absolute;left:0;top:0;bottom:0;background:var(--fg);transition:width .3s}
+.prog .lbl{font-size:12px;color:var(--fg2);margin-top:3px;font-family:var(--mono)}
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.wrap{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 60px)}
+aside{border-right:1px solid var(--line);padding:16px;position:sticky;top:61px;height:calc(100vh - 61px);overflow:auto;background:var(--bg)}
+main{padding:24px clamp(16px,3vw,40px) 80px;max-width:1080px}
+aside h4{margin:18px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg2)}
+aside h4:first-child{margin-top:0}
+.nav a{display:flex;justify-content:space-between;gap:8px;padding:4px 6px;text-decoration:none;color:var(--fg);border-left:3px solid transparent;font-size:13.5px}
+.nav a:hover{background:var(--bg2)}
+.nav a.done{color:var(--fg2)}
+.nav a .c{font-family:var(--mono);font-size:12px;color:var(--fg2)}
+.nav a.part{font-weight:700;margin-top:6px}
+.filters label{display:flex;gap:6px;align-items:center;font-size:13.5px;cursor:pointer;padding:2px 0}
+.filters select,.filters input[type=search]{margin-top:4px}
+.menu-toggle{display:none}
+
+/* intro */
+.intro{border:1px solid var(--line);padding:20px;margin-bottom:28px}
+.intro h1{margin:0 0 4px;font-size:28px;letter-spacing:-.02em;line-height:1.15}
+.intro .sub{color:var(--fg2);margin-bottom:14px}
+.intro .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}
+.intro .grid>div{border:1px solid var(--line2);padding:12px}
+.intro .grid b{display:block;font-size:13px;margin-bottom:4px}
+.intro .grid p{margin:0;font-size:13.5px;color:var(--fg2)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.meta label{font-size:12px;color:var(--fg2);display:block}
+.stats{display:flex;gap:0;margin-top:14px;border:1px solid var(--line)}
+.stats>div{flex:1;padding:10px 12px;border-right:1px solid var(--line)}
+.stats>div:last-child{border-right:0}
+.stats b{font-size:22px;display:block;font-family:var(--mono)}
+.stats span{font-size:12px;color:var(--fg2)}
+
+/* sections */
+.part-h{margin:40px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--fg2);border-top:2px solid var(--line);padding-top:10px}
+.sec-h{margin:22px 0 10px;font-size:20px;letter-spacing:-.01em}
+.q{border:1px solid var(--line);margin:0 0 16px;background:var(--card);scroll-margin-top:80px}
+.q.complete{border-color:var(--line2)}
+.q.complete .qh{background:var(--bg2)}
+.qh{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--line2);cursor:pointer;user-select:none}
+.qid{font-family:var(--mono);font-weight:700;font-size:13px;min-width:44px;padding-top:2px}
+.qt{flex:1;font-weight:600}
+.badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.b{font-size:11px;font-weight:600;padding:1px 6px;border:1px solid var(--line2);font-family:var(--mono);letter-spacing:.02em;white-space:nowrap}
+.g-B{background:var(--red);color:#fff;border-color:var(--red)}
+.g-C{background:var(--amber);color:#000;border-color:var(--amber)}
+.g-M{background:transparent;color:var(--gray);border-color:var(--gray)}
+.state{font-family:var(--mono);font-size:12px;color:var(--fg2);white-space:nowrap;padding-top:2px}
+.state.ok{color:var(--green);font-weight:700}
+.chev{transition:transform .2s;padding-top:2px}
+.q.closed .chev{transform:rotate(-90deg)}
+.q.closed .qb{display:none}
+.qb{padding:14px}
+.ctx{font-size:14px;color:var(--fg);border-left:3px solid var(--line2);padding:2px 0 2px 12px;margin-bottom:14px}
+.ctx p{margin:0 0 8px}
+.ctx ul{margin:4px 0 8px;padding-left:20px}
+.item{margin:0 0 14px;padding-bottom:12px;border-bottom:1px dashed var(--line2)}
+.item:last-of-type{border-bottom:0}
+.iq{font-weight:600;font-size:14px;margin-bottom:6px;display:flex;gap:8px}
+.iq .n{font-family:var(--mono);color:var(--fg2);font-weight:400}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opts.row{flex-direction:row;flex-wrap:wrap}
+.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line2);padding:6px 10px;cursor:pointer;font-size:14px}
+.opt:hover{border-color:var(--line)}
+.opt input{margin-top:3px;accent-color:var(--accent)}
+.opt.on{border-color:var(--accent);background:var(--sel)}
+.opt .k{font-family:var(--mono);font-weight:700;min-width:18px}
+.other{margin-top:6px}
+.grid-in td,.grid-in th{font-size:13px}
+.grid-in select{padding:3px 4px;min-width:64px}
+.note{margin-top:10px}
+.note label{font-size:12px;color:var(--fg2)}
+.hl{background:var(--mark)}
+.empty{border:1px dashed var(--line2);padding:30px;text-align:center;color:var(--fg2)}
+footer.end{margin-top:40px;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--fg2)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+
+main{min-width:0;overflow-wrap:anywhere}
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .ctx table,.grid-in{display:block;overflow-x:auto;max-width:100%}
+  .actions button{padding:6px 9px;font-size:13px}
+  .brand{font-size:16px}
+  aside{position:fixed;left:0;top:0;height:100vh;width:86%;max-width:320px;z-index:40;transform:translateX(-100%);transition:transform .25s;border-right:1px solid var(--line)}
+  aside.open{transform:none}
+  .menu-toggle{display:inline-block}
+  .meta{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap}
+  .stats>div{min-width:50%;border-bottom:1px solid var(--line)}
+  .topin{padding:10px 16px}
+  main{padding:16px 16px 80px}
+}
+@media print{
+  header.top,aside,.actions,.filters,.no-print{display:none!important}
+  .wrap{display:block}
+  .q{break-inside:avoid;page-break-inside:avoid}
+  .q.closed .qb{display:block}
+  body{font-size:11.5px}
+  .opt{padding:2px 6px}
+  .opt:not(.on){display:none}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <button class="menu-toggle" id="menuBtn" aria-label="Apri indice">☰</button>
+    <div class="brand">PracticeHub · Domande aperte<small>Documentazione v8 — revisione 03/10/2026</small></div>
+    <div class="prog"><div class="bar"><i id="barFill" style="width:0"></i></div><div class="lbl" id="progLbl">0 / 0</div></div>
+    <div class="actions">
+      <button id="expMd" class="primary" title="Scarica le risposte in Markdown">Esporta risposte</button>
+      <button id="expJson" title="Scarica un file JSON reimportabile">JSON</button>
+      <button id="impJson" title="Ricarica un file JSON di risposte">Importa</button>
+      <button id="printBtn" title="Stampa o salva in PDF">Stampa</button>
+      <button id="themeBtn" title="Tema chiaro/scuro">◐</button>
+      <input type="file" id="fileIn" accept=".json,application/json" hidden>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside id="side">
+    <h4>Filtri</h4>
+    <div class="filters">
+      <input type="search" id="fSearch" placeholder="Cerca (es. Invio AS/VS)">
+      <label style="margin-top:8px"><input type="checkbox" class="fG" value="B" checked> <span class="b g-B">BLOCCANTE</span></label>
+      <label><input type="checkbox" class="fG" value="C" checked> <span class="b g-C">DA CHIARIRE</span></label>
+      <label><input type="checkbox" class="fG" value="M" checked> <span class="b g-M">MINORE</span></label>
+      <select id="fClient">
+        <option value="">Tutti i gestori</option>
+        <option>ILIAD</option><option>TOWERNET</option><option value="TIM">TIM / FIBERCOP</option>
+        <option>INWIT</option><option value="FV">FASTWEB / VODAFONE</option><option>LEONARDO</option>
+      </select>
+      <label style="margin-top:6px"><input type="checkbox" id="fOpen"> Solo da completare</label>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button id="expandAll" style="flex:1;font-size:12px">Apri tutte</button>
+        <button id="collapseAll" style="flex:1;font-size:12px">Chiudi tutte</button>
+      </div>
+    </div>
+    <h4>Indice</h4>
+    <nav class="nav" id="nav"></nav>
+    <h4>Dati</h4>
+    <button id="resetBtn" style="width:100%;font-size:12px">Azzera tutte le risposte</button>
+  </aside>
+
+  <main>
+    <section class="intro">
+      <h1>Domande aperte sulla documentazione v8</h1>
+      <div class="sub">Per l'autore della Guida v8 e dei file <code>ASSOCIAZIONI_CAMPI_&lt;CLIENTE&gt;.md</code>. Lo sviluppo non può partire finché le domande <span class="b g-B">BLOCCANTE</span> non hanno risposta.</div>
+      <p style="margin:0 0 6px">Abbiamo confrontato ogni file MD con il suo documento sorgente <em>Organizzazione Campi</em>, poi con Guida, Matrice, Note Implementazione e Check. Sono emersi tre tipi di problemi:</p>
+      <div class="grid">
+        <div><b>1 · Informazioni perse nell'MD</b><p>I valori dei menu, le regole di sezione per lavorazione, le formule, i campi ripetibili e quelli obbligatori stanno nei sorgenti ma non negli MD.</p></div>
+        <div><b>2 · Regole aggiunte dall'MD</b><p>Condizioni, valori e note copiate da altri gestori che il sorgente non contiene (Guida §3.1, §20.4).</p></div>
+        <div><b>3 · Contraddizioni</b><p>Condizioni opposte, formule che rimandano a se stesse, campi citati ma inesistenti, alert che non si possono chiudere.</p></div>
+      </div>
+      <p style="margin:0;font-size:14px"><b>Come rispondere:</b> clicca l'opzione scelta. Se nessuna va bene, usa <em>Altro</em> e scrivi la tua risposta. Puoi aggiungere una nota a ogni domanda. Le risposte <b>restano salvate in questo browser</b>, quindi puoi chiudere la pagina e riprendere dopo. Alla fine premi <b>Esporta risposte</b> e invia il file scaricato.<br>
+      Riferimenti: <em>Cliente, riga MD <code>#n</code> / <code>id_flusso</code>, riga del sorgente</em>.</p>
+      <div class="meta">
+        <div><label for="mName">Compilato da</label><input type="text" id="mName" placeholder="Nome e cognome"></div>
+        <div><label for="mDate">Data</label><input type="text" id="mDate" placeholder="gg/mm/aaaa"></div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+    <div id="list"></div>
+    <div id="emptyMsg" class="empty" hidden>Nessuna domanda corrisponde ai filtri.</div>
+    <footer class="end">Documenti analizzati: Guida v8, Matrice terminologica (1), 6 file ASSOCIAZIONI_CAMPI, 6 documenti Organizzazione Campi, Note Implementazione, Check PraticeHub. Le domande BLOCCANTE delle sezioni <b>A1, A2, A3 e A6</b> sono quelle che fermano l'inizio dello sviluppo.</footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   DATI — ogni domanda: id, part, sec, g (B/C/M), cl (clienti), t (titolo),
+   ctx (HTML di contesto), it (sotto-domande).
+   tipi sotto-domanda: ch (scelta singola, opts), yn (sì/no), tx (testo),
+   gr (griglia: rows, cols, vals)
+   ================================================================ */
+const ALL=['ILIAD','TOWERNET','TIM','INWIT','FV','LEONARDO'];
+const CL_LABEL={ILIAD:'ILIAD',TOWERNET:'TOWERNET',TIM:'TIM/FIBERCOP',INWIT:'INWIT',FV:'FASTWEB/VODAFONE',LEONARDO:'LEONARDO'};
+const PARTS={A:'Parte A — Decisioni trasversali (una risposta vale per tutti i gestori)',B:'Parte B — Domande specifiche per gestore',C:'Parte C — Correzioni minori'};
+const SECS={
+ A1:'A1 · Struttura e modello dati',A2:'A2 · Condizioni di visibilità',A3:'A3 · Master/mirror e ownership',
+ A4:'A4 · Regole importate da altri gestori',A5:'A5 · Formule e campi calcolati',A6:'A6 · Stato attività, completamento, Fatturabile',
+ A7:'A7 · Alert e notifiche',A8:'A8 · Permessi, passaggi tra team, perimetro',
+ B1:'B1 · ILIAD',B2:'B2 · TOWERNET',B3:'B3 · TIM / FIBERCOP',B4:'B4 · INWIT',B5:'B5 · FASTWEB / VODAFONE',B6:'B6 · LEONARDO',
+ C1:'C · Correzioni minori'
+};
+const YN=['Sì','No'];
+
+const Q=[
+/* ---------------- A1 ---------------- */
+{id:'A1.1',part:'A',sec:'A1',g:'B',cl:ALL,t:'Chiave univoca dei campi: etichette duplicate',
+ctx:`<p>L'app ricava l'identificativo tecnico di un campo dalla sua etichetta. Dove due campi diversi hanno la stessa etichetta, i valori si sovrascrivono a vicenda.</p>
+<table><tr><th>Etichette in conflitto</th><th>Dove</th></tr>
+<tr><td><code>Deposito sismico</code> (menu SI/NO) / <code>Deposito Sismico</code> (data)</td><td>tutti e 6</td></tr>
+<tr><td><code>Esito parere Arpa</code> ×2, <code>Forecast Parere Arpa</code> ×2, <code>N° protocollo Arpa</code> ×2 (ripresentazione)</td><td>ILIAD, TOWERNET, TIM, INWIT, FASTWEB-VODAFONE</td></tr>
+<tr><td><code>EM</code> (menu F111) / <code>EM</code> (data F109)</td><td>ILIAD</td></tr>
+<tr><td><code>Invio offerta</code> (menu F043) / <code>Invio Offerta</code> (data F099) / <code>Offerta Inviata</code> (F098)</td><td>ILIAD</td></tr></table>
+<p>Il Campo Universale non può fare da chiave, perché è condiviso da molti campi diversi ("Stato Attività", "Protocollo", "ASSEGNAZIONE PE"). Nemmeno l'<code>id_flusso</code> basta, perché cambia da cliente a cliente (Forecast CIL è F107 in LEONARDO, con codici diversi altrove).</p>`,
+it:[{q:'Accetti le rinomine "Data deposito sismico" (come nella Guida §2), "EM data" / "EM %" e le etichette "… (ripresentazione)" per il secondo ciclo ARPA?',type:'yn'},
+{q:'Per alert e KPI serve una chiave comune a tutti i clienti. Quale adottiamo?',type:'ch',opts:['id_flusso per cliente + chiave canonica comune tratta dal "Nome dashboard consigliato" della Matrice','Etichetta della Matrice resa univoca, senza id_flusso'],other:true}]},
+
+{id:'A1.2',part:'A',sec:'A1',g:'B',cl:ALL,t:'Gruppi di campi ripetibili',
+ctx:`<p>I sorgenti dicono "possibilità di inserire più…", ma gli MD trattano questi campi come valori singoli e non dicono quali campi si ripetono insieme.</p>
+<table><tr><th>Gruppo</th><th>Campi che si ripetono insieme</th><th>Clienti</th></tr>
+<tr><td>Tenant</td><td>Gestore Tenant, Codice sito Tenant, Nome sito Tenant</td><td>tutti</td></tr>
+<tr><td>Integrazione</td><td>Richiesta integrazione, Note integrazione, Invio integrazione</td><td>tutti tranne FASTWEB-VODAFONE (non ha il campo)</td></tr>
+<tr><td>Ente</td><td>Nome Ente, Forecast Ottenimento "Nome ente", Ottenimento "Nome ente", Esito parere "nome ente", N° protocollo / Scadenza</td><td>tutti</td></tr>
+<tr><td>ODA</td><td>ODA, Note ODA</td><td>tutti</td></tr>
+<tr><td>Ciclo ARPA</td><td>vedi A1.3</td><td>5 clienti</td></tr>
+<tr><td>Vincoli</td><td>vedi A1.4</td><td>tutti</td></tr></table>`,
+it:[{q:'Confermi questi gruppi? Ogni gruppo si ripete per intero a ogni occorrenza.',type:'ch',opts:['Sì, così come sono','Sì, con correzioni (scrivi nella nota)','No'],other:false},
+{q:'In LEONARDO, TIM e FASTWEB-VODAFONE "Forecast Ottenimento \'Nome ente\'" non ha la condizione "compare solo se compilato Nome Ente", che invece hanno gli altri campi del gruppo. Fa parte del gruppo e compare solo con Nome Ente?',type:'yn'},
+{q:'Ci sono gruppi con un numero massimo di ripetizioni?',type:'ch',opts:['No, sono tutti illimitati','Sì (indica quali e quante)'],other:true}]},
+
+{id:'A1.3',part:'A',sec:'A1',g:'B',cl:['ILIAD','TOWERNET','TIM','INWIT','FV'],t:'Ripresentazione della pratica ARPA',
+ctx:`<p>I sorgenti hanno un secondo blocco fisso con <em>"Se esito = Negativo → 'Ripresentazione pratica 2'"</em>. Ci sono tre problemi:</p>
+<ul><li>il campo "Ripresentazione pratica 2" <b>non esiste</b>;</li>
+<li>nel secondo giro manca la data "Parere Arpa", quindi <b>l'alert WT8 sul secondo Forecast Parere Arpa non si può chiudere</b>;</li>
+<li>in TOWERNET e INWIT anche "Parere Arpa" è dichiarato ripetibile.</li></ul>`,
+it:[{q:'Come va modellata la ripresentazione?',type:'ch',opts:['Gruppo ripetibile senza limite {Ripresentazione, Forecast Parere Arpa, Parere Arpa, Esito, N° protocollo}, che si ripete finché l\'esito è Negativo','Al massimo N giri fissi (indica quanti)'],other:true},
+{q:'ILIAD: "Ripresentazione Pratica" che tipo di campo è?',type:'ch',opts:['Data','SI/NO']},
+{q:'Per Fatturabile e per gli alert quale esito conta?',type:'ch',opts:['L\'ultimo esito registrato','Il primo esito']}]},
+
+{id:'A1.4',part:'A',sec:'A1',g:'B',cl:ALL,t:'Vincoli: la tabella in fondo ai sorgenti',
+ctx:`<p>Negli MD "Vincoli" è un semplice menu a tendina, ma i sorgenti rimandano a una tabella ("## GUARDARE TABELLA IN FONDO"). La tabella prevede 6–7 vincoli più 4 fasce di rispetto. Ogni vincolo ha uno <b>stato</b> (Presente / Assente / Non pertinente oppure Assolto; ALTRO ha 4 stati), un riferimento normativo e un <b>Ente</b> con valore predefinito (Soprintendenza, "Soprintendenza o Comune", ENAC/ENAV, Comune, "Ente da scrivere").</p>`,
+it:[{q:'Il modello è questo? Per ogni vincolo uno stato a scelta singola, più un campo Ente visibile solo se lo stato è "Presente".',type:'yn'},
+{q:'La frase "Se presente e non pertinente nessun campo ente" accosta due stati che si escludono. Va letta come "con Assente / Non pertinente / Assolto nessun campo ente"?',type:'yn'},
+{q:'Il campo Ente è:',type:'ch',opts:['Precompilato e modificabile','Fisso']},
+{q:'Paesaggistico, "SOPRINTENDENZA o COMUNE":',type:'ch',opts:['Si sceglie uno dei due','Sono previsti entrambi']},
+{q:'"ENAC / ENAV":',type:'ch',opts:['Si sceglie uno dei due','È un ente unico']},
+{q:'Per Parco e ALTRO, l\'Ente è testo libero?',type:'yn'},
+{q:'Un vincolo "Presente" crea in automatico una voce nel gruppo Ente dell\'Iter Autorizzativo? (TOWERNET: "Nome Ente si autocompila in base al tipo di vincolo")',type:'yn'},
+{q:'La colonna NOTE della tabella è un campo da compilare?',type:'yn'},
+{q:'TOWERNET e INWIT: "vincoli ambientali naturalistici (SIC, Natura2000…) → chiedere ad Antonella". Qual è la risposta? Indica sottotipi, stati ed ente.',type:'tx'},
+{q:'Con vincolo idrogeologico "Presente", i campi Geologica "devono comparire nel box fase preliminare dopo i vincoli" (TIM, TOWERNET, INWIT). Gli MD non riportano la regola. Cosa succede?',type:'ch',opts:['I campi si spostano in Fase Preliminare','Compaiono in Fase Preliminare anche se il sito non è Raw Land','La regola va ignorata'],other:true}]},
+
+{id:'A1.5',part:'A',sec:'A1',g:'B',cl:ALL,t:'Valori dei menu a tendina',
+ctx:`<p><b>(i) Valori persi nell'MD ma presenti nel sorgente</b>, che recuperiamo noi: Tipologia sito, Tipologia Struttura, Area Apparati, Incarico/Lavorazione, Proprietà/Host, Committente, Cliente Finale, Stato ODA, Applicabilità, Esiti, Autorizzazione finale, Oneri, Tipologia pacchetto permessi, Responsabile interno AIE, Stato AIE, Stato misure di fondo, XML, EM e tutti i flag SI/NO.</p>
+<p><b>(ii) Menu senza valori nemmeno nel sorgente:</b></p>
+<table><tr><th>Campo</th><th>Clienti</th></tr>
+<tr><td>Tecnico PP, Fornitore PP</td><td>TOWERNET, TIM, INWIT, LEONARDO</td></tr>
+<tr><td>VS/AS incaricata da, PE incaricato da</td><td>tutti</td></tr>
+<tr><td>Tipologia attività UT (i valori nell'MD vengono da ILIAD, vedi A4.1)</td><td>tutti</td></tr>
+<tr><td>Tipologia attività PE</td><td>tutti</td></tr>
+<tr><td>Tecnico deposito sismico</td><td>tutti</td></tr>
+<tr><td>Tecnico PSC</td><td>LEONARDO, FASTWEB-VODAFONE</td></tr>
+<tr><td>Tecnico / Fornitore Caratterizzazione ("come UT"?)</td><td>ILIAD, INWIT</td></tr>
+<tr><td>Nome Ente (menu in TOWERNET, "chiedere a PM" in INWIT, campo libero altrove)</td><td>tutti</td></tr>
+<tr><td>Gestore Tenant: "menù con tutti i clienti"</td><td>tutti</td></tr>
+<tr><td>Regione / Provincia / Comune</td><td>tutti</td></tr>
+<tr><td>Progetto: l'elenco tra parentesi</td><td>ILIAD, TIM, INWIT</td></tr></table>
+<p><b>(iii) Menu "che si popola volta per volta":</b> Referente, Progettista/Tecnico, Tecnici AIE/UT/PE/Misure di fondo, Fornitori UT/PE/Permessi, Direttore Lavori, Collaudatore, Assistente/Progettista TIM, Referente/RAN Fastweb.</p>`,
+it:[{q:'(i) I valori presenti nei sorgenti sono quelli definitivi?',type:'yn'},
+{q:'(ii) Per ogni menu della tabella indica i valori, oppure scrivi "dinamico" o "utenti". Puoi anche allegare un file a parte.',type:'tx'},
+{q:'Regione / Provincia / Comune: si usa l\'elenco ISTAT con filtro a cascata?',type:'yn'},
+{q:'Gestore Tenant, "tutti i clienti", significa:',type:'ch',opts:['I 6 clienti della dashboard','L\'elenco dei Clienti Finali / operatori (TIM, Vodafone, Iliad, WindTre…)','Un\'anagrafica dedicata'],other:true},
+{q:'Progetto: l\'elenco tra parentesi è',type:'ch',opts:['L\'elenco dei valori di un menu','Solo esempi: resta testo libero']},
+{q:'Nome Ente è',type:'ch',opts:['Testo libero (per tutti i clienti)','Menu (indica l\'elenco degli enti)'],other:true},
+{q:'(iii) Nei menu dinamici i nuovi valori li inserisce',type:'ch',opts:['L\'operatore al volo','Solo l\'admin']},
+{q:'(iii) Le liste dinamiche sono',type:'ch',opts:['Condivise tra i clienti','Separate per cliente']},
+{q:'(iv) La voce "altro (campo libero)" in Tipologia Struttura e Proprietà/Host apre un campo di testo aggiuntivo?',type:'yn'},
+{q:'(v) Il valore Host si chiama "Fastweb" in ILIAD e "Vodafone-fastweb" in TIM, LEONARDO e FASTWEB-VODAFONE. Lo uniformiamo?',type:'ch',opts:['Sì (scrivi il nome in "Altro")','No, restano diversi'],other:true}]},
+
+{id:'A1.6',part:'A',sec:'A1',g:'B',cl:ALL,t:'Tecnici e assegnatari: utenti della piattaforma o liste?',
+ctx:`<p>La Guida (§17.11) vuole tecnici e assegnatari legati a <b>utenti reali registrati</b>, così si possono calcolare i carichi di lavoro. Molti di questi campi però indicano probabilmente persone esterne o fornitori. Per ogni campo indica <b>Utente</b> (account della piattaforma) oppure <b>Lista</b> (elenco configurabile).</p>`,
+it:[{q:'Classifica ogni campo',type:'gr',rows:['Tecnico AIE','Tecnico Misure di fondo','Tecnico UT','Tecnico PE','Tecnico PP','Tecnico PSC','Tecnico Caratterizzazione','Tecnico deposito sismico','Responsabile interno AIE','VS/AS incaricata da','PE incaricato da','Progettista / Tecnico','Referente','Acquisitore','Direttore Lavori','Collaudatore','Fornitori (tutti)'],cols:['Tipo'],vals:['Utente','Lista']},
+{q:'I fornitori esterni vanno',type:'ch',opts:['Censiti come utenti senza accesso','Tenuti come lista configurabile']}]},
+
+{id:'A1.7',part:'A',sec:'A1',g:'B',cl:ALL,t:'Identificativo della pratica e rilavorazione',
+ctx:`<p>La Guida (§20.1.12) identifica la pratica con "Num Doc / Codice Commessa / Codice G7", ma <b>in nessun MD esistono i campi Num Doc o Codice Commessa</b>. La Guida (§17.3) dice anche che una rilavorazione è una nuova pratica sullo stesso sito, ottenuta duplicando il Core Anagrafica Sito.</p>`,
+it:[{q:'Codice G7 = Num Doc = codice commessa?',type:'yn'},
+{q:'L\'unicità del codice è',type:'ch',opts:['Globale','Per cliente']},
+{q:'Una rilavorazione ha',type:'ch',opts:['Un nuovo Codice G7 obbligatorio','Lo stesso G7 con un progressivo'],other:true},
+{q:'Se la pratica la crea il team DL, il Codice G7 è obbligatorio?',type:'yn'},
+{q:'Codice G7 è',type:'ch',opts:['Solo numerico','Alfanumerico, o con possibili zeri iniziali']},
+{q:'In 5 clienti ODA, Note ODA e Stato ODA stanno nel Core. Quando si duplica il Core per una rilavorazione, vanno esclusi?',type:'yn'},
+{q:'Serve un\'entità "Sito" separata dalla pratica, con chiave Codice Sito?',type:'yn'}]},
+
+{id:'A1.8',part:'A',sec:'A1',g:'B',cl:ALL,t:'Cliente, gestionale e mappatura dei dati esistenti',
+ctx:`<p>I sorgenti dicono: <em>"Cliente Finale (<b>da sostituire a GESTIONALE</b>)"</em>. Oggi nell'app il "gestionale" è un attributo principale della pratica, con circa 50 profili di import (fogli MARAGNO, OPNET, GESTIONALE AIE, GESTIONALE UT+PE…).</p>
+<p><b>Fastweb compare in due template:</b> il sorgente ILIAD (file "ILIAD_W3_FASTWEB") ha come Clienti Finali "ILIAD, WIND 3, FASTWEB, ZEFIRO", ma esiste anche un template FASTWEB-VODAFONE separato.</p>`,
+it:[{q:'Cliente Finale',type:'ch',opts:['Sostituisce del tutto il gestionale','È un campo in più accanto al gestionale']},
+{q:'Il cliente di una pratica (quale dei 6 template usa) è',type:'ch',opts:['Scelto alla creazione','Ricavato da Committente + Cliente Finale']},
+{q:'Una pratica con Cliente Finale = FASTWEB usa',type:'ch',opts:['Il template ILIAD se il Committente è Consorzio, Cellnex, Sirti…; FASTWEB-VODAFONE se è Fastweb diretto','Sempre il template ILIAD','Sempre il template FASTWEB-VODAFONE'],other:true},
+{q:'Puoi fornire una tabella foglio/gestionale attuale → cliente? I fogli senza cliente vanno esclusi?',type:'ch',opts:['Sì, la fornisco; i fogli senza cliente si escludono','Sì, la fornisco; i fogli senza cliente si tengono (dove?)','No'],other:true},
+{q:'Dati già presenti nell\'app',type:'ch',opts:['Migrazione con mappatura delle chiavi','Azzeramento e nuovo caricamento']},
+{q:'L\'import da Excel resta? Se sì, con quale chiave si uniscono le righe dei fogli PM, AIE, UT+PE e DL in un\'unica pratica?',type:'ch',opts:['Sì, chiave Codice G7','Sì, chiave Codice Sito','No, l\'import non serve più'],other:true}]},
+
+{id:'A1.9',part:'A',sec:'A1',g:'C',cl:ALL,t:'Tipi di dato (dtype)',
+ctx:`<p>Gli MD dichiarano di riportare il dtype "solo quando esplicitato nel sorgente", ma in vari casi lo inventano (INTEGER, TEXT, DECIMAL) o lo lasciano vuoto.</p>`,
+it:[{q:'Coordinate',type:'ch',opts:['Due campi decimali latitudine / longitudine (WGS84)','Un unico campo di testo']},
+{q:'N° protocollo (deposito sismico, Arpa, Ente) e N° sismica diventano testo, per ammettere barre e lettere?',type:'yn'},
+{q:'Data Autorizzazione finale (dtype vuoto in tutti e 6) è una data?',type:'yn'},
+{q:'Data Autorizzazione finale rispetto a Ottenimento Permessi',type:'ch',opts:['È una data distinta','Coincide: va eliminata']},
+{q:'LEONARDO, Data assegnazione (senza dtype): è una data? Serve all\'alert del sopralluogo.',type:'yn'},
+{q:'Tutte le date nel formato gg/mm/aaaa? I sorgenti scrivono "gg/mm/aa".',type:'yn'},
+{q:'ILIAD: XML, Offerta Inviata, AGORA\', Fatturabile e Fatturato sono menu con i valori del sorgente?',type:'yn'}]},
+
+{id:'A1.10',part:'A',sec:'A1',g:'C',cl:ALL,t:'Campi obbligatori *',
+ctx:`<p>I sorgenti marcano con <code>*</code> Codice G7, Codice Sito, Nome Sito, Cliente Finale e, in TOWERNET e INWIT, anche Committente. Negli MD l'informazione è andata persa.</p>`,
+it:[{q:'Quando vale l\'obbligo?',type:'ch',opts:['Alla creazione della pratica','A ogni salvataggio','È solo un avviso, non blocca']},
+{q:'FASTWEB-VODAFONE: il valore "TITOLO IV*" di Applicabilità è',type:'ch',opts:['Un valore distinto','Un refuso (va tolto l\'asterisco)']}]},
+
+/* ---------------- A2 ---------------- */
+{id:'A2.1',part:'A',sec:'A2',g:'B',cl:ALL,t:'"Invio AS/VS": condizioni opposte in tutti i gestori',
+ctx:`<p>È il campo che chiude l'alert WT8 su <b>Forecast UT</b>, ma le condizioni oggi non stanno insieme:</p>
+<table><tr><th>Cliente</th><th>Pop-up nella vista PM</th><th>Sezione UT (master)</th></tr>
+<tr><td>ILIAD</td><td>"sempre tranne New Site"</td><td>"compare solo se New Site"</td></tr>
+<tr><td>TIM</td><td>"sempre tranne New Site", più un secondo pop-up in Fase Preliminare senza condizione</td><td>sorgente <b>senza condizione</b>; l'MD aggiunge "solo se New Site"</td></tr>
+<tr><td>LEONARDO</td><td>"sempre tranne New Site"</td><td>sorgente <b>senza condizione</b>; l'MD aggiunge "solo se New Site"</td></tr>
+<tr><td>FASTWEB-VODAFONE</td><td>sorgente: un solo pop-up in Fase Preliminare, senza condizione; l'MD ne aggiunge un secondo con "tranne New Site"</td><td>sorgente <b>senza condizione</b>; l'MD aggiunge "solo se New Site"</td></tr>
+<tr><td>TOWERNET</td><td>sorgente <b>senza condizione</b>; l'MD aggiunge "tranne New Site"</td><td>"solo se New Site", mentre Assegnazione UT compare solo per VS e Caratt.+VS: le due condizioni si escludono</td></tr>
+<tr><td>INWIT</td><td>sorgente: "solo se Verifica statica o Caratt.+VS"; l'MD lo riscrive come "tranne New Site"</td><td>"compare solo se New Site"</td></tr></table>
+<p>Risultato: per le pratiche di Verifica Statica il team UT non vede il campo che deve compilare, e l'alert Forecast UT non si chiude mai.</p>`,
+it:[{q:'Nella sezione UT, Invio AS/VS compare',type:'ch',opts:['Sempre','Solo se Incarico ≠ New Site','Solo per Verifica Statica, Caratt.+VS e PE+VS','Solo se New Site'],other:true},
+{q:'Il pop-up PM segue la stessa regola?',type:'yn'},
+{q:'Per i New Site l\'alert Forecast UT',type:'ch',opts:['Si chiude con un altro campo (indica quale)','Non va generato','Si chiude comunque con Invio AS/VS'],other:true}]},
+
+{id:'A2.2',part:'A',sec:'A2',g:'B',cl:['TOWERNET','INWIT'],t:'Assegnazione UT: per quali lavorazioni',
+ctx:`<p>In TOWERNET e INWIT Assegnazione UT e Note Assegnazione UT compaiono solo per "Verifica statica" e "Caratterizzazione + VS". Però il team UT lavora anche sui New Site (Invio AS/VS) e, in INWIT, sui PE+VS.</p>`,
+it:[{q:'Assegnazione UT compare anche con',type:'ch',opts:['PE+VS','New Site','Entrambi','Nessuno dei due']}]},
+
+{id:'A2.3',part:'A',sec:'A2',g:'B',cl:['TIM','LEONARDO','TOWERNET','INWIT'],t:'Geologica: condizioni aggiunte dall\'MD',
+ctx:`<p>Gli MD aggiungono "compare solo se Tipologia sito = Raw Land <b>e</b> Incarico = New Site", ma i sorgenti non lo dicono:</p>
+<ul><li>TIM e LEONARDO dicono solo "si compila solo se Geologica = SI";</li>
+<li>TOWERNET e INWIT dicono solo "solo se Tipologia sito = Raw Land" e <b>non hanno il campo flag "Geologica"</b>, che però l'MD cita.</li></ul>`,
+it:[{q:'Condizione corretta per cliente',type:'gr',rows:['TIM','LEONARDO','TOWERNET','INWIT'],cols:['Condizione'],vals:['Come il sorgente','Raw Land + New Site (come l\'MD)','Altro (vedi nota)']},
+{q:'A TOWERNET e INWIT va aggiunto il flag "Geologica SI/NO"?',type:'yn'}]},
+
+{id:'A2.4',part:'A',sec:'A2',g:'B',cl:['TIM','LEONARDO','FV','ILIAD'],t:'Pop-up UT+PE nella vista PM e condizione "PE = SI"',
+ctx:`<p>TIM, LEONARDO e FASTWEB-VODAFONE: <em>"Pop-up con informazioni inserite dal team UT+PE. <b>Si compila solo se PE = SI</b>"</em>. L'MD ha spostato la condizione su Assegnazione PE e Note Assegnazione PE. Il pop-up contiene anche campi UT. <b>LEONARDO non ha il campo "PE" SI/NO.</b></p>`,
+it:[{q:'La condizione PE = SI vale',type:'ch',opts:['Per tutto il pop-up','Solo per i campi PE (Forecast PE, Incarico PE, PE incaricato da, Invio PE)']},
+{q:'LEONARDO: il pop-up compare',type:'ch',opts:['Sempre','Se Assegnazione PE è compilata','Va aggiunto il flag PE (indica la sezione)'],other:true},
+{q:'Il pop-up UT+PE nella vista PM è (in ILIAD contiene campi con valore predefinito "data del giorno")',type:'ch',opts:['In sola lettura','Modificabile dal PM']},
+{q:'FASTWEB-VODAFONE, "Pop-up PE (tutti i campi)" e "Sezione UT (Pop-up UT ove presente)": il PM vede',type:'ch',opts:['Tutti i campi delle sezioni PE e UT in sola lettura','Solo i campi elencati']}]},
+
+{id:'A2.5',part:'A',sec:'A2',g:'C',cl:ALL,t:'"Si compila solo se" e "compare solo se"',
+ctx:`<p>I sorgenti usano entrambe le formule. Esempi: Progetto, Assegnazione/Forecast/Arrivo Geologica, Assegnazione PE, Invio PE.</p>`,
+it:[{q:'"Si compila solo se X": se X è falso il campo è',type:'ch',opts:['Nascosto','Visibile ma non modificabile']}]},
+
+{id:'A2.6',part:'A',sec:'A2',g:'C',cl:ALL,t:'Condizioni asimmetriche (probabili dimenticanze)',ctx:``,
+it:[{q:'Forecast Deposito Sismico e Data deposito sismico non hanno la condizione "deposito sismico = SI", che hanno invece gli altri campi DL. Compaiono solo se SI?',type:'yn'},
+{q:'"Tecnico Misure di fondo: non compare se Regione = Piemonte". Va nascosto anche "Stato misure di fondo"?',type:'yn'},
+{q:'Con AIE = NO, la sezione Fase AIE del team AIE è',type:'ch',opts:['Nascosta','Visibile ma vuota']}]},
+
+{id:'A2.7',part:'A',sec:'A2',g:'C',cl:ALL,t:'Incarico/Lavorazione a scelta multipla',
+ctx:`<p>Negli MD la scelta multipla c'è solo in ILIAD. Le Note Implementazione invece chiedono di "rendere la voce Incarico/Lavorazione a scelta multipla" in generale.</p>`,
+it:[{q:'La scelta multipla vale',type:'ch',opts:['Solo per ILIAD','Per tutti i clienti']}]},
+
+/* ---------------- A3 ---------------- */
+{id:'A3.1',part:'A',sec:'A3',g:'B',cl:ALL,t:'Campi AIE presenti sia nella vista PM sia in quella AIE',
+ctx:`<p>Invio CEM, Riduzione, Approvazione Riduzione, Invio AIE e Approvazione AIE hanno lo stesso <code>id_flusso</code> nella sezione PM/Permessi e nella sezione AIE, ma l'MD non dice chi è master. Nei sorgenti, nel blocco PM, stanno sotto "Pop-up AIE" (ILIAD: "compilato da AIE"). <b>Approvazione AIE chiude l'alert Forecast AIE.</b></p>`,
+it:[{q:'Chi è il master?',type:'ch',opts:['AIE, con il PM in sola lettura (pop-up)','PM, con AIE in sola lettura','Entrambi modificabili sullo stesso dato']},
+{q:'Il pop-up AIE nella vista PM finisce ad "Approvazione AIE"? Dopo, i sorgenti proseguono con Note Pacchetto Permessi, Invio Pacchetto Permessi e Ottenimento Permessi senza separatore.',type:'yn'},
+{q:'Forecast AIE nella vista AIE è in sola lettura, con master PM, come dicono i sorgenti? L\'MD non lo dichiara in 5 clienti.',type:'yn'}]},
+
+{id:'A3.2',part:'A',sec:'A3',g:'B',cl:ALL,t:'Pop-up Direzione Lavori nella vista PM',
+ctx:`<p>Tutti i sorgenti prevedono per il PM una sezione "Direzione Lavori — Pop-up DL (tutti i campi)", ma <b>in nessun MD c'è questa sezione</b>. Il PM riceve l'alert di fine lavori, ma non vede i campi DL.</p>`,
+it:[{q:'Il PM vede',type:'ch',opts:['Tutti i 12 campi DL in sola lettura, con le stesse condizioni','Solo Forecast CIL, Data IL e Data FL','Nulla']}]},
+
+{id:'A3.3',part:'A',sec:'A3',g:'B',cl:['TIM','FV','ILIAD'],t:'Sola lettura per i Permessi dentro il team PM/Permessi',
+ctx:`<p>TIM e FASTWEB-VODAFONE: <em>"Progettazione esecutiva (<b>visibile ma non modificabile da team Permessi</b>)"</em>. ILIAD distingue molti campi con "compilano il team permessi" oppure "compilato da PM". Nell'app PM/Permessi è un unico team. Alcune persone (es. Romano, Contesi, Ballerio) compaiono sia in PM/Permessi sia in DL.</p>`,
+it:[{q:'Serve un sotto-ruolo PM / Permessi con permessi diversi?',type:'yn'},
+{q:'Se non serve, i campi "non modificabili da Permessi" li modifica',type:'ch',opts:['Tutto il team PM/Permessi','Nessuno del team']},
+{q:'Un utente deve poter appartenere a più team?',type:'yn'}]},
+
+{id:'A3.4',part:'A',sec:'A3',g:'C',cl:ALL,t:'Core Anagrafica e Dati Secondari nelle viste degli altri team',
+ctx:`<p>Per UT+PE il sorgente dice "sola visualizzazione, compilato da PM". Per AIE e DL non dice nulla. I sorgenti elencano anche le sezioni del team DL senza nominare "Direzione Lavori", che però esiste più avanti nel documento.</p>`,
+it:[{q:'Core e Dati Secondari sono',type:'ch',opts:['In sola lettura per tutti tranne PM/Permessi','Modificabili anche da AIE e DL','Modificabili dal DL solo quando crea la pratica']}]},
+
+{id:'A3.5',part:'A',sec:'A3',g:'C',cl:['TIM','LEONARDO','TOWERNET','INWIT'],t:'Mirror aggiunti dall\'MD ma assenti nel sorgente',
+ctx:`<p>Gli MD aggiungono al team UT+PE, sezione PE, mirror in sola lettura di <b>Assegnazione, Forecast e Arrivo Geologica</b> (TIM, LEONARDO, TOWERNET, INWIT) e di <b>Invio Scheda Palo</b> (TOWERNET, INWIT). I sorgenti non li prevedono: sembrano copiati dal modello ILIAD.</p>`,
+it:[{q:'Teniamo i mirror Geologica nella sezione PE?',type:'yn'},{q:'Teniamo il mirror Invio Scheda Palo nella sezione PE?',type:'yn'}]},
+
+/* ---------------- A4 ---------------- */
+{id:'A4.1',part:'A',sec:'A4',g:'B',cl:['TIM','TOWERNET','INWIT','FV','LEONARDO'],t:'Regole importate da altri gestori: teniamo o togliamo?',
+ctx:`<p>Queste regole compaiono negli MD di clienti i cui sorgenti <b>non le contengono</b>; probabilmente vengono da ILIAD. <b>Tenere</b> significa che la regola va aggiunta anche al sorgente.</p>`,
+it:[{q:'Tipologia attività UT, valori "VS, AS, Dimensionamento plinto, VS plinto, fattibilità, correzione PE"',type:'gr',rows:['TIM','TOWERNET','INWIT','FV','LEONARDO'],cols:['Decisione'],vals:['Tenere','Togliere']},
+{q:'Tipologia attività PE "si compila automaticamente da Incarico/Lavorazione o Progetto" (FASTWEB-VODAFONE non ha il campo Progetto)',type:'gr',rows:['TIM','TOWERNET','INWIT','FV','LEONARDO'],cols:['Decisione'],vals:['Tenere','Togliere']},
+{q:'Tecnico PE "possibilità di inserire più tecnici"',type:'gr',rows:['TIM','TOWERNET','INWIT','FV','LEONARDO'],cols:['Decisione'],vals:['Tenere','Togliere']},
+{q:'Note su Costo UT ("pagamento di un esterno") e Costo PE ("utile solo se collegato con G7")',type:'gr',rows:['TIM','TOWERNET','INWIT','FV','LEONARDO'],cols:['Decisione'],vals:['Tenere','Togliere']},
+{q:'2° Forecast Parere Arpa "compare solo se compilato Ripresentazione Pratica"',type:'gr',rows:['TIM','TOWERNET','INWIT'],cols:['Decisione'],vals:['Tenere','Togliere']}]},
+
+/* ---------------- A5 ---------------- */
+{id:'A5.1',part:'A',sec:'A5',g:'B',cl:['TOWERNET','INWIT','LEONARDO'],t:'Forecast Ottenimento Permessi: formula con le integrazioni',
+ctx:`<p><em>"IF giorni &lt;= 15 and 'Richiesta integrazione' allora Forecast = Forecast + (Invio integrazione − Richiesta integrazione)"</em>. La formula usa il valore che sta calcolando: va ricalcolata ogni volta da una base fissa, altrimenti si accumula a ogni salvataggio.</p>
+<p>LEONARDO: "Istanza → Protocollo + 67 gg" e "SCIA → Protocollo + 67 gg" hanno lo stesso valore. Per "Comunicazione" non c'è nessuna regola.</p>`,
+it:[{q:'I "giorni" sono',type:'ch',opts:['I giorni tra Protocollo e Richiesta integrazione','I giorni che mancano al forecast','La durata dell\'integrazione'],other:true},
+{q:'Con più integrazioni si sommano tutti i ritardi?',type:'yn'},
+{q:'Finché Invio integrazione è vuoto, il forecast resta invariato?',type:'yn'},
+{q:'Il forecast si può modificare a mano?',type:'yn'},
+{q:'LEONARDO: quanti giorni per la SCIA?',type:'ch',opts:['67','30'],other:true},
+{q:'LEONARDO: con "Comunicazione" il forecast è',type:'ch',opts:['Manuale','+N giorni (indica quanti)','Assente'],other:true}]},
+
+{id:'A5.2',part:'A',sec:'A5',g:'B',cl:['TOWERNET','INWIT'],t:'Protocollo autocertificazione: ">= 67"',
+ctx:`<p><em>"IF 'Forecast Ottenimento Permessi' &gt;= 67 SEND Alert. Compare solo se la condizione è avverata"</em>. Il confronto è tra una data e un numero. Questo alert non è nella tabella della Guida §17.10.</p>`,
+it:[{q:'La condizione corretta è',type:'ch',opts:['Oggi − Protocollo ≥ 67 giorni, con Ottenimento Permessi vuoto','Oggi ≥ Forecast Ottenimento Permessi'],other:true},
+{q:'Chi riceve l\'alert?',type:'ch',opts:['PM','Team Permessi','Entrambi'],other:true},
+{q:'L\'alert si chiude',type:'ch',opts:['Compilando Protocollo autocertificazione','Compilando Ottenimento Permessi']},
+{q:'Va aggiunto alla tabella alert della Guida §17.10?',type:'yn'}]},
+
+{id:'A5.3',part:'A',sec:'A5',g:'B',cl:['LEONARDO','FV'],t:'Forecast PSC si calcola da se stesso',
+ctx:`<p><em>"Si compila automaticamente con valore = <b>Forecast PSC</b>"</em>: il campo rimanda a se stesso.</p>`,
+it:[{q:'Il valore predefinito corretto è',type:'ch',opts:['Forecast PE','Forecast UT','Un\'altra data + N giorni (indica quale)','Nessuno: il campo è manuale'],other:true}]},
+
+{id:'A5.4',part:'A',sec:'A5',g:'C',cl:ALL,t:'Comportamento dei campi calcolati',
+ctx:`<p>Campi calcolati: Forecast Geologica (+15 gg), Forecast Protocollo (ILIAD, +30 gg, "placeholder"), Protocollo AIE di collaudo (ILIAD, +30 gg), DATA SCADENZA PERMESSI (ILIAD, +12 mesi), Codice sito Host (ILIAD, = Codice Sito se Host = Iliad), Tipologia Struttura (= traliccio), Committente (TIM = Fibercop, FASTWEB-VODAFONE = Fastweb, TOWERNET = Towernet).</p>`,
+it:[{q:'I campi calcolati sono',type:'ch',opts:['Modificabili, ricalcolati solo se vuoti','Modificabili e mai ricalcolati','In sola lettura e sempre ricalcolati']},
+{q:'Il Committente compilato in automatico è fisso, non modificabile?',type:'yn'},
+{q:'"Di base viene inserita la data del giorno" (Incarico PE, Incarico VS/AS): la data si scrive',type:'ch',opts:['All\'apertura della sezione','Al "Passa" verso UT+PE','È solo un valore proposto, da confermare']},
+{q:'I calcoli e gli alert usano giorni di calendario?',type:'ch',opts:['Sì, di calendario','No, lavorativi']}]},
+
+/* ---------------- A6 ---------------- */
+{id:'A6.1',part:'A',sec:'A6',g:'B',cl:ALL,t:'"Stato attività" non esiste come campo',
+ctx:`<p>La Guida (§12, §14, §17.7, §17.10) costruisce stati e alert su "Stato attività", ma il campo <b>non c'è in nessuno dei 6 MD</b> né nei sorgenti, dove compare solo dentro la regola di Fatturabile. Non si possono collegare a campi reali:</p>
+<ul><li>REALIZZATO: le Note citano "CFL", che non esiste;</li>
+<li>PROTOCOLLATO: ci sono vari campi "Protocollo";</li>
+<li>AUTORIZZATO / DINIEGATO / TAR: il menu "Autorizzazione finale" esiste solo in TOWERNET e INWIT, e in TOWERNET contiene anche "KO";</li>
+<li>INTEGRAZIONE RICHIESTA: FASTWEB-VODAFONE non ha "Richiesta integrazione";</li>
+<li>ASSEGNATO: ILIAD ha sia "Data assegnazione" (F026) sia "Assegnazione" (F045).</li></ul>`,
+it:[{q:'Stato attività è',type:'ch',opts:['Un unico campo per pratica, nell\'intestazione','Un campo per ogni team o attività','Entrambi']},
+{q:'Il dominio è quello di 12 valori della Guida §14, uguale per tutti i clienti?',type:'yn'},
+{q:'REALIZZATO scatta con "Data FL"?',type:'yn'},
+{q:'Per ogni stato automatico indica il campo che lo fa scattare, cliente per cliente (PROTOCOLLATO, AUTORIZZATO/DINIEGATO/TAR, INTEGRAZIONE RICHIESTA, ASSEGNATO, IN LAVORAZIONE).',type:'tx'},
+{q:'Una modifica manuale dello stato',type:'ch',opts:['Blocca gli aggiornamenti automatici successivi','Viene sovrascritta dal prossimo evento automatico']}]},
+
+{id:'A6.2',part:'A',sec:'A6',g:'B',cl:ALL,t:'Completamento della pratica',
+ctx:`<p>Oggi l'app ha gli stati Creato / In corso / In attesa / Completato / Errore e un'azione "Completa". La Guida parla di pratica "completata" senza definirla.</p>`,
+it:[{q:'Lo stato attuale dell\'app viene',type:'ch',opts:['Sostituito da Stato attività','Mantenuto come stato tecnico separato']},
+{q:'Il completamento riguarda',type:'ch',opts:['La pratica intera','La singola attività di ogni team']},
+{q:'Chi può completare?',type:'tx'},
+{q:'Esiste un "Passa" di ritorno verso il PM?',type:'yn'}]},
+
+{id:'A6.3',part:'A',sec:'A6',g:'B',cl:ALL,t:'Fatturabile: regola automatica',
+ctx:`<p>La regola "30 giorni dopo Ottenimento Permessi, se Esito parere Arpa = positivo" viene <b>solo dal sorgente ILIAD</b>; Guida e MD la estendono a tutti i clienti. <b>LEONARDO non ha nessun campo ARPA</b>, quindi lì la condizione non si verifica mai. Il Check PraticeHub descrive Fatturabile come una spunta del PM "in base alle milestone contrattuali (permessi o collaudi)".</p>`,
+it:[{q:'Per LEONARDO vale',type:'ch',opts:['Ottenimento Permessi + 30 gg, senza condizione','Ottenimento Permessi + 30 gg, se tutti gli Esiti "Nome ente" sono positivi','Data Autorizzazione finale + 30 gg','Solo compilazione manuale'],other:true},
+{q:'LEONARDO con All. 18 = SI, quando il percorso Permessi scompare:',type:'ch',opts:['Invio All. 18 + 30 gg','Solo manuale'],other:true},
+{q:'Per le lavorazioni senza iter Permessi o ARPA (VS, PE, Caratterizzazione), Fatturabile è solo manuale?',type:'yn'},
+{q:'L\'automatismo scrive',type:'ch',opts:['Solo "SI"','Anche "NO"']},
+{q:'Dopo l\'automatismo il PM può modificare il valore?',type:'yn'},
+{q:'TOWERNET: Autorizzazione finale = KO imposta Stato attività = KO?',type:'yn'},
+{q:'Servono in dashboard i flag G7 "Lavorato" (per team) ed "Eseguito" (per pratica) citati nel Check?',type:'yn'}]},
+
+{id:'A6.4',part:'A',sec:'A6',g:'C',cl:['FV','ILIAD'],t:'Fatturato e Stato ODA "FATTURATO"; id_flusso dei campi trasversali',ctx:``,
+it:[{q:'FASTWEB-VODAFONE: con Stato ODA = FATTURATO, il campo Fatturato va impostato in automatico a SI?',type:'ch',opts:['Sì','No','Sono indipendenti']},
+{q:'In ILIAD Fatturabile e Fatturato hanno id_flusso F104/F105, ma la Guida dice che i campi trasversali non consumano id_flusso. Li togliamo e rinumeriamo?',type:'yn'}]},
+
+/* ---------------- A7 ---------------- */
+{id:'A7.1',part:'A',sec:'A7',g:'B',cl:ALL,t:'Ambito degli alert WT8',
+ctx:`<p>Nelle Note Implementazione gli alert su sopralluogo, verbale, Forecast UT/PE, Ottenimento, ARPA, CDMS e Offerta stanno sotto l'intestazione "<b>ILIAD (idem Riccardo)</b>"; solo Forecast CIL è marcato "tutti e 6 i gestori". La Guida §17.10 li estende a tutti.</p>`,
+it:[{q:'Questi alert valgono per',type:'ch',opts:['Tutti e 6 i clienti','Solo ILIAD'],other:true}]},
+
+{id:'A7.2',part:'A',sec:'A7',g:'B',cl:ALL,t:'Destinatari, giorni, risoluzione degli alert',
+ctx:`<p>Solo 2 regole su 12 indicano il destinatario.</p>`,
+it:[{q:'Destinatario predefinito',type:'ch',opts:['Assegnatario o tecnico del campo','Team owner del campo','PM della pratica','Più di uno (indica quali)'],other:true},
+{q:'Destinatari per regola, se diversi dal predefinito',type:'gr',rows:['Forecast UT','Forecast PE','Forecast AIE','Invio CDMS','Offerta → ODA','Sopralluogo / verbale'],cols:['Destinatario'],vals:['PM','Team owner','Tecnico assegnato','PM + team owner']},
+{q:'Le soglie si contano in giorni',type:'ch',opts:['Di calendario','Lavorativi']},
+{q:'Un alert si può risolvere a mano? Se sì, da chi?',type:'ch',opts:['No','Sì (indica chi)'],other:true},
+{q:'In che giorno e a che ora partono i reminder settimanali?',type:'tx'},
+{q:'Le soglie le configura',type:'ch',opts:['L\'admin, a livello globale','L\'admin, per cliente']},
+{q:'Forecast UT e Forecast AIE: le Note dicono "alert/mail". Si manda',type:'ch',opts:['Solo una notifica in-app','In-app + mail']},
+{q:'Se un campo è nascosto da una regola di sezione, l\'alert che lo riguarda va soppresso? (es. Invio verbale con Incarico = Caratterizzazione in INWIT)',type:'yn'}]},
+
+{id:'A7.3',part:'A',sec:'A7',g:'B',cl:['ILIAD','INWIT','FV'],t:'Campi di chiusura ambigui',ctx:``,
+it:[{q:'ILIAD, alert Offerta → ODA: da quale campo parte?',type:'ch',opts:['F099 "Invio Offerta" (data, Fatturazione)','F043 "Invio offerta" (menu, Fase Preliminare)','F098 "Offerta Inviata"']},
+{q:'ILIAD: F043 e F098 sono lo stesso dato?',type:'yn'},
+{q:'ILIAD, reminder CDMS: si chiude con',type:'ch',opts:['EM data (come dice la Guida)','Numero EM (le Note: "compilata con il numero")']},
+{q:'ODA ripetibile: l\'alert si chiude quando c\'è almeno un ODA?',type:'yn'},
+{q:'FASTWEB-VODAFONE: il trigger 1 (DA RICHIEDERE) si chiude quando lo stato è diverso da DA RICHIEDERE?',type:'yn'},
+{q:'FASTWEB-VODAFONE: il trigger 2 (DA RICHIEDERE / RICHIESTI) si chiude con',type:'ch',opts:['Stato PRESENTI o FATTURATO','Inserimento di un numero ODA']},
+{q:'FASTWEB-VODAFONE: lo Stato ODA è uno solo per pratica anche con più ODA?',type:'yn'},
+{q:'ILIAD, Protocollo AIE di collaudo ("valutare alert"): serve un alert?',type:'ch',opts:['No','Sì (indica soglia e destinatario)'],other:true}]},
+
+/* ---------------- A8 ---------------- */
+{id:'A8.1',part:'A',sec:'A8',g:'B',cl:ALL,t:'Team',
+ctx:`<p>La Guida prevede 4 team. L'app oggi ne ha 5: PM, DL, PM/Permessi, AIE, UT+PE.</p>`,
+it:[{q:'Confermi i 4 team PM/Permessi, AIE, UT+PE e DL?',type:'yn'},
+{q:'Gli utenti oggi nei team "PM" e "PM/Permessi" vanno uniti in PM/Permessi?',type:'yn'},
+{q:'Etichetta del team DL',type:'ch',opts:['Direzione Lavori','Direzione Lavori / Sicurezza']}]},
+
+{id:'A8.2',part:'A',sec:'A8',g:'B',cl:ALL,t:'Matrice autorizzativa',
+ctx:`<p>Il Check indica persone con ruoli diversi per cliente: per esempio Menna è PERMESSI + PM su TIM e INWIT; Bonettini è PERMESSI + PM su FASTWEB e solo PERMESSI su LEONARDO. Le Note chiedono di "dare a Maragno la visuale di PM su TIM e FastWeb" e permessi estesi a Sandrini. Oggi un utente ha un solo team.</p>`,
+it:[{q:'Va bene il modello utente → più coppie (cliente, team, ruolo)?',type:'yn'},
+{q:'Le eccezioni individuali (Maragno, Sandrini) si gestiscono',type:'ch',opts:['Con un ruolo aggiuntivo per cliente','Con un\'eccezione sul singolo utente']},
+{q:'Chi sono gli admin?',type:'tx'},
+{q:'Un team può modificare i propri campi prima di aver ricevuto il "Passa"?',type:'yn'},
+{q:'La visibilità è filtrata per committente? Il Check dice che su ILIAD tutti vedono tutto "a prescindere dalla committenza".',type:'ch',opts:['No','Sì (indica dove)'],other:true},
+{q:'Il team DL crea pratiche',type:'ch',opts:['In tutti i clienti','Solo in alcuni (indica quali)'],other:true},
+{q:'La pratica creata dal DL entra in automatico nella dashboard del PM?',type:'yn'}]},
+
+{id:'A8.3',part:'A',sec:'A8',g:'C',cl:ALL,t:'Assegnazione, card, notifiche',ctx:``,
+it:[{q:'L\'assegnazione esplicita a UT, PE e AIE (§17.5) è',type:'ch',opts:['Lo stesso comando "Passa", con i dati di assegnazione','Un pulsante "Assegna" separato']},
+{q:'La mail di assegnazione va',type:'ch',opts:['A tutto il team','Al tecnico selezionato','A entrambi']},
+{q:'Le card dei team non ancora coinvolti sono',type:'ch',opts:['Nascoste','Visibili ma disattivate']},
+{q:'Notifica al team DL quando il PM assegna il PE (le Note la citano per LEONARDO)',type:'ch',opts:['Solo LEONARDO','Tutti i clienti','Non serve']},
+{q:'Nel "Passa" serve poter scegliere tra chat e mail (Note r.78)?',type:'ch',opts:['No','Sì (indica quale chat)'],other:true}]},
+
+{id:'A8.4',part:'A',sec:'A8',g:'C',cl:ALL,t:'Perimetro del primo rilascio',ctx:``,
+it:[{q:'Quali KPI servono nel primo rilascio?',type:'tx'},
+{q:'Colonne dell\'export CSV',type:'ch',opts:['Quelle comuni a tutti i clienti','Quelle del cliente filtrato']},
+{q:'L\'assistente AI è',type:'ch',opts:['Nel primo rilascio','Rinviato']},
+{q:'Chi fornisce le "liste G7" di clienti, committenti e proprietà (Note r.37), e in che formato?',type:'tx'},
+{q:'La configurazione dei menu è',type:'ch',opts:['Globale','Per cliente','Per singolo admin']},
+{q:'Storico dei valori: basta registrare il valore vecchio e quello nuovo a ogni modifica?',type:'yn'},
+{q:'Per quanto tempo si conserva lo storico?',type:'ch',opts:['Illimitato','N anni (indica quanti)'],other:true},
+{q:'La classificazione dei campi del Check (PRIMARIO / SECONDARIO / FACOLTATIVO) è superata dalle sezioni degli MD?',type:'yn'}]},
+
+/* ---------------- B1 ILIAD ---------------- */
+{id:'B1.1',part:'B',sec:'B1',g:'B',cl:['ILIAD'],t:'Regole di sezione per Incarico/Lavorazione',
+ctx:`<p>Sorgente r.50–56, assenti nell'MD. Coprono 5 valori su 11. Le regole citano elementi che non esistono come campi: "pop-up PE", "pop up informazioni UT/Pe", "Report caratterizzazione", "deposito sismico" dentro UT+PE (che è un campo DL).</p>
+<p>Inoltre mostrano Assegnazione UT/PE dentro "UT+PE", dove sono copie in sola lettura, e <b>nascondono la sezione PM che contiene il campo master</b>: nessuno potrebbe compilarle. Con "Caratterizzazione" spariscono anche il flag CARATTERIZZAZIONE (quindi Invio/Conferma offerta non compaiono mai) e UT+PE, che contiene il blocco caratterizzazione.</p>`,
+it:[{q:'Per New Site, Collocato New Site, Collocato Esistente, Demolizione, Ponte Radio e Pacchetto permessi si mostra tutto?',type:'yn'},
+{q:'Con più valori selezionati si mostra',type:'ch',opts:['L\'unione delle sezioni previste da ciascun valore','Tutto']},
+{q:'"PE+VS" e "caratterizzazione + VS" sono valori a sé ma si possono ottenere anche selezionando due valori singoli. Cosa teniamo?',type:'ch',opts:['I valori combinati (niente scelta multipla per questi)','Solo la scelta multipla (si tolgono i valori combinati)','Entrambi, trattati come equivalenti']},
+{q:'Per ogni regola, elenca esattamente i campi visibili, con i nomi come nel documento.',type:'tx'},
+{q:'I campi master necessari (Assegnazione UT/PE nella vista PM, flag CARATTERIZZAZIONE, blocco caratterizzazione) restano sempre visibili quando servono?',type:'yn'},
+{q:'La caratterizzazione si attiva da',type:'ch',opts:['Il flag F042','Incarico/Lavorazione','Entrambi, con F042 compilato in automatico']},
+{q:'Il pop-up UT in Fase Preliminare ha la condizione Caratterizzazione = SI?',type:'yn'}]},
+
+{id:'B1.2',part:'B',sec:'B1',g:'B',cl:['ILIAD'],t:'Significato di "New Site" con la scelta multipla',
+ctx:`<p>Riguarda Acquisitore, rilievi, Geologica, Scheda Palo, Progetto, Invio AS/VS, Tipologia attività PE.</p>`,
+it:[{q:'"Incarico = New Site" significa',type:'ch',opts:['L\'incarico contiene New Site','New Site è l\'unico valore selezionato','Contiene New Site oppure Collocato New Site']}]},
+
+{id:'B1.3',part:'B',sec:'B1',g:'B',cl:['ILIAD'],t:'Tipologia attività PE (F142)',
+ctx:`<p>La regola dice di prendere il valore da Progetto "se Incarico = New Site", ma con New Site Progetto è vuoto per definizione.</p>`,
+it:[{q:'La regola va invertita? Cioè Progetto se l\'incarico non è New Site, altrimenti Incarico.',type:'yn'},
+{q:'Quali sono i valori del menu?',type:'tx'},
+{q:'Con più valori di Incarico',type:'ch',opts:['Si prende il primo','Si prendono tutti','Si compila a mano']}]},
+
+{id:'B1.4',part:'B',sec:'B1',g:'C',cl:['ILIAD'],t:'Condizioni del sorgente perse nell\'MD',
+ctx:`<p>Blocco Liguria F057–F064 ("se Regione = Liguria") · Nome Ente / Ottenimento / Esito ente ("se Vincoli compilato") · Tecnico Misure di fondo ("non se Piemonte") · APPROVAZIONE PE ("se PE = SI"). L'MD aggiunge invece "AIE = SI" a Forecast AIE nella vista AIE.</p>`,
+it:[{q:'Ripristiniamo le condizioni del sorgente?',type:'yn'},{q:'Tutta la sezione AIE va mostrata solo se AIE = SI?',type:'yn'}]},
+
+{id:'B1.5',part:'B',sec:'B1',g:'C',cl:['ILIAD'],t:'Note di dubbio rimaste nel sorgente',ctx:``,
+it:[{q:'AGORA\', "solo se Committente = Cellnex → verificare":',type:'ch',opts:['Solo con Committente Cellnex','Sempre']},
+{q:'Forecast Protocollo, "dato placeholder": la formula +30 gg è definitiva?',type:'yn'},
+{q:'Costo PE, "utile solo se collegato con G7":',type:'ch',opts:['Mostrarlo sempre','Mostrarlo solo se c\'è il Codice G7','Importarlo da G7']}]},
+
+{id:'B1.6',part:'B',sec:'B1',g:'M',cl:['ILIAD'],t:'Numerazione del sorgente',
+ctx:`<p>Il sorgente ha una propria numerazione (1–145) con buchi ai numeri 91 e 132.</p>`,
+it:[{q:'I numeri 91 e 132 corrispondono a campi rimossi?',type:'yn'}]},
+
+/* ---------------- B2 TOWERNET ---------------- */
+{id:'B2.1',part:'B',sec:'B2',g:'B',cl:['TOWERNET'],t:'Il menu Incarico/Lavorazione ha un solo valore',
+ctx:`<p>Il menu ha solo "New Site", ma le condizioni di Assegnazione UT citano "Verifica statica" e "Caratterizzazione + verifica statica".</p>`,
+it:[{q:'Elenco completo dei valori di Incarico/Lavorazione',type:'tx'},
+{q:'La scelta è',type:'ch',opts:['Singola','Multipla']},
+{q:'Ci sono sezioni da nascondere in base alla lavorazione?',type:'ch',opts:['No','Sì (indica quali)'],other:true},
+{q:'"Caratterizzazione + VS" attiva solo Assegnazione UT e Note UT, senza blocco di caratterizzazione (la Guida lo esclude per TOWERNET)?',type:'yn'}]},
+
+{id:'B2.2',part:'B',sec:'B2',g:'C',cl:['TOWERNET'],t:'"Pop-up AIE → chiedere per AIE congiunte"',ctx:``,
+it:[{q:'Le AIE congiunte richiedono',type:'ch',opts:['Più blocchi AIE per pratica','Un flag "AIE congiunta"','Nulla']}]},
+
+/* ---------------- B3 TIM ---------------- */
+{id:'B3.1',part:'B',sec:'B3',g:'B',cl:['TIM'],t:'Chi compila Invio PE',
+ctx:`<p>Nella vista PM il sorgente dice <em>"Invio PE (data) → compilato da maragno"</em> (DL), mentre nella sezione PE di UT+PE c'è un altro "Invio PE (data)". Invio PE chiude l'alert Forecast PE.</p>`,
+it:[{q:'Il master è',type:'ch',opts:['UT+PE (Maragno solo in lettura)','Maragno / DL','Entrambi sullo stesso dato']},
+{q:'L\'occorrenza PM fuori dal pop-up va tenuta?',type:'yn'}]},
+
+{id:'B3.2',part:'B',sec:'B3',g:'B',cl:['TIM'],t:'TIM e Fibercop',
+ctx:`<p>Committente compilato in automatico = Fibercop; Cliente Finale = TIM oppure Fibercop.</p>`,
+it:[{q:'È un unico cliente TIM/FIBERCOP, con Cliente Finale come attributo?',type:'yn'},
+{q:'Assistente TIM e Progettista TIM compaiono anche con Cliente Finale = Fibercop?',type:'yn'}]},
+
+{id:'B3.3',part:'B',sec:'B3',g:'C',cl:['TIM','FV'],t:'Campi PM in più',
+ctx:`<p>L'MD ripete Assegnazione UT e Note Assegnazione UT nella sezione Progettazione esecutiva del PM (TIM F032/F033, FASTWEB-VODAFONE #62–63). Nel sorgente stanno solo in Fase Preliminare.</p>`,
+it:[{q:'Le eliminiamo?',type:'yn'}]},
+
+{id:'B3.4',part:'B',sec:'B3',g:'M',cl:['TIM'],t:'Campo "Rinforzo"',
+ctx:`<p>Le Note chiedono di aggiungere a TIM il campo "Rinforzo (Sì/No)" e di spostare i Vincoli prima. Oggi Rinforzo esiste solo in ILIAD.</p>`,
+it:[{q:'È una richiesta di modifica da applicare?',type:'yn'}]},
+
+/* ---------------- B4 INWIT ---------------- */
+{id:'B4.1',part:'B',sec:'B4',g:'B',cl:['INWIT'],t:'Regole di sezione per Incarico/Lavorazione',
+ctx:`<p>Sorgente r.48–56. Con Progetto Esecutivo e PE+VS compare Assegnazione PE ma non il flag PE, da cui Assegnazione PE dipende. "Deposito sismico" compare dentro UT+PE ma è un campo DL. Il sorgente scrive gli stessi valori in modi diversi ("Verifica statica" / "Verifica Statica", "Caratterizzazione + verifica statica" / "Caratterizzazione + VS", "PE+VS" / "PE + VS").</p>`,
+it:[{q:'Con Caratterizzazione, Progetto Esecutivo, Verifica Statica, Caratt.+VS e PE+VS vanno nascoste per intero le sezioni Pacchetto Permessi, Iter Autorizzativo e DL, e anche i campi di Fase Preliminare non elencati?',type:'yn'},
+{q:'Le regole valgono',type:'ch',opts:['Solo nella vista PM','Per tutti i team']},
+{q:'Con Progetto Esecutivo e PE+VS il flag PE è',type:'ch',opts:['Visibile','Impostato in automatico a SI']},
+{q:'"Deposito sismico" indica',type:'ch',opts:['Solo il flag F118','Tutto il blocco DL']},
+{q:'Elenca esattamente i campi di "pop-up PE" e "pop-up UT".',type:'tx'},
+{q:'I valori corretti sono quelli del menu a r.46?',type:'yn'},
+{q:'"new site raw land" vuol dire Incarico = New Site e Tipologia sito = Raw Land?',type:'yn'}]},
+
+{id:'B4.2',part:'B',sec:'B4',g:'B',cl:['INWIT'],t:'Blocco di caratterizzazione',
+ctx:`<p>La Guida dice che il blocco UT di caratterizzazione (Forecast Invio, Tecnico, Fornitore, Invio Report) è previsto "solo per ILIAD e INWIT", ma <b>il sorgente INWIT non lo contiene</b>. In più le regole di sezione nasconderebbero UT+PE proprio con le lavorazioni di caratterizzazione, e in Fase Preliminare ci sono sia "Invio report caratterizzazione" (F025) sia "Invio Report Caratterizzazione" (F107, pop-up).</p>`,
+it:[{q:'Il blocco UT di caratterizzazione va confermato per INWIT?',type:'yn'},
+{q:'F025 e F107 sono',type:'ch',opts:['Lo stesso dato, con master UT','Lo stesso dato, con master PM','Dati diversi']}]},
+
+{id:'B4.3',part:'B',sec:'B4',g:'C',cl:['INWIT'],t:'Forecast Ottenimento Permessi solo per New Site',ctx:``,
+it:[{q:'Per le altre lavorazioni l\'alert sui permessi non è previsto?',type:'ch',opts:['Confermato','No, va previsto (indica come)'],other:true}]},
+
+/* ---------------- B5 FV ---------------- */
+{id:'B5.1',part:'B',sec:'B5',g:'B',cl:['FV'],t:'Lavorazione "Applicabilità"',
+ctx:`<p>Sorgente r.47: <em>"se viene selezionato nei box operativi compaiono solo i campi Applicabilità e Invio Applicabilità"</em>. L'MD ha perso la regola, che comunque è incompleta.</p>`,
+it:[{q:'Con Incarico = Applicabilità restano visibili solo Core, Dati Secondari, Applicabilità e Invio Applicabilità?',type:'yn'},
+{q:'Restano visibili anche Data assegnazione e Data sopralluogo, che servono agli alert?',type:'yn'},
+{q:'Applicabilità e Invio Applicabilità sono visibili anche con altre lavorazioni?',type:'yn'},
+{q:'Gli altri valori (New Site, Collocato, Demolizione, Ponte Radio, Bonifica, Rewatt, VRUC) nascondono qualcosa?',type:'ch',opts:['No','Sì (indica cosa)'],other:true},
+{q:'La scelta è singola?',type:'yn'}]},
+
+{id:'B5.2',part:'B',sec:'B5',g:'C',cl:['FV'],t:'Fastweb e Vodafone',ctx:``,
+it:[{q:'Sono un unico cliente con le stesse regole?',type:'yn'},
+{q:'Cliente Finale ammette anche "Vodafone"? Oggi il sorgente ha solo "Fastweb".',type:'yn'}]},
+
+/* ---------------- B6 LEONARDO ---------------- */
+{id:'B6.1',part:'B',sec:'B6',g:'B',cl:['LEONARDO'],t:'All. 18',
+ctx:`<p>Il sorgente dice "scompare se All. 18 = SI" per Note Pacchetto Permessi, Tipologia pacchetto permessi, Invio Pacchetto Permessi e Protocollo. L'MD ha perso le 4 condizioni.</p>`,
+it:[{q:'Confermi le 4 condizioni?',type:'yn'},
+{q:'Ottenimento Permessi',type:'ch',opts:['Resta visibile','Scompare anche lui']},
+{q:'Con All. 18 = SI l\'alert su Forecast Ottenimento Permessi va soppresso?',type:'yn'}]},
+
+{id:'B6.2',part:'B',sec:'B6',g:'B',cl:['LEONARDO'],t:'Campo mancante "Forecast inizio lavori"',
+ctx:`<p>Sorgente UT+PE r.177: <em>"Forecast inizio lavori (data) → compare solo se deposito sismico = SI"</em>. Il campo è assente nell'MD.</p>`,
+it:[{q:'Confermi il campo?',type:'yn'},{q:'In quale sottosezione?',type:'ch',opts:['PE','UT']},
+{q:'È diverso da Forecast CIL del DL?',type:'yn'},{q:'Genera un alert?',type:'yn'}]},
+
+{id:'B6.3',part:'B',sec:'B6',g:'C',cl:['LEONARDO'],t:'Oneri',
+ctx:`<p>Menu: diritti di segreteria, marche da bollo, paesaggistica.</p>`,
+it:[{q:'Oneri è',type:'ch',opts:['Scelta multipla del solo tipo','Voce ripetibile con tipo e importo','Scelta singola']}]},
+
+{id:'B6.4',part:'B',sec:'B6',g:'C',cl:['LEONARDO'],t:'ODA e Stato attività',ctx:`<p>In LEONARDO ODA sta nel Core e non ha Note ODA.</p>`,
+it:[{q:'ODA è',type:'ch',opts:['Valore singolo','Ripetibile']},
+{q:'Serve un alert per ODA mancante?',type:'yn'},
+{q:'Stato attività e l\'alert Fatturabile/KO valgono anche per LEONARDO?',type:'yn'}]},
+
+{id:'B6.5',part:'B',sec:'B6',g:'C',cl:['LEONARDO'],t:'Ordine dei campi UT+PE',
+ctx:`<p>Nel sorgente i campi PE vengono prima di quelli UT, in un'unica lista. L'MD crea le sottosezioni UT e PE e decide da solo in quale va ciascun campo.</p>`,
+it:[{q:'Seguiamo l\'ordine del sorgente e confermi la ripartizione dell\'MD?',type:'yn'}]},
+
+/* ---------------- C ---------------- */
+{id:'C.1',part:'C',sec:'C1',g:'M',cl:ALL,t:'Correzioni minori: approvazione in blocco',
+ctx:`<p>Possiamo correggere noi i punti seguenti senza cambiare la sostanza:</p>
+<ol><li><b>Note superate negli MD:</b> "id_flusso da assegnare" su Invio CEM (l'ID è già assegnato); "La fonte ILIAD corrente…" nella nota di Fatturato in tutti gli MD; nome sbagliato del file sorgente in testa agli MD di ILIAD e TIM.</li>
+<li><b>Campo Universale palesemente errato</b> su righe a confidenza BASSA (Assegnazione AIE → "ASSEGNAZIONE PE", Nome Ente → "Nome sito Vodafone", Ripresentazione Pratica → "Pratica Sismica", Invio integrazione → "INVIO VERBALE DI SOPRALLUOGO", Cliente Finale → "ODA LOS A+B", Costo UT → "Richiesta analisi UT", Tipologia pacchetto permessi → "Tipologia Sito"…): le impostiamo a <b>DA VERIFICARE</b> e le escludiamo dall'import automatico finché non sono validate.</li>
+<li><b>Nomi e ordine delle sezioni</b> allineati ai sorgenti (es. "Progettazione esecutiva e ufficio tecnico").</li>
+<li><b>Rinumerazione degli id_flusso</b> dopo le correzioni; le copie (mirror) mantengono sempre l'ID del campo principale (master).</li>
+<li><b>Matrice:</b> 10 righe marcate COERENTE hanno in realtà etichette diverse da quelle degli MD. In interfaccia usiamo il "Nome dashboard consigliato" della Matrice e conserviamo l'etichetta del sorgente per la tracciabilità.</li>
+<li><b>Guida:</b> nella §3.4 il nome della Matrice senza "(1)"; nella §4 manca la domanda 11; nella §20.2 c'è ancora un riferimento a voci "DA UNIFORMARE", che oggi sono 0; nella §10 "Data assegnazione" va sostituito con "Assegnazione UT/PE/AIE".</li>
+<li><b>Refusi nei sorgenti:</b> una parentesi non chiusa tra Gestore Tenant e Codice sito Tenant; "SI'"; l'alias "Invio verbale di sopralluogo = TSSR" (ILIAD) da conservare come sinonimo.</li></ol>`,
+it:[{q:'Approvi in blocco?',type:'ch',opts:['Sì, tutte','Sì, tranne alcune (indica i numeri)','No'],other:true}]}
+];
+
+/* ================================================================
+   STATO (localStorage con fallback in memoria)
+   ================================================================ */
+const KEY='practicehub-domande-v8';
+let S={meta:{name:'',date:''},a:{},notes:{},open:{}};
+function load(){try{const r=localStorage.getItem(KEY);if(r){const p=JSON.parse(r);S=Object.assign(S,p);}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+load();
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LET='abcdefghijklmnop';
+const k=(q,i)=>q.id+'#'+i;
+
+function itemDone(q,i){
+  const it=q.it[i], v=S.a[k(q,i)];
+  if(!v) return false;
+  if(it.type==='tx') return !!(v.t&&v.t.trim());
+  if(it.type==='gr') return it.rows.every(r=>it.cols.every(c=>v.c&&v.c[r+'|'+c]));
+  if(v.v==='__other') return !!(v.o&&v.o.trim());
+  return v.v!==undefined&&v.v!=='';
+}
+function qDone(q){return q.it.every((_,i)=>itemDone(q,i));}
+function qCount(q){return q.it.filter((_,i)=>itemDone(q,i)).length;}
+
+/* ================================================================
+   RENDER
+   ================================================================ */
+function renderItem(q,i){
+  const it=q.it[i], key=k(q,i), v=S.a[key]||{};
+  let h=`<div class="item" data-q="${q.id}" data-i="${i}"><div class="iq"><span class="n">${q.it.length>1?(i+1)+'.':''}</span><span>${esc(it.q)}</span></div>`;
+  if(it.type==='ch'||it.type==='yn'){
+    const opts=it.type==='yn'?YN:it.opts;
+    h+=`<div class="opts${it.type==='yn'?' row':''}">`;
+    opts.forEach((o,j)=>{const val=it.type==='yn'?o:LET[j];const on=v.v===val;
+      h+=`<label class="opt${on?' on':''}"><input type="radio" name="${key}" value="${esc(val)}"${on?' checked':''}>${it.type==='ch'?`<span class="k">${LET[j]}</span>`:''}<span>${esc(o)}</span></label>`;});
+    if(it.other){const on=v.v==='__other';
+      h+=`<label class="opt${on?' on':''}"><input type="radio" name="${key}" value="__other"${on?' checked':''}><span class="k">…</span><span>Altro</span></label>`;}
+    h+=`</div>`;
+    if(it.other) h+=`<div class="other" ${v.v==='__other'?'':'hidden'}><input type="text" data-other="${key}" placeholder="Specifica…" value="${esc(v.o||'')}"></div>`;
+  }else if(it.type==='tx'){
+    h+=`<textarea data-tx="${key}" placeholder="Scrivi qui la risposta…">${esc(v.t||'')}</textarea>`;
+  }else if(it.type==='gr'){
+    h+=`<table class="grid-in"><tr><th>Voce</th>${it.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr>`;
+    it.rows.forEach(r=>{h+=`<tr><td>${esc(CL_LABEL[r]||r)}</td>`;it.cols.forEach(c=>{const cv=(v.c||{})[r+'|'+c]||'';
+      h+=`<td><select data-gr="${key}" data-cell="${esc(r+'|'+c)}"><option value="">—</option>${it.vals.map(o=>`<option${cv===o?' selected':''}>${esc(o)}</option>`).join('')}</select></td>`;});h+=`</tr>`;});
+    h+=`</table>`;
+  }
+  return h+`</div>`;
+}
+function renderQ(q){
+  const done=qDone(q), open=S.open[q.id]!==undefined?S.open[q.id]:!done;
+  const gl={B:'BLOCCANTE',C:'DA CHIARIRE',M:'MINORE'}[q.g];
+  const cls=q.cl.length===6?'<span class="b">TUTTI I GESTORI</span>':q.cl.map(c=>`<span class="b">${CL_LABEL[c]}</span>`).join('');
+  return `<article class="q${done?' complete':''}${open?'':' closed'}" id="q-${q.id}" data-id="${q.id}">
+  <div class="qh" data-toggle="${q.id}"><span class="qid">${q.id}</span><div class="qt">${esc(q.t)}<div class="badges"><span class="b g-${q.g}">${gl}</span>${cls}</div></div>
+  <span class="state${done?' ok':''}" data-state="${q.id}">${done?'✓ completa':qCount(q)+'/'+q.it.length}</span><span class="chev">▾</span></div>
+  <div class="qb">${q.ctx?`<div class="ctx">${q.ctx}</div>`:''}${q.it.map((_,i)=>renderItem(q,i)).join('')}
+  <div class="note"><label>Note su ${q.id}</label><textarea data-note="${q.id}" placeholder="Note facoltative">${esc(S.notes[q.id]||'')}</textarea></div></div></article>`;
+}
+function renderAll(){
+  let h='',lp='',ls='';
+  Q.forEach(q=>{
+    if(q.part!==lp){h+=`<h2 class="part-h" data-part="${q.part}">${PARTS[q.part]}</h2>`;lp=q.part;}
+    if(q.sec!==ls){h+=`<h3 class="sec-h" id="s-${q.sec}" data-sec="${q.sec}">${SECS[q.sec]}</h3>`;ls=q.sec;}
+    h+=renderQ(q);
+  });
+  $('#list').innerHTML=h;
+  $('#mName').value=S.meta.name||''; $('#mDate').value=S.meta.date||'';
+  applyFilters(); refresh();
+}
+function renderNav(){
+  let h='',lp='';
+  const secs=[...new Set(Q.map(q=>q.sec))];
+  secs.forEach(s=>{
+    const qs=Q.filter(q=>q.sec===s), p=qs[0].part;
+    if(p!==lp){h+=`<a class="part" href="#s-${s}"><span>${{A:'A · Trasversali',B:'B · Per gestore',C:'C · Minori'}[p]}</span></a>`;lp=p;}
+    const d=qs.filter(qDone).length;
+    h+=`<a href="#s-${s}" class="${d===qs.length?'done':''}"><span>${SECS[s].replace(/^[A-C]\d? · /,'')}</span><span class="c">${d}/${qs.length}</span></a>`;
+  });
+  $('#nav').innerHTML=h;
+}
+function refresh(){
+  const tot=Q.length, done=Q.filter(qDone).length;
+  $('#barFill').style.width=(done/tot*100)+'%';
+  $('#progLbl').textContent=`${done} / ${tot} domande complete · ${Math.round(done/tot*100)}%`;
+  const byG=g=>{const qs=Q.filter(q=>q.g===g);return `${qs.filter(qDone).length}/${qs.length}`};
+  $('#stats').innerHTML=`<div><b>${byG('B')}</b><span>Bloccanti</span></div><div><b>${byG('C')}</b><span>Da chiarire</span></div><div><b>${byG('M')}</b><span>Minori</span></div><div><b>${Q.reduce((n,q)=>n+q.it.length,0)}</b><span>Sotto-domande totali</span></div>`;
+  Q.forEach(q=>{const el=$('#q-'+CSS.escape(q.id));if(!el)return;const d=qDone(q);el.classList.toggle('complete',d);
+    const st=el.querySelector('[data-state]');st.textContent=d?'✓ completa':qCount(q)+'/'+q.it.length;st.classList.toggle('ok',d);});
+  renderNav();
+}
+
+/* ================================================================
+   FILTRI
+   ================================================================ */
+function applyFilters(){
+  const gs=$$('.fG').filter(x=>x.checked).map(x=>x.value), cl=$('#fClient').value, op=$('#fOpen').checked, s=$('#fSearch').value.trim().toLowerCase();
+  let vis=0; const visSec=new Set(), visPart=new Set();
+  Q.forEach(q=>{
+    const el=$('#q-'+CSS.escape(q.id));
+    let ok=gs.includes(q.g)&&(!cl||q.cl.includes(cl))&&(!op||!qDone(q));
+    if(ok&&s){const txt=(q.id+' '+q.t+' '+q.ctx+' '+q.it.map(i=>i.q+' '+(i.opts||[]).join(' ')).join(' ')).replace(/<[^>]+>/g,' ').toLowerCase();ok=txt.includes(s);}
+    el.hidden=!ok; if(ok){vis++;visSec.add(q.sec);visPart.add(q.part);}
+  });
+  $$('.sec-h').forEach(h=>h.hidden=!visSec.has(h.dataset.sec));
+  $$('.part-h').forEach(h=>h.hidden=!visPart.has(h.dataset.part));
+  $('#emptyMsg').hidden=vis>0;
+}
+
+/* ================================================================
+   EVENTI
+   ================================================================ */
+const list=$('#list');
+list.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]'); if(!t)return;
+  const id=t.dataset.toggle, el=$('#q-'+CSS.escape(id)); const closed=el.classList.toggle('closed');
+  S.open[id]=!closed; save();
+});
+list.addEventListener('change',e=>{
+  const x=e.target;
+  if(x.type==='radio'){
+    const key=x.name, v=S.a[key]||(S.a[key]={}); v.v=x.value;
+    const item=x.closest('.item'); item.querySelectorAll('.opt').forEach(o=>o.classList.toggle('on',o.querySelector('input').checked));
+    const oth=item.querySelector('.other'); if(oth){oth.hidden=x.value!=='__other'; if(x.value==='__other') oth.querySelector('input').focus();}
+  } else if(x.dataset.gr){
+    const key=x.dataset.gr, v=S.a[key]||(S.a[key]={}); v.c=v.c||{}; v.c[x.dataset.cell]=x.value;
+  } else return;
+  save(); refresh(); if($('#fOpen').checked) setTimeout(applyFilters,600);
+});
+list.addEventListener('input',e=>{
+  const x=e.target;
+  if(x.dataset.other){const v=S.a[x.dataset.other]||(S.a[x.dataset.other]={});v.o=x.value;}
+  else if(x.dataset.tx){const v=S.a[x.dataset.tx]||(S.a[x.dataset.tx]={});v.t=x.value;}
+  else if(x.dataset.note){S.notes[x.dataset.note]=x.value;}
+  else return;
+  save(); refresh();
+});
+$('#mName').addEventListener('input',e=>{S.meta.name=e.target.value;save();});
+$('#mDate').addEventListener('input',e=>{S.meta.date=e.target.value;save();});
+['#fSearch','#fClient','#fOpen'].forEach(s=>$(s).addEventListener('input',applyFilters));
+$$('.fG').forEach(x=>x.addEventListener('change',applyFilters));
+$('#expandAll').onclick=()=>{Q.forEach(q=>{S.open[q.id]=true;$('#q-'+CSS.escape(q.id)).classList.remove('closed');});save();};
+$('#collapseAll').onclick=()=>{Q.forEach(q=>{S.open[q.id]=false;$('#q-'+CSS.escape(q.id)).classList.add('closed');});save();};
+$('#nav').addEventListener('click',e=>{if(e.target.closest('a'))$('#side').classList.remove('open');});
+$('#menuBtn').onclick=()=>$('#side').classList.toggle('open');
+$('#printBtn').onclick=()=>window.print();
+$('#themeBtn').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY+'-theme',r.dataset.theme)}catch(e){}};
+try{const th=localStorage.getItem(KEY+'-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}
+$('#resetBtn').onclick=()=>{if(confirm('Azzerare tutte le risposte salvate in questo browser? L\'operazione non si può annullare.')){S={meta:{name:'',date:''},a:{},notes:{},open:{}};save();renderAll();toast('Risposte azzerate');}};
+
+/* ================================================================
+   EXPORT / IMPORT
+   ================================================================ */
+function answerText(q,i){
+  const it=q.it[i], v=S.a[k(q,i)];
+  if(!v) return '_(nessuna risposta)_';
+  if(it.type==='tx') return v.t&&v.t.trim()?v.t.trim():'_(nessuna risposta)_';
+  if(it.type==='gr') return '\n'+it.rows.map(r=>`  - ${CL_LABEL[r]||r}: ${it.cols.map(c=>(v.c||{})[r+'|'+c]||'—').join(' / ')}`).join('\n');
+  if(v.v==='__other') return 'Altro: '+(v.o||'');
+  if(it.type==='yn') return v.v;
+  const j=LET.indexOf(v.v); return `(${v.v}) ${it.opts[j]}`;
+}
+function toMarkdown(){
+  const d=Q.filter(qDone).length;
+  let m=`# PracticeHub — Risposte alle domande aperte v8\n\n**Compilato da:** ${S.meta.name||'—'}  \n**Data:** ${S.meta.date||'—'}  \n**Completamento:** ${d}/${Q.length} domande\n`;
+  let lp='',ls='';
+  Q.forEach(q=>{
+    if(q.part!==lp){m+=`\n---\n\n# ${PARTS[q.part]}\n`;lp=q.part;}
+    if(q.sec!==ls){m+=`\n## ${SECS[q.sec]}\n`;ls=q.sec;}
+    m+=`\n### ${q.id} — ${q.t} [${{B:'BLOCCANTE',C:'DA CHIARIRE',M:'MINORE'}[q.g]}]${qDone(q)?'':' ⚠ incompleta'}\n`;
+    q.it.forEach((it,i)=>{m+=`- **${it.q}**  \n  → ${answerText(q,i)}\n`;});
+    if(S.notes[q.id]&&S.notes[q.id].trim()) m+=`- _Note:_ ${S.notes[q.id].trim()}\n`;
+  });
+  return m;
+}
+function download(name,content,type){
+  const b=new Blob([content],{type}), a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download=name; document.body.appendChild(a); a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+const stamp=()=>new Date().toISOString().slice(0,10);
+$('#expMd').onclick=()=>{download(`risposte_practicehub_v8_${stamp()}.md`,toMarkdown(),'text/markdown;charset=utf-8');toast('File Markdown scaricato');};
+$('#expJson').onclick=()=>{download(`risposte_practicehub_v8_${stamp()}.json`,JSON.stringify({version:'v8-2026-10-03',exported:new Date().toISOString(),state:S},null,2),'application/json');toast('File JSON scaricato');};
+$('#impJson').onclick=()=>$('#fileIn').click();
+$('#fileIn').onchange=e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader(); r.onload=()=>{try{const p=JSON.parse(r.result);const st=p.state||p;if(!st.a)throw 0;
+    S=Object.assign({meta:{name:'',date:''},a:{},notes:{},open:{}},st);save();renderAll();toast('Risposte importate');}catch(err){alert('File non valido.');}};
+  r.readAsText(f); e.target.value='';
+};
+let tt; function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
+
+renderAll();
+</script>
+</body>
+</html>

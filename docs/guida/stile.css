@@ -1,0 +1,29 @@
+/* Stile delle versioni HTML di guida e checklist: lo stesso linguaggio dell'app (Swiss, raggio 0, bordi 1 px). */
+:root { --testo: #111; --tenue: #555; --bordo: #d0d0d0; --fondo: #fff; --fondo2: #f5f5f5; --accento: #0b3fd1; }
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0 auto; max-width: 980px; padding: 32px 24px 64px; background: var(--fondo); color: var(--testo);
+  font-family: "Segoe UI", Inter, Arial, sans-serif; line-height: 1.55; }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
+h1 { font-size: 2.2rem; margin: 0 0 8px; }
+h2 { font-size: 1.45rem; margin: 40px 0 12px; padding-top: 16px; border-top: 1px solid var(--testo); }
+h3 { font-size: 1.1rem; margin: 24px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+p, li { font-size: 1rem; }
+em { color: var(--tenue); }
+a { color: var(--accento); }
+code { font-family: Consolas, "Courier New", monospace; font-size: 0.92em; background: var(--fondo2); padding: 1px 4px; border: 1px solid var(--bordo); }
+hr { border: 0; border-top: 1px solid var(--bordo); margin: 24px 0; }
+img { display: block; max-width: 100%; height: auto; margin: 12px 0 20px; border: 1px solid var(--bordo); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--bordo); padding: 7px 9px; text-align: left; vertical-align: top; }
+th { background: var(--fondo2); font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.06em; }
+/* Checklist: colonna "Esito" larga abbastanza per scrivere OK / KO / ? */
+table td:last-child:empty { min-width: 70px; }
+nav#TOC { border: 1px solid var(--bordo); padding: 12px 18px; margin: 16px 0 24px; background: var(--fondo2); }
+nav#TOC ul { margin: 4px 0; padding-left: 18px; }
+@media print {
+  body { max-width: none; padding: 0; }
+  h2 { break-after: avoid; }
+  table, img { break-inside: avoid; }
+  a { color: var(--testo); text-decoration: none; }
+}

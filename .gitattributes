@@ -1,0 +1,11 @@
+# Fine riga LF nel repository e nella copia di lavoro (il codice gira anche in container Linux)
+* text=auto eol=lf
+
+# Binari
+*.png binary
+*.jpg binary
+*.ico binary
+*.xlsx binary
+*.xls binary
+*.woff binary
+*.woff2 binary

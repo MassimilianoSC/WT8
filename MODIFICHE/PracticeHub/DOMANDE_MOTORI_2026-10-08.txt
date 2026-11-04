@@ -1,0 +1,218 @@
+PRACTICEHUB - DOMANDE SU STATO ATTIVITA', ALERT E PERMESSI
+==========================================================
+Data: 08/10/2026
+Riferimenti: Guida v8 (08/10/2026) e i sei ASSOCIAZIONI_CAMPI_<CLIENTE>.md.
+
+Progettando i motori automatici (Stato attività, formule, alert) sono
+emersi alcuni punti che la baseline non definisce. Non riaprono decisioni
+già prese: servono solo a non inventare regole.
+
+Per ogni punto c'è una proposta: se va bene scrivi "OK" accanto a
+RISPOSTA, altrimenti la correzione.
+Le parti A-E aspettano la tua risposta; nel frattempo lo sviluppo va
+avanti su tutto il resto. La parte F è solo informativa: la applichiamo
+così, salvo tua indicazione contraria.
+
+
+----------------------------------------------------------------------
+0. PACCHETTO "PracticeHub_baseline_finale_2026-10-08" - PRIMA DI TUTTO
+----------------------------------------------------------------------
+
+Grazie per le risposte all'ESITO: tutte recepite. Per B3 applichiamo
+l'eliminazione del duplicato, come hai indicato.
+
+Però il pacchetto zip che ci è arrivato (scaricato due volte da Drive,
+alle 12:31 e alle 12:39 dell'08/10) contiene MD, Guida e Matrice
+IDENTICI a quelli della versione precedente. Le correzioni che
+indichi come già recepite non ci sono:
+- Guida §10 dice ancora "La precedente denominazione `Assegna` è
+  superata" (invece di `Passa`);
+- la nota "id_flusso da assegnare" su Invio CEM è ancora in 5 MD;
+- la frase "il trattamento dei campi nascosti in export/KPI resta
+  fuori da questa baseline" è ancora in tutti e 6 gli MD;
+- nei campi B1 (es. ILIAD #61 Invio CEM) l'occorrenza in PM/Permessi
+  non è indicata come mirror;
+- risposte_chiarimenti_v3_2026-10-08_finale.md non contiene
+  l'addendum conclusivo.
+
+Puoi controllare di aver caricato su Drive la versione aggiornata e
+rimandarla? Non è bloccante: nel frattempo applichiamo le tue risposte
+come correzioni separate, senza toccare gli MD.
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+A. STATO ATTIVITA' AUTOMATICO
+----------------------------------------------------------------------
+
+La Guida (§14) definisce solo due automatismi: Data assegnazione ->
+ASSEGNATO e Richiesta integrazione -> INTEGRAZIONE RICHIESTA. Per gli
+altri stati dice "seguono i trigger esplicitamente definiti nella
+baseline", ma gli MD non li definiscono. Finché non rispondi, quegli
+stati si impostano solo a mano (PM o ADMIN).
+
+A1. Quale campo fa scattare ciascuno stato?
+    Proposta (stesso campo in tutti i gestori, dove esiste):
+
+    IN APPROVAZIONE  <- Invio Pacchetto Permessi
+                        (LEONARDO: anche Invio All. 18, quando All. 18 = SI)
+    PROTOCOLLATO     <- Protocollo
+    AUTORIZZATO      <- Data Autorizzazione finale
+                        (TOWERNET e INWIT: solo se il menu
+                        Autorizzazione finale = AUTORIZZATO)
+    DINIEGATO, TAR   <- TOWERNET e INWIT: Data Autorizzazione finale con
+                        il menu Autorizzazione finale = DINIEGATO o TAR;
+                        negli altri gestori il menu non esiste, quindi
+                        solo a mano
+    REALIZZATO       <- Data FL (Direzione Lavori)
+
+    Nota: Approvazione AIE NON fa scattare IN APPROVAZIONE (è una
+    milestone AIE, non dell'iter autorizzativo).
+
+    RISPOSTA:
+
+
+A2. Due eventi automatici con la STESSA data (es. Protocollo e Invio
+    Pacchetto Permessi nello stesso giorno): quale stato vince?
+    Proposta: vince quello più avanti nel flusso, in questo ordine:
+    ASSEGNATO < IN APPROVAZIONE < PROTOCOLLATO < INTEGRAZIONE RICHIESTA
+    < AUTORIZZATO / DINIEGATO / TAR < REALIZZATO.
+
+    RISPOSTA:
+
+
+A3. Una nuova Richiesta integrazione con data PRECEDENTE a un altro
+    trigger (es. Richiesta integrazione 10/03, Protocollo 15/03).
+    La Guida dice sia "ogni nuova Richiesta integrazione porta a
+    INTEGRAZIONE RICHIESTA" sia "vince la data più recente".
+    Proposta: vale la regola generale (vince la data più recente),
+    quindi lo stato resta PROTOCOLLATO.
+
+    RISPOSTA:
+
+
+A4. Stato impostato a mano da PM o ADMIN (es. STAND-BY) e poi un campo
+    trigger compilato più tardi (es. Protocollo).
+    Proposta: lo stato manuale resta finché qualcuno non lo cambia di
+    nuovo a mano; gli automatismi non sovrascrivono una scelta umana.
+    (Alternativa: il primo nuovo evento automatico riprende il
+    controllo.)
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+B. ALERT ODA FASTWEB-VODAFONE
+----------------------------------------------------------------------
+
+B1. La Guida (§17.10) dice: "trigger previsti da Data assegnazione e
+    Invio Pacchetto Permessi; il secondo trigger si chiude con Stato ODA
+    = PRESENTI". Mancano le soglie in giorni e la chiusura del primo.
+    Proposta:
+    - primo alert: 7 giorni lavorativi dopo Data assegnazione se Stato
+      ODA = DA RICHIEDERE (o vuoto); si chiude quando Stato ODA diventa
+      RICHIESTI o PRESENTI;
+    - secondo alert: 7 giorni lavorativi dopo Invio Pacchetto Permessi
+      se Stato ODA non è PRESENTI; si chiude con Stato ODA = PRESENTI.
+    Destinatari: PM + leader PM/Permessi. Soglie modificabili dall'ADMIN.
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+C. FORECAST PSC (FASTWEB-VODAFONE #100 F075, LEONARDO #116 F094)
+----------------------------------------------------------------------
+
+C1. Gli MD dicono: "Si compila automaticamente con valore = Forecast
+    PSC". Il campo si chiama già Forecast PSC, quindi la formula rimanda
+    a se stessa. Da quale campo deve copiare la data?
+    Proposta: finché non lo indichi, è una data compilata a mano
+    (visibile con PSC = SI, come già scritto).
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+D. CHI PUO' FARE COSA
+----------------------------------------------------------------------
+
+D1. Chi può usare il comando Assegna, e verso quali gruppi?
+    La baseline dice cosa fa Assegna, non chi lo usa.
+    Proposta: PM e ADMIN, verso AIE, UT/PE e DL.
+
+    RISPOSTA:
+
+
+D2. Chi modifica i campi trasversali?
+    Proposta:
+    - Note Operative: gruppo PM/Permessi (PM e Permessi) e ADMIN;
+    - Fatturabile: PM e ADMIN (la Guida parla di "modifica manuale del
+      PM");
+    - Fatturato: gruppo PM/Permessi e ADMIN.
+    Tutti gli altri le vedono in sola lettura.
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+E. TABELLA VINCOLI
+----------------------------------------------------------------------
+
+E1. Vincoli Ambientali Naturalistici: gli MD dicono "stato secondo
+    configurazione comune". Proposta: stati iniziali Presente / Assente
+    / Assolto / Non pertinente, in una lista comune modificabile
+    dall'ADMIN. Con Presente nasce la voce Ente, come per gli altri.
+
+    RISPOSTA:
+
+
+E2. Vincoli con più enti possibili: Paesaggistico "Soprintendenza o
+    Comune", Aeroportuale "ENAC / ENAV", Naturalistici "SIC, Natura2000,
+    Altro". Proposta: per ogni pratica si sceglie UN ente dalla lista;
+    la voce Ente nasce con quello.
+    (Per Aeroportuale: se invece servono sempre entrambi ENAC ed ENAV,
+    indicalo.)
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+F. COME LO APPLICHIAMO (solo informativo, salvo tua indicazione)
+----------------------------------------------------------------------
+
+F1. Fatturabile
+    - "Ultimo esito ARPA" = esito dell'ultimo ciclo ARPA inserito.
+    - Finché nessuno lo modifica a mano, Fatturabile segue sempre la
+      regola: se una data o un esito vengono corretti, un SI automatico
+      può tornare NO (con traccia nello storico e messaggio a video).
+    - Il NO forzato scatta la prima volta che l'esito di un ciclo ARPA
+      diventa Negativo, anche se il PM aveva già scelto a mano.
+
+F2. Spostamento del Forecast Ottenimento Permessi per integrazione
+    (TOWERNET, INWIT, LEONARDO)
+    - Se, quando si compila Invio integrazione, il Protocollo è ancora
+      vuoto, non c'è un forecast base: quell'integrazione non sposta il
+      forecast.
+    - Il messaggio a video compare solo quando la data cambia davvero.
+
+F3. Ripresentazione Pratica nel ciclo ARPA
+    - Compilarla apre automaticamente un nuovo ciclo ARPA vuoto.
+    - In ILIAD (#87 F079) il tipo manca: la trattiamo come data, come
+      negli altri cinque gestori.
+
+F4. LEONARDO #21 F021 Data assegnazione
+    Il tipo manca nell'MD: la trattiamo come data, come negli altri
+    gestori.
+
+F5. Codice G7
+    Gli MD lo indicano come numero intero. Se un G7 può avere zeri
+    iniziali o lettere, dicci: in quel caso va gestito come testo.
+
+F6. Calendario degli alert
+    - Giorni lavorativi = da lunedì a venerdì, escluse le festività
+      nazionali (compresi Pasquetta e, dal 2026, il 4 ottobre, legge
+      151/2025).
+    - "Una settimana" = 7 giorni di calendario, poi il primo giorno
+      lavorativo alle 09:00.
+    - Il reminder settimanale si ripete ogni 7 giorni.

@@ -1,0 +1,206 @@
+PRACTICEHUB - ESITO DEL CONTROLLO FINALE DI COERENZA
+=====================================================
+Data: 08/10/2026
+Documenti controllati: Guida v8 (versione 08/10/2026) e i sei
+ASSOCIAZIONI_CAMPI_<CLIENTE>.md del pacchetto definitivo.
+
+Come richiesto, ho segnalato SOLO: incoerenze master/mirror, errori negli
+id_flusso, contraddizioni tra Guida e MD, requisiti non implementabili così
+come scritti. Le differenze tra MD e vecchi sorgenti non sono state
+considerate.
+
+Esito in breve: nessun errore negli id_flusso; 4 incoerenze master/mirror,
+1 contraddizione Guida/MD e 3 requisiti non implementabili così come scritti.
+Per ciascuno c'è una proposta: se va bene scrivi "OK" accanto a RISPOSTA,
+altrimenti la correzione.
+
+
+----------------------------------------------------------------------
+A. ID_FLUSSO
+----------------------------------------------------------------------
+
+Nessun errore. In tutti e sei gli MD la sequenza è continua e senza buchi,
+i range coincidono con lo snapshot della Guida (§18.B) e nessun ID è
+condiviso da campi diversi, a parte le occorrenze master/mirror della
+sezione B.
+
+
+----------------------------------------------------------------------
+B. INCOERENZE MASTER/MIRROR
+----------------------------------------------------------------------
+
+In questi casi lo stesso id_flusso compare in due sezioni e NESSUNA delle
+due occorrenze è dichiarata mirror / sola lettura. Così entrambi i gruppi
+potrebbero modificare lo stesso dato.
+
+B1. Campi AIE presenti sia in PM/Permessi (Pacchetto Permessi) sia in AIE
+    Campi: Riduzione, Approvazione Riduzione, Invio AIE, Approvazione AIE
+           (in ILIAD anche Invio CEM).
+    Gestori: tutti e sei.
+    Approvazione AIE chiude l'alert Forecast AIE.
+    Proposta (decisione v1 A3.1): master = AIE; l'occorrenza in
+    PM/Permessi è un pop-up in sola lettura.
+
+    RISPOSTA:
+
+
+B2. Forecast AIE
+    Gestori: TIM/FIBERCOP, TOWERNET, INWIT, FASTWEB-VODAFONE, LEONARDO
+    (ILIAD è già corretto).
+    Proposta (decisione v1 A3.1, come ILIAD): master = PM/Permessi;
+    l'occorrenza in AIE è in sola lettura.
+
+    RISPOSTA:
+
+
+B3. Assegnazione UT e Note Assegnazione UT ripetute due volte in
+    PM/Permessi (Fase Preliminare e sezione Ufficio Tecnico / Progettazione
+    Esecutiva)
+    Gestori: TIM/FIBERCOP (F034, F035), FASTWEB-VODAFONE (F033, F034).
+    La v2 M1 (approvata) prevedeva di eliminare il duplicato.
+    Proposta: master = l'occorrenza in Fase Preliminare; quella nella
+    sezione Ufficio Tecnico si elimina (oppure diventa mirror in sola
+    lettura).
+
+    RISPOSTA:
+
+
+B4. Invio AS/VS in Fase Preliminare
+    Gestori: TIM/FIBERCOP (F096), FASTWEB-VODAFONE (F072).
+    Il master è in UT; esiste già un pop-up PM in sola lettura nella
+    sezione Ufficio Tecnico. Anche l'occorrenza in Fase Preliminare non è
+    dichiarata mirror.
+    Proposta: è un pop-up in sola lettura (il campo lo compila UT).
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+C. CONTRADDIZIONE TRA GUIDA E MD
+----------------------------------------------------------------------
+
+C1. Campi nascosti in export e KPI
+    Guida §11 e §17.13: i valori dei campi nascosti restano inclusi in
+    export e KPI.
+    Tutti e sei gli MD (preambolo "Regole normative"): "il trattamento dei
+    campi nascosti in export/KPI resta fuori da questa baseline".
+    Proposta: è una regola trasversale, quindi vale la Guida; negli MD la
+    frase va aggiornata.
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+D. REQUISITI NON IMPLEMENTABILI COSÌ COME SCRITTI
+----------------------------------------------------------------------
+
+D1. "Altro" anche sui menu controllati
+    Guida §17.4 e MD: "Altro deve essere disponibile su tutti i menu
+    configurabili e controllati".
+    I menu controllati governano regole e automatismi: Stato attività, flag
+    SI/NO, Esiti ARPA, Stato ODA, Autorizzazione finale, stato dei vincoli,
+    Tipologia sito. Un valore libero lì non può essere interpretato dalle
+    regole (es. Fatturabile = "Altro", Stato ODA = "Altro" che non chiude
+    mai l'alert). Inoltre il tuo messaggio dell'08/10 parla solo di menu
+    configurabili.
+    Proposta: "Altro" su tutti i menu configurabili e, tra quelli
+    controllati, solo su Committente e Cliente Finale (dove era stato
+    deciso esplicitamente).
+
+    RISPOSTA:
+
+
+D2. Cancellazione di una pratica "soltanto mentre è CREATA" (Guida §14)
+    Anche ogni nuova iterazione della Ripresentazione totale riparte da
+    CREATA: cancellare in quel momento eliminerebbe la pratica con tutte le
+    iterazioni precedenti, contro la regola "tutte le iterazioni restano
+    consultabili".
+    Proposta: si può cancellare solo una pratica che ha UNA SOLA iterazione
+    ed è ancora in CREATA.
+
+    RISPOSTA:
+
+
+D3. Alert con destinatario "PM leader del gestore"
+    Guida §10 e §17.10: il "PM della pratica" sono i PM leader del gestore,
+    e non si sceglie un sostituto se il leader manca. Se un gestore non ha
+    nessun PM leader configurato, gli alert destinati solo al PM (Forecast
+    Ottenimento Permessi, Fatturabile con pratica KO) non arrivano a
+    nessuno.
+    Proposta: nella gestione utenti l'ADMIN è obbligato a configurare
+    almeno un PM leader per ogni gestore attivo (vincolo di
+    configurazione, senza sostituti automatici).
+
+    RISPOSTA:
+
+
+----------------------------------------------------------------------
+E. DECISIONI GIÀ PRESE MA ASSENTI DALLA GUIDA (solo conferma)
+----------------------------------------------------------------------
+
+Non è una contraddizione: queste regole sono state decise nelle direttive
+del 06/10 e nelle risposte v1/v2, ma non compaiono nella Guida 08/10.
+Le applico così come sono state decise, salvo tua indicazione contraria.
+
+  1. Ruoli: PM, Permessi, UT, PE, AIE, DL, ADMIN (supervisore globale).
+     Un utente può avere più coppie (cliente, gruppo, ruolo).
+  2. Prima di ricevere l'Assegna, un gruppo non può modificare i propri
+     campi operativi.
+  3. Archiviare: PM, DL, ADMIN, solo con Stato attività TERMINATO o KO;
+     sezione "Storico / Archivio"; ripristino: PM e ADMIN.
+     Modificare lo Stato attività a mano: PM e ADMIN.
+  4. Statistiche e carichi di lavoro di tutti i gruppi: PM e ADMIN;
+     carichi del proprio gruppo: team leader.
+  5. Soglie degli alert configurabili dall'ADMIN, per gestore.
+  6. Risoluzione manuale degli alert: team leader competenti e ADMIN.
+  7. Forecast UT e Forecast AIE: notifica in-app + mail.
+  8. Quando il PM assegna il PE si notifica anche il gruppo DL, in tutti
+     i gestori.
+
+    RISPOSTA (OK oppure numeri da correggere):
+
+
+----------------------------------------------------------------------
+NOTE (non richiedono risposta)
+----------------------------------------------------------------------
+
+- Refuso nella Guida §10: "La precedente denominazione `Assegna` è
+  superata" dovrebbe essere "`Passa`".
+- Negli MD resta la nota superata "id_flusso da assegnare" su Invio CEM
+  (TIM, TOWERNET, INWIT, FASTWEB-VODAFONE, LEONARDO).
+- Etichette uguali per campi diversi ("Deposito sismico" flag/data in tutti
+  i gestori; in ILIAD "EM" ×2 e "Invio offerta" / "Invio Offerta"): non
+  sono errori di id_flusso; in implementazione i campi sono identificati
+  dall'id_flusso e non dall'etichetta.
+- RICHIESTA: puoi inviare anche il file
+  "risposte_chiarimenti_v3_2026-10-08_finale.md"? Non mi è arrivato:
+  per questo controllo ho usato la versione delle risposte v3 che avevo e
+  la Guida aggiornata, che ne recepisce il contenuto.
+- Gli aspetti tecnici dell'assistente AI restano da definire con
+  Massimiliano, come indicato.
+
+
+----------------------------------------------------------------------
+ADDENDUM 08/10/2026 - due refusi negli MD (non richiedono risposta)
+----------------------------------------------------------------------
+
+Trovati durante l'estrazione automatica dagli MD. Li applichiamo come
+indicato qui sotto; se non va bene, scrivilo.
+
+1. TOWERNET F061 e INWIT F068 - Protocollo autocertificazione.
+   Gli MD riportano ancora "IF 'Forecast Ottenimento Permessi' >= 67 SEND
+   Alert. Compare solo se la condizione è avverata", che nella risposta v1
+   (A5.2) avevi dichiarato superato. Applichiamo la tua risposta: campo
+   sempre visibile, data manuale, nessun alert.
+
+2. LEONARDO F065 - Note Assegnazione PE, riga #70 (PM/Permessi).
+   La nota dice che è il master PM, ma la colonna condizione contiene anche
+   "sola visualizzazione" (copiata dal mirror #112). Applichiamo: master
+   modificabile dal PM, visibile con PE = SI.
+
+3. ILIAD F085 - DATA SCADENZA PERMESSI.
+   Nel questionario v3 (interpretazione J10) compariva "Scadenza permessi
+   +12 mesi", ma la regola veniva solo dal vecchio documento sorgente ILIAD:
+   l'MD canonico non la contiene. Applichiamo l'MD: campo data compilato a
+   mano, senza calcolo automatico. Se la regola va tenuta, va aggiunta
+   all'MD.

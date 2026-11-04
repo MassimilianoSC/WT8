@@ -1,0 +1,48 @@
+{
+  "version": "2",
+  "source": "Stato attività come DATI (D-41, D-115; Guida §14 corretta). Tra eventi automatici vince la data più recente scritta nei campi trigger; a parità di data decide statusOrder. Le regole con valueFlowId producono lo stato dal valore del campo (statusByValue) quando la data è compilata; un valore non elencato non produce eventi. IN_APPROVAZIONE resta solo manuale (nessun trigger nella baseline); FASTWEB-VODAFONE non ha INTEGRAZIONE_RICHIESTA; AUTORIZZATO/DINIEGATO/TAR solo in TOWERNET e INWIT.",
+  "statusOrder": {
+    "note": "Ordine di D-109, definitivo (D-120 A1), senza IN_APPROVAZIONE tra i trigger. AUTORIZZATO / DINIEGATO / TAR / KO nascono dallo stesso campo e hanno lo stesso rango.",
+    "ranks": {
+      "ASSEGNATO": 1,
+      "PROTOCOLLATO": 3,
+      "INTEGRAZIONE_RICHIESTA": 4,
+      "AUTORIZZATO": 5,
+      "DINIEGATO": 5,
+      "TAR": 5,
+      "KO": 5,
+      "REALIZZATO": 6
+    }
+  },
+  "manualPolicy": {
+    "rule": "D-115, D-119: uno stato impostato a mano da PM o ADMIN resta finché non vince un evento automatico NUOVO, cioè più recente dell'evento vincente memorizzato al comando manuale (data; a parità di data conta l'identità regola + riga). Svuotare un trigger non rilascia il manuale; una data più recente sì, anche con lo stesso stato calcolato. Stato ed evento automatici si calcolano e si memorizzano sempre.",
+    "source": "D-115, D-119 (sostituiscono il provvisorio di D-95)"
+  },
+  "rules": [
+    { "ruleId": "ASSEGNATO_ILIAD", "templateId": "ILIAD", "status": "ASSEGNATO", "dateFlowId": "F027", "active": true, "source": "D-41: Data assegnazione della Fase Preliminare" },
+    { "ruleId": "ASSEGNATO_TOWERNET", "templateId": "TOWERNET", "status": "ASSEGNATO", "dateFlowId": "F020", "active": true, "source": "D-41" },
+    { "ruleId": "ASSEGNATO_TIM_FIBERCOP", "templateId": "TIM_FIBERCOP", "status": "ASSEGNATO", "dateFlowId": "F026", "active": true, "source": "D-41" },
+    { "ruleId": "ASSEGNATO_INWIT", "templateId": "INWIT", "status": "ASSEGNATO", "dateFlowId": "F023", "active": true, "source": "D-41" },
+    { "ruleId": "ASSEGNATO_FASTWEB_VODAFONE", "templateId": "FASTWEB_VODAFONE", "status": "ASSEGNATO", "dateFlowId": "F025", "active": true, "source": "D-41" },
+    { "ruleId": "ASSEGNATO_LEONARDO", "templateId": "LEONARDO", "status": "ASSEGNATO", "dateFlowId": "F021", "active": true, "source": "D-41, D-93(1)" },
+    { "ruleId": "INTEGRAZIONE_ILIAD", "templateId": "ILIAD", "status": "INTEGRAZIONE_RICHIESTA", "dateFlowId": "F073", "repeatGroup": "INTEGRAZIONE", "active": true, "source": "D-41: ogni nuova Richiesta integrazione" },
+    { "ruleId": "INTEGRAZIONE_TOWERNET", "templateId": "TOWERNET", "status": "INTEGRAZIONE_RICHIESTA", "dateFlowId": "F048", "repeatGroup": "INTEGRAZIONE", "active": true, "source": "D-41" },
+    { "ruleId": "INTEGRAZIONE_TIM_FIBERCOP", "templateId": "TIM_FIBERCOP", "status": "INTEGRAZIONE_RICHIESTA", "dateFlowId": "F055", "repeatGroup": "INTEGRAZIONE", "active": true, "source": "D-41" },
+    { "ruleId": "INTEGRAZIONE_INWIT", "templateId": "INWIT", "status": "INTEGRAZIONE_RICHIESTA", "dateFlowId": "F055", "repeatGroup": "INTEGRAZIONE", "active": true, "source": "D-41" },
+    { "ruleId": "INTEGRAZIONE_LEONARDO", "templateId": "LEONARDO", "status": "INTEGRAZIONE_RICHIESTA", "dateFlowId": "F048", "repeatGroup": "INTEGRAZIONE", "active": true, "source": "D-41 (FASTWEB-VODAFONE non ha integrazioni)" },
+    { "ruleId": "PROTOCOLLATO_ILIAD", "templateId": "ILIAD", "status": "PROTOCOLLATO", "dateFlowId": "F072", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "PROTOCOLLATO_TOWERNET", "templateId": "TOWERNET", "status": "PROTOCOLLATO", "dateFlowId": "F044", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "PROTOCOLLATO_TIM_FIBERCOP", "templateId": "TIM_FIBERCOP", "status": "PROTOCOLLATO", "dateFlowId": "F054", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "PROTOCOLLATO_INWIT", "templateId": "INWIT", "status": "PROTOCOLLATO", "dateFlowId": "F051", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "PROTOCOLLATO_FASTWEB_VODAFONE", "templateId": "FASTWEB_VODAFONE", "status": "PROTOCOLLATO", "dateFlowId": "F049", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "PROTOCOLLATO_LEONARDO", "templateId": "LEONARDO", "status": "PROTOCOLLATO", "dateFlowId": "F045", "active": true, "source": "D-115: Protocollo dell'Iter Autorizzativo (Guida §14)" },
+    { "ruleId": "REALIZZATO_ILIAD", "templateId": "ILIAD", "status": "REALIZZATO", "dateFlowId": "F161", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "REALIZZATO_TOWERNET", "templateId": "TOWERNET", "status": "REALIZZATO", "dateFlowId": "F117", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "REALIZZATO_TIM_FIBERCOP", "templateId": "TIM_FIBERCOP", "status": "REALIZZATO", "dateFlowId": "F118", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "REALIZZATO_INWIT", "templateId": "INWIT", "status": "REALIZZATO", "dateFlowId": "F127", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "REALIZZATO_FASTWEB_VODAFONE", "templateId": "FASTWEB_VODAFONE", "status": "REALIZZATO", "dateFlowId": "F108", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "REALIZZATO_LEONARDO", "templateId": "LEONARDO", "status": "REALIZZATO", "dateFlowId": "F118", "active": true, "source": "D-115: Data FL (Guida §14)" },
+    { "ruleId": "AUTORIZZAZIONE_FINALE_TOWERNET", "templateId": "TOWERNET", "dateFlowId": "F064", "valueFlowId": "F062", "statusByValue": {"AUTORIZZATO": "AUTORIZZATO", "DINIEGATO": "DINIEGATO", "TAR": "TAR", "KO": "KO"}, "active": true, "source": "D-115: valore di Autorizzazione finale con la Data Autorizzazione finale compilata; KO → KO in TOWERNET" },
+    { "ruleId": "AUTORIZZAZIONE_FINALE_INWIT", "templateId": "INWIT", "dateFlowId": "F070", "valueFlowId": "F069", "statusByValue": {"AUTORIZZATO": "AUTORIZZATO", "DINIEGATO": "DINIEGATO", "TAR": "TAR", "KO": "KO"}, "active": true, "source": "D-115, D-120 A2: valore di Autorizzazione finale con la Data Autorizzazione finale compilata; KO → KO anche in INWIT" }
+  ]
+}

@@ -1,0 +1,56 @@
+# PracticeHub — local containerized stack (Next.js app + MongoDB)
+# Usage:
+#   cp frontend/.env.example frontend/.env   # then edit as needed
+#   docker compose up --build
+# App:   http://localhost:3000
+# Mongo: mongodb://localhost:27017
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      # host 3100 -> container 3000 (3000 è già usata da altri progetti su questo PC)
+      - "3100:3000"
+    environment:
+      # Database
+      MONGO_URL: mongodb://mongo:27017
+      DB_NAME: ${DB_NAME:-practicehub}
+      # Auth (CHANGE the secret in production!)
+      AUTH_SECRET: ${AUTH_SECRET:-change-me-in-production}
+      NEXTAUTH_SECRET: ${AUTH_SECRET:-change-me-in-production}
+      AUTH_URL: ${AUTH_URL:-http://localhost:3000}
+      NEXTAUTH_URL: ${AUTH_URL:-http://localhost:3000}
+      AUTH_TRUST_HOST: "true"
+      APP_BASE_URL: ${AUTH_URL:-http://localhost:3000}
+      # Initial admin (seeded on first run)
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Admin@12345}
+      # SMTP (leave SMTP_HOST empty to log emails to the container console)
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_SECURE: ${SMTP_SECURE:-false}
+      SMTP_FROM: ${SMTP_FROM:-PracticeHub <no-reply@practicehub.local>}
+
+volumes:
+  mongo_data:

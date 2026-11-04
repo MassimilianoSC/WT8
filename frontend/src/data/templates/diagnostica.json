@@ -1,0 +1,914 @@
+[
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F018",
+    "message": "\"Referente Fastweb\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 18,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F019",
+    "message": "\"RAN Fastweb\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 19,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F020",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 20,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_NOT_FOUND",
+    "flowId": "F035",
+    "message": "\"Progettista / Tecnico\": nessuna lista in LISTE_VALORI_INIZIALI (menù a tendina che si popola volta per volta); creata lista CONFIGURABLE vuota",
+    "row": 36,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F088",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 69,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F067",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 88,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F083",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 106,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F101",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 115,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F102",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 116,
+    "severity": "WARNING",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F019",
+    "message": "\"Referente\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 19,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F020",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 20,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_NOT_FOUND",
+    "flowId": "F047",
+    "message": "\"Progettista / Tecnico\": nessuna lista in LISTE_VALORI_INIZIALI (menù a tendina che si popola volta per volta); creata lista CONFIGURABLE vuota",
+    "row": 50,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F048",
+    "message": "\"Fornitore Permessi\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 51,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "DTYPE_FALLBACK",
+    "flowId": "F058",
+    "message": "\"XML\": dtype vuoto → TEXT (D-72)",
+    "row": 66,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "DTYPE_FALLBACK",
+    "flowId": "F098",
+    "message": "\"Offerta Inviata\": dtype vuoto → TEXT (D-72)",
+    "row": 115,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "DTYPE_FALLBACK",
+    "flowId": "F112",
+    "message": "\"AGORA’\": dtype vuoto → TEXT (D-72)",
+    "row": 129,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F113",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 132,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F130",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 151,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F138",
+    "message": "\"Fornitore Caratterizzazione\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 159,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F145",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 171,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F154",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 183,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F155",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 184,
+    "severity": "WARNING",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F017",
+    "message": "\"Referente\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 17,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F018",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 18,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F037",
+    "message": "\"Fornitore PP\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 40,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F083",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 89,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F096",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 108,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F104",
+    "message": "\"Fornitore Caratterizzazione\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 116,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F111",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 128,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F120",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 138,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F121",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 139,
+    "severity": "WARNING",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F016",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 16,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F029",
+    "message": "\"Fornitore PP\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 29,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F073",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 82,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F086",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 101,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F102",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 124,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F111",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 133,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F112",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 134,
+    "severity": "WARNING",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F019",
+    "message": "\"Assistente TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 19,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F020",
+    "message": "\"Progettista TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 20,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F021",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 21,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F038",
+    "message": "\"Fornitore PP\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 39,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F072",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 89,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F091",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 108,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F102",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 125,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F111",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 135,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F112",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 136,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F012",
+    "message": "\"Incarico / Lavorazione\": lista INCOMPLETA nel CSV (valori da completare in Configurazione)",
+    "row": 12,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F015",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 15,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F031",
+    "message": "\"Fornitore PP\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 31,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F056",
+    "message": "\"Nome Ente\": lista INCOMPLETA nel CSV (valori da completare in Configurazione)",
+    "row": 56,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F077",
+    "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 81,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F090",
+    "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 100,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F101",
+    "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 116,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F110",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 126,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F111",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 127,
+    "severity": "WARNING",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F032",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 32,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F054",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
+    "row": 55,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F055",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 56,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F056",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 57,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F057",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 58,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F058",
+    "message": "etichetta \"Scadenza permesso “Nome ente”\" → \"Scadenza permesso\" (segnaposto tolto, D-182)",
+    "row": 59,
+    "severity": "INFO",
+    "templateId": "FASTWEB_VODAFONE"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F016",
+    "message": "\"Progetto\": TEXT → SELECT (D-76)",
+    "row": 16,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F031",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 31,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "MIRROR_TYPE",
+    "flowId": "F137",
+    "message": "mirror \"Tecnico\" dichiarato Menù a tendina, eredita USER dal master #158",
+    "row": 47,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F058",
+    "message": "\"XML\" ha una lista nel CSV ma è TEXT nell'MD: lista non collegata",
+    "row": 66,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F080",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
+    "row": 88,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F081",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 89,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F082",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 90,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F083",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 91,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "MIRROR_TYPE",
+    "flowId": "F143",
+    "message": "mirror \"PE incaricato da\" dichiarato menù a tendina, eredita USER dal master #169",
+    "row": 106,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F112",
+    "message": "\"AGORA’\" ha una lista nel CSV ma è TEXT nell'MD: lista non collegata",
+    "row": 129,
+    "severity": "INFO",
+    "templateId": "ILIAD"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente (Todos, Telebit e Sirti)\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F005",
+    "message": "etichetta \"Cliente Finale (DA SOSTITUIRE A “GESTIONALE”)\" → \"Cliente Finale\" (segnaposto tolto, D-182)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale (DA SOSTITUIRE A “GESTIONALE”)\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F013",
+    "message": "\"Progetto\": TEXT → SELECT (D-76)",
+    "row": 13,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F027",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 28,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "MIRROR_TYPE",
+    "flowId": "F103",
+    "message": "mirror \"Tecnico\" dichiarato menù a tendina, eredita USER dal master #115",
+    "row": 38,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F063",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
+    "row": 66,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F064",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 67,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F065",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 68,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F066",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 69,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F067",
+    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "row": 70,
+    "severity": "INFO",
+    "templateId": "INWIT"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F024",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 24,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F056",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
+    "row": 54,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F057",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 55,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F058",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 56,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F059",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 57,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F060",
+    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "row": 58,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "MIRROR_TYPE",
+    "flowId": "F100",
+    "message": "mirror \"PE incaricato da\" dichiarato menù a tendina, eredita USER dal master #122",
+    "row": 74,
+    "severity": "INFO",
+    "templateId": "LEONARDO"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F015",
+    "message": "\"Progetto\": TEXT → SELECT (D-76)",
+    "row": 15,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F030",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 30,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_IGNORED",
+    "flowId": "F063",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
+    "row": 64,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F064",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 65,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F065",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 66,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F066",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 67,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F067",
+    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "row": 68,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "MIRROR_TYPE",
+    "flowId": "F100",
+    "message": "mirror \"PE incaricato da\" dichiarato menù a tendina, eredita USER dal master #123",
+    "row": 82,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F004",
+    "message": "\"Committente (Towernet)\": TEXT → SELECT (D-76)",
+    "row": 4,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F005",
+    "message": "etichetta \"Cliente Finale (DA SOSTITUIRE A “GESTIONALE”)\" → \"Cliente Finale\" (segnaposto tolto, D-182)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "TYPE_NORMATIVE",
+    "flowId": "F005",
+    "message": "\"Cliente Finale (DA SOSTITUIRE A “GESTIONALE”)\": TEXT → SELECT (D-76)",
+    "row": 5,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "VINCOLI_CONTAINER",
+    "flowId": "F023",
+    "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
+    "row": 23,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F057",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 57,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F058",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "row": 58,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F059",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "row": 59,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  },
+  {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F060",
+    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "row": 60,
+    "severity": "INFO",
+    "templateId": "TOWERNET"
+  }
+]

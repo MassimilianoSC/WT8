@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PracticeHub — Questioni residue v2</title>
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f4f4f4; --fg:#0a0a0a; --fg2:#555; --line:#0a0a0a; --line2:#d6d6d6;
+  --accent:#002EA6; --red:#E60000; --amber:#C98A00; --gray:#777; --green:#00A35C;
+  --sel:#e8edfb; --card:#ffffff;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0d0d; --bg2:#181818; --fg:#f2f2f2; --fg2:#a8a8a8; --line:#f2f2f2; --line2:#333;
+    --accent:#6f8dff; --red:#ff4d4d; --amber:#f0b429; --gray:#999; --green:#2ecc8a; --sel:#1b2340; --card:#121212;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --bg2:#181818; --fg:#f2f2f2; --fg2:#a8a8a8; --line:#f2f2f2; --line2:#333;
+  --accent:#6f8dff; --red:#ff4d4d; --amber:#f0b429; --gray:#999; --green:#2ecc8a; --sel:#1b2340; --card:#121212;
+}
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans)}
+a{color:var(--accent)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:var(--bg);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+button:hover{background:var(--fg);color:var(--bg)}
+button.primary{background:var(--fg);color:var(--bg)}
+button.primary:hover{background:var(--accent);border-color:var(--accent)}
+input[type=text],input[type=search],select,textarea{background:var(--bg);border:1px solid var(--line2);padding:6px 8px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+textarea{min-height:52px;resize:vertical}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:13.5px}
+th,td{border:1px solid var(--line2);padding:5px 7px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:600}
+code{font-family:var(--mono);font-size:.88em;background:var(--bg2);padding:0 3px}
+
+header.top{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.topin{display:flex;gap:16px;align-items:center;padding:10px 20px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:18px}
+.brand small{display:block;font-weight:400;font-size:12px;color:var(--fg2);letter-spacing:0}
+.prog{flex:1;min-width:180px}
+.bar{height:8px;border:1px solid var(--line);position:relative;background:var(--bg2)}
+.bar>i{position:absolute;left:0;top:0;bottom:0;background:var(--fg);transition:width .3s}
+.prog .lbl{font-size:12px;color:var(--fg2);margin-top:3px;font-family:var(--mono)}
+.actions{display:flex;gap:6px;flex-wrap:wrap}
+.wrap{display:grid;grid-template-columns:280px minmax(0,1fr);min-height:calc(100vh - 60px)}
+aside{border-right:1px solid var(--line);padding:16px;position:sticky;top:61px;height:calc(100vh - 61px);overflow:auto;background:var(--bg)}
+main{padding:24px clamp(16px,3vw,40px) 80px;max-width:1080px;min-width:0;overflow-wrap:anywhere}
+aside h4{margin:18px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg2)}
+aside h4:first-child{margin-top:0}
+.nav a{display:flex;justify-content:space-between;gap:8px;padding:4px 6px;text-decoration:none;color:var(--fg);font-size:13.5px}
+.nav a:hover{background:var(--bg2)}
+.nav a.done{color:var(--fg2)}
+.nav a .c{font-family:var(--mono);font-size:12px;color:var(--fg2)}
+.nav a.sub{padding-left:16px;font-size:13px}
+.filters label{display:flex;gap:6px;align-items:center;font-size:13.5px;cursor:pointer;padding:2px 0}
+.filters select{margin-top:4px}
+.menu-toggle{display:none}
+
+.intro{border:1px solid var(--line);padding:20px;margin-bottom:28px}
+.intro h1{margin:0 0 4px;font-size:28px;letter-spacing:-.02em;line-height:1.15}
+.intro .sub{color:var(--fg2);margin-bottom:14px}
+.intro ul{margin:6px 0 12px;padding-left:20px;font-size:14px}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.meta label{font-size:12px;color:var(--fg2);display:block}
+.stats{display:flex;margin-top:14px;border:1px solid var(--line)}
+.stats>div{flex:1;padding:10px 12px;border-right:1px solid var(--line)}
+.stats>div:last-child{border-right:0}
+.stats b{font-size:22px;display:block;font-family:var(--mono)}
+.stats span{font-size:12px;color:var(--fg2)}
+
+.sec-h{margin:36px 0 12px;font-size:20px;letter-spacing:-.01em;border-top:2px solid var(--line);padding-top:10px;display:flex;gap:10px;align-items:center}
+.q{border:1px solid var(--line);margin:0 0 16px;background:var(--card);scroll-margin-top:80px}
+.q.complete{border-color:var(--line2)}
+.q.complete .qh{background:var(--bg2)}
+.qh{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--line2);cursor:pointer;user-select:none}
+.qid{font-family:var(--mono);font-weight:700;font-size:13px;min-width:34px;padding-top:2px}
+.qt{flex:1;font-weight:600}
+.badges{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.b{font-size:11px;font-weight:600;padding:1px 6px;border:1px solid var(--line2);font-family:var(--mono);letter-spacing:.02em;white-space:nowrap}
+.b.ex{color:var(--fg2)}
+.g-B{background:var(--red);color:#fff;border-color:var(--red)}
+.g-C{background:var(--amber);color:#000;border-color:var(--amber)}
+.g-M{background:transparent;color:var(--gray);border-color:var(--gray)}
+.state{font-family:var(--mono);font-size:12px;color:var(--fg2);white-space:nowrap;padding-top:2px}
+.state.ok{color:var(--green);font-weight:700}
+.chev{transition:transform .2s;padding-top:2px}
+.q.closed .chev{transform:rotate(-90deg)}
+.q.closed .qb{display:none}
+.qb{padding:14px}
+.why{display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line2);margin-bottom:14px;font-size:14px}
+.why>div{padding:7px 10px;border-bottom:1px solid var(--line2)}
+.why>div:nth-last-child(-n+2){border-bottom:0}
+.why .k{background:var(--bg2);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--fg2)}
+.why p{margin:0 0 6px}.why p:last-child{margin:0}
+.why ul{margin:2px 0;padding-left:18px}
+.item{margin:0 0 14px;padding-bottom:12px;border-bottom:1px dashed var(--line2)}
+.item:last-of-type{border-bottom:0}
+.iq{font-weight:600;font-size:14px;margin-bottom:6px;display:flex;gap:8px}
+.iq .n{font-family:var(--mono);color:var(--fg2);font-weight:400;flex:none;white-space:nowrap;overflow-wrap:normal}
+.opts{display:flex;flex-direction:column;gap:4px}
+.opts.row{flex-direction:row;flex-wrap:wrap}
+.opt{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line2);padding:6px 10px;cursor:pointer;font-size:14px}
+.opt:hover{border-color:var(--line)}
+.opt input{margin-top:3px;accent-color:var(--accent)}
+.opt.on{border-color:var(--accent);background:var(--sel)}
+.opt .k{font-family:var(--mono);font-weight:700;min-width:18px}
+.other{margin-top:6px}
+.grid-in td,.grid-in th{font-size:13px}
+.grid-in select{padding:3px 4px;min-width:90px}
+.note{margin-top:10px}
+.note label{font-size:12px;color:var(--fg2)}
+.empty{border:1px dashed var(--line2);padding:30px;text-align:center;color:var(--fg2)}
+
+details.interp{border:1px solid var(--line);margin-top:40px}
+details.interp>summary{cursor:pointer;padding:14px;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center}
+details.interp>summary::-webkit-details-marker{display:none}
+details.interp>summary .c{font-family:var(--mono);font-size:13px;font-weight:400;color:var(--fg2)}
+details.interp[open]>summary{border-bottom:1px solid var(--line)}
+.interp-in{padding:14px}
+.interp-in>p{font-size:14px;margin:0 0 12px;color:var(--fg2)}
+.ip{border:1px solid var(--line2);padding:10px 12px;margin-bottom:10px;scroll-margin-top:80px}
+.ip.ok{border-left:4px solid var(--green)}
+.ip.fix{border-left:4px solid var(--red)}
+.ip .ih{display:flex;gap:10px;align-items:baseline}
+.ip .ih b{font-family:var(--mono);font-size:12.5px;min-width:30px}
+.ip .rule{font-size:14px;flex:1}
+.ip .src{font-size:12px;color:var(--fg2);margin:4px 0 8px 40px}
+.ip .ctl{display:flex;gap:6px;margin-left:40px;flex-wrap:wrap}
+.ip .ctl .opt{padding:3px 10px;font-size:13px}
+.ip textarea{margin:8px 0 0 40px;width:calc(100% - 40px);min-height:40px}
+.ip h5{margin:16px 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg2)}
+
+.summary{margin-top:40px;border:2px solid var(--line);padding:16px 18px}
+.summary h2{margin:0 0 10px;font-size:18px}
+.summary table td:first-child{width:50%}
+footer.end{margin-top:24px;font-size:13px;color:var(--fg2)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  header.top{position:static}
+  aside{position:fixed;left:0;top:0;height:100vh;width:86%;max-width:320px;z-index:40;transform:translateX(-100%);transition:transform .25s}
+  aside.open{transform:none}
+  .menu-toggle{display:inline-block}
+  .meta{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap}
+  .stats>div{min-width:50%;border-bottom:1px solid var(--line)}
+  .topin{padding:10px 16px}
+  main{padding:16px 16px 80px}
+  .why{grid-template-columns:1fr}
+  .why .k{border-bottom:0!important}
+  .why table,.grid-in{display:block;overflow-x:auto;max-width:100%}
+  .actions button{padding:6px 9px;font-size:13px}
+  .brand{font-size:16px}
+  .ip .src,.ip .ctl{margin-left:0}.ip textarea{margin-left:0;width:100%}
+}
+@media print{
+  header.top,aside,.actions,.filters{display:none!important}
+  .wrap{display:block}
+  .q{break-inside:avoid}
+  .q.closed .qb{display:block}
+  body{font-size:11.5px}
+  .opt:not(.on){display:none}
+  details.interp{display:block}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <button class="menu-toggle" id="menuBtn" aria-label="Apri indice">☰</button>
+    <div class="brand">PracticeHub · Questioni residue v2<small>Dopo risposte del 05/10 e direttive del 06/10/2026</small></div>
+    <div class="prog"><div class="bar"><i id="barFill" style="width:0"></i></div><div class="lbl" id="progLbl">0 / 0</div></div>
+    <div class="actions">
+      <button id="expMd" class="primary" title="Scarica le risposte in Markdown">Esporta risposte</button>
+      <button id="expJson" title="Scarica un file JSON reimportabile">JSON</button>
+      <button id="impJson" title="Ricarica un file JSON di risposte">Importa</button>
+      <button id="printBtn" title="Stampa o salva in PDF">Stampa</button>
+      <button id="themeBtn" title="Tema chiaro/scuro">◐</button>
+      <input type="file" id="fileIn" accept=".json,application/json" hidden>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside id="side">
+    <h4>Filtri</h4>
+    <div class="filters">
+      <input type="search" id="fSearch" placeholder="Cerca (es. ODA, ripresentazione)">
+      <label style="margin-top:8px"><input type="checkbox" class="fG" value="B" checked> <span class="b g-B">BLOCCANTE</span></label>
+      <label><input type="checkbox" class="fG" value="C" checked> <span class="b g-C">DA CHIARIRE</span></label>
+      <label><input type="checkbox" class="fG" value="M" checked> <span class="b g-M">MINORE</span></label>
+      <select id="fClient">
+        <option value="">Tutti i gestori</option>
+        <option>ILIAD</option><option>TOWERNET</option><option value="TIM">TIM / FIBERCOP</option>
+        <option>INWIT</option><option value="FV">FASTWEB / VODAFONE</option><option>LEONARDO</option>
+      </select>
+      <label style="margin-top:6px"><input type="checkbox" id="fOpen"> Solo da completare</label>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button id="expandAll" style="flex:1;font-size:12px">Apri tutte</button>
+        <button id="collapseAll" style="flex:1;font-size:12px">Chiudi tutte</button>
+      </div>
+    </div>
+    <h4>Indice</h4>
+    <nav class="nav" id="nav"></nav>
+    <h4>Dati</h4>
+    <button id="resetBtn" style="width:100%;font-size:12px">Azzera tutte le risposte</button>
+  </aside>
+
+  <main>
+    <section class="intro">
+      <h1>Questioni ancora aperte</h1>
+      <div class="sub">Seconda tornata. Contiene <b>solo</b> le questioni rimaste aperte dopo aver recepito:</div>
+      <ul>
+        <li>le risposte del 05/10 (<code>risposte_practicehub_v8_2026-10-05</code>, 25 domande su 61 complete);</li>
+        <li>le nove direttive progettuali e i due messaggi di chiarimento del 06/10, che prevalgono sulle risposte precedenti.</li>
+      </ul>
+      <p style="margin:0 0 8px;font-size:14px">Ogni questione indica <b>perché è ancora aperta</b>, <b>quale decisione manca</b> e <b>cosa coinvolge</b>, con il riferimento alla vecchia domanda (es. <span class="b ex">ex A1.8</span>). Le decisioni già prese sono raccolte in <code>DECISIONI_CONSOLIDATE.md</code>.</p>
+      <p style="margin:0;font-size:14px">In fondo alla pagina c'è la sezione <b>Interpretazioni applicate</b>, chiusa di default. Elenca le deduzioni fatte per costruire questo questionario: per ognuna basta indicare <em>Confermo</em> o <em>Correggi</em>. Non conta tra le questioni.<br>
+      Le risposte <b>restano salvate in questo browser</b>, in un archivio separato da quello del primo questionario. Alla fine premi <b>Esporta risposte</b>.</p>
+      <div class="meta">
+        <div><label for="mName">Compilato da</label><input type="text" id="mName" placeholder="Nome e cognome"></div>
+        <div><label for="mDate">Data</label><input type="text" id="mDate" placeholder="gg/mm/aaaa"></div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+    <div id="list"></div>
+    <div id="emptyMsg" class="empty" hidden>Nessuna questione corrisponde ai filtri.</div>
+
+    <details class="interp" id="interp">
+      <summary><span>Interpretazioni applicate <span style="font-weight:400;font-size:13px;color:var(--fg2)">(non entrano nel conteggio)</span></span><span class="c" id="interpCount"></span></summary>
+      <div class="interp-in">
+        <p>Queste sono le deduzioni che ho fatto applicando le direttive e le risposte. Per ognuna sono indicate la regola applicata e la fonte da cui deriva. Se una deduzione è sbagliata, scegli <b>Correggi</b> e scrivi la versione giusta.</p>
+        <div id="interpList"></div>
+      </div>
+    </details>
+
+    <section class="summary" id="summary"></section>
+    <footer class="end">Fonti: Guida v8, 6 file ASSOCIAZIONI_CAMPI, 6 documenti Organizzazione Campi, risposte del 05/10, direttive e chiarimenti del 06/10. Decisioni recepite: <code>DECISIONI_CONSOLIDATE.md</code>.</footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================================================================
+   DATI
+   Q: id, g (B/C/M), ex (vecchie domande), cl (clienti), t (titolo),
+      why (perché è aperta), need (decisione che manca), scope (cosa coinvolge),
+      it (sotto-domande: ch | yn | tx | gr)
+   I: interpretazioni applicate (id, grp, rule, src)
+   ================================================================ */
+const ALL=['ILIAD','TOWERNET','TIM','INWIT','FV','LEONARDO'];
+const CL_LABEL={ILIAD:'ILIAD',TOWERNET:'TOWERNET',TIM:'TIM/FIBERCOP',INWIT:'INWIT',FV:'FASTWEB/VODAFONE',LEONARDO:'LEONARDO'};
+const GSEC={B:'Bloccanti',C:'Da chiarire',M:'Minori'};
+const GLBL={B:'BLOCCANTE',C:'DA CHIARIRE',M:'MINORE'};
+const YN=['Sì','No'];
+const OKFIX=['Confermo','Correggo (vedi nota)'];
+
+const Q=[
+/* ======================= BLOCCANTI ======================= */
+{id:'B1',g:'B',ex:['A1.8','B3.2','B5.2'],cl:ALL,t:'Come si ricava il template dai dati della pratica',
+why:`<p>È stato deciso che il template si ricava da <b>Committente + Cliente Finale</b> [R A1.8]. Con i valori dei sorgenti però la regola non funziona:</p>
+<ul><li><b>SIRTI</b> e <b>TELEBIT</b> sono Committenti sia di ILIAD (CONSORZIO (ILIAD), CONSORZIO (ERICSSON), CELLNEX, SIRTI, SITE, TELEBIT, CIRCET) sia di INWIT (Todos, Telebit, Sirti);</li>
+<li><b>LEONARDO</b> non ha il campo Committente;</li>
+<li>il Cliente Finale <b>non ha valori</b> in INWIT, TOWERNET e LEONARDO;</li>
+<li>TIM/FIBERCOP: la risposta "non è un unico cliente" [R B3.2] non chiarisce se servono due template, visto che il sorgente è uno solo;</li>
+<li>la domanda "Fastweb e Vodafone sono un unico cliente?" non ha risposta.</li></ul>`,
+need:`Una tabella univoca (Committente, Cliente Finale) → template, e cosa fare quando la combinazione è ambigua o sconosciuta.`,
+scope:`Creazione della pratica, import, filtri per cliente, statistiche. Tutti i gestori.`,
+it:[{q:'Fornisci la tabella (Committente, Cliente Finale) → template, oppure almeno i valori di Cliente Finale per INWIT, TOWERNET e LEONARDO e come si distinguono le pratiche SIRTI e TELEBIT tra ILIAD e INWIT.',type:'tx'},
+{q:'Se la combinazione è ambigua o sconosciuta:',type:'ch',opts:['Chi crea la pratica sceglie il template a mano','Il template si sceglie sempre a mano alla creazione; la derivazione serve solo a proporlo','La creazione resta bloccata finché i dati non sono corretti']},
+{q:'TIM / FIBERCOP:',type:'ch',opts:['Due template con gli stessi campi, distinti solo per filtri e statistiche','Due template con campi diversi (indica le differenze)','Un solo template; Cliente Finale distingue TIM da Fibercop'],other:true},
+{q:'FASTWEB / VODAFONE:',type:'ch',opts:['Un solo template; Cliente Finale ammette Fastweb e Vodafone','Un solo template; Cliente Finale ammette solo Fastweb','Due template distinti']},
+{q:'LEONARDO, che non ha Committente: il template si ricava dal solo Cliente Finale?',type:'yn'}]},
+
+{id:'B2',g:'B',ex:['A1.7','P1 §9'],cl:ALL,t:'Ripresentazione totale: regole operative',
+why:`<p>Il concetto è definito: nuova iterazione della stessa pratica, storico intatto, i blocchi anagrafici passati alla nuova iterazione tranne G7, ODA, Note ODA e Stato ODA, alert solo sull'iterazione corrente. Mancano però le regole per gestirla.</p>`,
+need:`Chi la avvia, cosa ricomincia da zero e cosa no (campi trasversali, Stato attività, abilitazioni dei gruppi), e il rapporto con l'Archivio.`,
+scope:`Modello dati (iterazioni), permessi, Stato attività, Fatturabile, alert, Archivio. Tutti i gestori.`,
+it:[{q:'Chi può avviare una Ripresentazione totale?',type:'ch',opts:['PM e ADMIN','PM, DL e ADMIN (come l\'avvio di una pratica)','PM leader e ADMIN'],other:true},
+{q:'Nella nuova iterazione, oltre ai due blocchi anagrafici, ricomincia da zero',type:'ch',opts:['Tutto il resto: ogni sezione operativa riparte vuota','Solo alcune sezioni (indica quali passano alla nuova iterazione)'],other:true},
+{q:'Note Operative, Fatturabile e Fatturato sono',type:'ch',opts:['Per iterazione: nella nuova ripartono vuoti','Per pratica: restano uguali in tutte le iterazioni','Misto (indica quali)'],other:true},
+{q:'Stato attività all\'inizio della nuova iterazione',type:'ch',opts:['Riparte vuoto, fino al primo evento automatico','Riparte da ASSEGNATO','Resta quello che aveva'],other:true},
+{q:'I gruppi abilitati dal Passa nell\'iterazione precedente',type:'ch',opts:['Ripartono da zero: è abilitato solo PM/Permessi e servono nuovi Passa','Restano abilitati']},
+{q:'Si può avviare una Ripresentazione totale su una pratica archiviata (TERMINATO o KO)?',type:'ch',opts:['Sì, e la pratica torna attiva','No: prima va ripristinata dall\'Archivio (PM o ADMIN)']}]},
+
+{id:'B3',g:'B',ex:['A1.7','A1.8'],cl:ALL,t:'Rilavorazione e import: riconoscere pratica e iterazione',
+why:`<p>Ora il Codice G7 appartiene all'<b>iterazione</b> ed è univoco; la pratica ha un ID interno. L'import usa come chiave <b>G7 + Codice Sito + Nome Sito</b> [R A1.8]. Non esiste un'entità Sito [R A1.7], ma la rilavorazione crea una nuova pratica "collegata allo stesso sito".</p>`,
+need:`Come l'import riconosce una nuova pratica, una nuova iterazione o un aggiornamento; come si registra il collegamento della rilavorazione; cosa fa l'import con i dati inseriti a mano.`,
+scope:`Import da Excel, rilavorazione, storico. Tutti i gestori.`,
+it:[{q:'Riga di import con un G7 nuovo ma con Codice Sito e Nome Sito di una pratica già esistente:',type:'ch',opts:['Diventa una nuova pratica (rilavorazione)','Diventa una nuova iterazione della pratica esistente (Ripresentazione totale)','Viene segnalata e si sceglie a mano']},
+{q:'Se una riga riguarda un G7 esistente e i valori differiscono da quelli inseriti a mano:',type:'ch',opts:['L\'import non sovrascrive i campi già compilati','L\'import sovrascrive','L\'import segnala il conflitto e si decide a mano']},
+{q:'Il collegamento della rilavorazione alla pratica di origine si registra',type:'ch',opts:['Con un riferimento esplicito "pratica di origine", oltre allo stesso Codice Sito','Solo tramite lo stesso Codice Sito, senza riferimento esplicito']},
+{q:'Chi può avviare una rilavorazione?',type:'ch',opts:['Chi può avviare una pratica (PM, DL, ADMIN)','Solo PM e ADMIN'],other:true},
+{q:'Per avviare una rilavorazione la pratica di origine deve essere TERMINATO, KO o archiviata?',type:'yn'}]},
+
+{id:'B4',g:'B',ex:['A1.5 (i)','C2 §8'],cl:ALL,t:'Valori dei domini controllati',
+why:`<p>Hai risposto che i valori dei sorgenti <b>non sono definitivi</b> [R A1.5]. I domini usati da alert, condizioni e automazioni però devono avere un codice tecnico stabile e non sono gestiti dalla Configurazione [C2 §8]. Qui sotto ci sono i valori dei sorgenti per ciascun dominio: conferma o correggi.</p>`,
+need:`L'elenco definitivo dei valori per ogni dominio controllato.`,
+scope:`Alert, condizioni, Stato attività, Fatturabile, regole sui vincoli. Tutti i gestori.`,
+it:[{q:'Conferma i valori (correzioni nella nota)',type:'gr',rows:[
+'SI / NO',
+'Stato attività: ASSEGNATO, IN LAVORAZIONE, IN APPROVAZIONE, PROTOCOLLATO, INTEGRAZIONE RICHIESTA, AUTORIZZATO, DINIEGATO, TAR, REALIZZATO, TERMINATO, STAND-BY, KO',
+'Stato ODA: DA RICHIEDERE, RICHIESTI, PRESENTI, FATTURATO',
+'Esito parere Arpa / Esito "nome ente": Positivo, Negativo',
+'Autorizzazione finale: AUTORIZZATO, DINIEGATO, TAR, KO (KO presente solo in TOWERNET)',
+'Tipologia sito: Raw Land, Roof Top, Traliccio (Traliccio presente solo in ILIAD)',
+'Stato dei vincoli: Presente, Assente, Non pertinente, Assolto',
+'Committenti usati nelle condizioni: CELLNEX (CDMS, Invio CDMS, AGORA\'), CONSORZIO (ERICSSON) (WCN)'],cols:['Esito'],vals:OKFIX},
+{q:'Autorizzazione finale: lo stesso dominio, con KO, vale anche per INWIT?',type:'yn'},
+{q:'Tipologia sito: "Traliccio" vale per tutti i gestori o solo per ILIAD?',type:'ch',opts:['Per tutti','Solo per ILIAD']}]},
+
+{id:'B5',g:'B',ex:['A7.3'],cl:['ILIAD','TOWERNET','TIM','INWIT'],t:'Alert Offerta → ODA: quando si chiude',
+why:`<p>Alla domanda "l'alert si chiude quando c'è almeno un ODA?" la risposta è stata <b>No</b> [R A7.3], ma non è indicata l'alternativa. ODA è un gruppo ripetibile {ODA, Note ODA}, mentre l'Offerta è un campo singolo.</p>`,
+need:`L'evento che chiude l'alert "1 settimana dopo Invio Offerta senza ODA" e dei suoi reminder settimanali.`,
+scope:`Alert WT8 Offerta → ODA: ILIAD (da F099), TOWERNET, TIM/FIBERCOP, INWIT.`,
+it:[{q:'L\'alert si chiude',type:'ch',opts:['Quando arriva l\'ODA collegato a quell\'Offerta: l\'Offerta diventa ripetibile e ogni Offerta ha i propri ODA','Quando il team leader o l\'ADMIN lo risolve a mano, dopo che sono arrivati tutti gli ODA previsti','Quando si compila un campo di stato (es. "ODA completi" SI/NO) da aggiungere'],other:true},
+{q:'In una pratica possono esserci più Offerte?',type:'yn'}]},
+
+/* ======================= DA CHIARIRE ======================= */
+{id:'C1',g:'C',ex:['A5.4','A7.2'],cl:ALL,t:'Giorni di calendario o lavorativi, orari dei reminder',
+why:`<p>Le direttive dicono esplicitamente che questi punti vanno riproposti [P1 §8]. Alcuni sorgenti scrivono "anche non lavorativi" (Forecast Geologica +15 gg, LEONARDO +67 gg).</p>`,
+need:`Il criterio di conteggio dei giorni e quando partono notifiche e reminder.`,
+scope:`Tutte le soglie degli alert e tutte le formule sulle date. Tutti i gestori.`,
+it:[{q:'Soglie degli alert e formule si contano in giorni',type:'ch',opts:['Di calendario, ovunque','Lavorativi per gli alert, di calendario per le formule','Lavorativi ovunque (indica il calendario delle festività)'],other:true},
+{q:'Giorno e ora dei reminder settimanali (es. CDMS, Offerta → ODA) e ora del controllo giornaliero degli alert',type:'tx'}]},
+
+{id:'C2',g:'C',ex:['A8.3'],cl:ALL,t:'Notifiche del Passa e delle assegnazioni',
+why:`<p>È deciso che il Passa si fa verso un gruppo operativo. Le direttive lasciano esplicitamente aperti i dettagli delle notifiche del Passa e delle assegnazioni [P1 §8].</p>`,
+need:`Chi riceve cosa e attraverso quale canale; se l'assegnazione è un comando a sé.`,
+scope:`Passa, assegnazione a UT, PE e AIE, mail, campanella, card dei gruppi. Tutti i gestori.`,
+it:[{q:'L\'assegnazione esplicita a UT, PE e AIE (data, forecast, note, conferma) è',type:'ch',opts:['Il comando Passa stesso, con i dati di assegnazione','Un comando "Assegna" separato dal Passa']},
+{q:'La notifica del Passa va a',type:'ch',opts:['Tutti gli utenti del gruppo destinatario','I team leader del gruppo destinatario','Il tecnico indicato, se presente, più i team leader']},
+{q:'La mail parte',type:'ch',opts:['A ogni Passa','Solo per le assegnazioni a UT, PE e AIE','Solo se chi fa il Passa la richiede']},
+{q:'Notifica al gruppo DL quando il PM assegna il PE',type:'ch',opts:['Solo LEONARDO','Tutti i gestori','Non serve']},
+{q:'Le card dei gruppi non ancora coinvolti nella vista della pratica sono',type:'ch',opts:['Nascoste','Visibili ma disattivate']},
+{q:'Nel Passa serve poter scegliere tra chat e mail?',type:'ch',opts:['No','Sì (indica quale chat)'],other:true}]},
+
+{id:'C3',g:'C',ex:['A6.1'],cl:ALL,t:'Stato attività: quale evento fa scattare IN LAVORAZIONE',
+why:`<p>Tutti gli altri eventi automatici sono definiti [R A6.1]; la riga di IN LAVORAZIONE è rimasta vuota. La Guida §17.7 dice solo "quando l'attività viene assegnata o passata al team operativo".</p>`,
+need:`L'evento che imposta IN LAVORAZIONE.`,
+scope:`Stato attività di tutte le pratiche.`,
+it:[{q:'IN LAVORAZIONE scatta',type:'ch',opts:['Al primo Passa verso un gruppo diverso da PM/Permessi','Quando si compila un tecnico assegnato (Tecnico UT, PE, AIE…)','Quando si compila la data di presa in carico (Incarico VS/AS, Incarico PE…)','Solo a mano'],other:true}]},
+
+{id:'C4',g:'C',ex:['A6.2','P1 §3'],cl:ALL,t:'Completamento, TERMINATO e Archiviazione',
+why:`<p>Ci sono tre regole che si sovrappongono:</p>
+<ul><li>"completa la pratica il PM con ruolo di leader" [R A6.2];</li>
+<li>Stato attività lo possono cambiare a mano PM e ADMIN [P1 §3];</li>
+<li>archiviano PM, DL e ADMIN, quando lo stato è TERMINATO o KO [P1 §3].</li></ul>`,
+need:`Se "completare" è un'azione a sé e come si comporta una pratica archiviata.`,
+scope:`Comandi della pratica, permessi, Archivio, alert.`,
+it:[{q:'"Completare" la pratica significa',type:'ch',opts:['Impostare Stato attività = TERMINATO (lo possono fare PM e ADMIN): nessuna azione separata','Un comando "Completa" riservato al PM leader, che imposta TERMINATO','Coincide con l\'archiviazione']},
+{q:'Una pratica archiviata è',type:'ch',opts:['In sola lettura finché non viene ripristinata','Ancora modificabile secondo i permessi normali']},
+{q:'Gli alert di una pratica archiviata si fermano?',type:'yn'}]},
+
+{id:'C5',g:'C',ex:['A6.3','A6.4','B6.1'],cl:ALL,t:'Fatturabile e Fatturato: automatismi da completare',
+why:`<p>È deciso che l'automatismo di Fatturabile scrive "anche NO" [R A6.3], ma non è detto quando. Per LEONARDO con All. 18 = SI la risposta è stata "non chiaro". Non c'è risposta su Stato ODA FATTURATO → Fatturato (FASTWEB-VODAFONE).</p>`,
+need:`La condizione che produce NO, la regola di LEONARDO con All. 18 e il legame tra Stato ODA e Fatturato.`,
+scope:`Campi trasversali Fatturabile e Fatturato. Tutti i gestori, in particolare LEONARDO e FASTWEB-VODAFONE.`,
+it:[{q:'L\'automatismo scrive Fatturabile = NO quando',type:'ch',opts:['Sono passati 30 giorni da Ottenimento Permessi e l\'ultimo esito ARPA è Negativo','Lo Stato attività diventa KO o DINIEGATO','In entrambi i casi'],other:true},
+{q:'LEONARDO con All. 18 = SI, quando il percorso Permessi scompare: Fatturabile',type:'ch',opts:['Si compila in automatico da Invio All. 18 + 30 giorni','È solo manuale'],other:true},
+{q:'FASTWEB-VODAFONE: con Stato ODA = FATTURATO, Fatturato diventa SI in automatico?',type:'ch',opts:['Sì','No, sono indipendenti']}]},
+
+{id:'C6',g:'C',ex:['A5.1','A5.4'],cl:ALL,t:'Formule e campi calcolati: comportamento',
+why:`<p>Per Forecast Ottenimento Permessi è deciso che le integrazioni "non si sommano" [R A5.1], ma non quale integrazione conta. Le domande su come si comportano i campi calcolati (A5.4) non hanno risposta.</p>`,
+need:`Quale integrazione conta, e la regola generale per modificare e ricalcolare i campi calcolati.`,
+scope:`Forecast Ottenimento Permessi (TOWERNET, INWIT, LEONARDO), Forecast Geologica, Forecast Protocollo (ILIAD), DATA SCADENZA PERMESSI (ILIAD), Codice sito Host (ILIAD), Tipologia Struttura, Committente automatico (TIM, FASTWEB-VODAFONE, TOWERNET), "data del giorno".`,
+it:[{q:'Con più richieste di integrazione, lo spostamento del forecast si calcola su',type:'ch',opts:['La prima integrazione','L\'ultima integrazione','Quella più lunga']},
+{q:'I "giorni che mancano al forecast" (≤ 15) si misurano alla data della Richiesta integrazione?',type:'yn'},
+{q:'In generale, i campi calcolati sono',type:'ch',opts:['Modificabili, e ricalcolati solo se vuoti','Modificabili e mai ricalcolati dopo la prima compilazione','Sempre ricalcolati e non modificabili']},
+{q:'Il Committente compilato in automatico è fisso, non modificabile?',type:'yn'},
+{q:'"Di base viene inserita la data del giorno" (Incarico PE, Incarico VS/AS): la data si scrive',type:'ch',opts:['Al Passa verso UT/PE','All\'apertura della sezione','È solo un valore proposto, da confermare']}]},
+
+{id:'C7',g:'C',ex:['A1.9','A1.10'],cl:ALL,t:'Tipi di dato e obbligatorietà',
+why:`<p>Nessuna sotto-domanda di A1.9 e A1.10 ha avuto risposta. Sono scelte di schema che non dipendono dalle nuove direttive.</p>`,
+need:`Il tipo dei campi ambigui e il momento in cui si applica l'obbligo dei campi con *.`,
+scope:`Coordinate, N° protocollo (deposito sismico, Arpa, Ente), N° sismica, Data Autorizzazione finale, formato delle date, campi con * (Codice G7, Codice Sito, Nome Sito, Cliente Finale, Committente). Tutti i gestori.`,
+it:[{q:'Coordinate',type:'ch',opts:['Due campi decimali, latitudine e longitudine (WGS84)','Un unico campo di testo']},
+{q:'N° protocollo e N° sismica sono testo, per ammettere barre e lettere?',type:'yn'},
+{q:'Data Autorizzazione finale è',type:'ch',opts:['Una data distinta da Ottenimento Permessi','Coincide con Ottenimento Permessi (si elimina)']},
+{q:'Tutte le date nel formato gg/mm/aaaa (i sorgenti scrivono gg/mm/aa)?',type:'yn'},
+{q:'L\'obbligo dei campi con * vale',type:'ch',opts:['Alla creazione della pratica','A ogni salvataggio','Solo come avviso']}]},
+
+{id:'C8',g:'C',ex:['A2.5','A2.6','B1.4'],cl:ALL,t:'Condizioni che restano: come si applicano',
+why:`<p>Le condizioni basate su flag e dati diversi da Incarico restano valide [P1 §1]. Per alcune non è definito l'effetto, oppure la condizione manca in modo asimmetrico rispetto ai campi vicini.</p>`,
+need:`Cosa succede al campo se la condizione è falsa, e tre casi puntuali.`,
+scope:`Tutti i campi condizionati: PE, AIE, Deposito sismico, Regione, All. 18, PSC, Revit, MW, ecc.`,
+it:[{q:'Se la condizione è falsa, il campo è',type:'ch',opts:['Nascosto','Visibile ma non modificabile']},
+{q:'Forecast Deposito Sismico e Data deposito sismico compaiono solo con Deposito sismico = SI, come gli altri campi DL?',type:'yn'},
+{q:'Con Regione = Piemonte si nasconde anche "Stato misure di fondo", oltre a "Tecnico Misure di fondo"?',type:'yn'},
+{q:'Con AIE = NO, la sezione Fase AIE del gruppo AIE è',type:'ch',opts:['Nascosta','Visibile ma vuota','Sempre visibile, perché decide il Passa']}]},
+
+{id:'C9',g:'C',ex:['A2.7','B2.1','B5.1'],cl:ALL,t:'Incarico/Lavorazione: scelta singola o multipla',
+why:`<p>Incarico non decide più la visibilità, ma resta un dato e alimenta Tipologia attività PE (con più valori, si compila a mano). Solo ILIAD ha la scelta multipla; le Note chiedevano di estenderla a tutti. La domanda non ha avuto risposta.</p>`,
+need:`Se la scelta multipla vale per tutti i gestori.`,
+scope:`Campo Incarico/Lavorazione e derivazione di Tipologia attività PE. Tutti i gestori.`,
+it:[{q:'La scelta multipla vale per',type:'ch',opts:['Solo ILIAD','Tutti i gestori']}]},
+
+{id:'C10',g:'C',ex:['A3.4'],cl:ALL,t:'Core e Dati Secondari: chi li modifica fuori da PM/Permessi',
+why:`<p>Il DL può creare pratiche in tutti i clienti e con il G7 obbligatorio [R A8.2, A1.7], quindi deve poter compilare almeno il Core. Per UT/PE il sorgente dice "sola visualizzazione"; per AIE e DL non dice nulla.</p>`,
+need:`Quali gruppi diversi da PM/Permessi possono modificare i due blocchi anagrafici, e quando.`,
+scope:`Core Anagrafica Sito e Dati Anagrafici Secondari. Tutti i gestori.`,
+it:[{q:'Il DL può modificare il Core',type:'ch',opts:['Solo quando crea la pratica','Sempre','Mai: compila solo il minimo, poi completa PM/Permessi']},
+{q:'AIE e UT/PE vedono Core e Dati Secondari in sola lettura?',type:'yn'}]},
+
+{id:'C11',g:'C',ex:['A1.4'],cl:['TIM','TOWERNET','INWIT'],t:'Geologica: posizione con vincolo idrogeologico',
+why:`<p>Si è deciso che con vincolo idrogeologico "Presente" i campi Geologica "si spostano in Fase Preliminare" [R A1.4]. Le direttive successive chiedono invece una struttura <b>sempre accessibile e semplice</b>, senza condizioni che fanno comparire o spostare i campi [C3 §4].</p>`,
+need:`Se lo spostamento dinamico resta oppure se Geologica ha una posizione fissa.`,
+scope:`Blocco Geologica (flag, Assegnazione, Forecast, Arrivo). TIM, TOWERNET, INWIT; per uniformità anche gli altri gestori.`,
+it:[{q:'Il blocco Geologica',type:'ch',opts:['Si sposta in Fase Preliminare solo con idrogeologico Presente (come da risposta A1.4)','Sta sempre nella sezione PM "Progettazione esecutiva"','Sta sempre in Fase Preliminare, dopo i Vincoli, per tutti i gestori']}]},
+
+{id:'C12',g:'C',ex:['B3.1','A7.2'],cl:['TIM','FV'],t:'Invio PE compilato da un gruppo diverso da UT/PE',
+why:`<p>Invio PE chiude l'alert Forecast PE (destinatari: PM + leader UT/PE). In <b>TIM</b> il master è Maragno, cioè il gruppo DL [R B3.1]. In <b>FASTWEB-VODAFONE</b> il sorgente dice "compilato da PM". Il superamento delle diciture "compilato da" vale solo <i>dentro</i> lo stesso gruppo [C3 §2], mentre qui i gruppi sono diversi.</p>`,
+need:`Il gruppo che possiede Invio PE in TIM e FASTWEB-VODAFONE, quali occorrenze sono mirror e chi riceve l'alert.`,
+scope:`Invio PE e alert Forecast PE: TIM/FIBERCOP e FASTWEB-VODAFONE.`,
+it:[{q:'TIM: l\'occorrenza di Invio PE nella vista PM, fuori dal pop-up, va tenuta come mirror in sola lettura?',type:'yn'},
+{q:'TIM: nella sezione PE del gruppo UT/PE, Invio PE diventa un mirror in sola lettura del master DL?',type:'yn'},
+{q:'FASTWEB-VODAFONE: chi possiede Invio PE?',type:'ch',opts:['Il gruppo PM/Permessi (come dice il sorgente)','Il gruppo UT/PE: il PM lo vede in sola lettura']},
+{q:'Se Invio PE non appartiene a UT/PE, l\'alert Forecast PE va a',type:'ch',opts:['PM + leader UT/PE (come per gli altri gestori)','PM + leader del gruppo che possiede Invio PE']}]},
+
+{id:'C13',g:'C',ex:['B4.2'],cl:['INWIT'],t:'INWIT: blocco di caratterizzazione',
+why:`<p>La Guida prevede il blocco UT di caratterizzazione "solo per ILIAD e INWIT", ma il sorgente INWIT non lo contiene. Inoltre in Fase Preliminare ci sono "Invio report caratterizzazione" (F025) e "Invio Report Caratterizzazione" (F107, pop-up). La domanda non ha avuto risposta; la decisione C3 §3 riguarda solo ILIAD.</p>`,
+need:`Se il blocco esiste in INWIT e se F025 e F107 sono lo stesso dato.`,
+scope:`Blocco caratterizzazione UT (Forecast Invio, Tecnico, Fornitore, Invio Report) e pop-up PM. INWIT.`,
+it:[{q:'Il blocco UT di caratterizzazione esiste in INWIT?',type:'yn'},
+{q:'F025 e F107 sono',type:'ch',opts:['Lo stesso dato, con master UT (F025 diventa mirror)','Lo stesso dato, con master PM/Permessi','Dati diversi']}]},
+
+{id:'C14',g:'C',ex:['B6.1','B6.2','B6.3'],cl:['LEONARDO'],t:'LEONARDO: All. 18, Forecast inizio lavori, Oneri',
+why:`<p>Le quattro condizioni "scompare se All. 18 = SI" restano, perché dipendono da un flag. Non è definito però cosa succede a Ottenimento Permessi e al suo alert. "Forecast inizio lavori" c'è nel sorgente (sottosezione PE, risposta data) ma mancano le altre risposte. La struttura di Oneri non ha avuto risposta.</p>`,
+need:`Il comportamento con All. 18 = SI, la natura di Forecast inizio lavori, la struttura di Oneri.`,
+scope:`LEONARDO: Ottenimento Permessi, alert Forecast Ottenimento Permessi, Forecast inizio lavori (UT/PE → PE), Oneri.`,
+it:[{q:'Con All. 18 = SI, Ottenimento Permessi',type:'ch',opts:['Resta visibile','Scompare anche lui']},
+{q:'Con All. 18 = SI, l\'alert su Forecast Ottenimento Permessi va soppresso?',type:'yn'},
+{q:'Forecast inizio lavori è diverso da Forecast CIL del DL?',type:'yn'},
+{q:'Forecast inizio lavori genera un alert?',type:'ch',opts:['No','Sì (indica soglia, chiusura e destinatari)'],other:true},
+{q:'Oneri è',type:'ch',opts:['Una scelta multipla del solo tipo','Una voce ripetibile con tipo e importo','Una scelta singola']}]},
+
+{id:'C15',g:'C',ex:['A8.4'],cl:ALL,t:'Perimetro del primo rilascio',
+why:`<p>Nessuna sotto-domanda di A8.4 ha avuto risposta. La Configurazione dei menu invece è stata decisa (per gruppo e per gestore).</p>`,
+need:`Cosa entra nel primo rilascio per KPI, export e assistente AI, chi fornisce le liste G7 e come si conserva lo storico.`,
+scope:`Statistiche, export CSV, assistente AI, Configurazione, storico dei valori.`,
+it:[{q:'Quali KPI servono nel primo rilascio?',type:'tx'},
+{q:'Colonne dell\'export CSV',type:'ch',opts:['Quelle comuni a tutti i gestori','Quelle del gestore filtrato']},
+{q:'L\'assistente AI in sola lettura è',type:'ch',opts:['Nel primo rilascio','Rinviato a un rilascio successivo']},
+{q:'Chi fornisce le liste iniziali (clienti, committenti, proprietà, enti…) e in che formato?',type:'tx'},
+{q:'Per lo storico dei valori basta registrare valore vecchio, valore nuovo, autore e data a ogni modifica?',type:'yn'},
+{q:'Per quanto tempo si conservano storico e audit?',type:'ch',opts:['Senza limite','N anni (indica quanti)'],other:true}]},
+
+{id:'C16',g:'C',ex:['B2.2','B1.5'],cl:['TOWERNET','ILIAD'],t:'TOWERNET e ILIAD: punti rimasti in sospeso nei sorgenti',
+why:`<p>Nel sorgente TOWERNET è rimasto "Pop-up AIE → chiedere per AIE congiunte"; nel sorgente ILIAD ci sono note di dubbio ("verificare", "placeholder"). Nessuno dei due punti ha avuto risposta.</p>`,
+need:`Il trattamento delle AIE congiunte e due regole ILIAD da confermare.`,
+scope:`TOWERNET: blocco AIE. ILIAD: AGORA', Forecast Protocollo.`,
+it:[{q:'TOWERNET, AIE congiunte: servono',type:'ch',opts:['Più blocchi AIE nella stessa pratica','Un flag "AIE congiunta"','Nulla di speciale']},
+{q:'ILIAD, AGORA\' ("solo se Committente = Cellnex → verificare"): compare',type:'ch',opts:['Solo con Committente CELLNEX','Sempre']},
+{q:'ILIAD, Forecast Protocollo = Data assegnazione + 30 gg ("dato placeholder"): la formula è definitiva?',type:'ch',opts:['Sì','No: campo manuale','No: formula diversa (indica quale)'],other:true}]},
+
+/* ======================= MINORI ======================= */
+{id:'M1',g:'M',ex:['C.1','B1.6','B3.3','B6.5','A6.4','A1.10'],cl:ALL,t:'Correzioni documentali: approvazione in blocco',
+why:`<p>Sono correzioni che non cambiano la sostanza e che possiamo applicare noi ai file MD e alla Guida:</p>
+<ol><li>Note superate negli MD ("id_flusso da assegnare" su Invio CEM; "La fonte ILIAD corrente…" nella nota di Fatturato; nome sbagliato del file sorgente in ILIAD e TIM).</li>
+<li>Campo Universale palesemente errato sulle righe a confidenza BASSA → impostato a DA VERIFICARE ed escluso dall'import.</li>
+<li>Nomi e ordine delle sezioni allineati ai sorgenti, compreso l'ordine PE/UT di LEONARDO.</li>
+<li>Eliminazione dei duplicati PM di Assegnazione UT e Note Assegnazione UT (TIM F032/F033, FASTWEB-VODAFONE #62–63).</li>
+<li>ILIAD: Fatturabile e Fatturato rappresentati una sola volta come campi trasversali, senza id_flusso (si tolgono F104/F105).</li>
+<li>FASTWEB-VODAFONE: "TITOLO IV*" trattato come refuso (si toglie l'asterisco).</li>
+<li>Rinumerazione degli id_flusso dopo le aggiunte (PE e blocco ARPA in LEONARDO, flag Geologica in TOWERNET e INWIT, nuovo vincolo, Forecast inizio lavori); i mirror mantengono l'ID del master.</li>
+<li>Refusi della Guida (§3.4, §4, §10, §20.2) e della Matrice (etichette "COERENTE" diverse da quelle degli MD).</li></ol>`,
+need:`L'approvazione in blocco, oppure l'elenco dei punti da escludere.`,
+scope:`Documentazione (MD, Guida, Matrice). Nessun effetto sul comportamento dell'app.`,
+it:[{q:'Approvi in blocco?',type:'ch',opts:['Sì, tutte','Sì, tranne alcune (indica i numeri)','No'],other:true}]},
+
+{id:'M2',g:'M',ex:['B3.4'],cl:['TIM'],t:'TIM: campo "Rinforzo"',
+why:`<p>Le Note chiedono di aggiungere "Rinforzo (SI/NO)" a TIM. Oggi esiste solo in ILIAD e l'inventario dei campi è congelato.</p>`,
+need:`Se si apre una richiesta di modifica.`,
+scope:`TIM/FIBERCOP, Core Anagrafica Sito.`,
+it:[{q:'Aggiungiamo Rinforzo a TIM?',type:'yn'}]},
+
+{id:'M3',g:'M',ex:['A3.5'],cl:['TIM','LEONARDO','TOWERNET','INWIT'],t:'Mirror di Geologica e Scheda Palo nella sezione PE',
+why:`<p>Gli MD aggiungono nella sezione PE del gruppo UT/PE alcuni mirror in sola lettura che i sorgenti di questi gestori non prevedono. Il PE può comunque consultare il resto della pratica dalla vista secondaria di avanzamento.</p>`,
+need:`Se tenerli.`,
+scope:`Mirror di Assegnazione, Forecast e Arrivo Geologica e di Invio Scheda Palo. TIM, LEONARDO, TOWERNET, INWIT.`,
+it:[{q:'Teniamo i mirror Geologica nella sezione PE?',type:'yn'},{q:'Teniamo il mirror Invio Scheda Palo nella sezione PE?',type:'yn'}]},
+
+{id:'M4',g:'M',ex:['A1.4'],cl:['TOWERNET','INWIT'],t:'Nome del nuovo vincolo ambientale',
+why:`<p>La risposta lo chiama "Vincoli Ambientali <b>Paesaggistici</b>", ma esiste già il vincolo "Paesaggistico" e la nota originale parlava di vincoli "ambientali <b>naturalistici</b>". Inoltre SIC e Natura2000 sono indicati come "Ente", ma sembrano tipologie di area protetta.</p>`,
+need:`Il nome del vincolo e il significato di SIC e Natura2000.`,
+scope:`Tabella Vincoli: TOWERNET, INWIT.`,
+it:[{q:'Nome del vincolo',type:'ch',opts:['Vincoli Ambientali Naturalistici','Vincoli Ambientali Paesaggistici (come da risposta)'],other:true},
+{q:'SIC, Natura2000, Altro sono',type:'ch',opts:['Sottotipi del vincolo; l\'ente va indicato a parte','Valori del campo Ente (come da risposta)']}]},
+
+{id:'M5',g:'M',ex:['B1.6'],cl:['ILIAD'],t:'ILIAD: numeri mancanti nel sorgente',
+why:`<p>Il sorgente ILIAD numera i campi da 1 a 145 e salta il 91 e il 132.</p>`,
+need:`Sapere se lì mancano dei campi.`,
+scope:`Inventario dei campi ILIAD.`,
+it:[{q:'I numeri 91 e 132 corrispondono a campi rimossi di proposito?',type:'yn'}]}
+];
+
+const I=[
+{grp:'Precedenza e fonti'},
+{id:'I1',rule:'Ordine di precedenza: chiarimenti del 06/10 > prompt del 06/10 > risposte del 05/10 > Guida, MD e sorgenti.',src:'C2 (chiusura), C3 §1'},
+{id:'I2',rule:'"Vedi file allegato" nelle risposte va letto come rinvio alle direttive del 06/10; non esiste un altro file.',src:'C3 §1'},
+{id:'I3',rule:'La risposta A1.5(iii) "le liste dinamiche le gestisce solo l\'admin" è superata: le gestiscono i team leader del gruppo, per gestore, insieme all\'ADMIN.',src:'P1 §4, §6'},
+{grp:'Visibilità'},
+{id:'I4',rule:'Diventano sempre visibili, perché erano condizionati da Incarico: Invio AS/VS (UT e pop-up PM), Assegnazione UT e Note UT (TOWERNET, INWIT), Progetto, Acquisitore, Report e Invio report caratterizzazione (INWIT), blocco caratterizzazione e pop-up UT (ILIAD), Applicabilità e Invio Applicabilità (FASTWEB-VODAFONE), Forecast Ottenimento Permessi (INWIT, che era "solo New Site"). Cadono tutte le regole di sezione di ILIAD, INWIT e FASTWEB-VODAFONE.',src:'P1 §1, C2 §1, C3 §3'},
+{id:'I5',rule:'Assegnazione, Rilievo e Invio rilievo topografico e georadar (ILIAD, "new site raw land"), Invio Scheda Palo e Scheda Scarichi palo (ILIAD, "Raw Land + New Site"): resta solo la condizione Tipologia sito = Raw Land.',src:'C2 §1 (esempio Raw Land + New Site)'},
+{id:'I6',rule:'Blocco Geologica: nessuna condizione di visibilità, nemmeno sui singoli campi. Il flag Geologica è un dato informativo e "Si compila solo se Geologica = SI" non nasconde nulla. Il calcolo Forecast Geologica = Assegnazione + 15 gg resta.',src:'C3 §4'},
+{id:'I7',rule:'Restano le condizioni basate su altri dati, come nei sorgenti: AIE = SI (campi AIE del Pacchetto Permessi), Deposito sismico = SI, Regione = Piemonte (Tecnico Misure di fondo), Regione = Liguria (blocco ILIAD F057–F064), Revit = SI, MW = SI, CARATTERIZZAZIONE (F042) = SI → Invio/Conferma offerta (ILIAD), Committente = CELLNEX → CDMS e Invio CDMS, CONSORZIO (ERICSSON) → WCN, Tipologia sito = Traliccio → Altezza traliccio, PSC = SI → Forecast PSC, All. 18 = SI (4 campi LEONARDO), "compare se compilato" (Tenant, Integrazione, Ente, Vincoli → Forecast Ottenimento "Nome ente").',src:'P1 §1, C2 §1, sorgenti'},
+{id:'I8',rule:'ILIAD, APPROVAZIONE PE ("se PE = SI") e Assegnazione PE / Note Assegnazione PE negli altri sorgenti: la condizione PE vale solo per Assegnazione PE e Note Assegnazione PE; APPROVAZIONE PE è sempre visibile.',src:'P1 §7 ("esclusivamente")'},
+{id:'I9',rule:'Ogni condizione (incluse quelle del punto I7) agisce solo sull\'interfaccia: non disattiva alert, automazioni o master.',src:'P1 §1, §7'},
+{grp:'Ruoli e ownership'},
+{id:'I10',rule:'Le diciture "compilato da …" cadono solo dentro lo stesso gruppo. Tra gruppi diversi master e mirror restano: per esempio i campi del Core mostrati in UT/PE restano mirror in sola lettura, e i campi AIE nella vista PM restano un pop-up in sola lettura.',src:'C3 §2, R A3.1'},
+{id:'I11',rule:'I team leader li nomina l\'ADMIN tramite la gestione degli utenti; la nomina è un attributo della coppia (cliente, gruppo, ruolo) dell\'utente.',src:'P1 §3–4'},
+{id:'I12',rule:'"Il PM" con visibilità globale e poteri superiori significa qualunque utente con ruolo PM, non solo il PM leader (tranne per il completamento, vedi C4).',src:'P1 §2–3, §5'},
+{grp:'Alert'},
+{id:'I13',rule:'L\'alert DL di fine lavori (Forecast CIL + 20 gg con Data FL vuota) va a PM + leader DL, non solo al PM come diceva la Guida.',src:'C2 §7 (esempio "alert DL")'},
+{id:'I14',rule:'L\'alert Forecast Parere Arpa vale anche per LEONARDO, perché lì si aggiungono i campi ARPA; il ciclo ripetibile si chiude con il Parere Arpa del ciclo corrente.',src:'R A6.3, R A1.3'},
+{id:'I15',rule:'Gli alert sul sopralluogo usano "Data assegnazione" della Fase Preliminare in tutti i gestori (in LEONARDO è una data).',src:'Guida §17.10, R A6.1'},
+{id:'I16',rule:'LEONARDO non ha l\'alert Offerta → ODA (non ha il campo Offerta); ODA è comunque ripetibile come negli altri gestori.',src:'R A7.1 ("dove i campi esistono"), R A1.2'},
+{grp:'Stato attività'},
+{id:'I17',rule:'ASSEGNATO scatta con "Data assegnazione" della Fase Preliminare in tutti i gestori (in ILIAD il campo F026).',src:'R A6.1, Guida §17.7'},
+{id:'I18',rule:'Tra più eventi automatici vince il più recente. Ogni nuova Richiesta integrazione riporta lo stato a INTEGRAZIONE RICHIESTA.',src:'R A6.1, C2 §5'},
+{id:'I19',rule:'Stato attività e l\'alert "Fatturabile con pratica KO" valgono anche per LEONARDO.',src:'R A6.1 ("uguale per tutti i clienti")'},
+{grp:'Campi e dati'},
+{id:'I20',rule:'Tipologia attività PE è un menu configurabile che contiene i valori di Progetto e di Incarico. FASTWEB-VODAFONE, che non ha Progetto, prende sempre il valore da Incarico.',src:'R B1.3, R A4.1'},
+{id:'I21',rule:'Incarico/Lavorazione e Progetto sono liste configurabili (Configurazione), non domini controllati: servono solo alla derivazione per copia.',src:'C2 §8, C2 §1'},
+{id:'I22',rule:'PE (SI/NO) in LEONARDO va nella sezione PM "Progettazione esecutiva", subito prima di Assegnazione PE, come negli altri gestori. Il blocco ARPA di LEONARDO va nell\'Iter Autorizzativo, con la stessa struttura di TIM e TOWERNET.',src:'P1 §7, R A6.3'},
+{id:'I23',rule:'Il flag Geologica in TOWERNET e INWIT va nella stessa posizione di TIM (all\'inizio del blocco Geologica).',src:'R A2.3, C3 §4'},
+{id:'I24',rule:'Le etichette "(ripresentazione)" di A1.1 non servono più: il secondo ciclo ARPA è un\'occorrenza del gruppo ripetibile.',src:'R A1.1, R A1.3'},
+{id:'I25',rule:'Le note "pagamento di un esterno" (Costo UT) e "utile solo se collegato con G7" (Costo PE) sono informative: non producono nessun comportamento.',src:'R A4.1'},
+{id:'I26',rule:'La classificazione dei campi del Check (PRIMARIO / SECONDARIO / FACOLTATIVO) è superata dalle sezioni del template e dalle sezioni apribili e chiudibili.',src:'P1 §1'},
+{id:'I27',rule:'Codice G7 è univoco su tutte le iterazioni di tutte le pratiche; per una rilavorazione serve sempre un nuovo G7.',src:'R A1.7, C2 §2'},
+{id:'I28',rule:'"Altro" in Tipologia Struttura e Proprietà/Host è un valore semplice, senza testo aggiuntivo.',src:'R A1.5 (iv)'}
+];
+
+/* ================================================================
+   STATO — archivio separato dal questionario v1
+   ================================================================ */
+const KEY='practicehub-domande-residue-v2';
+const blank=()=>({meta:{name:'',date:''},a:{},notes:{},open:{},interp:{}});
+let S=blank();
+function load(){try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(blank(),JSON.parse(r));}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+load();
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LET='abcdefghijklmnop';
+const k=(q,i)=>q.id+'#'+i;
+const QID=id=>document.getElementById('q-'+id);
+
+function itemDone(q,i){
+  const it=q.it[i], v=S.a[k(q,i)];
+  if(!v) return false;
+  if(it.type==='tx') return !!(v.t&&v.t.trim());
+  if(it.type==='gr') return it.rows.every(r=>it.cols.every(c=>v.c&&v.c[r+'|'+c]));
+  if(v.v==='__other') return !!(v.o&&v.o.trim());
+  return v.v!==undefined&&v.v!=='';
+}
+const qDone=q=>q.it.every((_,i)=>itemDone(q,i));
+const qCount=q=>q.it.filter((_,i)=>itemDone(q,i)).length;
+const IR=I.filter(x=>x.id);
+
+/* ================================================================
+   RENDER
+   ================================================================ */
+function renderItem(q,i){
+  const it=q.it[i], key=k(q,i), v=S.a[key]||{};
+  let h=`<div class="item"><div class="iq"><span class="n">${q.it.length>1?(i+1)+'.':''}</span><span>${esc(it.q)}</span></div>`;
+  if(it.type==='ch'||it.type==='yn'){
+    const opts=it.type==='yn'?YN:it.opts;
+    h+=`<div class="opts${it.type==='yn'?' row':''}">`;
+    opts.forEach((o,j)=>{const val=it.type==='yn'?o:LET[j];const on=v.v===val;
+      h+=`<label class="opt${on?' on':''}"><input type="radio" name="${key}" value="${esc(val)}"${on?' checked':''}>${it.type==='ch'?`<span class="k">${LET[j]}</span>`:''}<span>${esc(o)}</span></label>`;});
+    if(it.other){const on=v.v==='__other';
+      h+=`<label class="opt${on?' on':''}"><input type="radio" name="${key}" value="__other"${on?' checked':''}><span class="k">…</span><span>Altro</span></label>`;}
+    h+=`</div>`;
+    if(it.other) h+=`<div class="other" ${v.v==='__other'?'':'hidden'}><input type="text" data-other="${key}" placeholder="Specifica…" value="${esc(v.o||'')}"></div>`;
+  }else if(it.type==='tx'){
+    h+=`<textarea data-tx="${key}" placeholder="Scrivi qui la risposta…">${esc(v.t||'')}</textarea>`;
+  }else if(it.type==='gr'){
+    h+=`<table class="grid-in"><tr><th>Voce</th>${it.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr>`;
+    it.rows.forEach(r=>{h+=`<tr><td>${esc(CL_LABEL[r]||r)}</td>`;it.cols.forEach(c=>{const cv=(v.c||{})[r+'|'+c]||'';
+      h+=`<td><select data-gr="${key}" data-cell="${esc(r+'|'+c)}"><option value="">—</option>${it.vals.map(o=>`<option${cv===o?' selected':''}>${esc(o)}</option>`).join('')}</select></td>`;});h+=`</tr>`;});
+    h+=`</table>`;
+  }
+  return h+`</div>`;
+}
+function renderQ(q){
+  const done=qDone(q), open=S.open[q.id]!==undefined?S.open[q.id]:!done;
+  const cls=q.cl.length===6?'<span class="b">TUTTI I GESTORI</span>':q.cl.map(c=>`<span class="b">${CL_LABEL[c]}</span>`).join('');
+  const ex=q.ex.map(e=>`<span class="b ex">ex ${esc(e)}</span>`).join('');
+  return `<article class="q${done?' complete':''}${open?'':' closed'}" id="q-${q.id}">
+  <div class="qh" data-toggle="${q.id}"><span class="qid">${q.id}</span><div class="qt">${esc(q.t)}<div class="badges"><span class="b g-${q.g}">${GLBL[q.g]}</span>${cls}${ex}</div></div>
+  <span class="state${done?' ok':''}" data-state>${done?'✓ completa':qCount(q)+'/'+q.it.length}</span><span class="chev">▾</span></div>
+  <div class="qb"><div class="why"><div class="k">Perché è aperta</div><div>${q.why}</div><div class="k">Decisione mancante</div><div>${q.need}</div><div class="k">Coinvolge</div><div>${q.scope}</div></div>
+  ${q.it.map((_,i)=>renderItem(q,i)).join('')}
+  <div class="note"><label>Note su ${q.id}</label><textarea data-note="${q.id}" placeholder="Note facoltative">${esc(S.notes[q.id]||'')}</textarea></div></div></article>`;
+}
+function renderInterp(){
+  let h='';
+  I.forEach(x=>{
+    if(x.grp){h+=`<h5>${esc(x.grp)}</h5>`;return;}
+    const v=S.interp[x.id]||{};
+    h+=`<div class="ip${v.v==='ok'?' ok':v.v==='fix'?' fix':''}" id="i-${x.id}"><div class="ih"><b>${x.id}</b><div class="rule">${esc(x.rule)}</div></div>
+    <div class="src">Fonte: ${esc(x.src)}</div>
+    <div class="ctl"><label class="opt${v.v==='ok'?' on':''}"><input type="radio" name="int-${x.id}" value="ok"${v.v==='ok'?' checked':''}>Confermo</label>
+    <label class="opt${v.v==='fix'?' on':''}"><input type="radio" name="int-${x.id}" value="fix"${v.v==='fix'?' checked':''}>Correggi</label></div>
+    <textarea data-inote="${x.id}" placeholder="Versione corretta…" ${v.v==='fix'?'':'hidden'}>${esc(v.n||'')}</textarea></div>`;
+  });
+  $('#interpList').innerHTML=h;
+}
+function renderAll(){
+  let h='',ls='';
+  Q.forEach(q=>{
+    if(q.g!==ls){h+=`<h2 class="sec-h" id="s-${q.g}" data-sec="${q.g}"><span class="b g-${q.g}">${GLBL[q.g]}</span>${GSEC[q.g]}</h2>`;ls=q.g;}
+    h+=renderQ(q);
+  });
+  $('#list').innerHTML=h;
+  $('#mName').value=S.meta.name||''; $('#mDate').value=S.meta.date||'';
+  renderInterp(); applyFilters(); refresh();
+}
+function renderNav(){
+  let h='';
+  ['B','C','M'].forEach(g=>{
+    const qs=Q.filter(q=>q.g===g), d=qs.filter(qDone).length;
+    h+=`<a href="#s-${g}" style="font-weight:700;margin-top:6px"><span>${GSEC[g]}</span><span class="c">${d}/${qs.length}</span></a>`;
+    qs.forEach(q=>{h+=`<a class="sub${qDone(q)?' done':''}" href="#q-${q.id}"><span>${q.id} · ${esc(q.t.length>34?q.t.slice(0,33)+'…':q.t)}</span><span class="c">${qDone(q)?'✓':''}</span></a>`;});
+  });
+  const ic=IR.filter(x=>S.interp[x.id]&&S.interp[x.id].v).length;
+  h+=`<a href="#interp" data-openinterp style="font-weight:700;margin-top:10px"><span>Interpretazioni applicate</span><span class="c">${ic}/${IR.length}</span></a>`;
+  h+=`<a href="#summary" style="margin-top:4px"><span>Riepilogo numerico</span></a>`;
+  $('#nav').innerHTML=h;
+}
+function refresh(){
+  const tot=Q.length, done=Q.filter(qDone).length;
+  $('#barFill').style.width=(done/tot*100)+'%';
+  $('#progLbl').textContent=`${done} / ${tot} questioni complete · ${Math.round(done/tot*100)}%`;
+  const c=g=>Q.filter(q=>q.g===g), byG=g=>`${c(g).filter(qDone).length}/${c(g).length}`;
+  const ic=IR.filter(x=>S.interp[x.id]&&S.interp[x.id].v).length, ifix=IR.filter(x=>S.interp[x.id]&&S.interp[x.id].v==='fix').length;
+  $('#stats').innerHTML=`<div><b>${byG('B')}</b><span>Bloccanti</span></div><div><b>${byG('C')}</b><span>Da chiarire</span></div><div><b>${byG('M')}</b><span>Minori</span></div><div><b>${ic}/${IR.length}</b><span>Interpretazioni verificate</span></div>`;
+  $('#interpCount').textContent=`${ic}/${IR.length} verificate${ifix?' · '+ifix+' da correggere':''}`;
+  Q.forEach(q=>{const el=QID(q.id);if(!el)return;const d=qDone(q);el.classList.toggle('complete',d);
+    const st=el.querySelector('[data-state]');st.textContent=d?'✓ completa':qCount(q)+'/'+q.it.length;st.classList.toggle('ok',d);});
+  $('#summary').innerHTML=`<h2>Riepilogo numerico</h2><table>
+  <tr><th>Gravità</th><th>Questioni residue</th><th>Già risposte</th></tr>
+  <tr><td><span class="b g-B">BLOCCANTI</span></td><td>${c('B').length}</td><td>${c('B').filter(qDone).length}</td></tr>
+  <tr><td><span class="b g-C">DA CHIARIRE</span></td><td>${c('C').length}</td><td>${c('C').filter(qDone).length}</td></tr>
+  <tr><td><span class="b g-M">MINORI</span></td><td>${c('M').length}</td><td>${c('M').filter(qDone).length}</td></tr>
+  <tr><th>Totale</th><th>${tot}</th><th>${done}</th></tr></table>
+  <p style="font-size:13px;color:var(--fg2);margin:8px 0 0">Il questionario precedente aveva 61 domande e 213 sotto-domande; questo ne ha ${tot}, con ${Q.reduce((n,q)=>n+q.it.length,0)} sotto-domande. Le ${IR.length} interpretazioni applicate non sono comprese nel conteggio.</p>`;
+  renderNav();
+}
+
+/* ================================================================
+   FILTRI
+   ================================================================ */
+function applyFilters(){
+  const gs=$$('.fG').filter(x=>x.checked).map(x=>x.value), cl=$('#fClient').value, op=$('#fOpen').checked, s=$('#fSearch').value.trim().toLowerCase();
+  let vis=0; const visSec=new Set();
+  Q.forEach(q=>{
+    let ok=gs.includes(q.g)&&(!cl||q.cl.includes(cl))&&(!op||!qDone(q));
+    if(ok&&s){const txt=(q.id+' '+q.t+' '+q.why+' '+q.need+' '+q.scope+' '+q.ex.join(' ')+' '+q.it.map(i=>i.q+' '+(i.opts||[]).join(' ')+' '+(i.rows||[]).join(' ')).join(' ')).replace(/<[^>]+>/g,' ').toLowerCase();ok=txt.includes(s);}
+    QID(q.id).hidden=!ok; if(ok){vis++;visSec.add(q.g);}
+  });
+  $$('.sec-h').forEach(h=>h.hidden=!visSec.has(h.dataset.sec));
+  $('#emptyMsg').hidden=vis>0;
+}
+
+/* ================================================================
+   EVENTI
+   ================================================================ */
+const list=$('#list');
+list.addEventListener('click',e=>{
+  const t=e.target.closest('[data-toggle]'); if(!t)return;
+  const id=t.dataset.toggle; const closed=QID(id).classList.toggle('closed');
+  S.open[id]=!closed; save();
+});
+list.addEventListener('change',e=>{
+  const x=e.target;
+  if(x.type==='radio'){
+    const v=S.a[x.name]||(S.a[x.name]={}); v.v=x.value;
+    const item=x.closest('.item'); item.querySelectorAll('.opt').forEach(o=>o.classList.toggle('on',o.querySelector('input').checked));
+    const oth=item.querySelector('.other'); if(oth){oth.hidden=x.value!=='__other'; if(x.value==='__other') oth.querySelector('input').focus();}
+  } else if(x.dataset.gr){
+    const v=S.a[x.dataset.gr]||(S.a[x.dataset.gr]={}); v.c=v.c||{}; v.c[x.dataset.cell]=x.value;
+  } else return;
+  save(); refresh(); if($('#fOpen').checked) setTimeout(applyFilters,600);
+});
+list.addEventListener('input',e=>{
+  const x=e.target;
+  if(x.dataset.other){(S.a[x.dataset.other]||(S.a[x.dataset.other]={})).o=x.value;}
+  else if(x.dataset.tx){(S.a[x.dataset.tx]||(S.a[x.dataset.tx]={})).t=x.value;}
+  else if(x.dataset.note){S.notes[x.dataset.note]=x.value;}
+  else return;
+  save(); refresh();
+});
+$('#interpList').addEventListener('change',e=>{
+  const x=e.target; if(x.type!=='radio')return;
+  const id=x.name.slice(4), v=S.interp[id]||(S.interp[id]={}); v.v=x.value;
+  const box=$('#i-'+id); box.classList.toggle('ok',x.value==='ok'); box.classList.toggle('fix',x.value==='fix');
+  box.querySelectorAll('.opt').forEach(o=>o.classList.toggle('on',o.querySelector('input').checked));
+  const ta=box.querySelector('textarea'); ta.hidden=x.value!=='fix'; if(x.value==='fix') ta.focus();
+  save(); refresh();
+});
+$('#interpList').addEventListener('input',e=>{const x=e.target;if(!x.dataset.inote)return;(S.interp[x.dataset.inote]||(S.interp[x.dataset.inote]={})).n=x.value;save();});
+$('#mName').addEventListener('input',e=>{S.meta.name=e.target.value;save();});
+$('#mDate').addEventListener('input',e=>{S.meta.date=e.target.value;save();});
+['#fSearch','#fClient','#fOpen'].forEach(s=>$(s).addEventListener('input',applyFilters));
+$$('.fG').forEach(x=>x.addEventListener('change',applyFilters));
+$('#expandAll').onclick=()=>{Q.forEach(q=>{S.open[q.id]=true;QID(q.id).classList.remove('closed');});save();};
+$('#collapseAll').onclick=()=>{Q.forEach(q=>{S.open[q.id]=false;QID(q.id).classList.add('closed');});save();};
+$('#nav').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;if(a.hasAttribute('data-openinterp'))$('#interp').open=true;
+  const m=a.getAttribute('href').match(/^#q-(.+)$/);if(m){const el=QID(m[1]);if(el&&el.classList.contains('closed')){el.classList.remove('closed');S.open[m[1]]=true;save();}}
+  $('#side').classList.remove('open');});
+$('#menuBtn').onclick=()=>$('#side').classList.toggle('open');
+$('#printBtn').onclick=()=>{$('#interp').open=true;window.print();};
+$('#themeBtn').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem(KEY+'-theme',r.dataset.theme)}catch(e){}};
+try{const th=localStorage.getItem(KEY+'-theme');if(th)document.documentElement.dataset.theme=th;}catch(e){}
+$('#resetBtn').onclick=()=>{if(confirm('Vuoi azzerare tutte le risposte salvate in questo browser per il questionario v2? L\'operazione non si può annullare.')){S=blank();save();renderAll();toast('Risposte azzerate');}};
+
+/* ================================================================
+   EXPORT / IMPORT
+   ================================================================ */
+function answerText(q,i){
+  const it=q.it[i], v=S.a[k(q,i)];
+  if(!v) return '_(nessuna risposta)_';
+  if(it.type==='tx') return v.t&&v.t.trim()?v.t.trim():'_(nessuna risposta)_';
+  if(it.type==='gr') return '\n'+it.rows.map(r=>`  - ${CL_LABEL[r]||r}: ${it.cols.map(c=>(v.c||{})[r+'|'+c]||'—').join(' / ')}`).join('\n');
+  if(v.v==='__other') return 'Altro: '+(v.o||'');
+  if(it.type==='yn') return v.v;
+  return `(${v.v}) ${it.opts[LET.indexOf(v.v)]}`;
+}
+const strip=h=>h.replace(/<li>/g,'\n  - ').replace(/<[^>]+>/g,'').replace(/\n\s*\n/g,'\n').trim();
+function toMarkdown(){
+  const done=Q.filter(qDone).length;
+  let m=`# PracticeHub — Risposte alle questioni residue v2\n\n**Compilato da:** ${S.meta.name||'—'}  \n**Data:** ${S.meta.date||'—'}  \n**Completamento:** ${done}/${Q.length} questioni\n`;
+  let ls='';
+  Q.forEach(q=>{
+    if(q.g!==ls){m+=`\n---\n\n## ${GLBL[q.g]}\n`;ls=q.g;}
+    m+=`\n### ${q.id} — ${q.t} (ex ${q.ex.join(', ')})${qDone(q)?'':' ⚠ incompleta'}\n`;
+    q.it.forEach((it,i)=>{m+=`- **${it.q}**  \n  → ${answerText(q,i)}\n`;});
+    if(S.notes[q.id]&&S.notes[q.id].trim()) m+=`- _Note:_ ${S.notes[q.id].trim()}\n`;
+  });
+  m+=`\n---\n\n## Interpretazioni applicate\n`;
+  IR.forEach(x=>{const v=S.interp[x.id]||{};m+=`- **${x.id}** — ${v.v==='ok'?'✅ Confermo':v.v==='fix'?'✏️ Correggi: '+(v.n||'(nessun testo)'):'_(non verificata)_'}  \n  _${x.rule}_\n`;});
+  const c=g=>Q.filter(q=>q.g===g).length;
+  m+=`\n---\n\n**Riepilogo:** ${c('B')} bloccanti · ${c('C')} da chiarire · ${c('M')} minori (totale ${Q.length}).\n`;
+  return m;
+}
+function download(name,content,type){
+  const b=new Blob([content],{type}), a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download=name; document.body.appendChild(a); a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+}
+const stamp=()=>new Date().toISOString().slice(0,10);
+$('#expMd').onclick=()=>{download(`risposte_residue_v2_${stamp()}.md`,toMarkdown(),'text/markdown;charset=utf-8');toast('File Markdown scaricato');};
+$('#expJson').onclick=()=>{download(`risposte_residue_v2_${stamp()}.json`,JSON.stringify({version:'residue-v2-2026-10-06',exported:new Date().toISOString(),state:S},null,2),'application/json');toast('File JSON scaricato');};
+$('#impJson').onclick=()=>$('#fileIn').click();
+$('#fileIn').onchange=e=>{
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader(); r.onload=()=>{try{const p=JSON.parse(r.result);
+    if(p.version&&!String(p.version).startsWith('residue-v2')){alert('Questo file appartiene a un altro questionario (v1). Importa un file esportato da questo questionario.');return;}
+    const st=p.state||p;if(!st.a)throw 0;S=Object.assign(blank(),st);save();renderAll();toast('Risposte importate');}catch(err){alert('File non valido.');}};
+  r.readAsText(f); e.target.value='';
+};
+let tt; function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
+
+renderAll();
+</script>
+</body>
+</html>

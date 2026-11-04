@@ -1,0 +1,4362 @@
+{
+  "lists": [
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "ILIAD",
+          "label": "ILIAD",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "WIND_3",
+          "label": "WIND 3",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "FASTWEB",
+          "label": "FASTWEB",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "ZEFIRO",
+          "label": "ZEFIRO",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "TowerNet",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "FIBERCOP",
+          "label": "Fibercop",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "VODAFONE",
+          "label": "Vodafone",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "LEONARDO",
+          "label": "Leonardo",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 11
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "Unione dei gestori + Altro (D-16, contratto §6)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "CONSORZIO_ILIAD",
+          "label": "CONSORZIO (ILIAD)",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CONSORZIO_ERICSSON",
+          "label": "CONSORZIO (ERICSSON)",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "CELLNEX",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "SIRTI",
+          "label": "SIRTI",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "SITE",
+          "label": "SITE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "TELEBIT",
+          "label": "TELEBIT",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "CIRCET",
+          "label": "CIRCET",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "TODOS",
+          "label": "Todos",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "TowerNet",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "FIBERCOP",
+          "label": "Fibercop",
+          "order": 11
+        },
+        {
+          "active": true,
+          "code": "FASTWEB",
+          "label": "Fastweb",
+          "order": 12
+        },
+        {
+          "active": true,
+          "code": "LEONARDO",
+          "label": "Leonardo",
+          "order": 13
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 14
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "Unione dei gestori + Altro (D-16, contratto §6)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "ENAC",
+          "label": "ENAC",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ENAV",
+          "label": "ENAV",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Ente del vincolo Aeroportuale",
+      "listId": "ENTE_VINCOLO_AEROPORTUALE",
+      "provenance": "Tabella Vincoli comune degli MD (D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "SIC",
+          "label": "SIC",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NATURA2000",
+          "label": "Natura2000",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Ente dei Vincoli Ambientali Naturalistici",
+      "listId": "ENTE_VINCOLO_NATURALISTICI",
+      "provenance": "Tabella Vincoli comune degli MD (D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "SOPRINTENDENZA",
+          "label": "Soprintendenza",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COMUNE",
+          "label": "Comune",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Ente del vincolo Paesaggistico",
+      "listId": "ENTE_VINCOLO_PAESAGGISTICO",
+      "provenance": "Tabella Vincoli comune degli MD (D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "SI",
+          "label": "SI",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NO",
+          "label": "NO",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "SI / NO",
+      "listId": "SI_NO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (dominio comune)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "PRESENTE",
+          "label": "Presente",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ASSENTE",
+          "label": "Assente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ASSOLTO",
+          "label": "Assolto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "NON_PERTINENTE",
+          "label": "Non pertinente",
+          "order": 4
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Stato del vincolo Altro",
+      "listId": "STATO_VINCOLO_ALTRO",
+      "provenance": "Tabella Vincoli comune degli MD (D-35, D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "PRESENTE",
+          "label": "Presente",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ASSENTE",
+          "label": "Assente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ASSOLTO",
+          "label": "Assolto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "NON_PERTINENTE",
+          "label": "Non pertinente",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato dei Vincoli Ambientali Naturalistici",
+      "listId": "STATO_VINCOLO_NATURALISTICI",
+      "provenance": "Tabella Vincoli comune degli MD (D-35, D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "PRESENTE",
+          "label": "Presente",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ASSENTE",
+          "label": "Assente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ASSOLTO",
+          "label": "Assolto",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Stato del vincolo (Paesaggistico, Parco)",
+      "listId": "STATO_VINCOLO_PAA",
+      "provenance": "Tabella Vincoli comune degli MD (D-35, D-99)",
+      "templateId": null
+    },
+    {
+      "group": null,
+      "items": [
+        {
+          "active": true,
+          "code": "PRESENTE",
+          "label": "Presente",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ASSENTE",
+          "label": "Assente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "NON_PERTINENTE",
+          "label": "Non pertinente",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Stato del vincolo (Monumentale, Archeologico, Aeroportuale, Idrogeologico, Fasce di rispetto)",
+      "listId": "STATO_VINCOLO_PAN",
+      "provenance": "Tabella Vincoli comune degli MD (D-35, D-99)",
+      "templateId": null
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "TITOLO_I",
+          "label": "TITOLO I",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "TITOLO_IV_SENZA_PSC",
+          "label": "TITOLO IV SENZA PSC",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TITOLO_IV_CON_PSC",
+          "label": "TITOLO IV CON PSC",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Applicabilità",
+      "listId": "APPLICABILITA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "OUTDOOR",
+          "label": "OUTDOOR",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "INDOOR",
+          "label": "INDOOR",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Area Apparati",
+      "listId": "AREA_APPARATI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "FASTWEB",
+          "label": "Fastweb",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "VODAFONE",
+          "label": "Vodafone",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "FASTWEB",
+          "label": "Fastweb",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "APPLICABILITA",
+          "label": "Applicabilità",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "BONIFICA",
+          "label": "Bonifica",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "REWATT",
+          "label": "Rewatt",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "VRUC",
+          "label": "VRUC",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Progettista / Tecnico",
+      "listId": "PROGETTISTA_TECNICO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "Cellnex",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PTI",
+          "label": "PTI",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "Towernet",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "RAIWAY",
+          "label": "Raiway",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "FASTWEB_VODAFONE",
+          "label": "Fastweb-Vodafone",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 7
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Proprietà / Host",
+      "listId": "PROPRIETA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "RAN Fastweb",
+      "listId": "RAN_FASTWEB",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Referente Fastweb",
+      "listId": "REFERENTE_FASTWEB",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "DA_RICHIEDERE",
+          "label": "DA RICHIEDERE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "RICHIESTI",
+          "label": "RICHIESTI",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PRESENTI",
+          "label": "PRESENTI",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Stato ODA",
+      "listId": "STATO_ODA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "APPLICABILITA",
+          "label": "Applicabilità",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "BONIFICA",
+          "label": "Bonifica",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "REWATT",
+          "label": "Rewatt",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "VRUC",
+          "label": "VRUC",
+          "order": 9
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "TORRE",
+          "label": "Torre",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "FASTWEB_VODAFONE"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "ESTERNO",
+          "label": "ESTERNO",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "INTERNO",
+          "label": "INTERNO",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Acquisitore",
+      "listId": "ACQUISITORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "LE_30M",
+          "label": "<= 30m",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "GT_30M",
+          "label": "> 30m",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Altezza traliccio",
+      "listId": "ALTEZZA_TRALICCIO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "OUTDOOR",
+          "label": "OUTDOOR",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CABINET",
+          "label": "CABINET",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "SHELTER",
+          "label": "SHELTER",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "ROOM",
+          "label": "ROOM",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Area Apparati",
+      "listId": "AREA_APPARATI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "INVIATO",
+          "label": "INVIATO",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "CDMS",
+      "listId": "CDMS",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "ILIAD",
+          "label": "ILIAD",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "WIND_3",
+          "label": "WIND 3",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "FASTWEB",
+          "label": "FASTWEB",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "ZEFIRO",
+          "label": "ZEFIRO",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 5
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "CONSORZIO_ILIAD",
+          "label": "CONSORZIO (ILIAD)",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CONSORZIO_ERICSSON",
+          "label": "CONSORZIO (ERICSSON)",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "CELLNEX",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "SIRTI",
+          "label": "SIRTI",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "SITE",
+          "label": "SITE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "TELEBIT",
+          "label": "TELEBIT",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "CIRCET",
+          "label": "CIRCET",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 8
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "100_PCT",
+          "label": "100%",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "80_PCT",
+          "label": "80%",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "50_PCT",
+          "label": "50%",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "EM %",
+      "listId": "EM",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore Caratterizzazione",
+      "listId": "FORNITORE_CARATTERIZZAZIONE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PP / Fornitore Permessi",
+      "listId": "FORNITORE_PP",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE",
+          "label": "Caratterizzazione",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "PROGETTO_ESECUTIVO",
+          "label": "Progetto Esecutivo",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "PACCHETTO_PERMESSI",
+          "label": "Pacchetto permessi",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE+VS",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 11
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "COMPLETE",
+          "label": "COMPLETE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "INCOMPLETE_RICHIESTE",
+          "label": "INCOMPLETE RICHIESTE",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "NON_RICEVUTE",
+          "label": "NON RICEVUTE",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Preesistenze",
+      "listId": "PREESISTENZE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Progettista / Tecnico",
+      "listId": "PROGETTISTA_TECNICO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POWER_UP",
+          "label": "Power up",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "2_3",
+          "label": "2.3",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "UPGRADE_5G",
+          "label": "Upgrade 5G",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "700_MHZ",
+          "label": "700 MHz",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "SWAP_ANTENNE",
+          "label": "Swap antenne",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "DISMISSIONE",
+          "label": "Dismissione",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "UPGRADE_5G_PLUS_700_MHZ",
+          "label": "Upgrade 5G + 700 MHz",
+          "order": 7
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Progetto",
+      "listId": "PROGETTO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "Cellnex",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PTI",
+          "label": "PTI",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "Towernet",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "RAIWAY",
+          "label": "Raiway",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "FASTWEB_VODAFONE",
+          "label": "Fastweb-Vodafone",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "ILIAD",
+          "label": "Iliad",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "PATRIMONIA",
+          "label": "Patrimonia",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "PRIVATO",
+          "label": "Privato",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "ETOWER",
+          "label": "etower",
+          "order": 11
+        },
+        {
+          "active": true,
+          "code": "COMUNALE",
+          "label": "Comunale",
+          "order": 12
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Proprietà / Host",
+      "listId": "PROPRIETA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Referente",
+      "listId": "REFERENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "POWER_UP",
+          "label": "Power up",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "2_3",
+          "label": "2.3",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "UPGRADE_5G",
+          "label": "Upgrade 5G",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "700_MHZ",
+          "label": "700 MHz",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "SWAP_ANTENNE",
+          "label": "Swap antenne",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "DISMISSIONE",
+          "label": "Dismissione",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "UPGRADE_5G_PLUS_700_MHZ",
+          "label": "Upgrade 5G + 700 MHz",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 11
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 12
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE",
+          "label": "Caratterizzazione",
+          "order": 13
+        },
+        {
+          "active": true,
+          "code": "PROGETTO_ESECUTIVO",
+          "label": "Progetto Esecutivo",
+          "order": 14
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 15
+        },
+        {
+          "active": true,
+          "code": "PACCHETTO_PERMESSI",
+          "label": "Pacchetto permessi",
+          "order": 16
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE+VS",
+          "order": 17
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 18
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "TORRE",
+          "label": "Torre",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "DA_PRODURRE",
+          "label": "DA PRODURRE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "INVIATO",
+          "label": "INVIATO",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "WCN",
+      "listId": "WCN",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "ILIAD"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "AUTORIZZATO",
+          "label": "AUTORIZZATO",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DINIEGATO",
+          "label": "DINIEGATO",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TAR",
+          "label": "TAR",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 4
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Autorizzazione finale",
+      "listId": "AUTORIZZAZIONE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "TODOS",
+          "label": "Todos",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TELEBIT",
+          "label": "Telebit",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "SIRTI",
+          "label": "Sirti",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 5
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore Caratterizzazione",
+      "listId": "FORNITORE_CARATTERIZZAZIONE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PP / Fornitore Permessi",
+      "listId": "FORNITORE_PP",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE",
+          "label": "Caratterizzazione",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PROGETTO_ESECUTIVO",
+          "label": "Progetto Esecutivo",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE + VS",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "HOUSING",
+          "label": "Housing",
+          "order": 8
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "TRASFERIMENTO",
+          "label": "Trasferimento",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "REMEDIES",
+          "label": "Remedies",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COMMITMENT",
+          "label": "Commitment",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PNRR",
+          "label": "PNRR",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Progetto",
+      "listId": "PROGETTO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Referente",
+      "listId": "REFERENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "TRASFERIMENTO",
+          "label": "Trasferimento",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "REMEDIES",
+          "label": "Remedies",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COMMITMENT",
+          "label": "Commitment",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PNRR",
+          "label": "PNRR",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE",
+          "label": "Caratterizzazione",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "PROGETTO_ESECUTIVO",
+          "label": "Progetto Esecutivo",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE + VS",
+          "order": 11
+        },
+        {
+          "active": true,
+          "code": "HOUSING",
+          "label": "Housing",
+          "order": 12
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "INWIT"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "OUTDOOR",
+          "label": "OUTDOOR",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CABINET",
+          "label": "CABINET",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "SHELTER",
+          "label": "SHELTER",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "ROOM",
+          "label": "ROOM",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Area Apparati",
+      "listId": "AREA_APPARATI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "LEONARDO",
+          "label": "Leonardo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "LEONARDO",
+          "label": "Leonardo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PP / Fornitore Permessi",
+      "listId": "FORNITORE_PP",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "SITO_ESISTENTE",
+          "label": "Sito esistente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "DIRITTI_DI_SEGRETERIA",
+          "label": "Diritti di segreteria",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "MARCHE_DA_BOLLO",
+          "label": "Marche da bollo",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PAESAGGISTICA",
+          "label": "Paesaggistica",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Oneri",
+      "listId": "ONERI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "Cellnex",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PTI",
+          "label": "PTI",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "RAIWAY",
+          "label": "Raiway",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FASTWEB_VODAFONE",
+          "label": "Fastweb-Vodafone",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "ILIAD",
+          "label": "Iliad",
+          "order": 7
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Proprietà / Host",
+      "listId": "PROPRIETA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "SITO_ESISTENTE",
+          "label": "Sito esistente",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "ISTANZA",
+          "label": "Istanza",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "SCIA",
+          "label": "SCIA",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COMUNICAZIONE",
+          "label": "Comunicazione",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia pacchetto permessi",
+      "listId": "TIPOLOGIA_PACCHETTO_PERMESSI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "TORRE",
+          "label": "Torre",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "LEONARDO"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "OUTDOOR",
+          "label": "OUTDOOR",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CABINET",
+          "label": "CABINET",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "SHELTER",
+          "label": "SHELTER",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "ROOM",
+          "label": "ROOM",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Area Apparati",
+      "listId": "AREA_APPARATI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Assistente TIM",
+      "listId": "ASSISTENTE_TIM",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "FIBERCOP",
+          "label": "Fibercop",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 3
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "FIBERCOP",
+          "label": "Fibercop",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PP / Fornitore Permessi",
+      "listId": "FORNITORE_PP",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte Radio",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Progettista TIM",
+      "listId": "PROGETTISTA_TIM",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "SWAP_NOKIA",
+          "label": "SWAP Nokia",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NIN",
+          "label": "NIN",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "NIE_5G",
+          "label": "NIE 5G",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "NIE_NR_700",
+          "label": "NIE NR 700",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte radio",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "NIE_CONGIUNTO",
+          "label": "NIE Congiunto",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "NIN_CONGIUNTO",
+          "label": "NIN congiunto",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "SHARING",
+          "label": "Sharing",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "PROVVISORIO",
+          "label": "Provvisorio",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "PUBLIC_SAFETY",
+          "label": "Public safety",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "DAS",
+          "label": "DAS",
+          "order": 11
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Progetto",
+      "listId": "PROGETTO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "INWIT",
+          "label": "Inwit",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "CELLNEX",
+          "label": "Cellnex",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "PTI",
+          "label": "PTI",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "Towernet",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "RAIWAY",
+          "label": "Raiway",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "FASTWEB_VODAFONE",
+          "label": "Fastweb-Vodafone",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "TIM",
+          "label": "TIM",
+          "order": 7
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Proprietà / Host",
+      "listId": "PROPRIETA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "SWAP_NOKIA",
+          "label": "SWAP Nokia",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NIN",
+          "label": "NIN",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "NIE_5G",
+          "label": "NIE 5G",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "NIE_NR_700",
+          "label": "NIE NR 700",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "PONTE_RADIO",
+          "label": "Ponte radio",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "NIE_CONGIUNTO",
+          "label": "NIE Congiunto",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "NIN_CONGIUNTO",
+          "label": "NIN congiunto",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "SHARING",
+          "label": "Sharing",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "PROVVISORIO",
+          "label": "Provvisorio",
+          "order": 9
+        },
+        {
+          "active": true,
+          "code": "PUBLIC_SAFETY",
+          "label": "Public safety",
+          "order": 10
+        },
+        {
+          "active": true,
+          "code": "DAS",
+          "label": "DAS",
+          "order": 11
+        },
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 12
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_NEW_SITE",
+          "label": "Collocato New Site",
+          "order": 13
+        },
+        {
+          "active": true,
+          "code": "COLLOCATO_ESISTENTE",
+          "label": "Collocato Esistente",
+          "order": 14
+        },
+        {
+          "active": true,
+          "code": "DEMOLIZIONE",
+          "label": "Demolizione",
+          "order": 15
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "TORRE",
+          "label": "Torre",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TIM_FIBERCOP"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "AUTORIZZATO",
+          "label": "AUTORIZZATO",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DINIEGATO",
+          "label": "DINIEGATO",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TAR",
+          "label": "TAR",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 4
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Autorizzazione finale",
+      "listId": "AUTORIZZAZIONE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "TowerNet",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Cliente Finale",
+      "listId": "CLIENTE_FINALE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Collaudatore",
+      "listId": "COLLAUDATORE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "TOWERNET",
+          "label": "TowerNet",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ALTRO",
+          "label": "Altro",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Committente",
+      "listId": "COMMITTENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "DL",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Direttore Lavori",
+      "listId": "DIRETTORE_LAVORI",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Altro",
+      "listId": "ENTE_VINCOLO_ALTRO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Ente del vincolo Parco",
+      "listId": "ENTE_VINCOLO_PARCO",
+      "provenance": "Nessun valore iniziale: da completare in Configurazione (D-103)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "POSITIVO",
+          "label": "Positivo",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "NEGATIVO",
+          "label": "Negativo",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Esito parere Arpa / Esito parere \"nome ente\"",
+      "listId": "ESITO_PARERE_ARPA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PE",
+      "listId": "FORNITORE_PE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore PP / Fornitore Permessi",
+      "listId": "FORNITORE_PP",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "UT_PE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Fornitore UT",
+      "listId": "FORNITORE_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Gestore Tenant",
+      "listId": "GESTORE_TENANT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Incarico / Lavorazione",
+      "listId": "INCARICO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (INCOMPLETA)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "SOPRINTENDENZA",
+          "label": "Soprintendenza",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "COMUNE",
+          "label": "Comune",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "ENAC_ENAV",
+          "label": "ENAC / ENAV",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "SIC",
+          "label": "SIC",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "NATURA2000",
+          "label": "Natura2000",
+          "order": 5
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Nome Ente",
+      "listId": "NOME_ENTE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (INCOMPLETA)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "ATTESA_OK",
+          "label": "ATTESA OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ATTESA_ST",
+          "label": "ATTESA ST",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DA_CHIUDERE",
+          "label": "DA CHIUDERE",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "DA_FARE",
+          "label": "DA FARE",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "DA_INVIARE",
+          "label": "DA INVIARE",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "KO",
+          "label": "KO",
+          "order": 6
+        },
+        {
+          "active": true,
+          "code": "RIDUZIONE",
+          "label": "RIDUZIONE",
+          "order": 7
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 8
+        },
+        {
+          "active": true,
+          "code": "CHIUSA",
+          "label": "CHIUSA",
+          "order": 9
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato AIE",
+      "listId": "STATO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "DA_ASSEGNARE",
+          "label": "DA ASSEGNARE",
+          "order": 2
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato assegnazione tecnico AIE",
+      "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "AIE",
+      "items": [
+        {
+          "active": true,
+          "code": "IN_ESECUZIONE",
+          "label": "IN ESECUZIONE",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "OK",
+          "label": "OK",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "STAND_BY",
+          "label": "STAND BY",
+          "order": 3
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Stato misure di fondo",
+      "listId": "STATO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "AIE",
+      "items": [],
+      "kind": "CONFIGURABLE",
+      "label": "Tecnico Misure di fondo",
+      "listId": "TECNICO_MISURE_DI_FONDO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (MANCANTE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "NEW_SITE",
+          "label": "New Site",
+          "order": 1
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia attività PE",
+      "listId": "TIPOLOGIA_ATTIVITA_PE",
+      "provenance": "Derivata: unione di PROGETTO e INCARICO (D-86)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "UT_PE",
+      "items": [
+        {
+          "active": true,
+          "code": "VS",
+          "label": "VS",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "AS",
+          "label": "AS",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "DIMENSIONAMENTO_PLINTO",
+          "label": "Dimensionamento plinto",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "VS_PLINTO",
+          "label": "VS plinto",
+          "order": 4
+        },
+        {
+          "active": true,
+          "code": "FATTIBILITA",
+          "label": "Fattibilità",
+          "order": 5
+        },
+        {
+          "active": true,
+          "code": "CORREZIONE_PE",
+          "label": "Correzione PE",
+          "order": 6
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia attività UT",
+      "listId": "TIPOLOGIA_ATTIVITA_UT",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "RAW_LAND",
+          "label": "Raw Land",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "ROOF_TOP",
+          "label": "Roof Top",
+          "order": 2
+        }
+      ],
+      "kind": "CONTROLLED",
+      "label": "Tipologia sito",
+      "listId": "TIPOLOGIA_SITO",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONTROLLATO)",
+      "templateId": "TOWERNET"
+    },
+    {
+      "group": "PM_PERMESSI",
+      "items": [
+        {
+          "active": true,
+          "code": "PALO_POLIGONALE",
+          "label": "Palo poligonale",
+          "order": 1
+        },
+        {
+          "active": true,
+          "code": "PALO_FLANGIATO",
+          "label": "Palo flangiato",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "TRALICCIO",
+          "label": "Traliccio",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PALINA",
+          "label": "Palina",
+          "order": 4
+        }
+      ],
+      "kind": "CONFIGURABLE",
+      "label": "Tipologia Struttura",
+      "listId": "TIPOLOGIA_STRUTTURA",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
+      "templateId": "TOWERNET"
+    }
+  ],
+  "warnings": [
+    "ILIAD TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "ILIAD PROPRIETA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "TOWERNET TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "TOWERNET NOME_ENTE: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "TIM_FIBERCOP TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "TIM_FIBERCOP PROPRIETA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "INWIT TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "FASTWEB_VODAFONE TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "FASTWEB_VODAFONE PROPRIETA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "LEONARDO TIPOLOGIA_STRUTTURA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)",
+    "LEONARDO PROPRIETA: voce \"Altro\" del CSV tolta, vale \"Altro\" del campo (D-100 D1)"
+  ]
+}

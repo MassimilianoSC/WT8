@@ -1,0 +1,17 @@
+﻿forma_md;conteggio;datatype_proposto;ripartizione;regole_ed_esempi
+DATE (gg/mm/aaaa);440;DATE;DATE=440;"DATE: DATE [Data assegnazione; Forecast Protocollo; Data sopralluogo; Invio verbale di sopralluogo]"
+menù a tendina;172;SELECT;SELECT=140, USER=32;"SELECT: menù a tendina [Regione; Provincia; Comune; Tipologia sito] | USER: campo utente D-39 (AIE) [Responsabile interno AIE] | USER: campo utente D-39 (UT) [VS/AS incaricata da; Tecnico Caratterizzazione] | USER: campo utente D-39 (PE) [PE incaricato da] | USER: campo utente D-39 (DL) [Tecnico deposito sismico] | USER: campo utente D-39 (PERMESSI) [Tecnico PP]"
+TEXT;65;TEXT;TEXT=65;"TEXT: TEXT [Codice Sito; Nome Sito; Committente; Cliente Finale] | TEXT: N° protocollo / N° sismica = testo (D-38) [N° protocollo deposito sismico; N° sismica; N° protocollo Arpa; N° protocollo “Nome ente”]"
+menù a tendina che si popola volta per volta;60;"SELECT (lista CONFIGURABLE; USER/USERS per i campi D-39)";SELECT=42, USER=12, USERS=6;"SELECT: menù a tendina [Referente Fastweb; RAN Fastweb; Progettista / Tecnico; Tecnico Misure di fondo] | USER: campo utente D-39 (AIE) [Tecnico AIE] | USER: campo utente D-39 (UT) [Tecnico UT] | USERS: campo utente D-39 (PE) [Tecnico PE]"
+campo libero;58;TEXT / LONGTEXT (Note);LONGTEXT=52, TEXT=6;"LONGTEXT: campo libero di tipo Note → LONGTEXT [Note Assegnazione UT; Note Pacchetto Permessi; Note Assegnazione PE; Note AIE] | TEXT: campo libero → TEXT [Nome Ente; Codice sito Host]"
+campo numerico;24;NUMBER;NUMBER=24;"NUMBER: campo numerico [Importo UT; Costo UT; Importo PE; Costo PE]"
+DECIMAL;12;NUMBER;NUMBER=12;"NUMBER: DECIMAL [Latitudine; Longitudine]"
+(vuoto);9;TEXT (segnalato);TEXT=9;"TEXT: dtype vuoto → TEXT (segnalato) [XML; Ripresentazione Pratica; DATA SCADENZA PERMESSI; Offerta Inviata]"
+INTEGER;6;NUMBER (Codice G7 → TEXT);TEXT=6;TEXT: INTEGER ma Codice G7 è un codice (D-24): TEXT [Codice G7]
+menù a tendina a scelta singola;6;SELECT;SELECT=6;SELECT: menù a tendina [Incarico / Lavorazione]
+campo varchar 50;6;TEXT;TEXT=6;TEXT: campo varchar 50 [ODA]
+menù a tendina con tutti i clienti;6;SELECT;SELECT=6;SELECT: menù a tendina [Gestore Tenant]
+Menù a tendina;5;SELECT;USER=3, SELECT=2;"USER: campo utente D-39 (PE) [Tecnico PSC] | SELECT: menù a tendina [Tecnico; Nome Ente] | USER: campo utente D-39 (UT) [Tecnico Caratterizzazione]"
+campo varchar;3;TEXT;TEXT=3;TEXT: campo varchar [SR INWIT]
+libero;3;TEXT / LONGTEXT (Note);TEXT=2, LONGTEXT=1;"TEXT: campo libero → TEXT [Numero Offerta; Numero EM] | LONGTEXT: campo libero di tipo Note → LONGTEXT [Note Offerta]"
+menù a tendina con selezione multipla;1;MULTISELECT;MULTISELECT=1;MULTISELECT: menù a selezione multipla [Oneri]

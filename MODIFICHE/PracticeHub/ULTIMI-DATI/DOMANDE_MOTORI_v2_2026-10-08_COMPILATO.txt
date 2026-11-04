@@ -1,0 +1,150 @@
+PRACTICEHUB - DOMANDE RESIDUE SU STATO ATTIVITA', NOTIFICHE E PERMESSI
+=====================================================================
+Versione 2 - Data: 08/10/2026
+Sostituisce il file DOMANDE_MOTORI_2026-10-08.txt.
+Riferimenti: pacchetto PracticeHub_baseline_finale_2026-10-08_corretto.
+
+Grazie per il pacchetto corretto: lo abbiamo adottato come baseline.
+Contiene già la risposta a buona parte delle domande precedenti:
+- trigger di PROTOCOLLATO, REALIZZATO, AUTORIZZATO / DINIEGATO / TAR;
+- Richiesta integrazione solo se è l'evento più recente;
+- stato manuale ripreso dal successivo evento automatico;
+- soglie e chiusure degli alert ODA FASTWEB-VODAFONE;
+- Forecast PSC manuale.
+
+Restano i punti qui sotto. Per ognuno c'è una proposta: se va bene
+scrivi "OK" accanto a RISPOSTA, altrimenti la correzione. Nel frattempo
+applichiamo la proposta.
+La parte F è solo informativa: la applichiamo così, salvo tua
+indicazione contraria.
+
+
+----------------------------------------------------------------------
+A. STATO ATTIVITA'
+----------------------------------------------------------------------
+
+A1. Due eventi automatici con la STESSA data (es. Protocollo e
+    Richiesta integrazione nello stesso giorno). La Guida §14 dice
+    "la precedenza in caso di identica data trigger resta da definire".
+    Proposta: vince quello più avanti nel flusso, in questo ordine:
+    ASSEGNATO < PROTOCOLLATO < INTEGRAZIONE RICHIESTA
+    < AUTORIZZATO / DINIEGATO / TAR < REALIZZATO.
+
+    RISPOSTA: OK
+
+
+A2. INWIT: "Autorizzazione finale = KO" porta lo Stato attività a KO,
+    come in TOWERNET? La Guida §14 lo indica come decisione aperta.
+    Proposta: sì, come in TOWERNET.
+
+    RISPOSTA: OK
+
+
+----------------------------------------------------------------------
+B. NOTIFICA AL GRUPPO DL
+----------------------------------------------------------------------
+
+B1. La Guida (§17.5) dice: "Quando il PM esegue Assegna verso PE,
+    viene notificato anche il gruppo DL". Il comando Assegna però sceglie
+    i GRUPPI, e UT e PE sono un unico gruppo (UT/PE): non esiste un
+    Assegna "solo verso PE". Quale evento fa partire la notifica al DL?
+    a) ogni Assegna verso il gruppo UT/PE (anche quando serve solo
+       l'UT);
+    b) la compilazione del campo "Assegnazione PE" (sezione PM, visibile
+       con PE = SI);
+    c) un Assegna verso UT/PE quando il flag PE = SI.
+    Proposta: c), perché il PE entra in gioco solo con PE = SI.
+    Nel frattempo applichiamo a).
+
+    RISPOSTA: Per il momento teniamo a).
+
+
+----------------------------------------------------------------------
+C. CHI PUO' FARE COSA
+----------------------------------------------------------------------
+
+C1. Chi può usare il comando Assegna, e verso quali gruppi?
+    La Guida parla di Assegna eseguito dal PM.
+    Proposta: PM e ADMIN, verso AIE, UT/PE e DL.
+
+    RISPOSTA: OK
+
+
+C2. Chi modifica i campi trasversali?
+    Proposta:
+    - Note Operative: gruppo PM/Permessi (PM e Permessi) e ADMIN;
+    - Fatturabile: PM e ADMIN (la Guida parla di "modifica manuale del
+      PM");
+    - Fatturato: gruppo PM/Permessi e ADMIN.
+    Tutti gli altri li vedono in sola lettura.
+
+    RISPOSTA: Piccolo cambio: Note Operative passa da livello di pratica a livello di gruppo/team: ogni team avrà le sue Note Operative che può compilare, visibili solo al team stesso. L'unico ruolo che può vedere le Note Operative di tutti è il PM leader e l'ADMIN. la posizione di queste Note è in cima al dettaglio pratica, ovvero non è un campo che vive nelle sezioni. Fatturabile è giusto, Fatturato solo PM e ADMIN (come Fatturabile). Sto comunicando per la prima volta questa modifica, quindi la baseline non li ha ancora recepiti.
+
+
+----------------------------------------------------------------------
+D. TABELLA VINCOLI
+----------------------------------------------------------------------
+
+D1. Vincoli Ambientali Naturalistici: gli MD dicono "stato secondo
+    configurazione comune". Proposta: stati iniziali Presente / Assente
+    / Assolto / Non pertinente, in una lista comune modificabile
+    dall'ADMIN. Con Presente nasce la voce Ente, come per gli altri.
+
+    RISPOSTA: OK
+
+
+D2. Vincoli con più enti possibili: Paesaggistico "Soprintendenza o
+    Comune", Aeroportuale "ENAC / ENAV", Naturalistici "SIC, Natura2000,
+    Altro". Proposta: per ogni pratica si sceglie UN ente dalla lista;
+    la voce Ente nasce con quello. (Per Aeroportuale: se invece servono
+    sempre entrambi ENAC ed ENAV, indicalo.)
+
+    RISPOSTA: OK
+
+
+----------------------------------------------------------------------
+F. COME LO APPLICHIAMO (solo informativo, salvo tua indicazione)
+----------------------------------------------------------------------
+
+F1. Stato attività
+    - IN APPROVAZIONE non ha un trigger nella baseline: si imposta solo
+      a mano.
+    - "Il successivo evento automatico valido riprende il controllo":
+      dopo un cambio manuale lo stato resta quello scelto finché un
+      salvataggio non produce un evento automatico NUOVO (per esempio
+      si compila il Protocollo o una nuova Richiesta integrazione più
+      recente); da quel momento vale di nuovo lo stato automatico.
+      Salvare altri campi non cambia lo stato manuale.
+
+F2. Fatturabile
+    - "Ultimo esito ARPA" = esito dell'ultimo ciclo ARPA inserito.
+    - Finché nessuno lo modifica a mano, Fatturabile segue sempre la
+      regola: se una data o un esito vengono corretti, un SI automatico
+      può tornare NO (con traccia nello storico e messaggio a video).
+    - Il NO forzato scatta la prima volta che l'esito di un ciclo ARPA
+      diventa Negativo, anche se il PM aveva già scelto a mano.
+
+F3. Spostamento del Forecast Ottenimento Permessi per integrazione
+    (TOWERNET, INWIT, LEONARDO)
+    - Se, quando si compila Invio integrazione, il Protocollo è ancora
+      vuoto, non c'è un forecast base: quell'integrazione non sposta il
+      forecast.
+    - Il messaggio a video compare solo quando la data cambia davvero.
+
+F4. Ripresentazione Pratica nel ciclo ARPA: compilarla apre
+    automaticamente un nuovo ciclo ARPA vuoto.
+
+F5. Tipi mancanti negli MD: LEONARDO #21 F021 Data assegnazione e ILIAD
+    #93 F085 DATA SCADENZA PERMESSI non hanno il tipo; li trattiamo come
+    date.
+
+F6. Codice G7: gli MD lo indicano come numero intero. Se un G7 può avere
+    zeri iniziali o lettere, dicci: in quel caso va gestito come testo.
+
+F7. Calendario degli alert
+    - Giorni lavorativi = da lunedì a venerdì, escluse le festività
+      nazionali (compresi Pasquetta e, dal 2026, il 4 ottobre, legge
+      151/2025).
+    - "Una settimana" = 7 giorni di calendario, poi il primo giorno
+      lavorativo alle 09:00.
+    - Il reminder settimanale si ripete ogni 7 giorni.

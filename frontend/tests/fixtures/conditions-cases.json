@@ -1,0 +1,783 @@
+{
+  "version": 2,
+  "source": "Semantica delle condizioni del contratto v0.1.5 / D-74 / D-110 / D-31, casi condivisi tra il valutatore del server (lib/engines/conditions.ts) e quello del frontend. Contesto: values (non ripetibili), repeats (righe per gruppo; le righe VINCOLI hanno constraint.stato), row (riga dell'occorrenza valutata), repeatOf (flowId → gruppo). D-110: vuoto = null, stringa vuota o di soli spazi, array vuoto, codice vuoto, array di soli codici vuoti.",
+  "cases": [
+    {
+      "name": "condizione assente: sempre visibile",
+      "condition": null,
+      "context": {
+        "values": {}
+      },
+      "expected": true
+    },
+    {
+      "name": "FILLED testo",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": "x"
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "FILLED stringa vuota",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": ""
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "FILLED null",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": null
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "FILLED campo assente",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {}
+      },
+      "expected": false
+    },
+    {
+      "name": "FILLED numero 0 è pieno",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": 0
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "FILLED codice NO è pieno",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": {
+            "code": "NO"
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "FILLED array vuoto",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": []
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "FILLED multiselezione",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": [
+            {
+              "code": "A"
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "EMPTY null",
+      "condition": {
+        "flowId": "F001",
+        "op": "EMPTY"
+      },
+      "context": {
+        "values": {
+          "F001": null
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "EMPTY pieno",
+      "condition": {
+        "flowId": "F001",
+        "op": "EMPTY"
+      },
+      "context": {
+        "values": {
+          "F001": "x"
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "EQ codice uguale",
+      "condition": {
+        "flowId": "F010",
+        "op": "EQ",
+        "value": "RAW_LAND"
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": "RAW_LAND"
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "EQ codice diverso",
+      "condition": {
+        "flowId": "F010",
+        "op": "EQ",
+        "value": "RAW_LAND"
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": "ROOF_TOP"
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "EQ campo vuoto",
+      "condition": {
+        "flowId": "F010",
+        "op": "EQ",
+        "value": "RAW_LAND"
+      },
+      "context": {
+        "values": {}
+      },
+      "expected": false
+    },
+    {
+      "name": "EQ confronta il codice, non l'etichetta",
+      "condition": {
+        "flowId": "F010",
+        "op": "EQ",
+        "value": "Raw Land"
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": "RAW_LAND"
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "NEQ vero a campo vuoto (D-74)",
+      "condition": {
+        "flowId": "F006",
+        "op": "NEQ",
+        "value": "01"
+      },
+      "context": {
+        "values": {}
+      },
+      "expected": true
+    },
+    {
+      "name": "NEQ con il codice escluso",
+      "condition": {
+        "flowId": "F006",
+        "op": "NEQ",
+        "value": "01"
+      },
+      "context": {
+        "values": {
+          "F006": {
+            "code": "01"
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "NEQ con altro codice",
+      "condition": {
+        "flowId": "F006",
+        "op": "NEQ",
+        "value": "01"
+      },
+      "context": {
+        "values": {
+          "F006": {
+            "code": "03"
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "IN uno dei codici",
+      "condition": {
+        "flowId": "F010",
+        "op": "IN",
+        "value": [
+          "RAW_LAND",
+          "TRALICCIO"
+        ]
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": "TRALICCIO"
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "IN nessuno dei codici",
+      "condition": {
+        "flowId": "F010",
+        "op": "IN",
+        "value": [
+          "RAW_LAND",
+          "TRALICCIO"
+        ]
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": "ROOF_TOP"
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "EQ su multiselezione: basta un codice",
+      "condition": {
+        "flowId": "F061",
+        "op": "EQ",
+        "value": "B"
+      },
+      "context": {
+        "values": {
+          "F061": [
+            {
+              "code": "A"
+            },
+            {
+              "code": "B"
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "NEQ su multiselezione col codice presente",
+      "condition": {
+        "flowId": "F061",
+        "op": "NEQ",
+        "value": "B"
+      },
+      "context": {
+        "values": {
+          "F061": [
+            {
+              "code": "A"
+            },
+            {
+              "code": "B"
+            }
+          ]
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "all vuoto è vero",
+      "condition": {
+        "all": []
+      },
+      "context": {
+        "values": {}
+      },
+      "expected": true
+    },
+    {
+      "name": "any vuoto è falso",
+      "condition": {
+        "any": []
+      },
+      "context": {
+        "values": {}
+      },
+      "expected": false
+    },
+    {
+      "name": "all annidato",
+      "condition": {
+        "all": [
+          {
+            "flowId": "F001",
+            "op": "FILLED"
+          },
+          {
+            "any": [
+              {
+                "flowId": "F002",
+                "op": "EQ",
+                "value": "SI"
+              },
+              {
+                "flowId": "F003",
+                "op": "FILLED"
+              }
+            ]
+          }
+        ]
+      },
+      "context": {
+        "values": {
+          "F001": "x",
+          "F003": "y"
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "stesso gruppo: si legge la riga corrente (piena)",
+      "condition": {
+        "flowId": "F073",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F073": "INTEGRAZIONE",
+          "F074": "INTEGRAZIONE"
+        },
+        "row": {
+          "repeat": "INTEGRAZIONE",
+          "values": {
+            "F073": "2026-10-01"
+          }
+        },
+        "repeats": {
+          "INTEGRAZIONE": [
+            {
+              "values": {
+                "F073": "2026-10-01"
+              }
+            },
+            {
+              "values": {}
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "stesso gruppo: riga corrente vuota anche se un'altra è piena",
+      "condition": {
+        "flowId": "F073",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F073": "INTEGRAZIONE",
+          "F074": "INTEGRAZIONE"
+        },
+        "row": {
+          "repeat": "INTEGRAZIONE",
+          "values": {}
+        },
+        "repeats": {
+          "INTEGRAZIONE": [
+            {
+              "values": {
+                "F073": "2026-10-01"
+              }
+            },
+            {
+              "values": {}
+            }
+          ]
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "altro gruppo: FILLED se almeno una riga è piena",
+      "condition": {
+        "flowId": "F020",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F020": "TENANT",
+          "F080": "ENTE"
+        },
+        "row": {
+          "repeat": "ENTE",
+          "values": {}
+        },
+        "repeats": {
+          "TENANT": [
+            {
+              "values": {}
+            },
+            {
+              "values": {
+                "F020": {
+                  "code": "TIM"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "altro gruppo senza righe: FILLED falso",
+      "condition": {
+        "flowId": "F020",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F020": "TENANT"
+        },
+        "repeats": {
+          "TENANT": []
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "altro gruppo senza righe: EMPTY vero",
+      "condition": {
+        "flowId": "F020",
+        "op": "EMPTY"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F020": "TENANT"
+        },
+        "repeats": {
+          "TENANT": []
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "occorrenza non ripetibile che cita un campo ripetibile: almeno una riga",
+      "condition": {
+        "flowId": "F078",
+        "op": "EQ",
+        "value": "NEGATIVO"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F078": "ARPA"
+        },
+        "repeats": {
+          "ARPA": [
+            {
+              "values": {
+                "F078": {
+                  "code": "POSITIVO"
+                }
+              }
+            },
+            {
+              "values": {
+                "F078": {
+                  "code": "NEGATIVO"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "NEQ su altro gruppo: falso se una riga ha il codice",
+      "condition": {
+        "flowId": "F078",
+        "op": "NEQ",
+        "value": "NEGATIVO"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F078": "ARPA"
+        },
+        "repeats": {
+          "ARPA": [
+            {
+              "values": {
+                "F078": {
+                  "code": "POSITIVO"
+                }
+              }
+            },
+            {
+              "values": {
+                "F078": {
+                  "code": "NEGATIVO"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "NEQ su altro gruppo: vero se nessuna riga ha il codice",
+      "condition": {
+        "flowId": "F078",
+        "op": "NEQ",
+        "value": "NEGATIVO"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F078": "ARPA"
+        },
+        "repeats": {
+          "ARPA": [
+            {
+              "values": {
+                "F078": {
+                  "code": "POSITIVO"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "VINCOLI compilato se almeno un vincolo ha uno stato (v0.1.7)",
+      "condition": {
+        "flowId": "F031",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F031": "VINCOLI",
+          "F081": "ENTE"
+        },
+        "row": {
+          "repeat": "ENTE",
+          "values": {}
+        },
+        "repeats": {
+          "VINCOLI": [
+            {
+              "values": {},
+              "constraint": {
+                "stato": null
+              }
+            },
+            {
+              "values": {},
+              "constraint": {
+                "stato": {
+                  "code": "ASSENTE"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "VINCOLI senza stati: non compilato",
+      "condition": {
+        "flowId": "F031",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {},
+        "repeatOf": {
+          "F031": "VINCOLI"
+        },
+        "repeats": {
+          "VINCOLI": [
+            {
+              "values": {},
+              "constraint": {
+                "stato": null
+              }
+            },
+            {
+              "values": {},
+              "constraint": {
+                "stato": null
+              }
+            }
+          ]
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "D-110: testo di soli spazi è vuoto",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": "   "
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "D-110: codice vuoto è vuoto",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": {
+            "code": ""
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "D-110: array di soli codici vuoti è vuoto",
+      "condition": {
+        "flowId": "F001",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F001": [
+            {
+              "code": ""
+            }
+          ]
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "D-110: EMPTY vero con soli spazi",
+      "condition": {
+        "flowId": "F001",
+        "op": "EMPTY"
+      },
+      "context": {
+        "values": {
+          "F001": "  "
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "D-110: EQ su codice vuoto è falso",
+      "condition": {
+        "flowId": "F010",
+        "op": "EQ",
+        "value": ""
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": ""
+          }
+        }
+      },
+      "expected": false
+    },
+    {
+      "name": "D-110: NEQ su codice vuoto è vero",
+      "condition": {
+        "flowId": "F010",
+        "op": "NEQ",
+        "value": "RAW_LAND"
+      },
+      "context": {
+        "values": {
+          "F010": {
+            "code": ""
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "name": "D-110: multiselezione con un codice pieno e uno vuoto è piena",
+      "condition": {
+        "flowId": "F061",
+        "op": "FILLED"
+      },
+      "context": {
+        "values": {
+          "F061": [
+            {
+              "code": ""
+            },
+            {
+              "code": "A"
+            }
+          ]
+        }
+      },
+      "expected": true
+    }
+  ]
+}

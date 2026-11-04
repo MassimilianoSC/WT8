@@ -1,0 +1,2941 @@
+{
+  "bindings": {
+    "computed": [
+      {
+        "formula": "TIPOLOGIA_ATTIVITA_PE",
+        "inputs": {
+          "incarico": "F014",
+          "progetto": "F015"
+        },
+        "manualOverride": false,
+        "output": "F099"
+      },
+      {
+        "formula": "FORECAST_GEOLOGICA",
+        "inputs": {
+          "assegnazione": "F082"
+        },
+        "manualOverride": false,
+        "output": "F083"
+      }
+    ],
+    "effects": [
+      {
+        "effects": [
+          "ALERT:FORECAST_AIE"
+        ],
+        "flowId": "F045",
+        "row": 46
+      },
+      {
+        "effects": [
+          "MANUAL_FORECAST"
+        ],
+        "flowId": "F052",
+        "row": 53
+      },
+      {
+        "effects": [
+          "NEW_ARPA_ROW (D-93.3)"
+        ],
+        "flowId": "F062",
+        "row": 63
+      },
+      {
+        "effects": [
+          "STRUCTURAL:ENTE_DA_VINCOLO (D-35, D-76)"
+        ],
+        "flowId": "F063",
+        "row": 64
+      },
+      {
+        "effects": [
+          "COMPUTED:FORECAST_GEOLOGICA"
+        ],
+        "flowId": "F083",
+        "row": 73
+      },
+      {
+        "effects": [
+          "VALUES:IN ESECUZIONE|OK|STAND BY"
+        ],
+        "flowId": "F073",
+        "row": 90
+      },
+      {
+        "effects": [
+          "VALUES:OK|DA ASSEGNARE"
+        ],
+        "flowId": "F075",
+        "row": 92
+      },
+      {
+        "effects": [
+          "DEFAULT_TODAY_ON_ASSIGN (D-21)"
+        ],
+        "flowId": "F088",
+        "row": 105
+      },
+      {
+        "effects": [
+          "NONE_OPTION"
+        ],
+        "flowId": "F091",
+        "row": 108
+      },
+      {
+        "effects": [
+          "VALUES:VS|AS|Dimensionamento plinto|VS plinto|fattibilità|correzione PE"
+        ],
+        "flowId": "F092",
+        "row": 109
+      },
+      {
+        "effects": [
+          "COMPUTED:FORECAST_GEOLOGICA"
+        ],
+        "flowId": "F083",
+        "row": 115
+      },
+      {
+        "effects": [
+          "DEFAULT_TODAY_ON_ASSIGN (D-21)"
+        ],
+        "flowId": "F098",
+        "row": 121
+      },
+      {
+        "effects": [
+          "NONE_OPTION",
+          "MULTIPLE_USERS"
+        ],
+        "flowId": "F101",
+        "row": 124
+      },
+      {
+        "effects": [
+          "NONE_OPTION"
+        ],
+        "flowId": "F102",
+        "row": 125
+      },
+      {
+        "effects": [
+          "VALUES:SI|NO"
+        ],
+        "flowId": "F107",
+        "row": 131
+      }
+    ],
+    "excluded": []
+  },
+  "source": {
+    "file": "ASSOCIAZIONI_CAMPI_TIM-FIBERCOP.md",
+    "flowIds": 118,
+    "rows": 142,
+    "sha256": "1279e1a9e26069f9a3098f58157c1cfa9beaf5e8403e03b2109e0a592cd311e9"
+  },
+  "template": {
+    "baseline": "2026-10-08",
+    "constraints": [
+      {
+        "code": "MONUMENTALE",
+        "defaultEnte": "SOPRINTENDENZA",
+        "defaultEnteLabel": "Soprintendenza",
+        "enteList": null,
+        "label": "Monumentale",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "ARCHEOLOGICO",
+        "defaultEnte": "SOPRINTENDENZA",
+        "defaultEnteLabel": "Soprintendenza",
+        "enteList": null,
+        "label": "Archeologico",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "PAESAGGISTICO",
+        "defaultEnte": null,
+        "defaultEnteLabel": null,
+        "enteList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "ENTE_VINCOLO_PAESAGGISTICO"
+        },
+        "label": "Paesaggistico",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAA"
+        }
+      },
+      {
+        "code": "PARCO",
+        "defaultEnte": null,
+        "defaultEnteLabel": null,
+        "enteList": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "ENTE_VINCOLO_PARCO"
+        },
+        "label": "Parco",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAA"
+        }
+      },
+      {
+        "code": "AEROPORTUALE",
+        "defaultEnte": null,
+        "defaultEnteLabel": null,
+        "enteList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "ENTE_VINCOLO_AEROPORTUALE"
+        },
+        "label": "Aeroportuale",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "IDROGEOLOGICO",
+        "defaultEnte": "COMUNE",
+        "defaultEnteLabel": "Comune",
+        "enteList": null,
+        "label": "Idrogeologico",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "FASCIA_CIMITERIALE",
+        "defaultEnte": "COMUNE",
+        "defaultEnteLabel": "Comune",
+        "enteList": null,
+        "label": "Fascia di rispetto — Cimiteriale",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "FASCIA_POZZI",
+        "defaultEnte": "COMUNE",
+        "defaultEnteLabel": "Comune",
+        "enteList": null,
+        "label": "Fascia di rispetto — Pozzi",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "FASCIA_CORSI_ACQUA",
+        "defaultEnte": "COMUNE",
+        "defaultEnteLabel": "Comune",
+        "enteList": null,
+        "label": "Fascia di rispetto — Corsi d’acqua",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_PAN"
+        }
+      },
+      {
+        "code": "ALTRO",
+        "defaultEnte": null,
+        "defaultEnteLabel": null,
+        "enteList": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "ENTE_VINCOLO_ALTRO"
+        },
+        "label": "Altro",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "STATO_VINCOLO_ALTRO"
+        }
+      },
+      {
+        "code": "AMBIENTALI_NATURALISTICI",
+        "defaultEnte": null,
+        "defaultEnteLabel": null,
+        "enteList": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "ENTE_VINCOLO_NATURALISTICI"
+        },
+        "label": "Vincoli Ambientali Naturalistici",
+        "stateList": {
+          "allowOther": false,
+          "kind": "CONFIGURABLE",
+          "listId": "STATO_VINCOLO_NATURALISTICI"
+        }
+      }
+    ],
+    "id": "TIM_FIBERCOP",
+    "label": "TIM / FIBERCOP",
+    "occurrences": [
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F001",
+        "kind": "MASTER",
+        "label": "Codice G7",
+        "occurrenceKey": "F001@PM_PERMESSI.CORE",
+        "order": 1,
+        "ownerGroup": "PM_PERMESSI",
+        "required": true,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Codice G7"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "TEXT",
+        "flowId": "F002",
+        "kind": "MASTER",
+        "label": "Codice Sito",
+        "occurrenceKey": "F002@PM_PERMESSI.CORE",
+        "order": 2,
+        "ownerGroup": "PM_PERMESSI",
+        "required": true,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Codice Sito"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "TEXT",
+        "flowId": "F003",
+        "kind": "MASTER",
+        "label": "Nome Sito",
+        "occurrenceKey": "F003@PM_PERMESSI.CORE",
+        "order": 3,
+        "ownerGroup": "PM_PERMESSI",
+        "required": true,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Nome Sito"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F004",
+        "kind": "MASTER",
+        "label": "Committente",
+        "list": {
+          "allowOther": true,
+          "kind": "CONTROLLED",
+          "listId": "COMMITTENTE"
+        },
+        "occurrenceKey": "F004@PM_PERMESSI.CORE",
+        "order": 4,
+        "ownerGroup": "PM_PERMESSI",
+        "required": true,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "COMMITTENTE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F005",
+        "kind": "MASTER",
+        "label": "Cliente Finale",
+        "list": {
+          "allowOther": true,
+          "kind": "CONTROLLED",
+          "listId": "CLIENTE_FINALE"
+        },
+        "occurrenceKey": "F005@PM_PERMESSI.CORE",
+        "order": 5,
+        "ownerGroup": "PM_PERMESSI",
+        "required": true,
+        "sectionKey": "PM_PERMESSI.CORE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F006",
+        "kind": "MASTER",
+        "label": "Regione",
+        "list": {
+          "allowOther": false,
+          "kind": "ISTAT",
+          "listId": "ISTAT_REGIONI"
+        },
+        "occurrenceKey": "F006@PM_PERMESSI.CORE",
+        "order": 6,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Regione"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F007",
+        "kind": "MASTER",
+        "label": "Provincia",
+        "list": {
+          "allowOther": false,
+          "kind": "ISTAT",
+          "listId": "ISTAT_PROVINCE",
+          "parentFlowId": "F006"
+        },
+        "occurrenceKey": "F007@PM_PERMESSI.CORE",
+        "order": 7,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Provincia"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F008",
+        "kind": "MASTER",
+        "label": "Comune",
+        "list": {
+          "allowOther": false,
+          "kind": "ISTAT",
+          "listId": "ISTAT_COMUNI",
+          "parentFlowId": "F007"
+        },
+        "occurrenceKey": "F008@PM_PERMESSI.CORE",
+        "order": 8,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Comune"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "TEXT",
+        "flowId": "F009",
+        "kind": "MASTER",
+        "label": "Indirizzo",
+        "occurrenceKey": "F009@PM_PERMESSI.CORE",
+        "order": 9,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Indirizzo Fisico"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F010",
+        "kind": "MASTER",
+        "label": "Tipologia sito",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "TIPOLOGIA_SITO"
+        },
+        "occurrenceKey": "F010@PM_PERMESSI.CORE",
+        "order": 10,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Tipologia Sito"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F011",
+        "kind": "MASTER",
+        "label": "Tipologia Struttura",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "TIPOLOGIA_STRUTTURA"
+        },
+        "occurrenceKey": "F011@PM_PERMESSI.CORE",
+        "order": 11,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Tipologia Apparati / Infrastruttura"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F012",
+        "kind": "MASTER",
+        "label": "Rinforzo",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F012@PM_PERMESSI.CORE",
+        "order": 12,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F013",
+        "kind": "MASTER",
+        "label": "Area Apparati",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "AREA_APPARATI"
+        },
+        "occurrenceKey": "F013@PM_PERMESSI.CORE",
+        "order": 13,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Tipologia Apparati / Infrastruttura"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F014",
+        "kind": "MASTER",
+        "label": "Incarico / Lavorazione",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "INCARICO"
+        },
+        "occurrenceKey": "F014@PM_PERMESSI.CORE",
+        "order": 14,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Incarico / Lavorazione"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F015",
+        "kind": "MASTER",
+        "label": "Progetto",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "PROGETTO"
+        },
+        "occurrenceKey": "F015@PM_PERMESSI.CORE",
+        "order": 15,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Progetto / Commessa"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "TEXT",
+        "flowId": "F016",
+        "kind": "MASTER",
+        "label": "ODA",
+        "occurrenceKey": "F016@PM_PERMESSI.CORE",
+        "order": 16,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ODA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "ODA"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F017",
+        "kind": "MASTER",
+        "label": "Proprietà / Host",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "PROPRIETA"
+        },
+        "occurrenceKey": "F017@PM_PERMESSI.CORE",
+        "order": 17,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Proprietà / Host"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F017",
+          "op": "EQ",
+          "value": "INWIT"
+        },
+        "dataType": "TEXT",
+        "flowId": "F018",
+        "kind": "MASTER",
+        "label": "SR INWIT",
+        "occurrenceKey": "F018@PM_PERMESSI.CORE",
+        "order": 18,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "SR INWI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F019",
+        "kind": "MASTER",
+        "label": "Assistente TIM",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "ASSISTENTE_TIM"
+        },
+        "occurrenceKey": "F019@PM_PERMESSI.CORE",
+        "order": 19,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Assistente TIM"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F020",
+        "kind": "MASTER",
+        "label": "Progettista TIM",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "PROGETTISTA_TIM"
+        },
+        "occurrenceKey": "F020@PM_PERMESSI.CORE",
+        "order": 20,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.CORE",
+        "universal": "Progettista TIM"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F021",
+        "kind": "MASTER",
+        "label": "Gestore Tenant",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "GESTORE_TENANT"
+        },
+        "occurrenceKey": "F021@PM_PERMESSI.DATI_SECONDARI",
+        "order": 21,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "TENANT",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.DATI_SECONDARI",
+        "universal": "GESTORE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F021",
+          "op": "FILLED"
+        },
+        "dataType": "TEXT",
+        "flowId": "F022",
+        "kind": "MASTER",
+        "label": "Codice sito Tenant",
+        "occurrenceKey": "F022@PM_PERMESSI.DATI_SECONDARI",
+        "order": 22,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "TENANT",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.DATI_SECONDARI",
+        "universal": "Codici Sito Terzi"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F021",
+          "op": "FILLED"
+        },
+        "dataType": "TEXT",
+        "flowId": "F023",
+        "kind": "MASTER",
+        "label": "Nome sito Tenant",
+        "occurrenceKey": "F023@PM_PERMESSI.DATI_SECONDARI",
+        "order": 23,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "TENANT",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.DATI_SECONDARI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F024",
+        "kind": "MASTER",
+        "label": "Latitudine",
+        "occurrenceKey": "F024@PM_PERMESSI.DATI_SECONDARI",
+        "order": 24,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.DATI_SECONDARI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F025",
+        "kind": "MASTER",
+        "label": "Longitudine",
+        "occurrenceKey": "F025@PM_PERMESSI.DATI_SECONDARI",
+        "order": 25,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.DATI_SECONDARI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F026",
+        "kind": "MASTER",
+        "label": "Data assegnazione",
+        "occurrenceKey": "F026@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 26,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "Data Assegnazione"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F027",
+        "kind": "MASTER",
+        "label": "Forecast Protocollo",
+        "occurrenceKey": "F027@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 27,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F028",
+        "kind": "MASTER",
+        "label": "Data sopralluogo",
+        "occurrenceKey": "F028@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 28,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "Data Sopralluogo"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F029",
+        "kind": "MASTER",
+        "label": "Invio verbale di sopralluogo",
+        "occurrenceKey": "F029@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 29,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "INVIO VERBALE DI SOPRALLUOGO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F030",
+        "kind": "MASTER",
+        "label": "Vincoli",
+        "occurrenceKey": "F030@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 30,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "VINCOLI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "Vincoli"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F031",
+        "kind": "MASTER",
+        "label": "Revit",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F031@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 31,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "REVIT"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F031",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "LONGTEXT",
+        "flowId": "F032",
+        "kind": "MASTER",
+        "label": "Note Revit",
+        "occurrenceKey": "F032@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 32,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F033",
+        "kind": "MASTER",
+        "label": "Bozza di progetto",
+        "occurrenceKey": "F033@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 33,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F034",
+        "kind": "MASTER",
+        "label": "Assegnazione UT",
+        "occurrenceKey": "F034@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 34,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": "F035",
+        "kind": "MASTER",
+        "label": "Note Assegnazione UT",
+        "occurrenceKey": "F035@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 35,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F096",
+        "kind": "MIRROR",
+        "label": "Invio AS/VS",
+        "occurrenceKey": "F096@PM_PERMESSI.FASE_PRELIMINARE",
+        "order": 36,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
+        "universal": "INVIO AS/VS"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F036",
+        "kind": "MASTER",
+        "label": "Ricezione validazione",
+        "occurrenceKey": "F036@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 37,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Arrivo Validazione"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F037",
+        "kind": "MASTER",
+        "label": "Tecnico PP",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "PERMESSI"
+        },
+        "occurrenceKey": "F037@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 38,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Progettista / Tecnico"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F038",
+        "kind": "MASTER",
+        "label": "Fornitore PP",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "FORNITORE_PP"
+        },
+        "occurrenceKey": "F038@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 39,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Fornitore / Impresa"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F039",
+        "kind": "MASTER",
+        "label": "Invio PDM",
+        "occurrenceKey": "F039@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 40,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Invio PDM / Bozza PM"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F040",
+        "kind": "MASTER",
+        "label": "Approvazione PDM",
+        "occurrenceKey": "F040@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 41,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Approvazione PDM / PM"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F031",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F041",
+        "kind": "MASTER",
+        "label": "Caricamento Revit",
+        "occurrenceKey": "F041@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 42,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "CARICAMENTO REVIT"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F042",
+        "kind": "MASTER",
+        "label": "AIE",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F042@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 43,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F043",
+        "kind": "MASTER",
+        "label": "Ricezione Scheda Tecnica",
+        "occurrenceKey": "F043@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 44,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "SCHEDA TECNICA"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F044",
+        "kind": "MASTER",
+        "label": "Assegnazione AIE",
+        "occurrenceKey": "F044@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 45,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F045",
+        "kind": "MASTER",
+        "label": "Forecast AIE",
+        "occurrenceKey": "F045@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 46,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "FORECAST AIE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F046",
+        "kind": "MIRROR",
+        "label": "Riduzione",
+        "occurrenceKey": "F046@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 47,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "RIDUZIONI"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F047",
+        "kind": "MIRROR",
+        "label": "Approvazione Riduzione",
+        "occurrenceKey": "F047@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 48,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "OK RIDUZIONI"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F048",
+        "kind": "MIRROR",
+        "label": "Invio AIE",
+        "occurrenceKey": "F048@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 49,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "AIE INVIO"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F042",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F049",
+        "kind": "MIRROR",
+        "label": "Approvazione AIE",
+        "occurrenceKey": "F049@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 50,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "OK AIE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": "F050",
+        "kind": "MASTER",
+        "label": "Note Pacchetto Permessi",
+        "occurrenceKey": "F050@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 51,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F051",
+        "kind": "MASTER",
+        "label": "Invio Pacchetto Permessi",
+        "occurrenceKey": "F051@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 52,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Invio Pacchetto Permessi"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F052",
+        "kind": "MASTER",
+        "label": "Forecast Ottenimento Permessi",
+        "occurrenceKey": "F052@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 53,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F053",
+        "kind": "MASTER",
+        "label": "Ottenimento Permessi",
+        "occurrenceKey": "F053@PM_PERMESSI.PACCHETTO_PERMESSI",
+        "order": 54,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "universal": "Ottenimento Enti / Permessi"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F054",
+        "kind": "MASTER",
+        "label": "Protocollo",
+        "occurrenceKey": "F054@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 55,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Protocollo"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F055",
+        "kind": "MASTER",
+        "label": "Richiesta integrazione",
+        "occurrenceKey": "F055@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 56,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "INTEGRAZIONE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "RICHIESTA INTEGRAZIONI"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F055",
+          "op": "FILLED"
+        },
+        "dataType": "LONGTEXT",
+        "flowId": "F056",
+        "kind": "MASTER",
+        "label": "Note integrazione",
+        "occurrenceKey": "F056@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 57,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "INTEGRAZIONE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "NOTE INTEGRAZIONI"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F055",
+          "op": "FILLED"
+        },
+        "dataType": "DATE",
+        "flowId": "F057",
+        "kind": "MASTER",
+        "label": "Invio integrazione",
+        "occurrenceKey": "F057@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 58,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "INTEGRAZIONE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "INVIO VERBALE DI SOPRALLUOGO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F058",
+        "kind": "MASTER",
+        "label": "Forecast Parere Arpa",
+        "occurrenceKey": "F058@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 59,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ARPA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F059",
+        "kind": "MASTER",
+        "label": "Parere Arpa",
+        "occurrenceKey": "F059@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 60,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ARPA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "PARERE ARPA"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F059",
+          "op": "FILLED"
+        },
+        "dataType": "SELECT",
+        "flowId": "F060",
+        "kind": "MASTER",
+        "label": "Esito parere Arpa",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "ESITO_PARERE_ARPA"
+        },
+        "occurrenceKey": "F060@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 61,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ARPA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Esito Enti (ARPA / Soprintendenza)"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F059",
+          "op": "FILLED"
+        },
+        "dataType": "TEXT",
+        "flowId": "F061",
+        "kind": "MASTER",
+        "label": "N° protocollo Arpa",
+        "occurrenceKey": "F061@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 62,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ARPA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Protocollo"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F060",
+          "op": "EQ",
+          "value": "NEGATIVO"
+        },
+        "dataType": "DATE",
+        "flowId": "F062",
+        "kind": "MASTER",
+        "label": "Ripresentazione Pratica",
+        "occurrenceKey": "F062@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 63,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ARPA",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Pratica Sismica"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": "F063",
+        "kind": "MASTER",
+        "label": "Nome Ente",
+        "occurrenceKey": "F063@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 64,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ENTE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Nome sito Vodafone"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F064",
+        "kind": "MASTER",
+        "label": "Forecast Ottenimento",
+        "occurrenceKey": "F064@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 65,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ENTE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F063",
+          "op": "FILLED"
+        },
+        "dataType": "DATE",
+        "flowId": "F065",
+        "kind": "MASTER",
+        "label": "Ottenimento",
+        "occurrenceKey": "F065@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 66,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ENTE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Ottenimento Enti / Permessi"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F063",
+          "op": "FILLED"
+        },
+        "dataType": "SELECT",
+        "flowId": "F066",
+        "kind": "MASTER",
+        "label": "Esito parere",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "ESITO_PARERE_ARPA"
+        },
+        "occurrenceKey": "F066@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 67,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ENTE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Esito Enti (ARPA / Soprintendenza)"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F063",
+          "op": "FILLED"
+        },
+        "dataType": "TEXT",
+        "flowId": "F067",
+        "kind": "MASTER",
+        "label": "N° protocollo",
+        "occurrenceKey": "F067@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 68,
+        "ownerGroup": "PM_PERMESSI",
+        "repeatGroup": "ENTE",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "Protocollo"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F068",
+        "kind": "MASTER",
+        "label": "Data Autorizzazione finale",
+        "occurrenceKey": "F068@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 69,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "universal": "DATA"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F069",
+        "kind": "MASTER",
+        "label": "Data Invio Offerta",
+        "occurrenceKey": "F069@PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "order": 70,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.ITER_AUTORIZZATIVO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F081",
+        "kind": "MASTER",
+        "label": "Geologica",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F081@PM_PERMESSI.UT_PE",
+        "order": 71,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ASSEGNAZIONE GEOLOGICA"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F082",
+        "kind": "MASTER",
+        "label": "Assegnazione Geologica",
+        "occurrenceKey": "F082@PM_PERMESSI.UT_PE",
+        "order": 72,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ASSEGNAZIONE GEOLOGICA"
+      },
+      {
+        "computed": {
+          "description": "Assegnazione Geologica + 15 giorni di calendario (D-34).",
+          "formula": "FORECAST_GEOLOGICA",
+          "manualOverride": false
+        },
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F083",
+        "kind": "MASTER",
+        "label": "Forecast Geologica",
+        "occurrenceKey": "F083@PM_PERMESSI.UT_PE",
+        "order": 73,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F084",
+        "kind": "MASTER",
+        "label": "Arrivo Geologica",
+        "occurrenceKey": "F084@PM_PERMESSI.UT_PE",
+        "order": 74,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ARRIVO GEOLOGICA"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F010",
+          "op": "EQ",
+          "value": "RAW_LAND"
+        },
+        "dataType": "DATE",
+        "flowId": "F085",
+        "kind": "MASTER",
+        "label": "Invio Scheda Palo",
+        "occurrenceKey": "F085@PM_PERMESSI.UT_PE",
+        "order": 75,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "INVIO SCHEDA PALO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F086",
+        "kind": "MASTER",
+        "label": "PE",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F086@PM_PERMESSI.UT_PE",
+        "order": 76,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "PE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F086",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F070",
+        "kind": "MASTER",
+        "label": "Assegnazione PE",
+        "occurrenceKey": "F070@PM_PERMESSI.UT_PE",
+        "order": 77,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F086",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "LONGTEXT",
+        "flowId": "F071",
+        "kind": "MASTER",
+        "label": "Note Assegnazione PE",
+        "occurrenceKey": "F071@PM_PERMESSI.UT_PE",
+        "order": 78,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F097",
+        "kind": "MIRROR",
+        "label": "Forecast PE",
+        "occurrenceKey": "F097@PM_PERMESSI.UT_PE",
+        "order": 79,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "FORECAST PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F087",
+        "kind": "MIRROR",
+        "label": "Forecast UT",
+        "occurrenceKey": "F087@PM_PERMESSI.UT_PE",
+        "order": 80,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F098",
+        "kind": "MIRROR",
+        "label": "Incarico PE",
+        "occurrenceKey": "F098@PM_PERMESSI.UT_PE",
+        "order": 81,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F100",
+        "kind": "MIRROR",
+        "label": "PE incaricato da",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "PE"
+        },
+        "occurrenceKey": "F100@PM_PERMESSI.UT_PE",
+        "order": 82,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "Assegnatore attivita"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F088",
+        "kind": "MIRROR",
+        "label": "Incarico VS/AS",
+        "occurrenceKey": "F088@PM_PERMESSI.UT_PE",
+        "order": 83,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "ASSEGNAZIONE AS/VS"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F091",
+        "kind": "MIRROR",
+        "label": "Fornitore UT",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "FORNITORE_UT"
+        },
+        "occurrenceKey": "F091@PM_PERMESSI.UT_PE",
+        "order": 84,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "Fornitore / Impresa"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F092",
+        "kind": "MIRROR",
+        "label": "Tipologia attività UT",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "TIPOLOGIA_ATTIVITA_UT"
+        },
+        "occurrenceKey": "F092@PM_PERMESSI.UT_PE",
+        "order": 85,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "Stato Attività"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F096",
+        "kind": "MIRROR",
+        "label": "Invio AS/VS",
+        "occurrenceKey": "F096@PM_PERMESSI.UT_PE",
+        "order": 86,
+        "ownerGroup": "UT_PE",
+        "popup": {
+          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
+          "label": "Da UT+PE",
+          "sourceGroup": "UT_PE"
+        },
+        "required": false,
+        "sectionKey": "PM_PERMESSI.UT_PE",
+        "universal": "INVIO AS/VS"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F044",
+        "kind": "MIRROR",
+        "label": "Assegnazione AIE",
+        "occurrenceKey": "F044@AIE.FASE_AIE",
+        "order": 87,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F045",
+        "kind": "MIRROR",
+        "label": "Forecast AIE",
+        "occurrenceKey": "F045@AIE.FASE_AIE",
+        "order": 88,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "FORECAST AIE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F006",
+          "op": "NEQ",
+          "value": "01"
+        },
+        "dataType": "SELECT",
+        "flowId": "F072",
+        "kind": "MASTER",
+        "label": "Tecnico Misure di fondo",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "TECNICO_MISURE_DI_FONDO"
+        },
+        "occurrenceKey": "F072@AIE.FASE_AIE",
+        "order": 89,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "N° MISURE RICH..."
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F006",
+          "op": "NEQ",
+          "value": "01"
+        },
+        "dataType": "SELECT",
+        "flowId": "F073",
+        "kind": "MASTER",
+        "label": "Stato misure di fondo",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "STATO_MISURE_DI_FONDO"
+        },
+        "occurrenceKey": "F073@AIE.FASE_AIE",
+        "order": 90,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "Stato Attività"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F074",
+        "kind": "MASTER",
+        "label": "Tecnico AIE",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "AIE"
+        },
+        "occurrenceKey": "F074@AIE.FASE_AIE",
+        "order": 91,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "Progettista / Tecnico"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F075",
+        "kind": "MASTER",
+        "label": "Stato assegnazione tecnico AIE",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "STATO_ASSEGNAZIONE_TECNICO_AIE"
+        },
+        "occurrenceKey": "F075@AIE.FASE_AIE",
+        "order": 92,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "Stato Attività"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F076",
+        "kind": "MASTER",
+        "label": "Responsabile interno AIE",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "AIE"
+        },
+        "occurrenceKey": "F076@AIE.FASE_AIE",
+        "order": 93,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "OK AIE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F077",
+        "kind": "MASTER",
+        "label": "Stato AIE",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "STATO_AIE"
+        },
+        "occurrenceKey": "F077@AIE.FASE_AIE",
+        "order": 94,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "Stato Attività"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F078",
+        "kind": "MASTER",
+        "label": "Invio CEM",
+        "occurrenceKey": "F078@AIE.FASE_AIE",
+        "order": 95,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F079",
+        "kind": "MASTER",
+        "label": "Fine attività AIE",
+        "occurrenceKey": "F079@AIE.FASE_AIE",
+        "order": 96,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "OK AIE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F046",
+        "kind": "MASTER",
+        "label": "Riduzione",
+        "occurrenceKey": "F046@AIE.FASE_AIE",
+        "order": 97,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "RIDUZIONI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F047",
+        "kind": "MASTER",
+        "label": "Approvazione Riduzione",
+        "occurrenceKey": "F047@AIE.FASE_AIE",
+        "order": 98,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "OK RIDUZIONI"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F048",
+        "kind": "MASTER",
+        "label": "Invio AIE",
+        "occurrenceKey": "F048@AIE.FASE_AIE",
+        "order": 99,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "AIE INVIO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F049",
+        "kind": "MASTER",
+        "label": "Approvazione AIE",
+        "occurrenceKey": "F049@AIE.FASE_AIE",
+        "order": 100,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "OK AIE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": "F080",
+        "kind": "MASTER",
+        "label": "Note AIE",
+        "occurrenceKey": "F080@AIE.FASE_AIE",
+        "order": 101,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "AIE.FASE_AIE",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F034",
+        "kind": "MIRROR",
+        "label": "Assegnazione UT",
+        "occurrenceKey": "F034@UT_PE.UT",
+        "order": 102,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "UT_PE.UT"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": "F035",
+        "kind": "MIRROR",
+        "label": "Note Assegnazione UT",
+        "occurrenceKey": "F035@UT_PE.UT",
+        "order": 103,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F087",
+        "kind": "MASTER",
+        "label": "Forecast UT",
+        "occurrenceKey": "F087@UT_PE.UT",
+        "order": 104,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F088",
+        "kind": "MASTER",
+        "label": "Incarico VS/AS",
+        "occurrenceKey": "F088@UT_PE.UT",
+        "order": 105,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "ASSEGNAZIONE AS/VS"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F089",
+        "kind": "MASTER",
+        "label": "VS/AS incaricata da",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "UT"
+        },
+        "occurrenceKey": "F089@UT_PE.UT",
+        "order": 106,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Assegnatore attivita"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F090",
+        "kind": "MASTER",
+        "label": "Tecnico UT",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "UT"
+        },
+        "occurrenceKey": "F090@UT_PE.UT",
+        "order": 107,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Progettista / Tecnico"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F091",
+        "kind": "MASTER",
+        "label": "Fornitore UT",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "FORNITORE_UT"
+        },
+        "occurrenceKey": "F091@UT_PE.UT",
+        "order": 108,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Fornitore / Impresa"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F092",
+        "kind": "MASTER",
+        "label": "Tipologia attività UT",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "TIPOLOGIA_ATTIVITA_UT"
+        },
+        "occurrenceKey": "F092@UT_PE.UT",
+        "order": 109,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Stato Attività"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F093",
+        "kind": "MASTER",
+        "label": "Importo UT",
+        "occurrenceKey": "F093@UT_PE.UT",
+        "order": 110,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "IMPORTO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F094",
+        "kind": "MASTER",
+        "label": "Costo UT",
+        "occurrenceKey": "F094@UT_PE.UT",
+        "order": 111,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Richiesta analisi UT"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F095",
+        "kind": "MASTER",
+        "label": "Fine attività UT",
+        "occurrenceKey": "F095@UT_PE.UT",
+        "order": 112,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "Week effettiva chiusura attivita"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F096",
+        "kind": "MASTER",
+        "label": "Invio AS/VS",
+        "occurrenceKey": "F096@UT_PE.UT",
+        "order": 113,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.UT",
+        "universal": "INVIO AS/VS"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F082",
+        "kind": "MIRROR",
+        "label": "Assegnazione Geologica",
+        "occurrenceKey": "F082@UT_PE.PE",
+        "order": 114,
+        "ownerGroup": "PM_PERMESSI",
+        "popup": {
+          "key": "UT_PE.PE.POPUP_PM_PERMESSI",
+          "label": "Da PM/Permessi",
+          "sourceGroup": "PM_PERMESSI"
+        },
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "ASSEGNAZIONE GEOLOGICA"
+      },
+      {
+        "computed": {
+          "description": "Assegnazione Geologica + 15 giorni di calendario (D-34).",
+          "formula": "FORECAST_GEOLOGICA",
+          "manualOverride": false
+        },
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F083",
+        "kind": "MIRROR",
+        "label": "Forecast Geologica",
+        "occurrenceKey": "F083@UT_PE.PE",
+        "order": 115,
+        "ownerGroup": "PM_PERMESSI",
+        "popup": {
+          "key": "UT_PE.PE.POPUP_PM_PERMESSI",
+          "label": "Da PM/Permessi",
+          "sourceGroup": "PM_PERMESSI"
+        },
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F084",
+        "kind": "MIRROR",
+        "label": "Arrivo Geologica",
+        "occurrenceKey": "F084@UT_PE.PE",
+        "order": 116,
+        "ownerGroup": "PM_PERMESSI",
+        "popup": {
+          "key": "UT_PE.PE.POPUP_PM_PERMESSI",
+          "label": "Da PM/Permessi",
+          "sourceGroup": "PM_PERMESSI"
+        },
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "ARRIVO GEOLOGICA"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F010",
+          "op": "EQ",
+          "value": "RAW_LAND"
+        },
+        "dataType": "DATE",
+        "flowId": "F085",
+        "kind": "MIRROR",
+        "label": "Invio Scheda Palo",
+        "occurrenceKey": "F085@UT_PE.PE",
+        "order": 117,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "INVIO SCHEDA PALO"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F086",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F070",
+        "kind": "MIRROR",
+        "label": "Assegnazione PE",
+        "occurrenceKey": "F070@UT_PE.PE",
+        "order": 118,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F086",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "LONGTEXT",
+        "flowId": "F071",
+        "kind": "MIRROR",
+        "label": "Note Assegnazione PE",
+        "occurrenceKey": "F071@UT_PE.PE",
+        "order": 119,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "Note"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F097",
+        "kind": "MASTER",
+        "label": "Forecast PE",
+        "occurrenceKey": "F097@UT_PE.PE",
+        "order": 120,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "FORECAST PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F098",
+        "kind": "MASTER",
+        "label": "Incarico PE",
+        "occurrenceKey": "F098@UT_PE.PE",
+        "order": 121,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "ASSEGNAZIONE PE"
+      },
+      {
+        "computed": {
+          "description": "Automatica: = Progetto se presente e valorizzato, altrimenti = Incarico / Lavorazione (D-32).",
+          "formula": "TIPOLOGIA_ATTIVITA_PE",
+          "manualOverride": false
+        },
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F099",
+        "kind": "MASTER",
+        "label": "Tipologia attività PE",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "TIPOLOGIA_ATTIVITA_PE"
+        },
+        "occurrenceKey": "F099@UT_PE.PE",
+        "order": 122,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USER",
+        "flowId": "F100",
+        "kind": "MASTER",
+        "label": "PE incaricato da",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "PE"
+        },
+        "occurrenceKey": "F100@UT_PE.PE",
+        "order": 123,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "Assegnatore attivita"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "USERS",
+        "flowId": "F101",
+        "kind": "MASTER",
+        "label": "Tecnico PE",
+        "list": {
+          "allowNone": true,
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "PE"
+        },
+        "occurrenceKey": "F101@UT_PE.PE",
+        "order": 124,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "Progettista / Tecnico"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F102",
+        "kind": "MASTER",
+        "label": "Fornitore PE",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "FORNITORE_PE"
+        },
+        "occurrenceKey": "F102@UT_PE.PE",
+        "order": 125,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "Fornitore / Impresa"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F103",
+        "kind": "MASTER",
+        "label": "Importo PE",
+        "occurrenceKey": "F103@UT_PE.PE",
+        "order": 126,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "IMPORTO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "NUMBER",
+        "flowId": "F104",
+        "kind": "MASTER",
+        "label": "Costo PE",
+        "occurrenceKey": "F104@UT_PE.PE",
+        "order": 127,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F105",
+        "kind": "MASTER",
+        "label": "Fine attività PE",
+        "occurrenceKey": "F105@UT_PE.PE",
+        "order": 128,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F106",
+        "kind": "MIRROR",
+        "label": "Invio PE",
+        "occurrenceKey": "F106@UT_PE.PE",
+        "order": 129,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "UT_PE.PE",
+        "universal": "Consegna / Invio PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F106",
+        "kind": "MASTER",
+        "label": "Invio PE",
+        "occurrenceKey": "F106@DL.DIREZIONE_LAVORI",
+        "order": 130,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Consegna / Invio PE"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": "F107",
+        "kind": "MASTER",
+        "label": "Deposito sismico",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "F107@DL.DIREZIONE_LAVORI",
+        "order": 131,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "DEPOSITO SISMICO"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F108",
+        "kind": "MASTER",
+        "label": "Forecast Deposito Sismico",
+        "occurrenceKey": "F108@DL.DIREZIONE_LAVORI",
+        "order": 132,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F109",
+        "kind": "MASTER",
+        "label": "Deposito Sismico",
+        "occurrenceKey": "F109@DL.DIREZIONE_LAVORI",
+        "order": 133,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "DEPOSITO SISMICO"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "USER",
+        "flowId": "F110",
+        "kind": "MASTER",
+        "label": "Tecnico deposito sismico",
+        "list": {
+          "allowOther": false,
+          "kind": "USERS",
+          "listId": "USERS",
+          "userRole": "DL"
+        },
+        "occurrenceKey": "F110@DL.DIREZIONE_LAVORI",
+        "order": 134,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Progettista / Tecnico"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "SELECT",
+        "flowId": "F111",
+        "kind": "MASTER",
+        "label": "Direttore Lavori",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "DIRETTORE_LAVORI"
+        },
+        "occurrenceKey": "F111@DL.DIREZIONE_LAVORI",
+        "order": 135,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "DL"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "SELECT",
+        "flowId": "F112",
+        "kind": "MASTER",
+        "label": "Collaudatore",
+        "list": {
+          "allowOther": true,
+          "kind": "CONFIGURABLE",
+          "listId": "COLLAUDATORE"
+        },
+        "occurrenceKey": "F112@DL.DIREZIONE_LAVORI",
+        "order": 136,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "COLLAUDATORE"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "DATE",
+        "flowId": "F113",
+        "kind": "MASTER",
+        "label": "Protocollo deposito sismico",
+        "occurrenceKey": "F113@DL.DIREZIONE_LAVORI",
+        "order": 137,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Protocollo"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "TEXT",
+        "flowId": "F114",
+        "kind": "MASTER",
+        "label": "N° protocollo deposito sismico",
+        "occurrenceKey": "F114@DL.DIREZIONE_LAVORI",
+        "order": 138,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Protocollo"
+      },
+      {
+        "computed": null,
+        "condition": {
+          "flowId": "F107",
+          "op": "EQ",
+          "value": "SI"
+        },
+        "dataType": "TEXT",
+        "flowId": "F115",
+        "kind": "MASTER",
+        "label": "N° sismica",
+        "occurrenceKey": "F115@DL.DIREZIONE_LAVORI",
+        "order": 139,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Note sismica"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F116",
+        "kind": "MASTER",
+        "label": "Forecast CIL",
+        "occurrenceKey": "F116@DL.DIREZIONE_LAVORI",
+        "order": 140,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "FORECAST"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F117",
+        "kind": "MASTER",
+        "label": "Data IL",
+        "occurrenceKey": "F117@DL.DIREZIONE_LAVORI",
+        "order": 141,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Inizio Lavori - Effettiva"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "DATE",
+        "flowId": "F118",
+        "kind": "MASTER",
+        "label": "Data FL",
+        "occurrenceKey": "F118@DL.DIREZIONE_LAVORI",
+        "order": 142,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "DL.DIREZIONE_LAVORI",
+        "universal": "Fine Lavori - Strutturale"
+      }
+    ],
+    "repeatGroups": [
+      {
+        "flowIds": [
+          "F021",
+          "F022",
+          "F023"
+        ],
+        "key": "TENANT",
+        "label": "Tenant",
+        "rowPolicy": "DYNAMIC",
+        "schemaKind": "FIELDS"
+      },
+      {
+        "flowIds": [
+          "F055",
+          "F056",
+          "F057"
+        ],
+        "key": "INTEGRAZIONE",
+        "label": "Integrazioni",
+        "rowPolicy": "DYNAMIC",
+        "schemaKind": "FIELDS"
+      },
+      {
+        "flowIds": [
+          "F058",
+          "F059",
+          "F060",
+          "F061",
+          "F062"
+        ],
+        "key": "ARPA",
+        "label": "Cicli ARPA",
+        "rowPolicy": "DYNAMIC",
+        "schemaKind": "FIELDS"
+      },
+      {
+        "flowIds": [
+          "F063",
+          "F064",
+          "F065",
+          "F066",
+          "F067"
+        ],
+        "key": "ENTE",
+        "label": "Enti",
+        "rowPolicy": "DYNAMIC",
+        "schemaKind": "FIELDS"
+      },
+      {
+        "flowIds": [
+          "F016"
+        ],
+        "key": "ODA",
+        "label": "ODA",
+        "rowPolicy": "DYNAMIC",
+        "schemaKind": "FIELDS"
+      },
+      {
+        "flowIds": [
+          "F030"
+        ],
+        "key": "VINCOLI",
+        "label": "Vincoli",
+        "rowPolicy": "FIXED",
+        "schemaKind": "VINCOLI"
+      }
+    ],
+    "sections": [
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.CORE",
+        "label": "Core Anagrafica Sito",
+        "order": 1
+      },
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.DATI_SECONDARI",
+        "label": "Dati Anagrafici Secondari",
+        "order": 2
+      },
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.FASE_PRELIMINARE",
+        "label": "Fase Preliminare",
+        "order": 3
+      },
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.PACCHETTO_PERMESSI",
+        "label": "Pacchetto Permessi",
+        "order": 4
+      },
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.ITER_AUTORIZZATIVO",
+        "label": "Iter Autorizzativo",
+        "order": 5
+      },
+      {
+        "group": "PM_PERMESSI",
+        "key": "PM_PERMESSI.UT_PE",
+        "label": "Ufficio Tecnico / Progettazione Esecutiva",
+        "order": 6
+      },
+      {
+        "group": "AIE",
+        "key": "AIE.FASE_AIE",
+        "label": "Fase AIE",
+        "order": 7
+      },
+      {
+        "group": "UT_PE",
+        "key": "UT_PE.UT",
+        "label": "UT",
+        "order": 8,
+        "subsection": "UT"
+      },
+      {
+        "group": "UT_PE",
+        "key": "UT_PE.PE",
+        "label": "PE",
+        "order": 9,
+        "subsection": "PE"
+      },
+      {
+        "group": "DL",
+        "key": "DL.DIREZIONE_LAVORI",
+        "label": "Direzione Lavori",
+        "order": 10
+      }
+    ],
+    "transversal": [
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Note Operative PM/Permessi",
+        "occurrenceKey": "TRASV.NOTE_OPERATIVE.PM_PERMESSI",
+        "order": 1,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "TRASV"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Note Operative UT/PE",
+        "occurrenceKey": "TRASV.NOTE_OPERATIVE.UT_PE",
+        "order": 2,
+        "ownerGroup": "UT_PE",
+        "required": false,
+        "sectionKey": "TRASV"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Note Operative AIE",
+        "occurrenceKey": "TRASV.NOTE_OPERATIVE.AIE",
+        "order": 3,
+        "ownerGroup": "AIE",
+        "required": false,
+        "sectionKey": "TRASV"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "LONGTEXT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Note Operative DL",
+        "occurrenceKey": "TRASV.NOTE_OPERATIVE.DL",
+        "order": 4,
+        "ownerGroup": "DL",
+        "required": false,
+        "sectionKey": "TRASV"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Fatturabile",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "TRASV.FATTURABILE",
+        "order": 5,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "TRASV"
+      },
+      {
+        "computed": null,
+        "condition": null,
+        "dataType": "SELECT",
+        "flowId": null,
+        "kind": "MASTER",
+        "label": "Fatturato",
+        "list": {
+          "allowOther": false,
+          "kind": "CONTROLLED",
+          "listId": "SI_NO"
+        },
+        "occurrenceKey": "TRASV.FATTURATO",
+        "order": 6,
+        "ownerGroup": "PM_PERMESSI",
+        "required": false,
+        "sectionKey": "TRASV"
+      }
+    ],
+    "version": "2026-10-08.795cac361807"
+  }
+}

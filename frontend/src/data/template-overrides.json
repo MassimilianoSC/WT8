@@ -1,0 +1,236 @@
+{
+  "version": "2",
+  "source": "Correzioni dei template, mai sugli MD (D-92). Ogni voce si applica solo se la riga #sourceRow ha ancora expectedFlowId e impronta expectedSourceHash (SHA-256 della riga Markdown, 16 caratteri): altrimenti errore di compilazione.",
+  "patchKeys": {
+    "kind": "MASTER | MIRROR",
+    "exclude": "esclude l'occorrenza dal template (resta nel manifest)",
+    "dropMirrorHint": "ignora \"sola visualizzazione\" della cella condizione",
+    "condition": "null = sempre visibile",
+    "noAlert": "nessun alert dalla cella condizione",
+    "dataType": "DataType imposto",
+    "list": "ListRef parziale imposto",
+    "transversalAlias": "occorrenza sorgente di un campo trasversale"
+  },
+  "overrides": [
+    {
+      "id": "OV-065",
+      "templateId": "LEONARDO",
+      "sourceRow": 70,
+      "expectedFlowId": "F065",
+      "expectedLabel": "Note Assegnazione PE",
+      "expectedSourceHash": "2f1c06ea869e54ef",
+      "patch": {
+        "kind": "MASTER",
+        "dropMirrorHint": true
+      },
+      "decision": "D-78: master PM; 'sola visualizzazione' è un refuso, resta PE = SI",
+      "provisional": false
+    },
+    {
+      "id": "OV-066",
+      "templateId": "LEONARDO",
+      "sourceRow": 112,
+      "expectedFlowId": "F065",
+      "expectedLabel": "Note Assegnazione PE",
+      "expectedSourceHash": "f6054d441779a1ed",
+      "patch": {
+        "kind": "MIRROR"
+      },
+      "decision": "D-78: mirror UT_PE del master PM #70",
+      "provisional": false
+    },
+    {
+      "id": "OV-067",
+      "templateId": "INWIT",
+      "sourceRow": 26,
+      "expectedFlowId": "F105",
+      "expectedLabel": "Invio report caratterizzazione",
+      "expectedSourceHash": "ede77c8d75b6dc96",
+      "patch": {
+        "kind": "MIRROR"
+      },
+      "decision": "Memoria 08/10 (formulazione n.13): mirror del master UT #117",
+      "provisional": false
+    },
+    {
+      "id": "OV-068",
+      "templateId": "INWIT",
+      "sourceRow": 117,
+      "expectedFlowId": "F105",
+      "expectedLabel": "Invio Report Caratterizzazione",
+      "expectedSourceHash": "a97d5823b74e8c4a",
+      "patch": {
+        "kind": "MASTER"
+      },
+      "decision": "Memoria 08/10: master UT",
+      "provisional": false
+    },
+    {
+      "id": "OV-069",
+      "templateId": "LEONARDO",
+      "sourceRow": 114,
+      "expectedFlowId": "F116",
+      "expectedLabel": "Forecast CIL",
+      "expectedSourceHash": "ea9f12e15bc3119a",
+      "patch": {
+        "kind": "MIRROR"
+      },
+      "decision": "Memoria 08/10 (formulazione n.47): mirror del master DL #138",
+      "provisional": false
+    },
+    {
+      "id": "OV-070",
+      "templateId": "LEONARDO",
+      "sourceRow": 138,
+      "expectedFlowId": "F116",
+      "expectedLabel": "Forecast CIL",
+      "expectedSourceHash": "428181e80ce9a7f8",
+      "patch": {
+        "kind": "MASTER"
+      },
+      "decision": "Memoria 08/10: master DL",
+      "provisional": false
+    },
+    {
+      "id": "OV-071",
+      "templateId": "TOWERNET",
+      "sourceRow": 61,
+      "expectedFlowId": "F061",
+      "expectedLabel": "Protocollo autocertificazione",
+      "expectedSourceHash": "d3248bc1c52908b1",
+      "patch": {
+        "condition": null,
+        "noAlert": true
+      },
+      "decision": "D-77: Protocollo autocertificazione sempre visibile, data manuale, nessun alert né calcolo",
+      "provisional": false
+    },
+    {
+      "id": "OV-072",
+      "templateId": "INWIT",
+      "sourceRow": 71,
+      "expectedFlowId": "F068",
+      "expectedLabel": "Protocollo autocertificazione",
+      "expectedSourceHash": "2a247daab63cc5d9",
+      "patch": {
+        "condition": null,
+        "noAlert": true
+      },
+      "decision": "D-77: Protocollo autocertificazione sempre visibile, data manuale, nessun alert né calcolo",
+      "provisional": false
+    },
+    {
+      "id": "OV-073",
+      "templateId": "ILIAD",
+      "sourceRow": 121,
+      "expectedFlowId": "F104",
+      "expectedLabel": "Fatturabile",
+      "expectedSourceHash": "7a21cef61eebe0c8",
+      "patch": {
+        "exclude": true,
+        "transversalAlias": "TRASV.FATTURABILE"
+      },
+      "decision": "D-76 / D-37: alias di tracciabilità del trasversale Fatturabile",
+      "provisional": false
+    },
+    {
+      "id": "OV-074",
+      "templateId": "ILIAD",
+      "sourceRow": 122,
+      "expectedFlowId": "F105",
+      "expectedLabel": "Fatturato",
+      "expectedSourceHash": "76ad7fb0a9ec6c27",
+      "patch": {
+        "exclude": true,
+        "transversalAlias": "TRASV.FATTURATO"
+      },
+      "decision": "D-76 / D-37: alias di tracciabilità del trasversale Fatturato",
+      "provisional": false
+    },
+    {
+      "id": "OV-075",
+      "templateId": "LEONARDO",
+      "sourceRow": 21,
+      "expectedFlowId": "F021",
+      "expectedLabel": "Data assegnazione",
+      "expectedSourceHash": "aaa1e4c75eaf8121",
+      "patch": {
+        "dataType": "DATE"
+      },
+      "decision": "D-93(1): Data assegnazione è DATE (trigger di stato D-41)",
+      "provisional": false
+    },
+    {
+      "id": "OV-077",
+      "templateId": "ILIAD",
+      "sourceRow": 117,
+      "expectedFlowId": "F100",
+      "expectedLabel": "Numero Offerta",
+      "expectedSourceHash": "59c2a8803d7c1b97",
+      "patch": {
+        "dataType": "TEXT"
+      },
+      "decision": "Approvato dalla memoria (scelta 3): Numero Offerta TEXT, non LONGTEXT",
+      "provisional": false
+    },
+    {
+      "id": "OV-078",
+      "templateId": "ILIAD",
+      "sourceRow": 50,
+      "expectedFlowId": "F047",
+      "expectedLabel": "Progettista / Tecnico",
+      "expectedSourceHash": "b2317b7893808a22",
+      "patch": {
+        "list": {
+          "kind": "CONFIGURABLE"
+        }
+      },
+      "decision": "D-93(5): Progettista / Tecnico è lista CONFIGURABLE, non utenti",
+      "provisional": false
+    },
+    {
+      "id": "OV-079",
+      "templateId": "FASTWEB_VODAFONE",
+      "sourceRow": 36,
+      "expectedFlowId": "F035",
+      "expectedLabel": "Progettista / Tecnico",
+      "expectedSourceHash": "75b78a0e9768487b",
+      "patch": {
+        "list": {
+          "kind": "CONFIGURABLE"
+        }
+      },
+      "decision": "D-93(5): Progettista / Tecnico è lista CONFIGURABLE, non utenti",
+      "provisional": false
+    },
+    {
+      "id": "OV-080",
+      "templateId": "ILIAD",
+      "sourceRow": 126,
+      "expectedFlowId": "F111",
+      "expectedLabel": "EM",
+      "expectedSourceHash": "c5f435fe516d3854",
+      "patch": {
+        "list": {
+          "listId": "EM",
+          "kind": "CONTROLLED"
+        }
+      },
+      "decision": "Architettura §2.5 (D-92): EM percentuale = lista \"EM %\" del CSV, distinta dalla data EM #128",
+      "provisional": false
+    },
+    {
+      "id": "OV-081",
+      "templateId": "ILIAD",
+      "sourceRow": 93,
+      "expectedFlowId": "F085",
+      "expectedLabel": "DATA SCADENZA PERMESSI",
+      "expectedSourceHash": "94e70274c7f6c3c4",
+      "patch": {
+        "dataType": "DATE"
+      },
+      "decision": "D-83: DATA SCADENZA PERMESSI è un campo DATE manuale (dtype vuoto nell MD)",
+      "provisional": false
+    }
+  ]
+}

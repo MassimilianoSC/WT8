@@ -1,0 +1,750 @@
+﻿template;flowId;riga_master;gruppo;sezione;etichetta;dtype_md;datatype_proposto;regola_datatype;repeat_group;motivo_repeat;list_id;tipo_lista;parent_flow_id;motivo_lista;incerto;note
+FASTWEB_VODAFONE;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente;TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+FASTWEB_VODAFONE;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale;TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (3 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+FASTWEB_VODAFONE;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+FASTWEB_VODAFONE;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+FASTWEB_VODAFONE;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+FASTWEB_VODAFONE;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (2 valori)";NO;
+FASTWEB_VODAFONE;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (6 valori)";NO;
+FASTWEB_VODAFONE;F012;12;PM_PERMESSI;Core Anagrafica Sito;Area Apparati;menù a tendina;SELECT;menù a tendina;;;AREA_APPARATI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Area Apparati"" (2 valori)";NO;
+FASTWEB_VODAFONE;F013;13;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (9 valori)";NO;
+FASTWEB_VODAFONE;F014;14;PM_PERMESSI;Core Anagrafica Sito;Stato ODA;menù a tendina;SELECT;menù a tendina;ODA;etichetta;STATO_ODA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Stato ODA"" (3 valori)";NO;
+FASTWEB_VODAFONE;F015;15;PM_PERMESSI;Core Anagrafica Sito;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F016;16;PM_PERMESSI;Core Anagrafica Sito;Proprietà / Host;menù a tendina;SELECT;menù a tendina;;;PROPRIETA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Proprietà / Host"" (8 valori)";NO;
+FASTWEB_VODAFONE;F017;17;PM_PERMESSI;Core Anagrafica Sito;SR INWIT;campo varchar;TEXT;campo varchar;;;;;;;NO;
+FASTWEB_VODAFONE;F018;18;PM_PERMESSI;Core Anagrafica Sito;Referente Fastweb;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;REFERENTE_FASTWEB;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Referente Fastweb"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F019;19;PM_PERMESSI;Core Anagrafica Sito;RAN Fastweb;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;RAN_FASTWEB;MANCANTE;;"LISTE_VALORI_INIZIALI: ""RAN Fastweb"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F020;20;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F021;21;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F022;22;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F023;23;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+FASTWEB_VODAFONE;F024;24;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+FASTWEB_VODAFONE;F025;25;PM_PERMESSI;Fase Preliminare;Data assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F026;26;PM_PERMESSI;Fase Preliminare;Forecast Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F027;27;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F028;28;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F029;29;PM_PERMESSI;Fase Preliminare;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F030;30;PM_PERMESSI;Fase Preliminare;Applicabilità;menù a tendina;SELECT;menù a tendina;;;APPLICABILITA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Applicabilità"" (3 valori)";NO;
+FASTWEB_VODAFONE;F031;31;PM_PERMESSI;Fase Preliminare;Invio applicabilità;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F032;32;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F033;61;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F034;62;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F072;35;PM_PERMESSI;Fase Preliminare;Invio AS/VS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F035;36;PM_PERMESSI;Pacchetto Permessi;Progettista / Tecnico;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;PROGETTISTA_TECNICO;CONFIGURABLE;;menù 'si popola volta per volta' (D-40);SI;lista nuova senza valori iniziali
+FASTWEB_VODAFONE;F036;37;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F037;38;PM_PERMESSI;Pacchetto Permessi;AIE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+FASTWEB_VODAFONE;F038;39;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F039;40;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F040;41;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F041;42;PM_PERMESSI;Pacchetto Permessi;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F042;43;PM_PERMESSI;Pacchetto Permessi;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F043;44;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F044;45;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+FASTWEB_VODAFONE;F045;46;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F046;47;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F047;48;PM_PERMESSI;Pacchetto Permessi;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F048;49;PM_PERMESSI;Pacchetto Permessi;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F049;50;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F050;51;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F051;52;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F052;53;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+FASTWEB_VODAFONE;F053;54;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;DATE (gg/mm/aaaa);DATE;DATE;ARPA;"condizionato da ""Esito parere Arpa"" (F052)";;;;;SI;
+FASTWEB_VODAFONE;F054;55;PM_PERMESSI;Iter Autorizzativo;Nome Ente;campo libero;TEXT;campo libero → TEXT;ENTE;etichetta;NOME_ENTE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (1 valori)";SI;"lista trovata ma dtype ""campo libero"": il tipo dovrebbe diventare SELECT · lista MANCANTE nel CSV"
+FASTWEB_VODAFONE;F055;56;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F056;57;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F057;58;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+FASTWEB_VODAFONE;F058;59;PM_PERMESSI;Iter Autorizzativo;Scadenza permesso “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+FASTWEB_VODAFONE;F059;60;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F060;63;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+FASTWEB_VODAFONE;F061;64;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F062;65;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F073;66;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F087;67;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F088;71;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F089;72;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+FASTWEB_VODAFONE;F090;73;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+FASTWEB_VODAFONE;F091;74;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+FASTWEB_VODAFONE;F092;75;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+FASTWEB_VODAFONE;F093;76;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+FASTWEB_VODAFONE;F094;77;AIE;Fase AIE;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F095;78;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F096;83;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F063;86;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F064;87;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F065;88;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+FASTWEB_VODAFONE;F066;89;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+FASTWEB_VODAFONE;F067;90;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F068;91;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+FASTWEB_VODAFONE;F069;92;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+FASTWEB_VODAFONE;F070;93;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+FASTWEB_VODAFONE;F071;94;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F074;99;UT_PE;PE;PSC;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+FASTWEB_VODAFONE;F075;100;UT_PE;PE;Forecast PSC;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F076;101;UT_PE;PE;Tecnico PSC;Menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+FASTWEB_VODAFONE;F077;102;UT_PE;PE;Note PSC;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+FASTWEB_VODAFONE;F078;103;UT_PE;PE;OK PSC;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F079;104;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F080;105;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+FASTWEB_VODAFONE;F081;106;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+FASTWEB_VODAFONE;F082;107;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+FASTWEB_VODAFONE;F083;108;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F084;109;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+FASTWEB_VODAFONE;F085;110;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+FASTWEB_VODAFONE;F086;111;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F097;113;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+FASTWEB_VODAFONE;F098;114;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F099;115;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+FASTWEB_VODAFONE;F100;116;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+FASTWEB_VODAFONE;F101;117;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F102;118;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+FASTWEB_VODAFONE;F103;119;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F104;120;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+FASTWEB_VODAFONE;F105;121;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+FASTWEB_VODAFONE;F106;122;DL;Direzione Lavori;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F107;123;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+FASTWEB_VODAFONE;F108;124;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+ILIAD;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+ILIAD;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+ILIAD;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente;TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (8 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+ILIAD;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale;TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (5 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+ILIAD;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+ILIAD;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+ILIAD;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+ILIAD;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+ILIAD;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (3 valori)";NO;
+ILIAD;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (6 valori)";NO;
+ILIAD;F012;12;PM_PERMESSI;Core Anagrafica Sito;Altezza traliccio;menù a tendina;SELECT;menù a tendina;;;ALTEZZA_TRALICCIO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Altezza traliccio"" (2 valori)";NO;
+ILIAD;F013;13;PM_PERMESSI;Core Anagrafica Sito;Rinforzo;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F014;14;PM_PERMESSI;Core Anagrafica Sito;Area Apparati;menù a tendina;SELECT;menù a tendina;;;AREA_APPARATI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Area Apparati"" (4 valori)";NO;
+ILIAD;F015;15;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (11 valori)";NO;
+ILIAD;F016;16;PM_PERMESSI;Core Anagrafica Sito;Progetto;TEXT;TEXT;TEXT;;;PROGETTO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Progetto"" (7 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+ILIAD;F017;17;PM_PERMESSI;Core Anagrafica Sito;Proprietà / Host;menù a tendina;SELECT;menù a tendina;;;PROPRIETA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Proprietà / Host"" (13 valori)";NO;
+ILIAD;F018;18;PM_PERMESSI;Core Anagrafica Sito;Codice sito Host;campo libero;TEXT;campo libero → TEXT;;;;;;;NO;
+ILIAD;F019;19;PM_PERMESSI;Core Anagrafica Sito;Referente;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;REFERENTE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Referente"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F020;20;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F021;21;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+ILIAD;F022;22;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+ILIAD;F023;23;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+ILIAD;F024;24;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+ILIAD;F025;25;PM_PERMESSI;Fase Preliminare;Preesistenze;menù a tendina;SELECT;menù a tendina;;;PREESISTENZE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Preesistenze"" (3 valori)";NO;
+ILIAD;F026;26;PM_PERMESSI;Fase Preliminare;Acquisitore;menù a tendina;SELECT;menù a tendina;;;ACQUISITORE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Acquisitore"" (2 valori)";NO;
+ILIAD;F027;27;PM_PERMESSI;Fase Preliminare;Data assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F028;28;PM_PERMESSI;Fase Preliminare;Forecast Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F029;29;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F030;30;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F031;31;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F032;32;PM_PERMESSI;Fase Preliminare;Revit;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F033;33;PM_PERMESSI;Fase Preliminare;Note Revit;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F034;34;PM_PERMESSI;Fase Preliminare;Bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F035;35;PM_PERMESSI;Fase Preliminare;Richiesta Fornitura Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F036;36;PM_PERMESSI;Fase Preliminare;Sopralluogo Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F037;37;PM_PERMESSI;Fase Preliminare;Assegnazione rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F038;38;PM_PERMESSI;Fase Preliminare;Rilievo Topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F039;39;PM_PERMESSI;Fase Preliminare;Invio rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F040;40;PM_PERMESSI;Fase Preliminare;Assegnazione georadar;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F041;41;PM_PERMESSI;Fase Preliminare;Rilievo georadar;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F042;42;PM_PERMESSI;Fase Preliminare;Invio georadar;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F043;43;PM_PERMESSI;Fase Preliminare;CARATTERIZZAZIONE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F044;44;PM_PERMESSI;Fase Preliminare;Invio offerta;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F045;45;PM_PERMESSI;Fase Preliminare;Conferma offerta;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F136;157;UT_PE;UT;Forecast Invio Caratterizzazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F137;158;UT_PE;UT;Tecnico Caratterizzazione;Menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+ILIAD;F139;160;UT_PE;UT;Invio Report Caratterizzazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F046;49;PM_PERMESSI;Pacchetto Permessi;Assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F047;50;PM_PERMESSI;Pacchetto Permessi;Progettista / Tecnico;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;PROGETTISTA_TECNICO;CONFIGURABLE;;menù 'si popola volta per volta' (D-40);SI;lista nuova senza valori iniziali
+ILIAD;F048;51;PM_PERMESSI;Pacchetto Permessi;Fornitore Permessi;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PP;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PP / Fornitore Permessi"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F049;52;PM_PERMESSI;Pacchetto Permessi;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F050;53;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F051;54;PM_PERMESSI;Pacchetto Permessi;Caricamento Revit;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F052;55;PM_PERMESSI;Pacchetto Permessi;AIE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F053;56;PM_PERMESSI;Pacchetto Permessi;MW;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F054;57;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F055;58;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Parabole;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F056;59;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F057;60;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F119;61;PM_PERMESSI;Pacchetto Permessi;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+ILIAD;F121;62;PM_PERMESSI;Pacchetto Permessi;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+ILIAD;F122;63;PM_PERMESSI;Pacchetto Permessi;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+ILIAD;F123;64;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+ILIAD;F124;65;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+ILIAD;F058;66;PM_PERMESSI;Pacchetto Permessi;XML;;TEXT;dtype vuoto → TEXT (segnalato);;;XML;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""XML"" (2 valori)";SI;"dtype vuoto · lista trovata ma dtype """": il tipo dovrebbe diventare SELECT"
+ILIAD;F059;67;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F060;68;PM_PERMESSI;Pacchetto Permessi;Forecast misure di fondo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F061;69;PM_PERMESSI;Pacchetto Permessi;Invio AIE di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F062;70;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F063;71;PM_PERMESSI;Pacchetto Permessi;Invio PP di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F064;72;PM_PERMESSI;Pacchetto Permessi;Firma PP di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F065;73;PM_PERMESSI;Pacchetto Permessi;Protocollo AIE di collaudo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F066;74;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F067;75;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F068;76;PM_PERMESSI;Pacchetto Permessi;Ricezione PP Firmato;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F069;77;PM_PERMESSI;Pacchetto Permessi;Invio ricevute di protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F070;78;PM_PERMESSI;Pacchetto Permessi;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F071;79;PM_PERMESSI;Pacchetto Permessi;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F072;80;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F073;81;PM_PERMESSI;Iter Autorizzativo;Richiesta integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+ILIAD;F074;82;PM_PERMESSI;Iter Autorizzativo;Note integrazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;INTEGRAZIONE;etichetta;;;;;NO;
+ILIAD;F075;83;PM_PERMESSI;Iter Autorizzativo;Invio integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+ILIAD;F076;84;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+ILIAD;F077;85;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+ILIAD;F078;86;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+ILIAD;F079;87;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;;TEXT;dtype vuoto → TEXT (segnalato);ARPA;"condizionato da ""Esito parere Arpa"" (F078)";;;;;SI;dtype vuoto
+ILIAD;F080;88;PM_PERMESSI;Iter Autorizzativo;Nome Ente;campo libero;TEXT;campo libero → TEXT;ENTE;etichetta;NOME_ENTE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (1 valori)";SI;"lista trovata ma dtype ""campo libero"": il tipo dovrebbe diventare SELECT · lista MANCANTE nel CSV"
+ILIAD;F081;89;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+ILIAD;F082;90;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+ILIAD;F083;91;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+ILIAD;F084;92;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F085;93;PM_PERMESSI;Iter Autorizzativo;DATA SCADENZA PERMESSI;;TEXT;dtype vuoto → TEXT (segnalato);;;;;;;SI;dtype vuoto
+ILIAD;F086;94;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Geologica;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F087;95;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F088;96;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F089;97;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Arrivo Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F090;98;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F091;99;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F092;100;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F093;101;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F094;102;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F140;166;UT_PE;PE;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F126;147;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F141;167;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F143;169;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+ILIAD;F149;175;UT_PE;PE;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F127;148;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F130;151;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F131;152;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+ILIAD;F135;156;UT_PE;UT;Invio AS/VS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F095;112;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;INVIO SCHEDA RICHIESTA PALO;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F096;113;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;SCHEDA SCARICHI ALLA BASE DEL PALO;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F097;114;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;APPROVAZIONE PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F098;115;PM_PERMESSI;Fatturazione;Offerta Inviata;;TEXT;dtype vuoto → TEXT (segnalato);;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype vuoto · dtype """" per un campo SI/NO"
+ILIAD;F099;116;PM_PERMESSI;Fatturazione;Invio Offerta;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+ILIAD;F100;117;PM_PERMESSI;Fatturazione;Numero Offerta;libero;TEXT;campo libero → TEXT;;;;;;;NO;
+ILIAD;F101;118;PM_PERMESSI;Fatturazione;Note Offerta;libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F102;119;PM_PERMESSI;Fatturazione;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+ILIAD;F103;120;PM_PERMESSI;Fatturazione;Note ODA;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;ODA;etichetta;;;;;NO;
+ILIAD;F104;121;PM_PERMESSI;Fatturazione;Fatturabile;;TEXT;dtype vuoto → TEXT (segnalato);;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"occorrenza sorgente di un campo trasversale (D-37): in UI vale il trasversale, da escludere dalle occorrenze · dtype vuoto · dtype """" per un campo SI/NO"
+ILIAD;F105;122;PM_PERMESSI;Fatturazione;Fatturato;;TEXT;dtype vuoto → TEXT (segnalato);;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"occorrenza sorgente di un campo trasversale (D-37): in UI vale il trasversale, da escludere dalle occorrenze · dtype vuoto · dtype """" per un campo SI/NO"
+ILIAD;F106;123;PM_PERMESSI;Fatturazione;WCN;menù a tendina;SELECT;menù a tendina;;;WCN;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""WCN"" (3 valori)";NO;
+ILIAD;F107;124;PM_PERMESSI;Fatturazione;CDMS;menù a tendina;SELECT;menù a tendina;;;CDMS;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""CDMS"" (2 valori)";NO;
+ILIAD;F108;125;PM_PERMESSI;Fatturazione;Invio CDMS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F111;126;PM_PERMESSI;Fatturazione;EM;menù a tendina;SELECT;menù a tendina;;;EM;?;;menù senza lista corrispondente;SI;nessuna lista in LISTE_VALORI_INIZIALI
+ILIAD;F110;127;PM_PERMESSI;Fatturazione;Numero EM;libero;TEXT;campo libero → TEXT;;;;;;;NO;
+ILIAD;F109;128;PM_PERMESSI;Fatturazione;EM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F112;129;PM_PERMESSI;Fatturazione;AGORA’;;TEXT;dtype vuoto → TEXT (segnalato);;;AGORA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""AGORA'"" (2 valori)";SI;"dtype vuoto · lista trovata ma dtype """": il tipo dovrebbe diventare SELECT"
+ILIAD;F113;132;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F114;133;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+ILIAD;F115;134;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+ILIAD;F116;135;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+ILIAD;F117;136;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+ILIAD;F118;137;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+ILIAD;F120;139;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F125;144;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+ILIAD;F128;149;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+ILIAD;F129;150;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+ILIAD;F132;153;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+ILIAD;F133;154;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+ILIAD;F134;155;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F138;159;UT_PE;UT;Fornitore Caratterizzazione;menù a tendina;SELECT;menù a tendina;;;FORNITORE_CARATTERIZZAZIONE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore Caratterizzazione"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F142;168;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+ILIAD;F144;170;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+ILIAD;F145;171;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F146;172;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+ILIAD;F147;173;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+ILIAD;F148;174;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F150;179;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+ILIAD;F151;180;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F152;181;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+ILIAD;F153;182;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+ILIAD;F154;183;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F155;184;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+ILIAD;F156;185;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F157;186;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+ILIAD;F158;187;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+ILIAD;F159;188;DL;Direzione Lavori;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F160;189;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+ILIAD;F161;190;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+INWIT;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+INWIT;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+INWIT;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente (Todos, Telebit e Sirti);TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (5 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+INWIT;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale (DA SOSTITUIRE A “GESTIONALE”);TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+INWIT;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+INWIT;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+INWIT;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+INWIT;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+INWIT;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (2 valori)";NO;
+INWIT;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (5 valori)";NO;
+INWIT;F012;12;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (8 valori)";NO;
+INWIT;F013;13;PM_PERMESSI;Core Anagrafica Sito;Progetto;TEXT;TEXT;TEXT;;;PROGETTO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Progetto"" (4 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+INWIT;F014;14;PM_PERMESSI;Core Anagrafica Sito;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+INWIT;F015;15;PM_PERMESSI;Core Anagrafica Sito;Note ODA;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;ODA;etichetta;;;;;NO;
+INWIT;F016;16;PM_PERMESSI;Core Anagrafica Sito;SR INWIT;campo varchar;TEXT;campo varchar;;;;;;;NO;
+INWIT;F017;17;PM_PERMESSI;Core Anagrafica Sito;Referente;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;REFERENTE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Referente"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F018;18;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F019;19;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+INWIT;F020;20;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+INWIT;F021;21;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+INWIT;F022;22;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+INWIT;F023;23;PM_PERMESSI;Fase Preliminare;Data assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F024;24;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F025;25;PM_PERMESSI;Fase Preliminare;Report caratterizzazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F105;26;PM_PERMESSI;Fase Preliminare;Invio report caratterizzazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F026;27;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F027;28;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (11 valori)";NO;
+INWIT;F028;29;PM_PERMESSI;Fase Preliminare;Assegnazione rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F029;30;PM_PERMESSI;Fase Preliminare;Rilievo Topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F030;31;PM_PERMESSI;Fase Preliminare;Invio rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F031;32;PM_PERMESSI;Fase Preliminare;Revit;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+INWIT;F032;33;PM_PERMESSI;Fase Preliminare;Note Revit;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+INWIT;F033;34;PM_PERMESSI;Fase Preliminare;Bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F034;35;PM_PERMESSI;Fase Preliminare;Richiesta Fornitura Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F035;36;PM_PERMESSI;Fase Preliminare;Sopralluogo Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F102;114;UT_PE;UT;Forecast Invio Caratterizzazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F103;115;UT_PE;UT;Tecnico Caratterizzazione;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+INWIT;F036;39;PM_PERMESSI;Pacchetto Permessi;Tecnico PP;menù a tendina;USER;campo utente D-39 (PERMESSI);;;USERS;USERS;;ruolo PERMESSI (D-39);NO;
+INWIT;F037;40;PM_PERMESSI;Pacchetto Permessi;Fornitore PP;menù a tendina;SELECT;menù a tendina;;;FORNITORE_PP;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PP / Fornitore Permessi"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F038;41;PM_PERMESSI;Pacchetto Permessi;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F039;42;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F040;43;PM_PERMESSI;Pacchetto Permessi;Caricamento Revit;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F041;44;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F042;45;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F043;46;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+INWIT;F044;47;PM_PERMESSI;Pacchetto Permessi;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+INWIT;F045;48;PM_PERMESSI;Pacchetto Permessi;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+INWIT;F046;49;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+INWIT;F047;50;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+INWIT;F048;51;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+INWIT;F049;52;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F050;53;PM_PERMESSI;Pacchetto Permessi;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F051;54;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F052;55;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F053;56;PM_PERMESSI;Iter Autorizzativo;Sollecito CDS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F054;57;PM_PERMESSI;Iter Autorizzativo;Avvio Procedimento Indizione CDS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F055;58;PM_PERMESSI;Iter Autorizzativo;Richiesta integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+INWIT;F056;59;PM_PERMESSI;Iter Autorizzativo;Note integrazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;INTEGRAZIONE;etichetta;;;;;NO;
+INWIT;F057;60;PM_PERMESSI;Iter Autorizzativo;Invio integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+INWIT;F058;61;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+INWIT;F059;62;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+INWIT;F060;63;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+INWIT;F061;64;PM_PERMESSI;Iter Autorizzativo;N° protocollo Arpa;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ARPA;etichetta;;;;;NO;
+INWIT;F062;65;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;DATE (gg/mm/aaaa);DATE;DATE;ARPA;"condizionato da ""Esito parere Arpa"" (F060)";;;;;SI;
+INWIT;F063;66;PM_PERMESSI;Iter Autorizzativo;Nome Ente;campo libero;TEXT;campo libero → TEXT;ENTE;etichetta;NOME_ENTE;INCOMPLETA;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (6 valori)";SI;"lista trovata ma dtype ""campo libero"": il tipo dovrebbe diventare SELECT · lista INCOMPLETA nel CSV"
+INWIT;F064;67;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+INWIT;F065;68;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+INWIT;F066;69;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+INWIT;F067;70;PM_PERMESSI;Iter Autorizzativo;N° protocollo “Nome ente”;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ENTE;etichetta;;;;;NO;
+INWIT;F068;71;PM_PERMESSI;Iter Autorizzativo;Protocollo autocertificazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F069;72;PM_PERMESSI;Iter Autorizzativo;Autorizzazione finale;menù a tendina;SELECT;menù a tendina;;;AUTORIZZAZIONE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Autorizzazione finale"" (4 valori)";NO;
+INWIT;F070;73;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F071;74;PM_PERMESSI;Iter Autorizzativo;Data Invio Offerta;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F072;75;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Geologica;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+INWIT;F073;76;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F074;77;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F075;78;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Arrivo Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F081;79;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F082;80;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+INWIT;F078;81;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+INWIT;F079;82;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F080;83;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+INWIT;F101;113;UT_PE;UT;Invio AS/VS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F076;85;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Invio Scheda Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F077;86;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Ricezione Esecutivo Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F083;89;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F084;90;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+INWIT;F085;91;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+INWIT;F086;92;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+INWIT;F087;93;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+INWIT;F088;94;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+INWIT;F089;95;AIE;Fase AIE;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F090;96;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F091;101;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+INWIT;F092;104;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F093;105;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F094;106;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+INWIT;F095;107;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+INWIT;F096;108;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F097;109;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+INWIT;F098;110;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+INWIT;F099;111;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+INWIT;F100;112;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F104;116;UT_PE;UT;Fornitore Caratterizzazione;menù a tendina;SELECT;menù a tendina;;;FORNITORE_CARATTERIZZAZIONE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore Caratterizzazione"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F106;123;UT_PE;PE;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F107;124;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F108;125;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+INWIT;F109;126;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+INWIT;F110;127;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+INWIT;F111;128;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F112;129;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+INWIT;F113;130;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+INWIT;F114;131;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F115;132;UT_PE;PE;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F116;134;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+INWIT;F117;135;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F118;136;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+INWIT;F119;137;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+INWIT;F120;138;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F121;139;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+INWIT;F122;140;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F123;141;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+INWIT;F124;142;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+INWIT;F125;143;DL;Direzione Lavori;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F126;144;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+INWIT;F127;145;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+LEONARDO;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+LEONARDO;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+LEONARDO;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente;TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+LEONARDO;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale;TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+LEONARDO;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+LEONARDO;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+LEONARDO;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+LEONARDO;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+LEONARDO;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (2 valori)";NO;
+LEONARDO;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (6 valori)";NO;
+LEONARDO;F012;12;PM_PERMESSI;Core Anagrafica Sito;Area Apparati;menù a tendina;SELECT;menù a tendina;;;AREA_APPARATI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Area Apparati"" (4 valori)";NO;
+LEONARDO;F013;13;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (3 valori)";NO;
+LEONARDO;F014;14;PM_PERMESSI;Core Anagrafica Sito;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+LEONARDO;F015;15;PM_PERMESSI;Core Anagrafica Sito;Proprietà / Host;menù a tendina;SELECT;menù a tendina;;;PROPRIETA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Proprietà / Host"" (8 valori)";NO;
+LEONARDO;F016;16;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F017;17;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+LEONARDO;F018;18;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+LEONARDO;F019;19;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+LEONARDO;F020;20;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+LEONARDO;F021;21;PM_PERMESSI;Fase Preliminare;Data assegnazione;;TEXT;dtype vuoto → TEXT (segnalato);;;;;;;SI;dtype vuoto
+LEONARDO;F022;22;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F023;23;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F024;24;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F025;25;PM_PERMESSI;Fase Preliminare;Bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F026;26;PM_PERMESSI;Fase Preliminare;Approvazione bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F027;27;PM_PERMESSI;Pacchetto Permessi;Ricezione validazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F028;28;PM_PERMESSI;Pacchetto Permessi;Tecnico PP;menù a tendina;USER;campo utente D-39 (PERMESSI);;;USERS;USERS;;ruolo PERMESSI (D-39);NO;
+LEONARDO;F029;29;PM_PERMESSI;Pacchetto Permessi;Fornitore PP;menù a tendina;SELECT;menù a tendina;;;FORNITORE_PP;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PP / Fornitore Permessi"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F030;30;PM_PERMESSI;Pacchetto Permessi;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F031;31;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F032;32;PM_PERMESSI;Pacchetto Permessi;AIE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F033;33;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F034;34;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F035;35;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F038;36;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+LEONARDO;F039;37;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+LEONARDO;F040;38;PM_PERMESSI;Pacchetto Permessi;All. 18;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F041;39;PM_PERMESSI;Pacchetto Permessi;Invio All. 18;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F042;40;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+LEONARDO;F043;41;PM_PERMESSI;Pacchetto Permessi;Tipologia pacchetto permessi;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_PACCHETTO_PERMESSI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia pacchetto permessi"" (3 valori)";NO;
+LEONARDO;F044;42;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F045;43;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F046;44;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F047;45;PM_PERMESSI;Iter Autorizzativo;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F048;46;PM_PERMESSI;Iter Autorizzativo;Richiesta integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+LEONARDO;F049;47;PM_PERMESSI;Iter Autorizzativo;Note integrazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;INTEGRAZIONE;etichetta;;;;;NO;
+LEONARDO;F050;48;PM_PERMESSI;Iter Autorizzativo;Invio integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+LEONARDO;F051;49;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+LEONARDO;F052;50;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+LEONARDO;F053;51;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+LEONARDO;F054;52;PM_PERMESSI;Iter Autorizzativo;N° protocollo Arpa;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ARPA;etichetta;;;;;NO;
+LEONARDO;F055;53;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;DATE (gg/mm/aaaa);DATE;DATE;ARPA;"condizionato da ""Esito parere Arpa"" (F053)";;;;;SI;
+LEONARDO;F056;54;PM_PERMESSI;Iter Autorizzativo;Nome Ente;campo libero;TEXT;campo libero → TEXT;ENTE;etichetta;NOME_ENTE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (1 valori)";SI;"lista trovata ma dtype ""campo libero"": il tipo dovrebbe diventare SELECT · lista MANCANTE nel CSV"
+LEONARDO;F057;55;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+LEONARDO;F058;56;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+LEONARDO;F059;57;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+LEONARDO;F060;58;PM_PERMESSI;Iter Autorizzativo;N° protocollo “Nome ente”;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ENTE;etichetta;;;;;NO;
+LEONARDO;F061;59;PM_PERMESSI;Iter Autorizzativo;Oneri;menù a tendina con selezione multipla;MULTISELECT;menù a selezione multipla;;;ONERI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Oneri"" (3 valori)";NO;
+LEONARDO;F062;60;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F068;61;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Geologica;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F069;62;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F070;63;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F071;64;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Arrivo Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F072;65;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Invio Scheda Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+LEONARDO;F066;66;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F067;67;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+LEONARDO;F063;68;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F064;69;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F065;70;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+LEONARDO;F092;113;UT_PE;PE;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F082;97;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F098;120;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F100;122;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+LEONARDO;F106;128;UT_PE;PE;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F083;98;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F086;101;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F087;102;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+LEONARDO;F091;106;UT_PE;UT;Invio AS/VS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F073;82;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F074;83;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+LEONARDO;F075;84;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+LEONARDO;F076;85;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+LEONARDO;F077;86;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+LEONARDO;F078;87;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+LEONARDO;F079;88;AIE;Fase AIE;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F080;89;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F036;90;AIE;Fase AIE;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F037;91;AIE;Fase AIE;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F081;94;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+LEONARDO;F084;99;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+LEONARDO;F085;100;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+LEONARDO;F088;103;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+LEONARDO;F089;104;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+LEONARDO;F090;105;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F116;114;UT_PE;PE;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F093;115;UT_PE;PE;PSC;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F094;116;UT_PE;PE;Forecast PSC;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F095;117;UT_PE;PE;Tecnico PSC;Menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+LEONARDO;F096;118;UT_PE;PE;Note PSC;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+LEONARDO;F097;119;UT_PE;PE;OK PSC;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F099;121;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+LEONARDO;F101;123;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+LEONARDO;F102;124;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F103;125;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+LEONARDO;F104;126;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+LEONARDO;F105;127;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F107;129;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+LEONARDO;F108;130;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F109;131;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+LEONARDO;F110;132;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+LEONARDO;F111;133;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F112;134;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+LEONARDO;F113;135;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F114;136;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+LEONARDO;F115;137;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+LEONARDO;F117;139;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+LEONARDO;F118;140;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+TIM_FIBERCOP;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+TIM_FIBERCOP;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+TIM_FIBERCOP;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente;TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+TIM_FIBERCOP;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale;TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (3 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+TIM_FIBERCOP;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+TIM_FIBERCOP;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+TIM_FIBERCOP;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+TIM_FIBERCOP;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+TIM_FIBERCOP;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (2 valori)";NO;
+TIM_FIBERCOP;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (6 valori)";NO;
+TIM_FIBERCOP;F012;12;PM_PERMESSI;Core Anagrafica Sito;Rinforzo;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F013;13;PM_PERMESSI;Core Anagrafica Sito;Area Apparati;menù a tendina;SELECT;menù a tendina;;;AREA_APPARATI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Area Apparati"" (4 valori)";NO;
+TIM_FIBERCOP;F014;14;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (5 valori)";NO;
+TIM_FIBERCOP;F015;15;PM_PERMESSI;Core Anagrafica Sito;Progetto;TEXT;TEXT;TEXT;;;PROGETTO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Progetto"" (11 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+TIM_FIBERCOP;F016;16;PM_PERMESSI;Core Anagrafica Sito;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+TIM_FIBERCOP;F017;17;PM_PERMESSI;Core Anagrafica Sito;Proprietà / Host;menù a tendina;SELECT;menù a tendina;;;PROPRIETA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Proprietà / Host"" (8 valori)";NO;
+TIM_FIBERCOP;F018;18;PM_PERMESSI;Core Anagrafica Sito;SR INWIT;campo varchar;TEXT;campo varchar;;;;;;;NO;
+TIM_FIBERCOP;F019;19;PM_PERMESSI;Core Anagrafica Sito;Assistente TIM;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;ASSISTENTE_TIM;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Assistente TIM"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F020;20;PM_PERMESSI;Core Anagrafica Sito;Progettista TIM;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;PROGETTISTA_TIM;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Progettista TIM"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F021;21;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F022;22;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+TIM_FIBERCOP;F023;23;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+TIM_FIBERCOP;F024;24;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+TIM_FIBERCOP;F025;25;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+TIM_FIBERCOP;F026;26;PM_PERMESSI;Fase Preliminare;Data assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F027;27;PM_PERMESSI;Fase Preliminare;Forecast Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F028;28;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F029;29;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F030;30;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (10 valori)";NO;
+TIM_FIBERCOP;F031;31;PM_PERMESSI;Fase Preliminare;Revit;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F032;32;PM_PERMESSI;Fase Preliminare;Note Revit;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TIM_FIBERCOP;F033;33;PM_PERMESSI;Fase Preliminare;Bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F034;76;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F035;77;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TIM_FIBERCOP;F096;36;PM_PERMESSI;Fase Preliminare;Invio AS/VS;;TEXT;dtype vuoto → TEXT (segnalato);;;;;;;SI;dtype vuoto · master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F036;37;PM_PERMESSI;Pacchetto Permessi;Ricezione validazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F037;38;PM_PERMESSI;Pacchetto Permessi;Tecnico PP;menù a tendina;USER;campo utente D-39 (PERMESSI);;;USERS;USERS;;ruolo PERMESSI (D-39);NO;
+TIM_FIBERCOP;F038;39;PM_PERMESSI;Pacchetto Permessi;Fornitore PP;menù a tendina;SELECT;menù a tendina;;;FORNITORE_PP;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PP / Fornitore Permessi"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F039;40;PM_PERMESSI;Pacchetto Permessi;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F040;41;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F041;42;PM_PERMESSI;Pacchetto Permessi;Caricamento Revit;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F042;43;PM_PERMESSI;Pacchetto Permessi;AIE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F043;44;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F044;45;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F045;46;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F046;47;PM_PERMESSI;Pacchetto Permessi;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F047;48;PM_PERMESSI;Pacchetto Permessi;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F048;49;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F049;50;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F050;51;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TIM_FIBERCOP;F051;52;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F052;53;PM_PERMESSI;Pacchetto Permessi;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F053;54;PM_PERMESSI;Pacchetto Permessi;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F054;55;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F055;56;PM_PERMESSI;Iter Autorizzativo;Richiesta integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+TIM_FIBERCOP;F056;57;PM_PERMESSI;Iter Autorizzativo;Note integrazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;INTEGRAZIONE;etichetta;;;;;NO;
+TIM_FIBERCOP;F057;58;PM_PERMESSI;Iter Autorizzativo;Invio integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+TIM_FIBERCOP;F058;59;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+TIM_FIBERCOP;F059;60;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+TIM_FIBERCOP;F060;61;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+TIM_FIBERCOP;F061;62;PM_PERMESSI;Iter Autorizzativo;N° protocollo Arpa;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ARPA;etichetta;;;;;NO;
+TIM_FIBERCOP;F062;63;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;DATE (gg/mm/aaaa);DATE;DATE;ARPA;"condizionato da ""Esito parere Arpa"" (F060)";;;;;SI;
+TIM_FIBERCOP;F063;64;PM_PERMESSI;Iter Autorizzativo;Nome Ente;campo libero;TEXT;campo libero → TEXT;ENTE;etichetta;NOME_ENTE;INCOMPLETA;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (6 valori)";SI;"lista trovata ma dtype ""campo libero"": il tipo dovrebbe diventare SELECT · lista INCOMPLETA nel CSV"
+TIM_FIBERCOP;F064;65;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+TIM_FIBERCOP;F065;66;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+TIM_FIBERCOP;F066;67;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+TIM_FIBERCOP;F067;68;PM_PERMESSI;Iter Autorizzativo;N° protocollo “Nome ente”;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ENTE;etichetta;;;;;NO;
+TIM_FIBERCOP;F068;69;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F069;70;PM_PERMESSI;Iter Autorizzativo;Data Invio Offerta;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F081;71;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Geologica;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F082;72;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F083;73;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F084;74;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Arrivo Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F085;75;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Invio Scheda Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F086;78;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F070;79;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F071;80;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TIM_FIBERCOP;F097;122;UT_PE;PE;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F087;106;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F098;123;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F100;125;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+TIM_FIBERCOP;F088;107;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F091;110;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F092;111;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+TIM_FIBERCOP;F072;91;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F073;92;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+TIM_FIBERCOP;F074;93;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+TIM_FIBERCOP;F075;94;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+TIM_FIBERCOP;F076;95;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+TIM_FIBERCOP;F077;96;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+TIM_FIBERCOP;F078;97;AIE;Fase AIE;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F079;98;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F080;103;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TIM_FIBERCOP;F089;108;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+TIM_FIBERCOP;F090;109;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+TIM_FIBERCOP;F093;112;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TIM_FIBERCOP;F094;113;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TIM_FIBERCOP;F095;114;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F099;124;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+TIM_FIBERCOP;F101;126;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+TIM_FIBERCOP;F102;127;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F103;128;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TIM_FIBERCOP;F104;129;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TIM_FIBERCOP;F105;130;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F106;131;UT_PE;PE;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TIM_FIBERCOP;F107;133;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TIM_FIBERCOP;F108;134;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F109;135;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+TIM_FIBERCOP;F110;136;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+TIM_FIBERCOP;F111;137;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F112;138;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+TIM_FIBERCOP;F113;139;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F114;140;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+TIM_FIBERCOP;F115;141;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+TIM_FIBERCOP;F116;142;DL;Direzione Lavori;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F117;143;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TIM_FIBERCOP;F118;144;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F001;1;PM_PERMESSI;Core Anagrafica Sito;Codice G7;INTEGER;TEXT;INTEGER ma Codice G7 è un codice (D-24): TEXT;;;;;;;NO;
+TOWERNET;F002;2;PM_PERMESSI;Core Anagrafica Sito;Codice Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+TOWERNET;F003;3;PM_PERMESSI;Core Anagrafica Sito;Nome Sito;TEXT;TEXT;TEXT;;;;;;;NO;
+TOWERNET;F004;4;PM_PERMESSI;Core Anagrafica Sito;Committente (Towernet);TEXT;TEXT;TEXT;;;COMMITTENTE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Committente"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+TOWERNET;F005;5;PM_PERMESSI;Core Anagrafica Sito;Cliente Finale (DA SOSTITUIRE A “GESTIONALE”);TEXT;TEXT;TEXT;;;CLIENTE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Cliente Finale"" (2 valori)";SI;"lista trovata ma dtype ""TEXT"": il tipo dovrebbe diventare SELECT"
+TOWERNET;F006;6;PM_PERMESSI;Core Anagrafica Sito;Regione;menù a tendina;SELECT;menù a tendina;;;ISTAT_REGIONI;ISTAT;;cascata ISTAT;NO;
+TOWERNET;F007;7;PM_PERMESSI;Core Anagrafica Sito;Provincia;menù a tendina;SELECT;menù a tendina;;;ISTAT_PROVINCE;ISTAT;F006;cascata ISTAT;NO;
+TOWERNET;F008;8;PM_PERMESSI;Core Anagrafica Sito;Comune;menù a tendina;SELECT;menù a tendina;;;ISTAT_COMUNI;ISTAT;F007;cascata ISTAT;NO;
+TOWERNET;F009;9;PM_PERMESSI;Core Anagrafica Sito;Indirizzo;TEXT;TEXT;TEXT;;;;;;;NO;
+TOWERNET;F010;10;PM_PERMESSI;Core Anagrafica Sito;Tipologia sito;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_SITO;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Tipologia sito"" (2 valori)";NO;
+TOWERNET;F011;11;PM_PERMESSI;Core Anagrafica Sito;Tipologia Struttura;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_STRUTTURA;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia Struttura"" (5 valori)";NO;
+TOWERNET;F012;12;PM_PERMESSI;Core Anagrafica Sito;Incarico / Lavorazione;menù a tendina a scelta singola;SELECT;menù a tendina;;;INCARICO;INCOMPLETA;;"LISTE_VALORI_INIZIALI: ""Incarico / Lavorazione"" (1 valori)";SI;lista INCOMPLETA nel CSV
+TOWERNET;F013;13;PM_PERMESSI;Core Anagrafica Sito;ODA;campo varchar 50;TEXT;campo varchar 50;ODA;etichetta;;;;;NO;
+TOWERNET;F014;14;PM_PERMESSI;Core Anagrafica Sito;Note ODA;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;ODA;etichetta;;;;;NO;
+TOWERNET;F015;15;PM_PERMESSI;Dati Anagrafici Secondari;Gestore Tenant;menù a tendina con tutti i clienti;SELECT;menù a tendina;TENANT;etichetta;GESTORE_TENANT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Gestore Tenant"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F016;16;PM_PERMESSI;Dati Anagrafici Secondari;Codice sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+TOWERNET;F017;17;PM_PERMESSI;Dati Anagrafici Secondari;Nome sito Tenant;TEXT;TEXT;TEXT;TENANT;etichetta;;;;;NO;
+TOWERNET;F018;18;PM_PERMESSI;Dati Anagrafici Secondari;Latitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+TOWERNET;F019;19;PM_PERMESSI;Dati Anagrafici Secondari;Longitudine;DECIMAL;NUMBER;DECIMAL;;;;;;;NO;
+TOWERNET;F020;20;PM_PERMESSI;Fase Preliminare;Data assegnazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F021;21;PM_PERMESSI;Fase Preliminare;Data sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F022;22;PM_PERMESSI;Fase Preliminare;Invio verbale di sopralluogo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F023;23;PM_PERMESSI;Fase Preliminare;Vincoli;menù a tendina;SELECT;menù a tendina;VINCOLI;etichetta;VINCOLI;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Vincoli"" (11 valori)";NO;
+TOWERNET;F024;24;PM_PERMESSI;Fase Preliminare;Assegnazione rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F025;25;PM_PERMESSI;Fase Preliminare;Rilievo Topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F026;26;PM_PERMESSI;Fase Preliminare;Invio rilievo topografico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F027;27;PM_PERMESSI;Fase Preliminare;Bozza di progetto;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F028;28;PM_PERMESSI;Fase Preliminare;Richiesta Fornitura Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F029;29;PM_PERMESSI;Fase Preliminare;Sopralluogo Enel;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F030;30;PM_PERMESSI;Pacchetto Permessi;Tecnico PP;menù a tendina;USER;campo utente D-39 (PERMESSI);;;USERS;USERS;;ruolo PERMESSI (D-39);NO;
+TOWERNET;F031;31;PM_PERMESSI;Pacchetto Permessi;Fornitore PP;menù a tendina;SELECT;menù a tendina;;;FORNITORE_PP;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PP / Fornitore Permessi"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F032;32;PM_PERMESSI;Pacchetto Permessi;Invio PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F033;33;PM_PERMESSI;Pacchetto Permessi;Approvazione PDM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F034;34;PM_PERMESSI;Pacchetto Permessi;Ricezione Scheda Tecnica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F035;35;PM_PERMESSI;Pacchetto Permessi;Assegnazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F036;36;PM_PERMESSI;Pacchetto Permessi;Forecast AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TOWERNET;F037;37;PM_PERMESSI;Pacchetto Permessi;Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TOWERNET;F038;38;PM_PERMESSI;Pacchetto Permessi;Approvazione Riduzione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TOWERNET;F039;39;PM_PERMESSI;Pacchetto Permessi;Invio AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TOWERNET;F040;40;PM_PERMESSI;Pacchetto Permessi;Approvazione AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;SI;master non determinato (vedi master_mirror.csv)
+TOWERNET;F041;41;PM_PERMESSI;Pacchetto Permessi;Note Pacchetto Permessi;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TOWERNET;F042;42;PM_PERMESSI;Pacchetto Permessi;Invio Pacchetto Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F043;43;PM_PERMESSI;Pacchetto Permessi;Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F044;44;PM_PERMESSI;Iter Autorizzativo;Protocollo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F045;45;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento Permessi;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F046;46;PM_PERMESSI;Iter Autorizzativo;Sollecito CDS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F047;47;PM_PERMESSI;Iter Autorizzativo;Avvio Procedimento Indizione CDS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F048;48;PM_PERMESSI;Iter Autorizzativo;Richiesta integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+TOWERNET;F049;49;PM_PERMESSI;Iter Autorizzativo;Note integrazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;INTEGRAZIONE;etichetta;;;;;NO;
+TOWERNET;F050;50;PM_PERMESSI;Iter Autorizzativo;Invio integrazione;DATE (gg/mm/aaaa);DATE;DATE;INTEGRAZIONE;etichetta;;;;;NO;
+TOWERNET;F051;51;PM_PERMESSI;Iter Autorizzativo;Forecast Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+TOWERNET;F052;52;PM_PERMESSI;Iter Autorizzativo;Parere Arpa;DATE (gg/mm/aaaa);DATE;DATE;ARPA;etichetta;;;;;NO;
+TOWERNET;F053;53;PM_PERMESSI;Iter Autorizzativo;Esito parere Arpa;menù a tendina;SELECT;menù a tendina;ARPA;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+TOWERNET;F054;54;PM_PERMESSI;Iter Autorizzativo;N° protocollo Arpa;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ARPA;etichetta;;;;;NO;
+TOWERNET;F055;55;PM_PERMESSI;Iter Autorizzativo;Ripresentazione Pratica;DATE (gg/mm/aaaa);DATE;DATE;ARPA;"condizionato da ""Esito parere Arpa"" (F053)";;;;;SI;
+TOWERNET;F056;56;PM_PERMESSI;Iter Autorizzativo;Nome Ente;Menù a tendina;SELECT;menù a tendina;ENTE;etichetta;NOME_ENTE;INCOMPLETA;;"LISTE_VALORI_INIZIALI: ""Nome Ente"" (6 valori)";SI;lista INCOMPLETA nel CSV
+TOWERNET;F057;57;PM_PERMESSI;Iter Autorizzativo;Forecast Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+TOWERNET;F058;58;PM_PERMESSI;Iter Autorizzativo;Ottenimento “Nome ente”;DATE (gg/mm/aaaa);DATE;DATE;ENTE;etichetta;;;;;NO;
+TOWERNET;F059;59;PM_PERMESSI;Iter Autorizzativo;Esito parere “nome ente”;menù a tendina;SELECT;menù a tendina;ENTE;etichetta;ESITO_PARERE_ARPA;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Esito parere Arpa / Esito parere ""nome ente"""" (2 valori)";NO;
+TOWERNET;F060;60;PM_PERMESSI;Iter Autorizzativo;N° protocollo “Nome ente”;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);ENTE;etichetta;;;;;NO;
+TOWERNET;F061;61;PM_PERMESSI;Iter Autorizzativo;Protocollo autocertificazione;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F062;62;PM_PERMESSI;Iter Autorizzativo;Autorizzazione finale;menù a tendina;SELECT;menù a tendina;;;AUTORIZZAZIONE_FINALE;CONTROLLED;;"LISTE_VALORI_INIZIALI: ""Autorizzazione finale"" (4 valori)";NO;
+TOWERNET;F063;63;PM_PERMESSI;Iter Autorizzativo;Note Autorizzazione;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TOWERNET;F064;64;PM_PERMESSI;Iter Autorizzativo;Data Autorizzazione finale;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F065;65;PM_PERMESSI;Iter Autorizzativo;Data Invio Offerta;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F066;66;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Geologica;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TOWERNET;F067;67;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F068;68;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Forecast Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F069;69;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Arrivo Geologica;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F075;70;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F076;71;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione UT;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TOWERNET;F072;72;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;PE;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TOWERNET;F073;73;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Assegnazione PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F074;74;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Note Assegnazione PE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TOWERNET;F105;120;UT_PE;PE;Invio PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F095;105;UT_PE;UT;Invio AS/VS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F070;77;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Invio Scheda Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F071;78;PM_PERMESSI;Ufficio Tecnico / Progettazione Esecutiva;Ricezione Esecutivo Palo;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F077;81;AIE;Fase AIE;Tecnico Misure di fondo;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;TECNICO_MISURE_DI_FONDO;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Tecnico Misure di fondo"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F078;82;AIE;Fase AIE;Stato misure di fondo;menù a tendina;SELECT;menù a tendina;;;STATO_MISURE_DI_FONDO;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato misure di fondo"" (3 valori)";NO;
+TOWERNET;F079;83;AIE;Fase AIE;Tecnico AIE;menù a tendina che si popola volta per volta;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+TOWERNET;F080;84;AIE;Fase AIE;Stato assegnazione tecnico AIE;menù a tendina;SELECT;menù a tendina;;;STATO_ASSEGNAZIONE_TECNICO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato assegnazione tecnico AIE"" (2 valori)";NO;
+TOWERNET;F081;85;AIE;Fase AIE;Responsabile interno AIE;menù a tendina;USER;campo utente D-39 (AIE);;;USERS;USERS;;ruolo AIE (D-39);NO;
+TOWERNET;F082;86;AIE;Fase AIE;Stato AIE;menù a tendina;SELECT;menù a tendina;;;STATO_AIE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Stato AIE"" (9 valori)";NO;
+TOWERNET;F083;87;AIE;Fase AIE;Invio CEM;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F084;88;AIE;Fase AIE;Fine attività AIE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F085;93;AIE;Fase AIE;Note AIE;campo libero;LONGTEXT;campo libero di tipo Note → LONGTEXT;;;;;;;NO;
+TOWERNET;F086;96;UT_PE;UT;Forecast UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F087;97;UT_PE;UT;Incarico VS/AS;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F088;98;UT_PE;UT;VS/AS incaricata da;menù a tendina;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+TOWERNET;F089;99;UT_PE;UT;Tecnico UT;menù a tendina che si popola volta per volta;USER;campo utente D-39 (UT);;;USERS;USERS;;ruolo UT (D-39);NO;
+TOWERNET;F090;100;UT_PE;UT;Fornitore UT;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_UT;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore UT"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F091;101;UT_PE;UT;Tipologia attività UT;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_UT;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività UT"" (6 valori)";NO;
+TOWERNET;F092;102;UT_PE;UT;Importo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TOWERNET;F093;103;UT_PE;UT;Costo UT;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TOWERNET;F094;104;UT_PE;UT;Fine attività UT;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F096;111;UT_PE;PE;Forecast PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F097;112;UT_PE;PE;Incarico PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F098;113;UT_PE;PE;Tipologia attività PE;menù a tendina;SELECT;menù a tendina;;;TIPOLOGIA_ATTIVITA_PE;CONFIGURABLE;;"LISTE_VALORI_INIZIALI: ""Tipologia attività PE"" (1 valori)";NO;
+TOWERNET;F099;114;UT_PE;PE;PE incaricato da;menù a tendina;USER;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+TOWERNET;F100;115;UT_PE;PE;Tecnico PE;menù a tendina che si popola volta per volta;USERS;campo utente D-39 (PE);;;USERS;USERS;;ruolo PE (D-39);NO;
+TOWERNET;F101;116;UT_PE;PE;Fornitore PE;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;FORNITORE_PE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Fornitore PE"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F102;117;UT_PE;PE;Importo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TOWERNET;F103;118;UT_PE;PE;Costo PE;campo numerico;NUMBER;campo numerico;;;;;;;NO;
+TOWERNET;F104;119;UT_PE;PE;Fine attività PE;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F106;122;DL;Direzione Lavori;Deposito sismico;menù a tendina;SELECT;menù a tendina;;;SI_NO;CONTROLLED;;dominio SI/NO comune;NO;
+TOWERNET;F107;123;DL;Direzione Lavori;Forecast Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F108;124;DL;Direzione Lavori;Deposito Sismico;DATE (gg/mm/aaaa);DATE;DATE;;;SI_NO;CONTROLLED;;dominio SI/NO comune;SI;"dtype ""DATE (gg/mm/aaaa)"" per un campo SI/NO"
+TOWERNET;F109;125;DL;Direzione Lavori;Tecnico deposito sismico;menù a tendina;USER;campo utente D-39 (DL);;;USERS;USERS;;ruolo DL (D-39);NO;
+TOWERNET;F110;126;DL;Direzione Lavori;Direttore Lavori;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;DIRETTORE_LAVORI;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Direttore Lavori"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F111;127;DL;Direzione Lavori;Collaudatore;menù a tendina che si popola volta per volta;SELECT;menù a tendina;;;COLLAUDATORE;MANCANTE;;"LISTE_VALORI_INIZIALI: ""Collaudatore"" (1 valori)";SI;lista MANCANTE nel CSV
+TOWERNET;F112;128;DL;Direzione Lavori;Protocollo deposito sismico;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F113;129;DL;Direzione Lavori;N° protocollo deposito sismico;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+TOWERNET;F114;130;DL;Direzione Lavori;N° sismica;TEXT;TEXT;N° protocollo / N° sismica = testo (D-38);;;;;;;NO;
+TOWERNET;F115;131;DL;Direzione Lavori;Forecast CIL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F116;132;DL;Direzione Lavori;Data IL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;
+TOWERNET;F117;133;DL;Direzione Lavori;Data FL;DATE (gg/mm/aaaa);DATE;DATE;;;;;;;NO;

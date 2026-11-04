@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.env
+npm-debug.log
+yarn-error.log
+Dockerfile
+.dockerignore
+README.md
+dist
+.next-anteprima
+backups
+coverage
+tests
+*.log
+# Misure del prototipo dell'assistente (A4b): usa le fixture di tests/, esclusa dall'immagine; non serve in esercizio.
+scripts/assistant-prototype.ts

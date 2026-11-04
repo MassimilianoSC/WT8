@@ -1,0 +1,169 @@
+# PracticeHub — stack di esercizio (K2, D-156). Separato dalla beta (docker-compose.yml alla radice), che resta
+# com'è fino al cutover. Lo stesso file, con un altro .env, è lo stack di prova sul PC dei test (D-146).
+#
+#   docker compose -f deploy/compose.yml --env-file deploy/.env up -d --build
+#
+# - Progetto Docker "practicehub" (PH_PROJECT): container, rete e volumi propri, nessun contatto con le altre app.
+# - MongoDB in replica set a un nodo (transazioni, PR-10) sulla porta INTERNA 27018 e SENZA porte pubblicate: il
+#   database è raggiungibile solo dai container dello stack (PR-20). Dati in un volume Docker (su D:, D-143).
+# - Riavvio automatico di tutti i servizi (PR-13, parte Docker); registri ruotati (PR-17).
+# - Nessun segreto qui: tutto da deploy/.env (modello in deploy/.env.example, PR-19).
+
+name: ${PH_PROJECT:-practicehub}
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+x-app-env: &app-env
+  MONGO_URL: mongodb://mongo:27018/?replicaSet=rs0
+  # Database del modello nuovo (servizi v2) e della beta ancora usata dalle rotte in collisione fino al cutover (D-68).
+  NEW_DB_NAME: ${PH_DB:?Imposta PH_DB in deploy/.env}
+  DB_NAME: ${PH_DB}_legacy
+  AUTH_SECRET: ${AUTH_SECRET:?Imposta AUTH_SECRET in deploy/.env (vedi deploy/README.md)}
+  NEXTAUTH_SECRET: ${AUTH_SECRET}
+  AUTH_URL: ${PH_PUBLIC_URL:?Imposta PH_PUBLIC_URL in deploy/.env}
+  NEXTAUTH_URL: ${PH_PUBLIC_URL}
+  APP_BASE_URL: ${PH_PUBLIC_URL}
+  AUTH_TRUST_HOST: "true"
+  # Soglia dello spazio libero per /api/health (K5).
+  PH_DISK_MIN_FREE_GB: ${PH_DISK_MIN_FREE_GB:-20}
+  # Protezione del login (PR-22): per email sempre; per indirizzo spento di default (gateway di Docker comune a tutti).
+  PH_LOGIN_LIMIT_PER_EMAIL: ${PH_LOGIN_LIMIT_PER_EMAIL:-5}
+  PH_LOGIN_LIMIT_PER_IP: ${PH_LOGIN_LIMIT_PER_IP:-0}
+  ADMIN_EMAIL: ${ADMIN_EMAIL:?Imposta ADMIN_EMAIL in deploy/.env}
+  ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Imposta ADMIN_PASSWORD in deploy/.env}
+  SMTP_HOST: ${SMTP_HOST:-}
+  SMTP_PORT: ${SMTP_PORT:-587}
+  SMTP_USER: ${SMTP_USER:-}
+  SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+  SMTP_SECURE: ${SMTP_SECURE:-false}
+  SMTP_FROM: ${SMTP_FROM:-PracticeHub <no-reply@practicehub.local>}
+
+services:
+  mongo:
+    image: mongo:7.0
+    restart: unless-stopped
+    command: ["--replSet", "rs0", "--port", "27018", "--bind_ip_all"]
+    volumes:
+      - mongo_data:/data/db
+    # Inizializza il replica set al primo avvio (idempotente) e risulta sano solo quando il nodo è PRIMARY.
+    healthcheck:
+      test:
+        - CMD
+        - mongosh
+        - --port
+        - "27018"
+        - --quiet
+        - --eval
+        - "try { rs.status() } catch (e) { rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: 'mongo:27018' }] }) }; quit(db.hello().isWritablePrimary ? 0 : 1)"
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 20s
+    logging: *logging
+
+  app:
+    image: practicehub:${PH_TAG:-latest}
+    build:
+      context: ../frontend
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      <<: *app-env
+      # Assistente AI (contratto §13, D-166…D-172): SOLO nel servizio app, mai nel worker né nelle copie.
+      # PH_AI_ENABLED è l'interruttore tecnico; poi l'ADMIN lo accende o spegne da Configurazione (D-169).
+      PH_AI_ENABLED: ${PH_AI_ENABLED:-false}
+      PH_AI_PROVIDER: ${PH_AI_PROVIDER:-vertex}
+      GOOGLE_CLOUD_PROJECT: ${GOOGLE_CLOUD_PROJECT:-}
+      PH_AI_LOCATION: ${PH_AI_LOCATION:-}
+      PH_AI_MODEL: ${PH_AI_MODEL:-}
+      PH_AI_THINKING_LEVEL: ${PH_AI_THINKING_LEVEL:-}
+      GOOGLE_APPLICATION_CREDENTIALS: /run/secrets/vertex-assistant.json
+      PH_AI_USER_PER_DAY: ${PH_AI_USER_PER_DAY:-30}
+      PH_AI_USER_PER_MINUTE: ${PH_AI_USER_PER_MINUTE:-4}
+      PH_AI_CONCURRENCY: ${PH_AI_CONCURRENCY:-20}
+      PH_AI_TIMEOUT_MS: ${PH_AI_TIMEOUT_MS:-20000}
+      PH_AI_LOG_TTL_DAYS: ${PH_AI_LOG_TTL_DAYS:-30}
+      # Andamento e permesso Direzione (contratto §15, D-192): spento finché non vale true (dopo la partenza).
+      PH_ANDAMENTO: ${PH_ANDAMENTO:-false}
+      # Tetto della memoria di Node (cache di Andamento, picchi dell'import): oltre, il processo si ferma con un errore
+      # chiaro e Docker lo riavvia, invece di consumare la memoria del PC (nessun mem_limit rigido del container).
+      NODE_OPTIONS: --max-old-space-size=1024
+    volumes:
+      # Chiave dell'account di servizio Google (progetto AI §2.5): file fuori dal repository, in sola lettura, solo
+      # qui. Senza PH_AI_CREDENTIAL_FILE si monta un segnaposto vuoto e l'assistente resta non disponibile.
+      - ${PH_AI_CREDENTIAL_FILE:-./vertex-assente.json}:/run/secrets/vertex-assistant.json:ro
+    # Nessuna porta pubblicata: gli utenti arrivano dal proxy HTTPS (servizio proxy).
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/login').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging: *logging
+
+  worker:
+    image: practicehub:${PH_TAG:-latest}
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: ["node", "ops/worker.mjs"]
+    environment:
+      <<: *app-env
+      # Export CSV giornaliero per gestore (PR-18), nella cartella PH_EXPORT_DIR della macchina.
+      PH_EXPORT_DIR: /exports
+      PH_EXPORT_TIME: ${PH_EXPORT_TIME:-06:30}
+    volumes:
+      - ${PH_EXPORT_DIR:?Imposta PH_EXPORT_DIR in deploy/.env (cartella su D:, es. D:/PracticeHub/export)}:/exports
+    logging: *logging
+
+  # Copie notturne (K4, PR-01, D-144): su D:, in una cartella FUORI dal disco virtuale di Docker, così sopravvivono
+  # anche alla perdita dei volumi. Verifica e conservazione a ogni giro; esito in backup_runs per gli avvisi (K5).
+  backup:
+    image: practicehub:${PH_TAG:-latest}
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    command: ["node", "ops/backup-service.mjs"]
+    environment:
+      MONGO_URL: mongodb://mongo:27018/?replicaSet=rs0
+      PH_DB: ${PH_DB}
+      PH_BACKUP_DBS: ${PH_DB},${PH_DB}_legacy
+      PH_BACKUP_DIR: /backups
+      PH_BACKUP_TIME: ${PH_BACKUP_TIME:-01:30}
+    volumes:
+      - ${PH_BACKUP_DIR:?Imposta PH_BACKUP_DIR in deploy/.env (cartella su D:, es. D:/PracticeHub/copie)}:/backups
+    logging: *logging
+
+  # Proxy HTTPS dedicato (K3, PR-21, D-153, D-154): l'UNICA porta pubblicata dello stack. Certificato fornito come
+  # file (deploy/README.md); nessuna modifica al proxy dell'intranet né agli altri container.
+  proxy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    ports:
+      - "${PH_HTTPS_PORT:-8443}:8443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${PH_CERT_DIR:?Imposta PH_CERT_DIR in deploy/.env (cartella con practicehub.crt e practicehub.key)}:/certs:ro
+      - caddy_data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "--no-check-certificate", "https://127.0.0.1:8443/login"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging: *logging
+
+volumes:
+  mongo_data:
+  caddy_data:

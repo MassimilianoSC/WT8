@@ -1,0 +1,368 @@
+﻿gestore;gruppo;campo;tipo_lista;valore;codice_proposto;fonte;note
+TUTTI;-;SI / NO (dominio comune);CONTROLLATO;SI;SI;Decisione C2 §8;Usato da: AIE, PE, Geologica, Deposito sismico, Revit, MW, CARATTERIZZAZIONE, All. 18, PSC, Rinforzo, Fatturabile, Fatturato, Offerta Inviata, Invio offerta, Conferma offerta
+TUTTI;-;SI / NO (dominio comune);CONTROLLATO;NO;NO;Decisione C2 §8;Usato da: AIE, PE, Geologica, Deposito sismico, Revit, MW, CARATTERIZZAZIONE, All. 18, PSC, Rinforzo, Fatturabile, Fatturato, Offerta Inviata, Invio offerta, Conferma offerta
+TUTTI;-;Stato attività;CONTROLLATO;CREATA;CREATA;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;ASSEGNATO;ASSEGNATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;IN APPROVAZIONE;IN_APPROVAZIONE;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;PROTOCOLLATO;PROTOCOLLATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;INTEGRAZIONE RICHIESTA;INTEGRAZIONE_RICHIESTA;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;AUTORIZZATO;AUTORIZZATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;DINIEGATO;DINIEGATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;TAR;TAR;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;REALIZZATO;REALIZZATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;TERMINATO;TERMINATO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;STAND-BY;STAND_BY;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+TUTTI;-;Stato attività;CONTROLLATO;KO;KO;Guida §14 + risposta v2 B4;IN LAVORAZIONE sostituito da CREATA
+FASTWEB_VODAFONE;PM/Permessi;Stato ODA;CONTROLLATO;DA RICHIEDERE;DA_RICHIEDERE;Organizzazione Campi FV r.48 + risposta v2 C5;FATTURATO eliminato
+FASTWEB_VODAFONE;PM/Permessi;Stato ODA;CONTROLLATO;RICHIESTI;RICHIESTI;Organizzazione Campi FV r.48 + risposta v2 C5;FATTURATO eliminato
+FASTWEB_VODAFONE;PM/Permessi;Stato ODA;CONTROLLATO;PRESENTI;PRESENTI;Organizzazione Campi FV r.48 + risposta v2 C5;FATTURATO eliminato
+TUTTI;PM/Permessi;"Esito parere Arpa / Esito parere ""nome ente""";CONTROLLATO;Positivo;POSITIVO;Organizzazione Campi (tutti);Conta l'ultimo esito ARPA
+TUTTI;PM/Permessi;"Esito parere Arpa / Esito parere ""nome ente""";CONTROLLATO;Negativo;NEGATIVO;Organizzazione Campi (tutti);Conta l'ultimo esito ARPA
+TOWERNET;PM/Permessi;Autorizzazione finale;CONTROLLATO;AUTORIZZATO;AUTORIZZATO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+TOWERNET;PM/Permessi;Autorizzazione finale;CONTROLLATO;DINIEGATO;DINIEGATO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+TOWERNET;PM/Permessi;Autorizzazione finale;CONTROLLATO;TAR;TAR;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+TOWERNET;PM/Permessi;Autorizzazione finale;CONTROLLATO;KO;KO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+INWIT;PM/Permessi;Autorizzazione finale;CONTROLLATO;AUTORIZZATO;AUTORIZZATO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+INWIT;PM/Permessi;Autorizzazione finale;CONTROLLATO;DINIEGATO;DINIEGATO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+INWIT;PM/Permessi;Autorizzazione finale;CONTROLLATO;TAR;TAR;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+INWIT;PM/Permessi;Autorizzazione finale;CONTROLLATO;KO;KO;Organizzazione Campi TWN r.107, INWIT r.128 + risposta v2 B4;"KO esteso a INWIT; alimenta Stato attività"
+TOWERNET;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+TOWERNET;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+TIM_FIBERCOP;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+TIM_FIBERCOP;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+INWIT;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+INWIT;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+FASTWEB_VODAFONE;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+FASTWEB_VODAFONE;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+LEONARDO;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+LEONARDO;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi;Raw Land usato in condizioni (rilievi, Scheda Palo)
+ILIAD;PM/Permessi;Tipologia sito;CONTROLLATO;Raw Land;RAW_LAND;Organizzazione Campi ILIAD r.45;Traliccio -> Altezza traliccio e Tipologia Struttura automatica
+ILIAD;PM/Permessi;Tipologia sito;CONTROLLATO;Roof Top;ROOF_TOP;Organizzazione Campi ILIAD r.45;Traliccio -> Altezza traliccio e Tipologia Struttura automatica
+ILIAD;PM/Permessi;Tipologia sito;CONTROLLATO;Traliccio;TRALICCIO;Organizzazione Campi ILIAD r.45;Traliccio -> Altezza traliccio e Tipologia Struttura automatica
+TOWERNET;PM/Permessi;Stato vincolo;CONTROLLATO;Presente;PRESENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TOWERNET;PM/Permessi;Stato vincolo;CONTROLLATO;Assente;ASSENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TOWERNET;PM/Permessi;Stato vincolo;CONTROLLATO;Non pertinente;NON_PERTINENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TOWERNET;PM/Permessi;Stato vincolo;CONTROLLATO;Assolto;ASSOLTO;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TIM_FIBERCOP;PM/Permessi;Stato vincolo;CONTROLLATO;Presente;PRESENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TIM_FIBERCOP;PM/Permessi;Stato vincolo;CONTROLLATO;Assente;ASSENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TIM_FIBERCOP;PM/Permessi;Stato vincolo;CONTROLLATO;Non pertinente;NON_PERTINENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+TIM_FIBERCOP;PM/Permessi;Stato vincolo;CONTROLLATO;Assolto;ASSOLTO;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+INWIT;PM/Permessi;Stato vincolo;CONTROLLATO;Presente;PRESENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+INWIT;PM/Permessi;Stato vincolo;CONTROLLATO;Assente;ASSENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+INWIT;PM/Permessi;Stato vincolo;CONTROLLATO;Non pertinente;NON_PERTINENTE;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+INWIT;PM/Permessi;Stato vincolo;CONTROLLATO;Assolto;ASSOLTO;Organizzazione Campi tabella vincoli;"Sottoinsieme per vincolo: vedi righe ""Vincoli"""
+ILIAD;PM/Permessi;Committente;CONTROLLATO;CONSORZIO (ILIAD);CONSORZIO_ILIAD;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;CONSORZIO (ERICSSON);CONSORZIO_ERICSSON;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;CELLNEX;CELLNEX;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;SIRTI;SIRTI;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;SITE;SITE;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;TELEBIT;TELEBIT;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;CIRCET;CIRCET;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+ILIAD;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Organizzazione Campi ILIAD r.39 + risposta v2 B1;"Deriva il template; CELLNEX -> CDMS, Invio CDMS, AGORA'; CONSORZIO (ERICSSON) -> WCN; Altro = inserimento manuale"
+INWIT;PM/Permessi;Committente;CONTROLLATO;Inwit;INWIT;Risposta v2 B1;
+INWIT;PM/Permessi;Committente;CONTROLLATO;Todos;TODOS;Risposta v2 B1;
+INWIT;PM/Permessi;Committente;CONTROLLATO;Telebit;TELEBIT;Risposta v2 B1;
+INWIT;PM/Permessi;Committente;CONTROLLATO;Sirti;SIRTI;Risposta v2 B1;
+INWIT;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;
+TOWERNET;PM/Permessi;Committente;CONTROLLATO;TowerNet;TOWERNET;Risposta v2 B1;
+TOWERNET;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;
+TIM_FIBERCOP;PM/Permessi;Committente;CONTROLLATO;Fibercop;FIBERCOP;Organizzazione Campi TIM r.39;Precompilato, modificabile
+TIM_FIBERCOP;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Organizzazione Campi TIM r.39;Precompilato, modificabile
+FASTWEB_VODAFONE;PM/Permessi;Committente;CONTROLLATO;Fastweb;FASTWEB;Organizzazione Campi FV r.38;"Precompilato, modificabile; Fastweb diretto -> template FASTWEB-VODAFONE"
+FASTWEB_VODAFONE;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Organizzazione Campi FV r.38;"Precompilato, modificabile; Fastweb diretto -> template FASTWEB-VODAFONE"
+LEONARDO;PM/Permessi;Committente;CONTROLLATO;Leonardo;LEONARDO;Risposta v2 B1;Campo nuovo per LEONARDO
+LEONARDO;PM/Permessi;Committente;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;Campo nuovo per LEONARDO
+ILIAD;PM/Permessi;Cliente Finale;CONTROLLATO;ILIAD;ILIAD;Organizzazione Campi ILIAD r.40;"Sostituisce ""gestionale"""
+ILIAD;PM/Permessi;Cliente Finale;CONTROLLATO;WIND 3;WIND_3;Organizzazione Campi ILIAD r.40;"Sostituisce ""gestionale"""
+ILIAD;PM/Permessi;Cliente Finale;CONTROLLATO;FASTWEB;FASTWEB;Organizzazione Campi ILIAD r.40;"Sostituisce ""gestionale"""
+ILIAD;PM/Permessi;Cliente Finale;CONTROLLATO;ZEFIRO;ZEFIRO;Organizzazione Campi ILIAD r.40;"Sostituisce ""gestionale"""
+ILIAD;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Organizzazione Campi ILIAD r.40;"Sostituisce ""gestionale"""
+INWIT;PM/Permessi;Cliente Finale;CONTROLLATO;Inwit;INWIT;Risposta v2 B1;
+INWIT;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;
+TOWERNET;PM/Permessi;Cliente Finale;CONTROLLATO;TowerNet;TOWERNET;Risposta v2 B1;
+TOWERNET;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;
+TIM_FIBERCOP;PM/Permessi;Cliente Finale;CONTROLLATO;TIM;TIM;Organizzazione Campi TIM r.40;
+TIM_FIBERCOP;PM/Permessi;Cliente Finale;CONTROLLATO;Fibercop;FIBERCOP;Organizzazione Campi TIM r.40;
+TIM_FIBERCOP;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Organizzazione Campi TIM r.40;
+FASTWEB_VODAFONE;PM/Permessi;Cliente Finale;CONTROLLATO;Fastweb;FASTWEB;Organizzazione Campi FV r.39 + risposta v2 B1;
+FASTWEB_VODAFONE;PM/Permessi;Cliente Finale;CONTROLLATO;Vodafone;VODAFONE;Organizzazione Campi FV r.39 + risposta v2 B1;
+FASTWEB_VODAFONE;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Organizzazione Campi FV r.39 + risposta v2 B1;
+LEONARDO;PM/Permessi;Cliente Finale;CONTROLLATO;Leonardo;LEONARDO;Risposta v2 B1;
+LEONARDO;PM/Permessi;Cliente Finale;CONTROLLATO;Altro;ALTRO;Risposta v2 B1;
+ILIAD;PM/Permessi;EM %;CONTROLLATO;100%;100_PCT;Organizzazione Campi ILIAD r.206-208;Colore: 100% verde, 80% giallo, 50% rosso
+ILIAD;PM/Permessi;EM %;CONTROLLATO;80%;80_PCT;Organizzazione Campi ILIAD r.206-208;Colore: 100% verde, 80% giallo, 50% rosso
+ILIAD;PM/Permessi;EM %;CONTROLLATO;50%;50_PCT;Organizzazione Campi ILIAD r.206-208;Colore: 100% verde, 80% giallo, 50% rosso
+TUTTI;PM/Permessi;Regione;ISTAT;;;Risposta A1.5;Sorgente geografica ISTAT, selezione a cascata
+TUTTI;PM/Permessi;Provincia;ISTAT;;;Risposta A1.5;Sorgente geografica ISTAT, selezione a cascata
+TUTTI;PM/Permessi;Comune;ISTAT;;;Risposta A1.5;Sorgente geografica ISTAT, selezione a cascata
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;Altro = inserimento manuale
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;Altro = inserimento manuale
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;Altro = inserimento manuale
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;Altro = inserimento manuale
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Torre;TORRE;Organizzazione Campi;Altro = inserimento manuale
+ILIAD;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Torre;TORRE;Organizzazione Campi;Altro = inserimento manuale
+TIM_FIBERCOP;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Torre;TORRE;Organizzazione Campi;Altro = inserimento manuale
+FASTWEB_VODAFONE;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Torre;TORRE;Organizzazione Campi;Altro = inserimento manuale
+LEONARDO;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;Altro = inserimento manuale
+TOWERNET;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+TOWERNET;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+TOWERNET;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+TOWERNET;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+TOWERNET;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+INWIT;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo poligonale;PALO_POLIGONALE;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+INWIT;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palo flangiato;PALO_FLANGIATO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+INWIT;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Traliccio;TRALICCIO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+INWIT;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Palina;PALINA;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+INWIT;PM/Permessi;Tipologia Struttura;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;"Senza ""Torre"" nel sorgente"
+ILIAD;PM/Permessi;Altezza traliccio;CONFIGURABILE;<= 30m;LE_30M;Organizzazione Campi ILIAD r.47;
+ILIAD;PM/Permessi;Altezza traliccio;CONFIGURABILE;> 30m;GT_30M;Organizzazione Campi ILIAD r.47;
+ILIAD;PM/Permessi;Area Apparati;CONFIGURABILE;OUTDOOR;OUTDOOR;Organizzazione Campi;
+ILIAD;PM/Permessi;Area Apparati;CONFIGURABILE;CABINET;CABINET;Organizzazione Campi;
+ILIAD;PM/Permessi;Area Apparati;CONFIGURABILE;SHELTER;SHELTER;Organizzazione Campi;
+ILIAD;PM/Permessi;Area Apparati;CONFIGURABILE;ROOM;ROOM;Organizzazione Campi;
+TIM_FIBERCOP;PM/Permessi;Area Apparati;CONFIGURABILE;OUTDOOR;OUTDOOR;Organizzazione Campi;
+TIM_FIBERCOP;PM/Permessi;Area Apparati;CONFIGURABILE;CABINET;CABINET;Organizzazione Campi;
+TIM_FIBERCOP;PM/Permessi;Area Apparati;CONFIGURABILE;SHELTER;SHELTER;Organizzazione Campi;
+TIM_FIBERCOP;PM/Permessi;Area Apparati;CONFIGURABILE;ROOM;ROOM;Organizzazione Campi;
+LEONARDO;PM/Permessi;Area Apparati;CONFIGURABILE;OUTDOOR;OUTDOOR;Organizzazione Campi;
+LEONARDO;PM/Permessi;Area Apparati;CONFIGURABILE;CABINET;CABINET;Organizzazione Campi;
+LEONARDO;PM/Permessi;Area Apparati;CONFIGURABILE;SHELTER;SHELTER;Organizzazione Campi;
+LEONARDO;PM/Permessi;Area Apparati;CONFIGURABILE;ROOM;ROOM;Organizzazione Campi;
+FASTWEB_VODAFONE;PM/Permessi;Area Apparati;CONFIGURABILE;OUTDOOR;OUTDOOR;Organizzazione Campi FV r.46;
+FASTWEB_VODAFONE;PM/Permessi;Area Apparati;CONFIGURABILE;INDOOR;INDOOR;Organizzazione Campi FV r.46;
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato New Site;COLLOCATO_NEW_SITE;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato Esistente;COLLOCATO_ESISTENTE;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Demolizione;DEMOLIZIONE;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Ponte Radio;PONTE_RADIO;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Caratterizzazione;CARATTERIZZAZIONE;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Progetto Esecutivo;PROGETTO_ESECUTIVO;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Verifica Statica;VERIFICA_STATICA;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Pacchetto permessi;PACCHETTO_PERMESSI;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;PE+VS;PE_PLUS_VS;Organizzazione Campi ILIAD r.50;Scelta multipla
+ILIAD;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Caratterizzazione + VS;CARATTERIZZAZIONE_PLUS_VS;Organizzazione Campi ILIAD r.50;Scelta multipla
+TIM_FIBERCOP;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi TIM r.48;Scelta multipla
+TIM_FIBERCOP;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato New Site;COLLOCATO_NEW_SITE;Organizzazione Campi TIM r.48;Scelta multipla
+TIM_FIBERCOP;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato Esistente;COLLOCATO_ESISTENTE;Organizzazione Campi TIM r.48;Scelta multipla
+TIM_FIBERCOP;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Demolizione;DEMOLIZIONE;Organizzazione Campi TIM r.48;Scelta multipla
+TIM_FIBERCOP;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Ponte Radio;PONTE_RADIO;Organizzazione Campi TIM r.48;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato New Site;COLLOCATO_NEW_SITE;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Collocato Esistente;COLLOCATO_ESISTENTE;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Demolizione;DEMOLIZIONE;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Ponte Radio;PONTE_RADIO;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Applicabilità;APPLICABILITA;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Bonifica;BONIFICA;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Rewatt;REWATT;Organizzazione Campi FV r.47;Scelta multipla
+FASTWEB_VODAFONE;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;VRUC;VRUC;Organizzazione Campi FV r.47;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Demolizione;DEMOLIZIONE;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Caratterizzazione;CARATTERIZZAZIONE;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Progetto Esecutivo;PROGETTO_ESECUTIVO;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Verifica Statica;VERIFICA_STATICA;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Caratterizzazione + VS;CARATTERIZZAZIONE_PLUS_VS;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;PE + VS;PE_PLUS_VS;Organizzazione Campi INWIT r.46;Scelta multipla
+INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Housing;HOUSING;Organizzazione Campi INWIT r.46;Scelta multipla
+LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi LEONARDO r.47;Scelta multipla
+LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Sito esistente;SITO_ESISTENTE;Organizzazione Campi LEONARDO r.47;Scelta multipla
+LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Ponte Radio;PONTE_RADIO;Organizzazione Campi LEONARDO r.47;Scelta multipla
+TOWERNET;PM/Permessi;Incarico / Lavorazione;INCOMPLETA;New Site;NEW_SITE;Organizzazione Campi TWN r.45;Un solo valore, mentre il sorgente cita anche Verifica statica e Caratterizzazione + verifica statica
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Power up;POWER_UP;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;2.3;2_3;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Upgrade 5G;UPGRADE_5G;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;700 MHz;700_MHZ;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Swap antenne;SWAP_ANTENNE;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Dismissione;DISMISSIONE;Organizzazione Campi ILIAD r.58;
+ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Upgrade 5G + 700 MHz;UPGRADE_5G_PLUS_700_MHZ;Organizzazione Campi ILIAD r.58;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;SWAP Nokia;SWAP_NOKIA;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;NIN;NIN;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;NIE 5G;NIE_5G;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;NIE NR 700;NIE_NR_700;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;Ponte radio;PONTE_RADIO;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;NIE Congiunto;NIE_CONGIUNTO;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;NIN congiunto;NIN_CONGIUNTO;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;Sharing;SHARING;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;Provvisorio;PROVVISORIO;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;Public safety;PUBLIC_SAFETY;Organizzazione Campi TIM r.49;
+TIM_FIBERCOP;PM/Permessi;Progetto;CONFIGURABILE;DAS;DAS;Organizzazione Campi TIM r.49;
+INWIT;PM/Permessi;Progetto;CONFIGURABILE;Trasferimento;TRASFERIMENTO;Organizzazione Campi INWIT r.58;
+INWIT;PM/Permessi;Progetto;CONFIGURABILE;Remedies;REMEDIES;Organizzazione Campi INWIT r.58;
+INWIT;PM/Permessi;Progetto;CONFIGURABILE;Commitment;COMMITMENT;Organizzazione Campi INWIT r.58;
+INWIT;PM/Permessi;Progetto;CONFIGURABILE;PNRR;PNRR;Organizzazione Campi INWIT r.58;
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Inwit;INWIT;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Cellnex;CELLNEX;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;PTI;PTI;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Towernet;TOWERNET;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Raiway;RAIWAY;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Fastweb-Vodafone;FASTWEB_VODAFONE;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;TIM;TIM;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Iliad;ILIAD;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Patrimonia;PATRIMONIA;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Privato;PRIVATO;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;etower;ETOWER;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Comunale;COMUNALE;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+ILIAD;PM/Permessi;Proprietà / Host;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi ILIAD r.60;"""Fastweb"" normalizzato in ""Fastweb-Vodafone"" (A1.5 v)"
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Inwit;INWIT;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Cellnex;CELLNEX;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;PTI;PTI;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Towernet;TOWERNET;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Raiway;RAIWAY;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Fastweb-Vodafone;FASTWEB_VODAFONE;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;TIM;TIM;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+TIM_FIBERCOP;PM/Permessi;Proprietà / Host;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Inwit;INWIT;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Cellnex;CELLNEX;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;PTI;PTI;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Towernet;TOWERNET;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Raiway;RAIWAY;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Fastweb-Vodafone;FASTWEB_VODAFONE;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;TIM;TIM;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+FASTWEB_VODAFONE;PM/Permessi;Proprietà / Host;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi;"""Vodafone-fastweb"" normalizzato in ""Fastweb-Vodafone"""
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Inwit;INWIT;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Cellnex;CELLNEX;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;PTI;PTI;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Raiway;RAIWAY;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Fastweb-Vodafone;FASTWEB_VODAFONE;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;TIM;TIM;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Iliad;ILIAD;Organizzazione Campi LEONARDO r.49;
+LEONARDO;PM/Permessi;Proprietà / Host;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi LEONARDO r.49;
+ILIAD;PM/Permessi;Preesistenze;CONFIGURABILE;COMPLETE;COMPLETE;Organizzazione Campi ILIAD r.71;
+ILIAD;PM/Permessi;Preesistenze;CONFIGURABILE;INCOMPLETE RICHIESTE;INCOMPLETE_RICHIESTE;Organizzazione Campi ILIAD r.71;
+ILIAD;PM/Permessi;Preesistenze;CONFIGURABILE;NON RICEVUTE;NON_RICEVUTE;Organizzazione Campi ILIAD r.71;
+ILIAD;PM/Permessi;Acquisitore;CONFIGURABILE;ESTERNO;ESTERNO;Organizzazione Campi ILIAD r.72;"Classificato ""Lista"" in A1.6"
+ILIAD;PM/Permessi;Acquisitore;CONFIGURABILE;INTERNO;INTERNO;Organizzazione Campi ILIAD r.72;"Classificato ""Lista"" in A1.6"
+FASTWEB_VODAFONE;PM/Permessi;Applicabilità;CONFIGURABILE;TITOLO I;TITOLO_I;Organizzazione Campi FV r.68;"""TITOLO IV*"" trattato come refuso (M1)"
+FASTWEB_VODAFONE;PM/Permessi;Applicabilità;CONFIGURABILE;TITOLO IV SENZA PSC;TITOLO_IV_SENZA_PSC;Organizzazione Campi FV r.68;"""TITOLO IV*"" trattato come refuso (M1)"
+FASTWEB_VODAFONE;PM/Permessi;Applicabilità;CONFIGURABILE;TITOLO IV CON PSC;TITOLO_IV_CON_PSC;Organizzazione Campi FV r.68;"""TITOLO IV*"" trattato come refuso (M1)"
+LEONARDO;PM/Permessi;Tipologia pacchetto permessi;CONFIGURABILE;Istanza;ISTANZA;Organizzazione Campi LEONARDO r.78;Forecast = Protocollo + 67 gg per tutti e tre
+LEONARDO;PM/Permessi;Tipologia pacchetto permessi;CONFIGURABILE;SCIA;SCIA;Organizzazione Campi LEONARDO r.78;Forecast = Protocollo + 67 gg per tutti e tre
+LEONARDO;PM/Permessi;Tipologia pacchetto permessi;CONFIGURABILE;Comunicazione;COMUNICAZIONE;Organizzazione Campi LEONARDO r.78;Forecast = Protocollo + 67 gg per tutti e tre
+LEONARDO;PM/Permessi;Oneri;CONFIGURABILE;Diritti di segreteria;DIRITTI_DI_SEGRETERIA;Organizzazione Campi LEONARDO r.94;Scelta multipla
+LEONARDO;PM/Permessi;Oneri;CONFIGURABILE;Marche da bollo;MARCHE_DA_BOLLO;Organizzazione Campi LEONARDO r.94;Scelta multipla
+LEONARDO;PM/Permessi;Oneri;CONFIGURABILE;Paesaggistica;PAESAGGISTICA;Organizzazione Campi LEONARDO r.94;Scelta multipla
+ILIAD;PM/Permessi;XML;CONFIGURABILE;FATTO;FATTO;Organizzazione Campi ILIAD r.120;
+ILIAD;PM/Permessi;XML;CONFIGURABILE;DA FARE;DA_FARE;Organizzazione Campi ILIAD r.120;
+ILIAD;PM/Permessi;WCN;CONFIGURABILE;DA PRODURRE;DA_PRODURRE;Organizzazione Campi ILIAD r.201;
+ILIAD;PM/Permessi;WCN;CONFIGURABILE;DA INVIARE;DA_INVIARE;Organizzazione Campi ILIAD r.201;
+ILIAD;PM/Permessi;WCN;CONFIGURABILE;INVIATO;INVIATO;Organizzazione Campi ILIAD r.201;
+ILIAD;PM/Permessi;CDMS;CONFIGURABILE;DA INVIARE;DA_INVIARE;Organizzazione Campi ILIAD r.202;
+ILIAD;PM/Permessi;CDMS;CONFIGURABILE;INVIATO;INVIATO;Organizzazione Campi ILIAD r.202;
+ILIAD;PM/Permessi;AGORA';CONFIGURABILE;CARICATO;CARICATO;Organizzazione Campi ILIAD r.209;
+ILIAD;PM/Permessi;AGORA';CONFIGURABILE;NON CARICATO;NON_CARICATO;Organizzazione Campi ILIAD r.209;
+TUTTI;AIE;Stato misure di fondo;CONFIGURABILE;IN ESECUZIONE;IN_ESECUZIONE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato misure di fondo;CONFIGURABILE;OK;OK;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato misure di fondo;CONFIGURABILE;STAND BY;STAND_BY;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato assegnazione tecnico AIE;CONFIGURABILE;OK;OK;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato assegnazione tecnico AIE;CONFIGURABILE;DA ASSEGNARE;DA_ASSEGNARE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;ATTESA OK;ATTESA_OK;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;ATTESA ST;ATTESA_ST;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;DA CHIUDERE;DA_CHIUDERE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;DA FARE;DA_FARE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;DA INVIARE;DA_INVIARE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;KO;KO;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;RIDUZIONE;RIDUZIONE;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;STAND BY;STAND_BY;Organizzazione Campi (tutti);
+TUTTI;AIE;Stato AIE;CONFIGURABILE;CHIUSA;CHIUSA;Organizzazione Campi (tutti);
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;VS;VS;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;AS;AS;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;Dimensionamento plinto;DIMENSIONAMENTO_PLINTO;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;VS plinto;VS_PLINTO;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;Fattibilità;FATTIBILITA;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività UT;CONFIGURABILE;Correzione PE;CORREZIONE_PE;Organizzazione Campi ILIAD r.250 + risposta A4.1;Esteso a tutti i gestori
+TUTTI;UT/PE;Tipologia attività PE;CONFIGURABILE;;;Risposta B1.3 + I20;Valori = unione dei valori di Progetto e di Incarico / Lavorazione del gestore
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo monumentale;VINCOLO_MONUMENTALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo archeologico;VINCOLO_ARCHEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo paesaggistico;VINCOLO_PAESAGGISTICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Soprintendenza oppure Comune (scelta)"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo parco;VINCOLO_PARCO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Testo libero"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo aeroportuale;VINCOLO_AEROPORTUALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: ENAC / ENAV"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo idrogeologico;VINCOLO_IDROGEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto cimiteriale;FASCIA_DI_RISPETTO_CIMITERIALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto pozzi;FASCIA_DI_RISPETTO_POZZI;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto corsi d'acqua;FASCIA_DI_RISPETTO_CORSI_D_ACQUA;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto / Non pertinente; Ente predefinito: Testo libero"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo monumentale;VINCOLO_MONUMENTALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo archeologico;VINCOLO_ARCHEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo paesaggistico;VINCOLO_PAESAGGISTICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Soprintendenza oppure Comune (scelta)"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo parco;VINCOLO_PARCO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Testo libero"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo aeroportuale;VINCOLO_AEROPORTUALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: ENAC / ENAV"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo idrogeologico;VINCOLO_IDROGEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto cimiteriale;FASCIA_DI_RISPETTO_CIMITERIALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto pozzi;FASCIA_DI_RISPETTO_POZZI;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto corsi d'acqua;FASCIA_DI_RISPETTO_CORSI_D_ACQUA;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+TIM_FIBERCOP;PM/Permessi;Vincoli;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto / Non pertinente; Ente predefinito: Testo libero"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo monumentale;VINCOLO_MONUMENTALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo archeologico;VINCOLO_ARCHEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Soprintendenza"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo paesaggistico;VINCOLO_PAESAGGISTICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Soprintendenza oppure Comune (scelta)"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo parco;VINCOLO_PARCO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto; Ente predefinito: Testo libero"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo aeroportuale;VINCOLO_AEROPORTUALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: ENAC / ENAV"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincolo idrogeologico;VINCOLO_IDROGEOLOGICO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto cimiteriale;FASCIA_DI_RISPETTO_CIMITERIALE;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto pozzi;FASCIA_DI_RISPETTO_POZZI;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Fascia di rispetto corsi d'acqua;FASCIA_DI_RISPETTO_CORSI_D_ACQUA;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Non pertinente; Ente predefinito: Comune"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Altro;ALTRO;Organizzazione Campi tabella vincoli;"Stati: Presente / Assente / Assolto / Non pertinente; Ente predefinito: Testo libero"
+TOWERNET;PM/Permessi;Vincoli;CONFIGURABILE;Vincoli ambientali naturalistici;VINCOLI_AMBIENTALI_NATURALISTICI;Risposta A1.4 + v2 M4;"Stati: Presente / Assente / Non pertinente; Ente: SIC, Natura2000, Altro"
+INWIT;PM/Permessi;Vincoli;CONFIGURABILE;Vincoli ambientali naturalistici;VINCOLI_AMBIENTALI_NATURALISTICI;Risposta A1.4 + v2 M4;"Stati: Presente / Assente / Non pertinente; Ente: SIC, Natura2000, Altro"
+ILIAD;PM/Permessi;Vincoli;MANCANTE;;;Organizzazione Campi;"Il sorgente dice solo ""possibilità di flaggare più vincoli"": nessun elenco né tabella"
+FASTWEB_VODAFONE;PM/Permessi;Vincoli;MANCANTE;;;Organizzazione Campi;"Il sorgente dice solo ""possibilità di flaggare più vincoli"": nessun elenco né tabella"
+LEONARDO;PM/Permessi;Vincoli;MANCANTE;;;Organizzazione Campi;"Il sorgente dice solo ""possibilità di flaggare più vincoli"": nessun elenco né tabella"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;Soprintendenza;SOPRINTENDENZA;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;Comune;COMUNE;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;ENAC / ENAV;ENAC_ENAV;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;SIC;SIC;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;Natura2000;NATURA2000;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TOWERNET;PM/Permessi;Nome Ente;INCOMPLETA;Altro;ALTRO;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;Soprintendenza;SOPRINTENDENZA;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;Comune;COMUNE;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;ENAC / ENAV;ENAC_ENAV;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;SIC;SIC;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;Natura2000;NATURA2000;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+TIM_FIBERCOP;PM/Permessi;Nome Ente;INCOMPLETA;Altro;ALTRO;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;Soprintendenza;SOPRINTENDENZA;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;Comune;COMUNE;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;ENAC / ENAV;ENAC_ENAV;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;SIC;SIC;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;Natura2000;NATURA2000;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+INWIT;PM/Permessi;Nome Ente;INCOMPLETA;Altro;ALTRO;Tabella vincoli + risposta A1.5;"Compilato in automatico dal vincolo ""Presente""; mancano gli enti non legati ai vincoli"
+ILIAD;PM/Permessi;Nome Ente;MANCANTE;;;Organizzazione Campi;Menu (A1.5) ma senza tabella vincoli né elenco enti
+FASTWEB_VODAFONE;PM/Permessi;Nome Ente;MANCANTE;;;Organizzazione Campi;Menu (A1.5) ma senza tabella vincoli né elenco enti
+LEONARDO;PM/Permessi;Nome Ente;MANCANTE;;;Organizzazione Campi;Menu (A1.5) ma senza tabella vincoli né elenco enti
+TUTTI;PM/Permessi;Tecnico PP;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: Permessi (proposta)
+TUTTI;AIE;Tecnico AIE;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: AIE
+TUTTI;AIE;Responsabile interno AIE;UTENTI;;;Risposta A1.6;"Utenti registrati con ruolo: AIE; da registrare: Lucera, Gucciardi, Pizzoni, Luo, Lopez"
+TUTTI;UT/PE;Tecnico UT;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: UT
+TUTTI;UT/PE;VS/AS incaricata da;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: UT (proposta)
+TUTTI;UT/PE;Tecnico Caratterizzazione;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: UT (ILIAD, INWIT)
+TUTTI;UT/PE;Tecnico PE;UTENTI;;;Risposta A1.6;"Utenti registrati con ruolo: PE; scelta multipla; valore ""Nessuno"""
+TUTTI;UT/PE;PE incaricato da;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: PE (proposta)
+TUTTI;UT/PE;Tecnico PSC;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: PE (LEONARDO, FASTWEB-VODAFONE)
+TUTTI;DL;Tecnico deposito sismico;UTENTI;;;Risposta A1.6;Utenti registrati con ruolo: DL
+TUTTI;PM/Permessi;Gestore Tenant;MANCANTE;;;;Anagrafica dedicata (A1.5): nessun valore nei sorgenti
+ILIAD;PM/Permessi;Referente;MANCANTE;;;;"""si popola volta per volta"""
+INWIT;PM/Permessi;Referente;MANCANTE;;;;"""si popola volta per volta"""
+FASTWEB_VODAFONE;PM/Permessi;Referente Fastweb;MANCANTE;;;;
+FASTWEB_VODAFONE;PM/Permessi;RAN Fastweb;MANCANTE;;;;
+TIM_FIBERCOP;PM/Permessi;Assistente TIM;MANCANTE;;;;
+TIM_FIBERCOP;PM/Permessi;Progettista TIM;MANCANTE;;;;
+TUTTI;PM/Permessi;Fornitore PP / Fornitore Permessi;MANCANTE;;;;"In ILIAD si chiama ""Fornitore Permessi"""
+TUTTI;AIE;Tecnico Misure di fondo;MANCANTE;;;;"Classificato ""Lista"" (A1.6)"
+TUTTI;UT/PE;Fornitore UT;MANCANTE;;;;"Include il valore ""Nessuno"""
+TUTTI;UT/PE;Fornitore PE;MANCANTE;;;;"Include il valore ""Nessuno"""
+ILIAD;UT/PE;Fornitore Caratterizzazione;MANCANTE;;;;"""come UT"": stessa lista di Fornitore UT?"
+INWIT;UT/PE;Fornitore Caratterizzazione;MANCANTE;;;;
+TUTTI;DL;Direttore Lavori;MANCANTE;;;;"Classificato ""Lista"" (A1.6)"
+TUTTI;DL;Collaudatore;MANCANTE;;;;"Classificato ""Lista"" (A1.6)"

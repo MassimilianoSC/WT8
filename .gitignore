@@ -1,0 +1,76 @@
+# PracticeHub — file esclusi dal repository
+
+# Dipendenze
+node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Build e cache di Next.js
+.next/
+.next-anteprima/
+out/
+build/
+dist/
+.cache/
+*.tsbuildinfo
+next-env.d.ts
+
+# Prove
+coverage/
+.pytest_cache/
+test_reports/
+
+# Variabili d'ambiente e credenziali (mai nel repository)
+.env
+.env.*
+*.env
+credentials.json
+*credentials.json*
+*token.json*
+*.pem
+*.key
+memory/test_credentials.md
+
+# Backup dei database (frontend/scripts/db/backup-db.mjs)
+backups/
+
+# Log
+*.log
+dump.rdb
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Strumenti locali
+.playwright-mcp/
+.idea/
+.vscode/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivi
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Modello pubblico delle variabili di esercizio (nessun segreto): versionato.
+!deploy/.env.example
+# Stato e registro del controllo esterno (K5): locali alla macchina.
+deploy/watchdog/controllo-stato.json
+deploy/watchdog/controllo.log*
+deploy/aggiornamenti.log
+
+# Chiave dell'account di servizio Google dell'assistente: mai nel repository (progetto AI §2.5).
+**/vertex-assistant.json

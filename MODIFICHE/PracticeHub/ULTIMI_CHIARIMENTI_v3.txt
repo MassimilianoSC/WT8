@@ -1,0 +1,133 @@
+PRACTICEHUB - ULTIMI CHIARIMENTI SULLE RISPOSTE v3
+====================================================
+Data: 08/10/2026
+Riferimento: risposte_chiarimenti_v3_2026-10-08
+
+Grazie per le risposte: sono quasi tutte chiare e le abbiamo già recepite.
+Restano pochi punti da chiudere prima di iniziare lo sviluppo. Per ciascuno
+c'è una proposta: se va bene basta scrivere "OK" accanto a RISPOSTA,
+altrimenti scrivi la correzione.
+
+Non serve un altro questionario: puoi compilare questo file e rimandarlo.
+
+
+----------------------------------------------------------------------
+1. COSA MANCA
+----------------------------------------------------------------------
+
+1.1  J23 - Incarico/Lavorazione e Tipologia attività PE
+     Interpretazione originale: "Incarico/Lavorazione è a scelta multipla
+     in tutti i gestori; con più valori, Tipologia attività PE si compila
+     a mano."
+     La correzione dice "vedi messaggio del collaboratore", ma nel file
+     esportato quel messaggio non c'è.
+
+     -> Puoi riscrivere qui la correzione?
+
+     RISPOSTA:
+
+
+1.2  B6 - Assistente AI (modello, dati riservati, budget)
+     La risposta rimanda a "chiedere a Massimiliano".
+
+     -> Puoi indicare chi è (ruolo / riferimento), così la domanda arriva
+        direttamente a lui?
+
+     RISPOSTA:
+
+
+----------------------------------------------------------------------
+2. RISPOSTE IN CONFLITTO CON ALTRE DECISIONI
+----------------------------------------------------------------------
+
+2.1  Il DL non crea più pratiche (C7)
+     Nello stesso file J9 conferma che "la rilavorazione la avviano PM,
+     DL o ADMIN".
+
+     Proposta:
+       a) anche la rilavorazione la avviano solo PM e ADMIN (vale la
+          nota più recente, quella di C7);
+       b) il DL può ancora ARCHIVIARE le pratiche con Stato attività
+          TERMINATO o KO, come stabilito nel prompt del 06/10.
+
+     RISPOSTA a):
+     RISPOSTA b):
+
+
+2.2  "Prevale l'MD sul sorgente, in generale" (C13)
+     Questa risposta ribalta la regola confermata in v2 (I1: prevale il
+     sorgente). Le decisioni esplicite già prese restano comunque valide
+     (per esempio le condizioni All. 18 di LEONARDO e quelle di ILIAD,
+     confermate una per una in I7).
+     C'è però un conflitto diretto con v2 M1, approvata in blocco, che
+     dice di allineare NOMI E ORDINE DELLE SEZIONI AI SORGENTI.
+
+     -> Per nomi e ordine delle sezioni vale:
+          a) il sorgente (come da M1)
+          b) l'MD (come da C13)
+
+     RISPOSTA:
+
+
+2.3  "Altro" su tutti i menu, anche quelli controllati (C1)
+     Preso alla lettera, "Altro" comparirebbe anche su Stato attività,
+     sui flag SI/NO, sugli Esiti ARPA, sullo Stato ODA e su Autorizzazione
+     finale. Lì un valore libero romperebbe automatismi e alert (per
+     esempio Fatturabile o la chiusura degli alert ODA).
+
+     Proposta: "Altro" su tutti i menu configurabili e, tra i menu
+     controllati, solo su Committente e Cliente Finale.
+
+     RISPOSTA:
+
+
+2.4  Cancellare una pratica in stato CREATA (C10)
+     Anche una nuova iterazione (Ripresentazione totale) parte da CREATA:
+     cancellare in quel momento eliminerebbe tutta la pratica, comprese le
+     iterazioni precedenti.
+
+     Proposta: PM e ADMIN possono cancellare solo una pratica che ha UNA
+     SOLA iterazione ed è ancora in stato CREATA.
+
+     RISPOSTA:
+
+
+----------------------------------------------------------------------
+3. PUNTI PICCOLI (li applichiamo così, salvo tua correzione)
+----------------------------------------------------------------------
+
+3.1  Alert senza destinatari
+     Il "PM della pratica" sono i PM leader del gestore (B2) e, se un
+     gruppo non ha leader, la notifica resta solo al PM (C5). Se un
+     gestore non ha NESSUN PM leader, l'alert non arriverebbe a nessuno.
+
+     Proposta: in quel caso l'alert va all'ADMIN.
+
+     RISPOSTA:
+
+
+3.2  Ordine degli eventi dello Stato attività (B4: conta la data scritta
+     nei campi)
+     Proposta:
+       - una modifica manuale dello stato conta come evento datato al
+         momento della modifica;
+       - AUTORIZZATO / DINIEGATO / TAR / KO prendono come data la "Data
+         Autorizzazione finale" (se è vuota, la data di inserimento);
+       - CREATA prende la data di creazione della pratica.
+
+     RISPOSTA:
+
+
+3.3  Fatturabile modificato a mano (B1)
+     Proposta: se il PM ha modificato Fatturabile a mano, l'automatismo
+     non lo tocca più in nessun caso, compreso il ritorno a NO dopo un
+     nuovo ciclo ARPA negativo.
+
+     RISPOSTA:
+
+
+----------------------------------------------------------------------
+Tutte le altre risposte del questionario v3 sono state recepite così
+come sono.
+Una volta chiusi questi punti, la documentazione è completa e si può
+partire con lo sviluppo.

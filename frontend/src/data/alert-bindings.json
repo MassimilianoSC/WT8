@@ -1,0 +1,86 @@
+{
+  "version": "1",
+  "source": "Architettura §6.1–§6.2 (D-97), Guida §17.10, D-44–D-46, D-116, D-131, D-133 (Stato ODA vuoto = DA_RICHIEDERE: emptyMatches). Campi per flowId (MASTER del template compilato), verificati da tests/server/alerts-engine.test.ts. Soglie e unità da rule_config (ALERT_RULES): qui solo la direzione. Destinatari: PM leader del gestore + leader dei gruppi indicati, stesso gestore, senza sostituti (D-45). email: anche mail oltre all'in-app (D-46, solo Forecast UT e Forecast AIE). manualClose: niente chiusura automatica. weeklyReminder: promemoria ogni 7 giorni di calendario (D-97).",
+  "rules": [
+    {
+      "ruleId": "SOPRALLUOGO", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F027", "close": "F029" }, "TOWERNET": { "trigger": "F020", "close": "F021" }, "TIM_FIBERCOP": { "trigger": "F026", "close": "F028" },
+        "INWIT": { "trigger": "F023", "close": "F024" }, "FASTWEB_VODAFONE": { "trigger": "F025", "close": "F027" }, "LEONARDO": { "trigger": "F021", "close": "F022" }
+      }
+    },
+    {
+      "ruleId": "VERBALE", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F029", "close": "F030" }, "TOWERNET": { "trigger": "F021", "close": "F022" }, "TIM_FIBERCOP": { "trigger": "F028", "close": "F029" },
+        "INWIT": { "trigger": "F024", "close": "F026" }, "FASTWEB_VODAFONE": { "trigger": "F027", "close": "F028" }, "LEONARDO": { "trigger": "F022", "close": "F023" }
+      }
+    },
+    {
+      "ruleId": "FORECAST_UT", "kind": "FIELD", "direction": "BEFORE", "ownerGroup": "UT_PE", "leaderGroups": ["UT_PE"], "email": true,
+      "templates": {
+        "ILIAD": { "trigger": "F126", "close": "F135" }, "TOWERNET": { "trigger": "F086", "close": "F095" }, "TIM_FIBERCOP": { "trigger": "F087", "close": "F096" },
+        "INWIT": { "trigger": "F092", "close": "F101" }, "FASTWEB_VODAFONE": { "trigger": "F063", "close": "F072" }, "LEONARDO": { "trigger": "F082", "close": "F091" }
+      }
+    },
+    {
+      "ruleId": "FORECAST_PE", "kind": "FIELD", "direction": "BEFORE", "ownerGroup": "UT_PE", "leaderGroups": ["UT_PE"], "extraLeaderGroups": { "TIM_FIBERCOP": ["DL"] }, "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F140", "close": "F149" }, "TOWERNET": { "trigger": "F096", "close": "F105" }, "TIM_FIBERCOP": { "trigger": "F097", "close": "F106" },
+        "INWIT": { "trigger": "F106", "close": "F115" }, "FASTWEB_VODAFONE": { "trigger": "F073", "close": "F087" }, "LEONARDO": { "trigger": "F092", "close": "F106" }
+      }
+    },
+    {
+      "ruleId": "FORECAST_AIE", "kind": "FIELD", "direction": "BEFORE", "ownerGroup": "AIE", "leaderGroups": ["AIE"], "email": true,
+      "templates": {
+        "ILIAD": { "trigger": "F057", "close": "F124" }, "TOWERNET": { "trigger": "F036", "close": "F040" }, "TIM_FIBERCOP": { "trigger": "F045", "close": "F049" },
+        "INWIT": { "trigger": "F043", "close": "F047" }, "FASTWEB_VODAFONE": { "trigger": "F040", "close": "F044" }, "LEONARDO": { "trigger": "F035", "close": "F039" }
+      }
+    },
+    {
+      "ruleId": "PERMESSI", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": [], "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F070", "close": "F071" }, "TOWERNET": { "trigger": "F045", "close": "F043" }, "TIM_FIBERCOP": { "trigger": "F052", "close": "F053" },
+        "INWIT": { "trigger": "F052", "close": "F050" }, "FASTWEB_VODAFONE": { "trigger": "F047", "close": "F048" }, "LEONARDO": { "trigger": "F046", "close": "F047" }
+      }
+    },
+    {
+      "ruleId": "PARERE_ARPA", "kind": "FIELD", "direction": "AFTER", "repeatGroup": "ARPA", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F076", "close": "F077" }, "TOWERNET": { "trigger": "F051", "close": "F052" }, "TIM_FIBERCOP": { "trigger": "F058", "close": "F059" },
+        "INWIT": { "trigger": "F058", "close": "F059" }, "FASTWEB_VODAFONE": { "trigger": "F050", "close": "F051" }, "LEONARDO": { "trigger": "F051", "close": "F052" }
+      }
+    },
+    {
+      "ruleId": "CDMS_EM", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false, "weeklyReminder": true,
+      "scope": { "flowId": "F004", "codes": ["CELLNEX"] },
+      "templates": { "ILIAD": { "trigger": "F108", "close": "F109" } }
+    },
+    {
+      "ruleId": "OFFERTA_ODA", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false, "weeklyReminder": true, "manualClose": true,
+      "templates": { "ILIAD": { "trigger": "F099" }, "TOWERNET": { "trigger": "F065" }, "TIM_FIBERCOP": { "trigger": "F069" }, "INWIT": { "trigger": "F071" } }
+    },
+    {
+      "ruleId": "ODA_FV_ASSEGNAZIONE", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false,
+      "openWhen": { "flowId": "F014", "codes": ["DA_RICHIEDERE"], "emptyMatches": true },
+      "templates": { "FASTWEB_VODAFONE": { "trigger": "F025" } }
+    },
+    {
+      "ruleId": "ODA_FV_PACCHETTO", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "PM_PERMESSI", "leaderGroups": ["PM_PERMESSI"], "email": false,
+      "openWhen": { "flowId": "F014", "codes": ["DA_RICHIEDERE", "RICHIESTI"], "emptyMatches": true },
+      "templates": { "FASTWEB_VODAFONE": { "trigger": "F046" } }
+    },
+    {
+      "ruleId": "FINE_LAVORI_DL", "kind": "FIELD", "direction": "AFTER", "ownerGroup": "DL", "leaderGroups": ["DL"], "email": false,
+      "templates": {
+        "ILIAD": { "trigger": "F159", "close": "F161" }, "TOWERNET": { "trigger": "F115", "close": "F117" }, "TIM_FIBERCOP": { "trigger": "F116", "close": "F118" },
+        "INWIT": { "trigger": "F125", "close": "F127" }, "FASTWEB_VODAFONE": { "trigger": "F106", "close": "F108" }, "LEONARDO": { "trigger": "F116", "close": "F118" }
+      }
+    },
+    {
+      "ruleId": "FATTURABILE_KO", "kind": "STATO_KO", "ownerGroup": "PM_PERMESSI", "leaderGroups": [], "email": false, "manualClose": true,
+      "note": "D-37, D-131: si apre con Stato attività = KO (qualunque origine); si chiude solo con la decisione manuale su Fatturabile (anche NO → NO); un nuovo episodio solo dopo un'uscita da KO e un nuovo ingresso.",
+      "templates": { "ILIAD": {}, "TOWERNET": {}, "TIM_FIBERCOP": {}, "INWIT": {}, "FASTWEB_VODAFONE": {}, "LEONARDO": {} }
+    }
+  ]
+}
