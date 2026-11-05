@@ -1,5 +1,5 @@
 /**
- * Calendario e orari di PracticeHub (D-43). Funzioni PURE: niente DB, niente orologio implicito
+ * Calendario e orari di WT8 (D-43). Funzioni PURE: niente DB, niente orologio implicito
  * (l'istante "adesso" si passa sempre come parametro), nessuna dipendenza dal fuso del server.
  *
  * - Le date dell'utente viaggiano come "YYYY-MM-DD" (IsoDate, contratto §1) e qui si calcolano in UTC

@@ -11,7 +11,7 @@ export default function SetPasswordPage({
       token={searchParams.token || ""}
       endpoint="/api/auth/set-password"
       title="Imposta la tua password"
-      subtitle="Benvenuto in PracticeHub. Crea una password per attivare il tuo account."
+      subtitle="Benvenuto in WT8. Crea una password per attivare il tuo account."
       cta="Attiva account"
     />
   );

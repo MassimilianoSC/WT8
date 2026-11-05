@@ -5,7 +5,7 @@ import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { ImportWizard } from "@/components/import/import-wizard";
 
-export const metadata = { title: "Import — PracticeHub" };
+export const metadata = { title: "Import — WT8" };
 
 /** Import of a client's workbook (§12, D-49): ADMIN only. */
 export default async function Page() {

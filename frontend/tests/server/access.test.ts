@@ -75,7 +75,7 @@ function oracleActions(w: Who, p: { archived: boolean; stato: StatoAttivita; ite
   const ok = visible && !p.past;
   const admin = w.active && w.admin;
   const is = (...roles: RoleId[]) => w.active && w.role !== null && roles.includes(w.role);
-  const assign = ok && !p.archived && (admin || is("PM")); // D-21, D-94 provvisorio
+  const assign = ok && !p.archived && (admin || is("PM", "PERMESSI")); // D-21, D-94; D-204: anche Permessi
   return {
     assignableGroups: assign ? ["AIE", "UT_PE", "DL"] : [],
     canAssign: assign,

@@ -17,7 +17,7 @@ export function AuthShell({
     <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
       {/* Brand / marketing panel */}
       <div className="relative hidden flex-col justify-between bg-foreground p-12 text-background lg:flex">
-        <div className="font-heading text-2xl font-black tracking-tighter">PracticeHub</div>
+        <div className="font-heading text-2xl font-black tracking-tighter">WT8</div>
         <div className="space-y-6">
           <div className="font-heading text-5xl font-black leading-[0.95] tracking-tighter">
             Una pratica.
@@ -40,7 +40,7 @@ export function AuthShell({
       <div className="flex flex-col items-center justify-center bg-background p-6">
         <div className={cn("w-full max-w-sm space-y-8")}>
           <div className="lg:hidden">
-            <div className="font-heading text-2xl font-black tracking-tighter">PracticeHub</div>
+            <div className="font-heading text-2xl font-black tracking-tighter">WT8</div>
           </div>
           <div className="space-y-2">
             <h1 className="font-heading text-3xl font-black tracking-tight">{title}</h1>

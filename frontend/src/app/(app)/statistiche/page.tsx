@@ -7,7 +7,7 @@ import { canSeeStats, statsTemplates, workloadScope } from "@/components/me/me-d
 import { StatisticheView, type StatsAccess } from "@/components/statistiche/statistiche-view";
 import { paramsOf, statsInitialFromParams } from "@/components/statistiche/stats-url";
 
-export const metadata = { title: "Statistiche — PracticeHub" };
+export const metadata = { title: "Statistiche — WT8" };
 
 /** Statistics and workload (§9–§10): PM of the template and ADMIN; team leaders see their group's workload (D-23). */
 export default async function StatistichePage({

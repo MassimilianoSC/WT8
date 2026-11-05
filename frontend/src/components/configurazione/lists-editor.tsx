@@ -20,8 +20,16 @@ const ALL = "all";
 export const LIST_CONFLICT_MESSAGE =
   "Un altro utente ha modificato la lista: le tue modifiche non salvate sono state scartate";
 
-/** A draft row: `isNew` = added here and not saved yet (only those can be removed). */
-type DraftItem = ListItemDTO & { isNew?: boolean };
+/**
+ * A draft row: `isNew` = added here and not saved yet (only those can be removed); `uid` = stable React key.
+ * The key must not depend on the code: for a new row the code follows the label at every keystroke, and a
+ * changing key remounts the row, so the input lost focus after each letter (bug Liste, 05/11/2026).
+ */
+type DraftItem = ListItemDTO & { isNew?: boolean; uid: string };
+
+let uidSeq = 0;
+const newUid = () => `row-${++uidSeq}`;
+const withUids = (items: ListItemDTO[]): DraftItem[] => items.map((it) => ({ ...it, uid: newUid() }));
 
 /** Code proposed from the label: UPPER_SNAKE_CASE without accents. */
 export function codeFromLabel(label: string): string {
@@ -87,7 +95,7 @@ export function ListsEditor({
       setLists(res);
       const next = keep && res.some((l) => l.listId === keep) ? keep : res[0]?.listId ?? null;
       setSelected(next);
-      setDraft(res.find((l) => l.listId === next)?.items ?? []);
+      setDraft(withUids(res.find((l) => l.listId === next)?.items ?? []));
       setError(null);
       setLoadError(null);
     },
@@ -114,12 +122,12 @@ export function ListsEditor({
     if (selected && shown.some((l) => l.listId === selected)) return;
     const first = shown[0] ?? null;
     setSelected(first?.listId ?? null);
-    setDraft(first?.items ?? []);
+    setDraft(withUids(first?.items ?? []));
     setError(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lists, group]);
   const list = lists?.find((l) => l.listId === selected) ?? null;
-  const dirty = !!list && JSON.stringify(draft.map(({ isNew: _n, ...i }) => i)) !== JSON.stringify(list.items);
+  const dirty = !!list && JSON.stringify(draft.map(({ isNew: _n, uid: _u, ...i }) => i)) !== JSON.stringify(list.items);
   const controlled = list?.kind === "CONTROLLED";
   const editable = list?.editable === true;
 
@@ -129,7 +137,7 @@ export function ListsEditor({
   async function select(listId: string) {
     if (dirty && !(await discardOk())) return;
     setSelected(listId);
-    setDraft(lists?.find((l) => l.listId === listId)?.items ?? []);
+    setDraft(withUids(lists?.find((l) => l.listId === listId)?.items ?? []));
     setError(null);
   }
 
@@ -160,7 +168,7 @@ export function ListsEditor({
   }
 
   function add() {
-    setDraft((d) => [...d, { code: "", label: "", active: true, order: d.length + 1, isNew: true }]);
+    setDraft((d) => [...d, { code: "", label: "", active: true, order: d.length + 1, isNew: true, uid: newUid() }]);
   }
 
   async function save() {
@@ -175,10 +183,10 @@ export function ListsEditor({
     try {
       const saved = await saveList(
         list,
-        draft.map(({ isNew: _n, ...i }, idx) => ({ ...i, order: idx + 1 }))
+        draft.map(({ isNew: _n, uid: _u, ...i }, idx) => ({ ...i, order: idx + 1 }))
       );
       setLists((ls) => (ls ?? []).map((l) => (l.listId === saved.listId ? saved : l)));
-      setDraft(saved.items);
+      setDraft(withUids(saved.items));
       toast.success("Lista salvata");
     } catch (e) {
       if (e instanceof ApiError && e.status === 409) {
@@ -294,7 +302,7 @@ export function ListsEditor({
                 </thead>
                 <tbody>
                   {draft.map((it, i) => (
-                    <tr key={`${it.code}-${i}`} className={cn("border-b border-border", !it.active && "text-muted-foreground")} data-testid={`list-item-${i}`}>
+                    <tr key={it.uid} className={cn("border-b border-border", !it.active && "text-muted-foreground")} data-testid={`list-item-${i}`}>
                       <td className="px-3 py-1.5">
                         {editable && !controlled ? (
                           <div className="flex gap-1">
@@ -383,7 +391,7 @@ export function ListsEditor({
                     <span />
                   )}
                   <div className="flex gap-2">
-                    <Button type="button" variant="outline" disabled={!dirty || saving} onClick={() => { setDraft(list.items); setError(null); }}>
+                    <Button type="button" variant="outline" disabled={!dirty || saving} onClick={() => { setDraft(withUids(list.items)); setError(null); }}>
                       <Undo2 className="h-4 w-4" /> Annulla
                     </Button>
                     <Button type="button" disabled={!dirty || saving} onClick={save} data-testid="list-save">

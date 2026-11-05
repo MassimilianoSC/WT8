@@ -6,7 +6,7 @@ import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { AssistantPage } from "@/components/assistente/assistant-page";
 
-export const metadata = { title: "Assistente — PracticeHub" };
+export const metadata = { title: "Assistente — WT8" };
 
 /** The assistant at full width (project §9): the same conversation as the "Chiedi" panel. */
 export default async function Page() {

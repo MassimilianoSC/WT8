@@ -30,18 +30,18 @@ describe("inventario e diagnostica (§2.7)", () => {
 
   it("conteggi per template: righe dell'MD, occorrenze dopo le esclusioni, flowId", () => {
     const expected: Record<TemplateId, [number, number, number]> = {
-      ILIAD: [190, 188, 159], // F104/F105 alias dei trasversali (D-76)
-      TOWERNET: [133, 133, 117],
-      TIM_FIBERCOP: [142, 142, 118], // B3: righe eliminate negli MD (D-100, D-114)
-      INWIT: [145, 145, 127],
-      FASTWEB_VODAFONE: [122, 122, 108], // B3: righe eliminate negli MD (D-100, D-114)
-      LEONARDO: [140, 140, 118],
+      ILIAD: [190, 184, 155], // F104/F105 alias dei trasversali (D-76); Importo/Costo UT e PE esclusi (D-201)
+      TOWERNET: [133, 129, 113], // Importo/Costo esclusi (D-201)
+      TIM_FIBERCOP: [143, 139, 115], // B3 eliminati (D-100, D-114); +Codice sito proprietà (D-203); Importo/Costo esclusi (D-201)
+      INWIT: [145, 141, 123], // Importo/Costo esclusi (D-201)
+      FASTWEB_VODAFONE: [122, 118, 104], // B3 eliminati (D-100, D-114); Importo/Costo esclusi (D-201)
+      LEONARDO: [140, 136, 114], // Importo/Costo esclusi (D-201)
     };
     for (const [id, [rows, occurrences, flowIds]] of Object.entries(expected)) {
       expect(result.manifest.templates[id], id).toMatchObject({ sourceRows: rows, occurrences, flowIds });
     }
     const totalRows = Object.values(result.manifest.templates).reduce((a, t) => a + t.sourceRows, 0);
-    expect(totalRows).toBe(872);
+    expect(totalRows).toBe(873);
   });
 
   it("50/50 formulazioni delle condizioni incontrate e tradotte (D-114: tolta la n.21, aggiunte n.50 e n.51)", () => {
@@ -51,7 +51,7 @@ describe("inventario e diagnostica (§2.7)", () => {
   });
 
   it("tutte le correzioni applicate con precondizione valida; B1–B4 non sono più correzioni (D-114)", () => {
-    expect(input.overrides.overrides).toHaveLength(16);
+    expect(input.overrides.overrides).toHaveLength(40); // 16 + 24 esclusioni Importo/Costo (D-201)
     expect(input.overrides.overrides.filter((o) => /R-1 B[1-4]/.test(o.decision))).toEqual([]);
     expect(result.diagnostics.filter((d) => d.code.startsWith("OVERRIDE_"))).toEqual([]);
   });
@@ -76,14 +76,14 @@ describe("master e mirror", () => {
   });
 
   it("R-1: B1 master AIE, B2 Forecast AIE master PM, B3 eliminati, B4 Invio AS/VS master UT", () => {
-    expect(master("TIM_FIBERCOP", "F046").ownerGroup).toBe("AIE"); // B1
+    expect(master("TIM_FIBERCOP", "F047").ownerGroup).toBe("AIE"); // B1 (F046 → F047 dopo D-203)
     expect(master("ILIAD", "F119").sectionKey).toBe("AIE.FASE_AIE"); // B1
     expect(master("INWIT", "F043").ownerGroup).toBe("PM_PERMESSI"); // B2
-    expect(occ("TIM_FIBERCOP", "F034").map((o) => o.order).sort((a, b) => a - b)).not.toContain(76); // B3
-    expect(master("TIM_FIBERCOP", "F034").sectionKey).toBe("PM_PERMESSI.FASE_PRELIMINARE");
+    expect(occ("TIM_FIBERCOP", "F035").map((o) => o.order).sort((a, b) => a - b)).not.toContain(77); // B3 (F034 → F035, riga 76 → 77 dopo D-203)
+    expect(master("TIM_FIBERCOP", "F035").sectionKey).toBe("PM_PERMESSI.FASE_PRELIMINARE");
     expect(occ("FASTWEB_VODAFONE", "F033").some((o) => o.order === 61)).toBe(false);
-    expect(master("TIM_FIBERCOP", "F096").sectionKey).toBe("UT_PE.UT"); // B4
-    expect(master("TIM_FIBERCOP", "F096").dataType).toBe("DATE");
+    expect(master("TIM_FIBERCOP", "F097").sectionKey).toBe("UT_PE.UT"); // B4 (F096 → F097 dopo D-203)
+    expect(master("TIM_FIBERCOP", "F097").dataType).toBe("DATE");
   });
 
   it("LEONARDO F065: master PM #70 con la sola condizione PE = SI (D-78)", () => {
@@ -95,7 +95,7 @@ describe("master e mirror", () => {
   it("ILIAD F104/F105 esclusi: valgono i trasversali (D-76)", () => {
     expect(occ("ILIAD", "F104")).toEqual([]);
     expect(occ("ILIAD", "F105")).toEqual([]);
-    expect(result.templates.ILIAD!.bindings.excluded.map((e) => e.transversalAlias)).toEqual(["TRASV.FATTURABILE", "TRASV.FATTURATO"]);
+    expect(result.templates.ILIAD!.bindings.excluded.map((e) => e.transversalAlias).filter(Boolean)).toEqual(["TRASV.FATTURABILE", "TRASV.FATTURATO"]);
     expect(tpl("ILIAD").transversal.map((t) => t.occurrenceKey)).toEqual([
       "TRASV.NOTE_OPERATIVE.PM_PERMESSI",
       "TRASV.NOTE_OPERATIVE.UT_PE",
@@ -112,7 +112,7 @@ describe("master e mirror", () => {
 describe("condizioni (§2.3, D-92)", () => {
   it("esempi del §2.3", () => {
     expect(master("ILIAD", "F093").condition).toEqual({ flowId: "F092", op: "EQ", value: "SI" });
-    expect(occ("TIM_FIBERCOP", "F070").find((o) => o.kind === "MIRROR")!.condition).toEqual({ flowId: "F086", op: "EQ", value: "SI" });
+    expect(occ("TIM_FIBERCOP", "F071").find((o) => o.kind === "MIRROR")!.condition).toEqual({ flowId: "F087", op: "EQ", value: "SI" });
     const nota = master("ILIAD", "F074");
     expect(nota.condition).toEqual({ flowId: "F073", op: "FILLED" });
     expect(nota.repeatGroup).toBe("INTEGRAZIONE");

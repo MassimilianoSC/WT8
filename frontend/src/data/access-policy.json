@@ -19,7 +19,7 @@
   },
   "actions": {
     "create": { "roles": ["PM"], "admin": true, "source": "D-20" },
-    "assign": { "roles": ["PM"], "admin": true, "targets": ["AIE", "UT_PE", "DL"], "notArchived": true, "source": "D-21, D-94, D-120 C1" },
+    "assign": { "roles": ["PM", "PERMESSI"], "admin": true, "targets": ["AIE", "UT_PE", "DL"], "notArchived": true, "source": "D-21, D-94, D-120 C1; D-204 (05/11/2026): anche il ruolo Permessi esegue l'Assegna" },
     "changeStato": { "roles": ["PM"], "admin": true, "notArchived": true, "source": "D-23" },
     "archive": { "roles": ["PM", "DL"], "admin": true, "notArchived": true, "states": ["TERMINATO", "KO"], "source": "D-23, D-28" },
     "restore": { "roles": ["PM"], "admin": true, "archivedOnly": true, "source": "D-23" },

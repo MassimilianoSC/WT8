@@ -4,7 +4,7 @@ import { PraticaSheet } from "@/components/scheda/pratica-sheet";
 import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 
-export const metadata = { title: "Scheda pratica — PracticeHub" };
+export const metadata = { title: "Scheda pratica — WT8" };
 
 export default async function PraticaPage({
   params,

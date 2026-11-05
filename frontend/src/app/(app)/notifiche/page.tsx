@@ -5,7 +5,7 @@ import { NotificationsPage } from "@/components/notifiche/notifications-page";
 import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 
-export const metadata = { title: "Notifiche — PracticeHub" };
+export const metadata = { title: "Notifiche — WT8" };
 
 /** Every user sees their own notifications (§8). */
 export default async function Page() {

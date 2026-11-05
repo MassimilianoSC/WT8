@@ -4,7 +4,7 @@ import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: "PracticeHub — Flusso unificato multi-team",
+  title: "WT8 — Flusso unificato multi-team",
   description: "Unifica la gestione dei dati tra team che lavorano sugli stessi casi di business.",
 };
 

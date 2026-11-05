@@ -86,6 +86,18 @@ describe("ListsEditor", () => {
     expect(items[0]).not.toHaveProperty("isNew");
   });
 
+  it("typing the label of a new item keeps the focus (bug 'una lettera alla volta', D-205)", async () => {
+    const detail = await openList("INCARICO_LAVORAZIONE", "INWIT");
+    fireEvent.click(screen.getByTestId("list-add"));
+    const input = within(detail).getByLabelText("Etichetta 4");
+    input.focus();
+    for (const value of ["S", "Sw", "Swa", "Swap"]) fireEvent.change(input, { target: { value } });
+    // The row must not be remounted while the derived code changes: same element, still focused.
+    expect(within(detail).getByLabelText("Etichetta 4")).toBe(input);
+    expect(document.activeElement).toBe(input);
+    expect(within(detail).getByLabelText("Codice 4")).toHaveValue("SWAP");
+  });
+
   it("shows read-only lists without editing controls", async () => {
     const detail = await openList("FORNITORE_CARATTERIZZAZIONE", "INWIT");
     expect(within(detail).getByText("Sola lettura")).toBeInTheDocument();

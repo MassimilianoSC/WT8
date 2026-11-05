@@ -915,7 +915,7 @@ export interface WorkloadResponse {
 // ─── §11 Export CSV (v0.2, D-48) ─────────────────────────────────────────────
 
 /**
- * GET /api/export?templateId=&stato=&archived=&q=&from=&to=&scope= → text/csv (PracticeHub_<TEMPLATE>_<AAAA-MM-GG>.csv),
+ * GET /api/export?templateId=&stato=&archived=&q=&from=&to=&scope= → text/csv (WT8_<TEMPLATE>_<AAAA-MM-GG>.csv),
  * UTF-8 con BOM, separatore ";". templateId obbligatorio (400). v0.3.2 (D-128): ogni utente con un'appartenenza sul
  * template e l'ADMIN, solo le pratiche che vede e solo ciò che vede nella scheda (Note Operative dei gruppi visibili).
  */

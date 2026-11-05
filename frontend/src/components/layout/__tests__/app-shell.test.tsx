@@ -50,7 +50,7 @@ describe("AppShell (after the cutover)", () => {
     for (const id of ["nav-dashboard", "nav-analisi", "nav-utenti", "nav-import", "menu-settings"]) {
       expect(screen.queryByTestId(id)).not.toBeInTheDocument();
     }
-    expect(screen.getAllByRole("link", { name: "PracticeHub" })[0]).toHaveAttribute("href", "/pratiche");
+    expect(screen.getAllByRole("link", { name: "WT8" })[0]).toHaveAttribute("href", "/pratiche");
   });
 
   it("Configurazione > Assistente AI is an ADMIN entry", () => {

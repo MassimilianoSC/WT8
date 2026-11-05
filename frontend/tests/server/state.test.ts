@@ -123,7 +123,7 @@ describe("nuovi trigger (D-115)", () => {
   });
 
   it("negli altri gestori la Data Autorizzazione finale non produce stati; FASTWEB senza integrazioni", () => {
-    expect(deriveAutomaticState({ templateId: "TIM_FIBERCOP", values: { F068: "2026-11-01" }, repeats: {} }).stato).toBe("CREATA");
+    expect(deriveAutomaticState({ templateId: "TIM_FIBERCOP", values: { F069: "2026-11-01" }, repeats: {} }).stato).toBe("CREATA");
     expect(deriveAutomaticState({ templateId: "FASTWEB_VODAFONE", values: { F059: "2026-11-01", F049: "2026-10-01" }, repeats: {} }).stato).toBe("PROTOCOLLATO");
   });
 

@@ -58,7 +58,7 @@ describe("MissingUser", () => {
   it("explains a user who is not (or no longer) active (404)", () => {
     render(<MissingUser state={{ status: "missing", email: "mario@example.it" }} />);
     expect(screen.getByRole("alert")).toHaveTextContent(
-      "Il tuo utente (mario@example.it) non è attivo in PracticeHub. Chiedi all'amministratore di invitarti o di riattivarti."
+      "Il tuo utente (mario@example.it) non è attivo in WT8. Chiedi all'amministratore di invitarti o di riattivarti."
     );
   });
 

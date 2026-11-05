@@ -36,7 +36,7 @@ function getTransport() {
   return nodemailer.createTransport({ jsonTransport: true });
 }
 
-const FROM = SMTP_FROM || "PracticeHub <no-reply@practicehub.local>";
+const FROM = SMTP_FROM || "WT8 <no-reply@practicehub.local>";
 
 interface MailInput {
   to: string;
@@ -68,7 +68,7 @@ export async function sendMail({ to, subject, html, actionLink, messageId }: Mai
 const shell = (title: string, body: string) => `
   <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;border:1px solid #D4D4D4;">
     <div style="background:#002EA6;color:#fff;padding:20px 24px;font-weight:800;font-size:18px;letter-spacing:-0.5px;">
-      PracticeHub
+      WT8
     </div>
     <div style="padding:24px;color:#111;font-size:15px;line-height:1.6;">
       <h2 style="margin:0 0 12px;font-size:20px;">${escapeHtml(title)}</h2>
@@ -81,11 +81,11 @@ const button = (link: string, label: string) =>
 
 export function invitationEmail(name: string, link: string) {
   return {
-    subject: "Sei stato invitato a PracticeHub",
+    subject: "Sei stato invitato a WT8",
     html: shell(
       "Invito ricevuto",
       `<p>Ciao ${escapeHtml(name || "there")},</p>
-       <p>Un amministratore ti ha invitato a PracticeHub. Clicca sotto per impostare la password e attivare il tuo account. Questo link scade tra 24 ore.</p>
+       <p>Un amministratore ti ha invitato a WT8. Clicca sotto per impostare la password e attivare il tuo account. Questo link scade tra 24 ore.</p>
        ${button(link, "Imposta la password")}
        <p style="color:#555;font-size:13px;">Se il pulsante non funziona, copia questo link:<br>${escapeHtml(link)}</p>`
     ),
@@ -94,7 +94,7 @@ export function invitationEmail(name: string, link: string) {
 
 export function resetPasswordEmail(name: string, link: string) {
   return {
-    subject: "Reimposta la password di PracticeHub",
+    subject: "Reimposta la password di WT8",
     html: shell(
       "Reimpostazione password",
       `<p>Ciao ${escapeHtml(name || "there")},</p>
@@ -107,12 +107,12 @@ export function resetPasswordEmail(name: string, link: string) {
 
 export function welcomeEmail(name: string, link: string) {
   return {
-    subject: "Benvenuto in PracticeHub",
+    subject: "Benvenuto in WT8",
     html: shell(
       "Benvenuto",
       `<p>Ciao ${escapeHtml(name || "there")},</p>
-       <p>Il tuo account PracticeHub è ora attivo. Puoi accedere e iniziare a collaborare con il tuo team.</p>
-       ${button(link, "Vai a PracticeHub")}`
+       <p>Il tuo account WT8 è ora attivo. Puoi accedere e iniziare a collaborare con il tuo team.</p>
+       ${button(link, "Vai a WT8")}`
     ),
   };
 }

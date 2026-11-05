@@ -208,7 +208,7 @@ describe.skipIf(!URL_RS)("orchestratore dell'assistente (provider finto)", () =>
     const c = await ask("pm", req("Apri il G7 1000002"), () => text("[[CLARIFY]]Ci sono due pratiche: quale?"));
     expect(c.last).toMatchObject({ type: "done", answerState: "CLARIFY", finishReason: "CLARIFY" });
     expect(c.answer).toBe("Ci sono due pratiche: quale?");
-    const o = await ask("pm", req("Che tempo fa?"), () => text("[[OUT_OF_SCOPE]]Rispondo solo sui dati di PracticeHub."));
+    const o = await ask("pm", req("Che tempo fa?"), () => text("[[OUT_OF_SCOPE]]Rispondo solo sui dati di WT8."));
     expect(o.last).toMatchObject({ answerState: "OUT_OF_SCOPE", finishReason: "OUT_OF_SCOPE" });
   });
 

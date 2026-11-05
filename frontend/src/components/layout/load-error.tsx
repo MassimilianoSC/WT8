@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 export const SESSION_EXPIRED = "Sessione scaduta: accedi di nuovo.";
 
 export function loadErrorMessage(e: unknown, notFound = "Dati non trovati: forse sono stati eliminati."): string {
-  if (!(e instanceof ApiError)) return "PracticeHub non è raggiungibile: controlla la connessione e riprova.";
+  if (!(e instanceof ApiError)) return "WT8 non è raggiungibile: controlla la connessione e riprova.";
   if (e.status === 401) return SESSION_EXPIRED;
   if (e.status === 403) return "Non hai accesso a questi dati.";
   if (e.status === 404) return notFound;

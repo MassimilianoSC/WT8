@@ -162,7 +162,7 @@ describe("scheda (PraticaDetailDTO)", () => {
 
 describe("Assegna e storico", () => {
   it("date del giorno all'Assegna verso UT+PE: due campi per template (D-21)", () => {
-    const expected = { ILIAD: ["F127", "F141"], TOWERNET: ["F087", "F097"], TIM_FIBERCOP: ["F088", "F098"], INWIT: ["F093", "F107"], FASTWEB_VODAFONE: ["F064", "F079"], LEONARDO: ["F083", "F098"] };
+    const expected = { ILIAD: ["F127", "F141"], TOWERNET: ["F087", "F097"], TIM_FIBERCOP: ["F089", "F099"], INWIT: ["F093", "F107"], FASTWEB_VODAFONE: ["F064", "F079"], LEONARDO: ["F083", "F098"] };
     for (const id of TEMPLATE_IDS) expect(defaultTodayFlowIds(COMPILED_TEMPLATES[id].bindings).sort()).toEqual(expected[id]);
   });
 

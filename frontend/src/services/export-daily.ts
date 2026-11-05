@@ -3,7 +3,7 @@
  *
  * - Ogni giorno, dalle PH_EXPORT_TIME di Roma (default 06:30, prima dell'inizio del lavoro): per ogni gestore un CSV
  *   per Excel italiano (stesso formato dell'export dell'app) con TUTTE le pratiche non archiviate e tutte le Note
- *   Operative, in <dir>/<AAAA-MM-GG>/PracticeHub_<gestore>_<AAAA-MM-GG>.csv.
+ *   Operative, in <dir>/<AAAA-MM-GG>/WT8_<gestore>_<AAAA-MM-GG>.csv.
  * - Un solo esecutore (lock "export_daily") e un'esecuzione per giorno (job_runs): un secondo worker o un riavvio
  *   non rifanno il lavoro; un giro fallito si riprende al giro successivo.
  * - File scritti prima con un nome temporaneo e poi rinominati: chi apre la cartella non vede mai un file a metà.

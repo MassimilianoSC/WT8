@@ -5,7 +5,7 @@
   "templates": {
     "ILIAD": { "ottenimentoPermessi": "F071", "arpa": { "parere": "F077", "esito": "F078", "ripresentazione": "F079" }, "enteNome": "F080" },
     "TOWERNET": { "ottenimentoPermessi": "F043", "arpa": { "parere": "F052", "esito": "F053", "ripresentazione": "F055" }, "enteNome": "F056" },
-    "TIM_FIBERCOP": { "ottenimentoPermessi": "F053", "arpa": { "parere": "F059", "esito": "F060", "ripresentazione": "F062" }, "enteNome": "F063" },
+    "TIM_FIBERCOP": { "ottenimentoPermessi": "F054", "arpa": { "parere": "F060", "esito": "F061", "ripresentazione": "F063" }, "enteNome": "F064" },
     "INWIT": { "ottenimentoPermessi": "F050", "arpa": { "parere": "F059", "esito": "F060", "ripresentazione": "F062" }, "enteNome": "F063" },
     "FASTWEB_VODAFONE": { "ottenimentoPermessi": "F048", "arpa": { "parere": "F051", "esito": "F052", "ripresentazione": "F053" }, "enteNome": "F054" },
     "LEONARDO": { "ottenimentoPermessi": "F047", "arpa": { "parere": "F052", "esito": "F053", "ripresentazione": "F055" }, "enteNome": "F056" }

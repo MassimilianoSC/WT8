@@ -7,7 +7,7 @@ import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { isDirezionePura } from "@/components/andamento/access";
 
-export const metadata = { title: "Pratiche — PracticeHub" };
+export const metadata = { title: "Pratiche — WT8" };
 
 export default async function PratichePage() {
   const session = await auth();

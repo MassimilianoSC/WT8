@@ -6,7 +6,7 @@ import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { UsersAdmin } from "@/components/configurazione/users-admin";
 import { andamentoOn } from "@/components/andamento/access";
 
-export const metadata = { title: "Utenti — PracticeHub" };
+export const metadata = { title: "Utenti — WT8" };
 
 /** Users: ADMIN only (D-17, D-19). */
 export default async function Page() {

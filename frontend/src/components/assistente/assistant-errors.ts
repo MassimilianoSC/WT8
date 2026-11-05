@@ -144,7 +144,7 @@ export function answerStateNotice(state: AssistantAnswerState, truncated: boolea
     case "CLARIFY":
       return { tone: "neutral", title: "Serve una precisazione: rispondi qui sotto.", action: "none" };
     case "OUT_OF_SCOPE":
-      return { tone: "neutral", title: "Rispondo solo sui dati di PracticeHub.", action: "none" };
+      return { tone: "neutral", title: "Rispondo solo sui dati di WT8.", action: "none" };
     case "ANSWER":
     default:
       return truncated ? { tone: "neutral", title: "Risposta troncata: restringi la domanda per averla completa.", action: "none" } : null;

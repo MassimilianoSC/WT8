@@ -45,7 +45,7 @@ describe("outcomeNotice", () => {
     expect(answerStateNotice("ANSWER", false)).toBeNull();
     expect(answerStateNotice("ANSWER", true)?.title).toContain("troncata");
     expect(answerStateNotice("INSUFFICIENT_EVIDENCE", false)?.tone).toBe("neutral");
-    expect(answerStateNotice("OUT_OF_SCOPE", false)?.title).toBe("Rispondo solo sui dati di PracticeHub.");
+    expect(answerStateNotice("OUT_OF_SCOPE", false)?.title).toBe("Rispondo solo sui dati di WT8.");
   });
 
   it("read time in Rome, with the interval when the reading spans minutes", () => {

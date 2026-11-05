@@ -8,7 +8,7 @@ import { AndamentoView } from "@/components/andamento/andamento-view";
 import { filtersFromParams } from "@/components/andamento/andamento-url";
 import { paramsOf } from "@/components/statistiche/stats-url";
 
-export const metadata = { title: "Andamento — PracticeHub" };
+export const metadata = { title: "Andamento — WT8" };
 
 /** Andamento (§15): ADMIN and Direzione with PH_ANDAMENTO on; otherwise the page does not exist (404), as before. */
 export default async function AndamentoPage({

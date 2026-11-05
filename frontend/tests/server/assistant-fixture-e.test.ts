@@ -43,8 +43,8 @@ describe.skipIf(!URL_RS)("fixture E sul seed S0", () => {
     const tn = (await store.iterations(db).findOne({ _id: eIds.iteration("TOWERNET-1") }))!;
     expect(tn.values).toMatchObject({ F096: "2026-10-15", F105: "2026-10-08", F100: [{ code: eIds.user("pe").toHexString() }] });
     const tim = (await store.iterations(db).findOne({ _id: eIds.iteration("TIM-1") }))!;
-    expect(tim.values.F097).toBe("2026-10-08");
-    expect(tim.values.F106 ?? null).toBeNull();
+    expect(tim.values.F098).toBe("2026-10-08");
+    expect(tim.values.F107 ?? null).toBeNull();
     expect(await store.repeatRows(db).countDocuments({ iterationId: tim._id, groupKey: "ARPA" })).toBe(2);
     // Conteggi S0 (§13.1): 7 non archiviate.
     expect(await store.practices(db).countDocuments({ archived: false })).toBe(7);

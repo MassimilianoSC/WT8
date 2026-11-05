@@ -66,7 +66,7 @@ function Shell({ user, children }: { user: ShellUser; children: React.ReactNode 
     <div className="flex h-full flex-col">
       <div className="border-b border-border p-6">
         <Link href={user.direzione ? "/andamento" : "/pratiche"} className="font-heading text-xl font-black tracking-tighter">
-          PracticeHub
+          WT8
         </Link>
         <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
           Workflow OS

@@ -16,7 +16,7 @@ describe("servizio template (GET /api/templates)", () => {
     const t = await getTemplate("INWIT", null, noDb);
     expect(t.id).toBe("INWIT");
     expect(t.version).toMatch(/^2026-10-08\.[0-9a-f]{12}$/);
-    expect(t.occurrences.length).toBe(145);
+    expect(t.occurrences.length).toBe(141); // 145 − 4 (Importo/Costo UT e PE esclusi, D-201)
     expect(Object.keys(t)).not.toContain("bindings");
     expect(await getTemplate("INWIT", t.version, noDb)).toBe(t);
   });

@@ -305,16 +305,8 @@
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F019",
-    "message": "\"Assistente TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 19,
-    "severity": "WARNING",
-    "templateId": "TIM_FIBERCOP"
-  },
-  {
-    "code": "LIST_VALUES_MISSING",
     "flowId": "F020",
-    "message": "\"Progettista TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "message": "\"Assistente TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
     "row": 20,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
@@ -322,56 +314,64 @@
   {
     "code": "LIST_VALUES_MISSING",
     "flowId": "F021",
-    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "message": "\"Progettista TIM\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
     "row": 21,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F038",
+    "flowId": "F022",
+    "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 22,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F039",
     "message": "\"Fornitore PP\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 39,
+    "row": 40,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F072",
+    "flowId": "F073",
     "message": "\"Tecnico Misure di fondo\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 89,
+    "row": 90,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F091",
+    "flowId": "F092",
     "message": "\"Fornitore UT\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 108,
+    "row": 109,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F102",
+    "flowId": "F103",
     "message": "\"Fornitore PE\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 125,
-    "severity": "WARNING",
-    "templateId": "TIM_FIBERCOP"
-  },
-  {
-    "code": "LIST_VALUES_MISSING",
-    "flowId": "F111",
-    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
-    "row": 135,
+    "row": 126,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_VALUES_MISSING",
     "flowId": "F112",
-    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "message": "\"Direttore Lavori\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
     "row": 136,
+    "severity": "WARNING",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
+    "code": "LIST_VALUES_MISSING",
+    "flowId": "F113",
+    "message": "\"Collaudatore\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
+    "row": 137,
     "severity": "WARNING",
     "templateId": "TIM_FIBERCOP"
   },
@@ -793,24 +793,16 @@
   },
   {
     "code": "VINCOLI_CONTAINER",
-    "flowId": "F030",
+    "flowId": "F031",
     "message": "\"Vincoli\": contenitore VINCOLI, valori strutturati in constraints (D-99)",
-    "row": 30,
+    "row": 31,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
   },
   {
     "code": "LIST_IGNORED",
-    "flowId": "F063",
-    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
-    "row": 64,
-    "severity": "INFO",
-    "templateId": "TIM_FIBERCOP"
-  },
-  {
-    "code": "LABEL_PLACEHOLDER",
     "flowId": "F064",
-    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
+    "message": "\"Nome Ente\" ha una lista nel CSV ma è LONGTEXT nell'MD: lista non collegata",
     "row": 65,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
@@ -818,7 +810,7 @@
   {
     "code": "LABEL_PLACEHOLDER",
     "flowId": "F065",
-    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
+    "message": "etichetta \"Forecast Ottenimento “Nome ente”\" → \"Forecast Ottenimento\" (segnaposto tolto, D-182)",
     "row": 66,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
@@ -826,7 +818,7 @@
   {
     "code": "LABEL_PLACEHOLDER",
     "flowId": "F066",
-    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
+    "message": "etichetta \"Ottenimento “Nome ente”\" → \"Ottenimento\" (segnaposto tolto, D-182)",
     "row": 67,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
@@ -834,16 +826,24 @@
   {
     "code": "LABEL_PLACEHOLDER",
     "flowId": "F067",
-    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "message": "etichetta \"Esito parere “nome ente”\" → \"Esito parere\" (segnaposto tolto, D-182)",
     "row": 68,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
   },
   {
+    "code": "LABEL_PLACEHOLDER",
+    "flowId": "F068",
+    "message": "etichetta \"N° protocollo “Nome ente”\" → \"N° protocollo\" (segnaposto tolto, D-182)",
+    "row": 69,
+    "severity": "INFO",
+    "templateId": "TIM_FIBERCOP"
+  },
+  {
     "code": "MIRROR_TYPE",
-    "flowId": "F100",
-    "message": "mirror \"PE incaricato da\" dichiarato menù a tendina, eredita USER dal master #123",
-    "row": 82,
+    "flowId": "F101",
+    "message": "mirror \"PE incaricato da\" dichiarato menù a tendina, eredita USER dal master #124",
+    "row": 83,
     "severity": "INFO",
     "templateId": "TIM_FIBERCOP"
   },

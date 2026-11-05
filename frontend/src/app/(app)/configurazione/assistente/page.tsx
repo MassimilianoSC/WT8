@@ -5,7 +5,7 @@ import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { AssistantSettingsEditor } from "@/components/configurazione/assistant-settings";
 
-export const metadata = { title: "Assistente AI — PracticeHub" };
+export const metadata = { title: "Assistente AI — WT8" };
 
 /** Assistant switch and per-person limits: ADMIN only (D-169, D-171). */
 export default async function Page() {

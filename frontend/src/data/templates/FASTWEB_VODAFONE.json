@@ -125,7 +125,28 @@
         "row": 111
       }
     ],
-    "excluded": []
+    "excluded": [
+      {
+        "flowId": "F069",
+        "reason": "correzione",
+        "row": 90
+      },
+      {
+        "flowId": "F070",
+        "reason": "correzione",
+        "row": 91
+      },
+      {
+        "flowId": "F084",
+        "reason": "correzione",
+        "row": 107
+      },
+      {
+        "flowId": "F085",
+        "reason": "correzione",
+        "row": 108
+      }
+    ]
   },
   "source": {
     "file": "ASSOCIAZIONI_CAMPI_FASTWEB-VODAFONE.md",
@@ -1776,34 +1797,6 @@
       {
         "computed": null,
         "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F069",
-        "kind": "MASTER",
-        "label": "Importo UT",
-        "occurrenceKey": "F069@UT_PE.UT",
-        "order": 90,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.UT",
-        "universal": "IMPORTO"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F070",
-        "kind": "MASTER",
-        "label": "Costo UT",
-        "occurrenceKey": "F070@UT_PE.UT",
-        "order": 91,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.UT",
-        "universal": "Richiesta analisi UT"
-      },
-      {
-        "computed": null,
-        "condition": null,
         "dataType": "DATE",
         "flowId": "F071",
         "kind": "MASTER",
@@ -2059,34 +2052,6 @@
         "required": false,
         "sectionKey": "UT_PE.PE",
         "universal": "Fornitore / Impresa"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F084",
-        "kind": "MASTER",
-        "label": "Importo PE",
-        "occurrenceKey": "F084@UT_PE.PE",
-        "order": 107,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.PE",
-        "universal": "IMPORTO"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F085",
-        "kind": "MASTER",
-        "label": "Costo PE",
-        "occurrenceKey": "F085@UT_PE.PE",
-        "order": 108,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.PE",
-        "universal": "PE"
       },
       {
         "computed": null,
@@ -2540,6 +2505,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.66a854e8ffb7"
+    "version": "2026-10-08.544999dc45f5"
   }
 }

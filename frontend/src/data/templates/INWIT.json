@@ -144,7 +144,28 @@
         "row": 134
       }
     ],
-    "excluded": []
+    "excluded": [
+      {
+        "flowId": "F098",
+        "reason": "correzione",
+        "row": 110
+      },
+      {
+        "flowId": "F099",
+        "reason": "correzione",
+        "row": 111
+      },
+      {
+        "flowId": "F112",
+        "reason": "correzione",
+        "row": 129
+      },
+      {
+        "flowId": "F113",
+        "reason": "correzione",
+        "row": 130
+      }
+    ]
   },
   "source": {
     "file": "ASSOCIAZIONI_CAMPI_INWIT.md",
@@ -2101,34 +2122,6 @@
       {
         "computed": null,
         "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F098",
-        "kind": "MASTER",
-        "label": "Importo UT",
-        "occurrenceKey": "F098@UT_PE.UT",
-        "order": 110,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.UT",
-        "universal": "IMPORTO"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F099",
-        "kind": "MASTER",
-        "label": "Costo UT",
-        "occurrenceKey": "F099@UT_PE.UT",
-        "order": 111,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.UT",
-        "universal": "Richiesta analisi UT"
-      },
-      {
-        "computed": null,
-        "condition": null,
         "dataType": "DATE",
         "flowId": "F100",
         "kind": "MASTER",
@@ -2427,34 +2420,6 @@
         "required": false,
         "sectionKey": "UT_PE.PE",
         "universal": "Fornitore / Impresa"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F112",
-        "kind": "MASTER",
-        "label": "Importo PE",
-        "occurrenceKey": "F112@UT_PE.PE",
-        "order": 129,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.PE",
-        "universal": "IMPORTO"
-      },
-      {
-        "computed": null,
-        "condition": null,
-        "dataType": "NUMBER",
-        "flowId": "F113",
-        "kind": "MASTER",
-        "label": "Costo PE",
-        "occurrenceKey": "F113@UT_PE.PE",
-        "order": 130,
-        "ownerGroup": "UT_PE",
-        "required": false,
-        "sectionKey": "UT_PE.PE",
-        "universal": "PE"
       },
       {
         "computed": null,
@@ -2944,6 +2909,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.fa99b6f5e4f4"
+    "version": "2026-10-08.92ee792d4b05"
   }
 }

@@ -16,7 +16,7 @@ export function ForcedPasswordShell({ email, children }: { email: string; childr
   return (
     <div className="min-h-screen bg-background" data-testid="forced-password-shell">
       <header className="flex h-16 items-center justify-between border-b border-border px-4 lg:px-8">
-        <span className="font-heading text-xl font-black tracking-tighter">PracticeHub</span>
+        <span className="font-heading text-xl font-black tracking-tighter">WT8</span>
         <div className="flex items-center gap-3">
           <span className="hidden font-mono text-xs text-muted-foreground sm:inline">{email}</span>
           <Button variant="outline" size="sm" onClick={() => signOut({ callbackUrl: "/login" })} data-testid="forced-logout">

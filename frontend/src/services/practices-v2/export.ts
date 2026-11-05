@@ -135,6 +135,6 @@ export async function exportPractices(db: Db, user: UserDTO, q: ExportQuery, now
       ])
     );
   }
-  return { filename: `PracticeHub_${templateId}_${romeDate(now)}.csv`, body: CSV_BOM + lines.join("\r\n") + "\r\n" };
+  return { filename: `WT8_${templateId}_${romeDate(now)}.csv`, body: CSV_BOM + lines.join("\r\n") + "\r\n" };
 }
 

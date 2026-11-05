@@ -6,7 +6,7 @@ import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 import { isLeader, visibleTemplates } from "@/components/me/me-derive";
 
-export const metadata = { title: "Liste — PracticeHub" };
+export const metadata = { title: "Liste — WT8" };
 
 /** Team leaders and ADMIN (the backend sets `editable` per list, D-40). */
 export default async function Page() {

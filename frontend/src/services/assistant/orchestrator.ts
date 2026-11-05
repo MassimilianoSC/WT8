@@ -381,7 +381,7 @@ export async function streamAnswer(p: PreparedQuestion, emit: Emit, clientSignal
   recordReferences(p.conversation, [], null);
   try {
     emit({ type: "start", requestId, conversationId: p.conversation.id, messageId: randomUUID(), serverNow: p.now.toISOString(), todayRome: p.todayRome, timezone: "Europe/Rome" });
-    emit({ type: "status", phase: "READING", text: "Leggo i dati di PracticeHub." });
+    emit({ type: "status", phase: "READING", text: "Leggo i dati di WT8." });
 
     const previous = previousQuestions(p.conversation).slice(0, -1);
     const messages: ProviderMessage[] = [
@@ -453,7 +453,7 @@ export async function streamAnswer(p: PreparedQuestion, emit: Emit, clientSignal
       if (mode === "tools" && tools.length > 0) {
         rounds++;
         messages.push({ role: "model", toolCalls: calls, ...(rawTurn !== undefined ? { raw: rawTurn } : {}) });
-        emit({ type: "status", phase: "READING", text: "Leggo i dati di PracticeHub." });
+        emit({ type: "status", phase: "READING", text: "Leggo i dati di WT8." });
         const results: { id: string; name: string; output: unknown }[] = [];
         for (const tc of calls) {
           if (toolsUsed >= LIMITS.tools) {

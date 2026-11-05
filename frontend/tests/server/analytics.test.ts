@@ -205,7 +205,7 @@ describe.skipIf(!URL_RS)("B8 sul replica set usa-e-getta", () => {
 
   it("export: intestazione, formati, note visibili, vincoli, protezione formule; aperto a chi ha un'appartenenza (D-128)", async () => {
     const f = await exportPractices(db, u.pm, { templateId: "INWIT", archived: false }, now);
-    expect(f.filename).toBe("PracticeHub_INWIT_2026-10-08.csv");
+    expect(f.filename).toBe("WT8_INWIT_2026-10-08.csv");
     expect(f.body.startsWith("﻿")).toBe(true);
     const lines = f.body.slice(1).trimEnd().split("\r\n");
     const header = cells(lines[0]);

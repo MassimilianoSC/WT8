@@ -47,12 +47,12 @@ describe.skipIf(!URL_RS)("export giornaliero sul replica set usa-e-getta", () =>
     fs.writeFileSync(path.join(dir, "LEGGIMI.txt"), "x");
     const r = await runExportDaily({ client, db }, { owner: "w", dir, now: () => at("2026-10-09T04:31:00Z") });
     expect(r.status, r.error).toBe("DONE");
-    expect(r.files.sort()).toEqual(TEMPLATE_IDS.map((t) => path.join("2026-10-09", `PracticeHub_${t}_2026-10-09.csv`)).sort());
+    expect(r.files.sort()).toEqual(TEMPLATE_IDS.map((t) => path.join("2026-10-09", `WT8_${t}_2026-10-09.csv`)).sort());
     expect(r.removed).toEqual(["2026-09-01"]);
     expect(fs.readdirSync(dir).sort()).toEqual(["2026-10-09", "LEGGIMI.txt"]);
     expect(fs.readdirSync(path.join(dir, "2026-10-09")).some((f) => f.endsWith(".tmp"))).toBe(false);
     // Excel italiano: BOM, ";" come separatore, intestazione con l'identificativo e i campi.
-    const iliad = fs.readFileSync(path.join(dir, "2026-10-09", "PracticeHub_ILIAD_2026-10-09.csv"), "utf8");
+    const iliad = fs.readFileSync(path.join(dir, "2026-10-09", "WT8_ILIAD_2026-10-09.csv"), "utf8");
     expect(iliad.startsWith("﻿")).toBe(true);
     const lines = iliad.slice(1).trimEnd().split("\r\n");
     expect(lines[0].startsWith("ID pratica;")).toBe(true);

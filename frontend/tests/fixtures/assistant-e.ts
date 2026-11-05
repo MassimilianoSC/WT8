@@ -149,14 +149,14 @@ export async function applyFixtureE(db: Db, opts: FixtureEOptions = {}): Promise
   // TOWERNET-1: Forecast PE 15/10 già concluso dall'Invio PE dell'08/10; tecnico PE; UT_PE non abilitato.
   await patchCurrent(db, "TOWERNET-1", { F096: "2026-10-15", F105: "2026-10-08", F100: users("pe") });
   // TIM-1: Forecast PE 08/10, Invio PE (master DL) vuoto; ARPA del seed invariata.
-  await patchCurrent(db, "TIM-1", { F097: "2026-10-08" });
+  await patchCurrent(db, "TIM-1", { F098: "2026-10-08" });
 
   if (opts.alerts) {
     const at9 = (d: string) => new Date(`${d}T07:00:00Z`); // 09:00 Roma (ora legale)
     const docs = [
       alertDoc("ILIAD-1", "FORECAST_UT", { flowId: "F126", sectionKey: "UT_PE.UT" }, "2026-10-12", at9("2026-10-12")),
       alertDoc("ILIAD-1", "FORECAST_PE", { flowId: "F140", sectionKey: "UT_PE.PE" }, "2026-10-12", at9("2026-10-12")),
-      alertDoc("TIM-1", "PARERE_ARPA", { flowId: "F058", groupKey: "ARPA", rowId: eIds.row("TIM-1", 1, "ARPA", 2), sectionKey: "PM_PERMESSI.ITER_AUTORIZZATIVO" }, "2026-09-23", at9("2026-09-23")),
+      alertDoc("TIM-1", "PARERE_ARPA", { flowId: "F059", groupKey: "ARPA", rowId: eIds.row("TIM-1", 1, "ARPA", 2), sectionKey: "PM_PERMESSI.ITER_AUTORIZZATIVO" }, "2026-09-23", at9("2026-09-23")),
     ];
     await store.alerts(db).insertMany(docs);
     await store.practices(db).updateOne({ _id: eIds.practice("ILIAD-1") }, { $set: { "currentSummary.openAlerts": 2 } });

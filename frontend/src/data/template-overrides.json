@@ -1,5 +1,5 @@
 {
-  "version": "2",
+  "version": "3",
   "source": "Correzioni dei template, mai sugli MD (D-92). Ogni voce si applica solo se la riga #sourceRow ha ancora expectedFlowId e impronta expectedSourceHash (SHA-256 della riga Markdown, 16 caratteri): altrimenti errore di compilazione.",
   "patchKeys": {
     "kind": "MASTER | MIRROR",
@@ -230,6 +230,318 @@
         "dataType": "DATE"
       },
       "decision": "D-83: DATA SCADENZA PERMESSI è un campo DATE manuale (dtype vuoto nell MD)",
+      "provisional": false
+    },
+    {
+      "id": "OV-090",
+      "templateId": "ILIAD",
+      "sourceRow": 153,
+      "expectedFlowId": "F132",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "630b964a4f6f74fd",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-091",
+      "templateId": "ILIAD",
+      "sourceRow": 154,
+      "expectedFlowId": "F133",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "7895e853108377f0",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-092",
+      "templateId": "ILIAD",
+      "sourceRow": 172,
+      "expectedFlowId": "F146",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "f6d54b3989e9c92a",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-093",
+      "templateId": "ILIAD",
+      "sourceRow": 173,
+      "expectedFlowId": "F147",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "8fe8e1c6aede85f1",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-094",
+      "templateId": "TOWERNET",
+      "sourceRow": 102,
+      "expectedFlowId": "F092",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "df289edfe07f3189",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-095",
+      "templateId": "TOWERNET",
+      "sourceRow": 103,
+      "expectedFlowId": "F093",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "20b2bf518b4ee188",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-096",
+      "templateId": "TOWERNET",
+      "sourceRow": 117,
+      "expectedFlowId": "F102",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "37d3bb8820e47b6a",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-097",
+      "templateId": "TOWERNET",
+      "sourceRow": 118,
+      "expectedFlowId": "F103",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "01d85da7e82f760f",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-098",
+      "templateId": "TIM_FIBERCOP",
+      "sourceRow": 111,
+      "expectedFlowId": "F094",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "a2b4529da060bbac",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-099",
+      "templateId": "TIM_FIBERCOP",
+      "sourceRow": 112,
+      "expectedFlowId": "F095",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "a72eeef57c957324",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-100",
+      "templateId": "TIM_FIBERCOP",
+      "sourceRow": 127,
+      "expectedFlowId": "F104",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "4af1d7034ef3f9ef",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-101",
+      "templateId": "TIM_FIBERCOP",
+      "sourceRow": 128,
+      "expectedFlowId": "F105",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "42bfc713dd65ebe0",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-102",
+      "templateId": "INWIT",
+      "sourceRow": 110,
+      "expectedFlowId": "F098",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "0bed46dc8bc9be58",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-103",
+      "templateId": "INWIT",
+      "sourceRow": 111,
+      "expectedFlowId": "F099",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "7cb86120fa747e4b",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-104",
+      "templateId": "INWIT",
+      "sourceRow": 129,
+      "expectedFlowId": "F112",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "9749e41c2e557ad1",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-105",
+      "templateId": "INWIT",
+      "sourceRow": 130,
+      "expectedFlowId": "F113",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "1af4ad65e9904b9d",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-106",
+      "templateId": "FASTWEB_VODAFONE",
+      "sourceRow": 90,
+      "expectedFlowId": "F069",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "cff557bb2e0927eb",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-107",
+      "templateId": "FASTWEB_VODAFONE",
+      "sourceRow": 91,
+      "expectedFlowId": "F070",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "92721fc0dec07834",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-108",
+      "templateId": "FASTWEB_VODAFONE",
+      "sourceRow": 107,
+      "expectedFlowId": "F084",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "e5685e6d230e5b5b",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-109",
+      "templateId": "FASTWEB_VODAFONE",
+      "sourceRow": 108,
+      "expectedFlowId": "F085",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "9fe4ef81f62e30d9",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-110",
+      "templateId": "LEONARDO",
+      "sourceRow": 103,
+      "expectedFlowId": "F088",
+      "expectedLabel": "Importo UT",
+      "expectedSourceHash": "598915f90862f17c",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-111",
+      "templateId": "LEONARDO",
+      "sourceRow": 104,
+      "expectedFlowId": "F089",
+      "expectedLabel": "Costo UT",
+      "expectedSourceHash": "50a26cbb721d2b8d",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-112",
+      "templateId": "LEONARDO",
+      "sourceRow": 125,
+      "expectedFlowId": "F103",
+      "expectedLabel": "Importo PE",
+      "expectedSourceHash": "ab827b8159fe4959",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
+      "provisional": false
+    },
+    {
+      "id": "OV-113",
+      "templateId": "LEONARDO",
+      "sourceRow": 126,
+      "expectedFlowId": "F104",
+      "expectedLabel": "Costo PE",
+      "expectedSourceHash": "4c89e2f8c87131f8",
+      "patch": {
+        "exclude": true
+      },
+      "decision": "D-201 (05/11/2026): Importo UT, Costo UT, Importo PE e Costo PE tolti dalla scheda su richiesta operativa; flowId conservati, valori già salvati non cancellati",
       "provisional": false
     }
   ]

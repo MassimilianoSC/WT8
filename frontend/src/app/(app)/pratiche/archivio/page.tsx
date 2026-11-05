@@ -6,7 +6,7 @@ import { PraticheList } from "@/components/pratiche/pratiche-list";
 import { MissingUser } from "@/components/me/missing-user";
 import { resolvePageUser } from "@/components/me/resolve-page-user";
 
-export const metadata = { title: "Archivio — PracticeHub" };
+export const metadata = { title: "Archivio — WT8" };
 
 /** Storico / Archivio (D-23, D-28): archived practices, read-only until restored. */
 export default async function ArchivioPage() {

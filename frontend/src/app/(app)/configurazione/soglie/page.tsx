@@ -7,7 +7,7 @@ import { AlertRulesEditor } from "@/components/configurazione/alert-rules-editor
 import { andamentoOn } from "@/components/andamento/access";
 import { FermeThreshold } from "@/components/andamento/ferme-threshold";
 
-export const metadata = { title: "Soglie alert — PracticeHub" };
+export const metadata = { title: "Soglie alert — WT8" };
 
 /** Thresholds: ADMIN only (D-46). */
 export default async function Page() {
