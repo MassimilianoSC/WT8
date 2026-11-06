@@ -4,7 +4,7 @@
  * I testi che Excel leggerebbe come formula (=, +, -, @, tab, a capo all'inizio) si prefissano con un apice.
  */
 import { isValidIsoDate } from "@/lib/calendario";
-import { NONE_CODE, type FieldOccurrenceDTO, type FieldValue, type SelectValue, type StatoAttivita } from "@/lib/contract";
+import { NO_DATE, NO_DATE_LABEL, NONE_CODE, type FieldOccurrenceDTO, type FieldValue, type SelectValue, type StatoAttivita } from "@/lib/contract";
 import { OTHER_CODE } from "@/lib/practice/normalize";
 
 export const CSV_BOM = "﻿";
@@ -37,7 +37,10 @@ function selectText(occ: Pick<FieldOccurrenceDTO, "dataType" | "list">, v: Selec
 export function cellText(occ: Pick<FieldOccurrenceDTO, "dataType" | "list">, v: FieldValue | undefined, lookup: CsvLookup): string {
   if (v === null || v === undefined) return "";
   if (typeof v === "number") return itNumber(v);
-  if (typeof v === "string") return occ.dataType === "DATE" && isValidIsoDate(v) ? itDate(v) : safeText(v);
+  if (typeof v === "string") {
+    if (occ.dataType === "DATE" && v === NO_DATE) return NO_DATE_LABEL; // D-208
+    return occ.dataType === "DATE" && isValidIsoDate(v) ? itDate(v) : safeText(v);
+  }
   if (Array.isArray(v)) return v.map((x) => selectText(occ, x, lookup)).join(", ");
   return selectText(occ, v, lookup);
 }

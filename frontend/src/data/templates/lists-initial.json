@@ -4056,12 +4056,30 @@
           "code": "NEW_SITE",
           "label": "New Site",
           "order": 1
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE + VS",
+          "order": 4
         }
       ],
       "kind": "CONFIGURABLE",
       "label": "Incarico / Lavorazione",
       "listId": "INCARICO",
-      "provenance": "LISTE_VALORI_INIZIALI.csv (INCOMPLETA)",
+      "provenance": "LISTE_VALORI_INIZIALI.csv (CONFIGURABILE)",
       "templateId": "TOWERNET"
     },
     {
@@ -4235,6 +4253,24 @@
           "code": "NEW_SITE",
           "label": "New Site",
           "order": 1
+        },
+        {
+          "active": true,
+          "code": "VERIFICA_STATICA",
+          "label": "Verifica Statica",
+          "order": 2
+        },
+        {
+          "active": true,
+          "code": "CARATTERIZZAZIONE_PLUS_VS",
+          "label": "Caratterizzazione + VS",
+          "order": 3
+        },
+        {
+          "active": true,
+          "code": "PE_PLUS_VS",
+          "label": "PE + VS",
+          "order": 4
         }
       ],
       "kind": "CONTROLLED",

@@ -1,4 +1,4 @@
-import { NONE_CODE, type DataType, type FieldValue, type SelectValue } from "@/lib/contract";
+import { NO_DATE, NO_DATE_LABEL, NONE_CODE, type DataType, type FieldValue, type SelectValue } from "@/lib/contract";
 
 /** Pure formatting/parsing helpers for field values (no React). */
 
@@ -74,6 +74,7 @@ export function formatValue(dataType: DataType, value: FieldValue | undefined, o
   if (value === null || value === undefined) return "";
   switch (dataType) {
     case "DATE":
+      if (value === NO_DATE) return NO_DATE_LABEL; // D-208
       return typeof value === "string" ? isoToIt(value) || value : "";
     case "NUMBER":
       return typeof value === "number" ? formatDecimal(value) : String(value);

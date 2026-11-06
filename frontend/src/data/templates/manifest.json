@@ -1,54 +1,55 @@
 {
   "baseline": "2026-10-08",
-  "bindingsVersion": "1",
-  "compilerVersion": "1.0.0",
+  "bindingsVersion": "2",
+  "compilerVersion": "1.1.0",
   "conditionsVersion": "1",
-  "lists": "263c99b7fb8e4b6e3566473582bd61e3a7c906e5ec586b127741a0e3ea2e40c4",
+  "incaricoVersion": "1",
+  "lists": "be3a6f84ed40bf614697663dca2845561aba5f365b29dfb46d9f2d20584ad88d",
   "overridesVersion": "3",
   "sources": {
-    "ASSOCIAZIONI_CAMPI_FASTWEB-VODAFONE.md": "747b583aafd60bdb79109d8546a2e87d6113a77aaf3dc148cf46e0aa2e4beec7",
-    "ASSOCIAZIONI_CAMPI_ILIAD.md": "c40d6b2228f5a52de061958131ff1e92d59befe49f36944c06e6ffffa67e63fc",
-    "ASSOCIAZIONI_CAMPI_INWIT.md": "5989ae38bcd582f0e9e9fc317ce3aa3cb63a751fe748b60b55b323428a44d9bd",
-    "ASSOCIAZIONI_CAMPI_LEONARDO.md": "cbfdfe3c9eadea606def79d88aa1f2b419b326d7729659909604533133889f5f",
-    "ASSOCIAZIONI_CAMPI_TIM-FIBERCOP.md": "25490e4d7142d7f0b9fc9ca5f747a27b2d95d3864e39ab32ad0b8fa4d5c8ca3b",
-    "ASSOCIAZIONI_CAMPI_TOWERNET.md": "326903e00a05d41d7b54f39332558fdb476d7f197b845d45e79448dfeb83ad77"
+    "ASSOCIAZIONI_CAMPI_FASTWEB-VODAFONE.md": "4a8187c49dbed17295859b9e3406e992df59c44241138a1f2853db78fcf5340c",
+    "ASSOCIAZIONI_CAMPI_ILIAD.md": "ea8aae3d92285c59f0a8939d3f86884a1114373ad8565d25cccbb1954dbac9fa",
+    "ASSOCIAZIONI_CAMPI_INWIT.md": "c49e915638a253f467f436ae0220b8f9a7963ca2c41076e91a106ca274b50ea8",
+    "ASSOCIAZIONI_CAMPI_LEONARDO.md": "b2a01b6fbdfb929dc2c8a64a89190ceff45885fa90d096f32ae9cb37934ca624",
+    "ASSOCIAZIONI_CAMPI_TIM-FIBERCOP.md": "2989772a2c69cfe59ef064d2846f3d63d48ce9d741c590897b83b7c5826093c0",
+    "ASSOCIAZIONI_CAMPI_TOWERNET.md": "7e962c6ae27d6374bb8f5761e6178e0041fda733db130d56c4f87b4372f69a94"
   },
   "templates": {
     "FASTWEB_VODAFONE": {
       "flowIds": 104,
       "occurrences": 118,
       "sourceRows": 122,
-      "version": "2026-10-08.544999dc45f5"
+      "version": "2026-10-08.47cda5914a30"
     },
     "ILIAD": {
       "flowIds": 155,
       "occurrences": 184,
       "sourceRows": 190,
-      "version": "2026-10-08.cd0d9ed3b0e1"
+      "version": "2026-10-08.e26453e2c2d2"
     },
     "INWIT": {
       "flowIds": 123,
       "occurrences": 141,
       "sourceRows": 145,
-      "version": "2026-10-08.92ee792d4b05"
+      "version": "2026-10-08.3675e889b468"
     },
     "LEONARDO": {
       "flowIds": 114,
       "occurrences": 136,
       "sourceRows": 140,
-      "version": "2026-10-08.7f2094278411"
+      "version": "2026-10-08.55d75565cff4"
     },
     "TIM_FIBERCOP": {
       "flowIds": 115,
       "occurrences": 139,
       "sourceRows": 143,
-      "version": "2026-10-08.b6b17509bce3"
+      "version": "2026-10-08.a55ae248e7a8"
     },
     "TOWERNET": {
       "flowIds": 113,
       "occurrences": 129,
       "sourceRows": 133,
-      "version": "2026-10-08.19ed0170561a"
+      "version": "2026-10-08.414e4643e541"
     }
   }
 }

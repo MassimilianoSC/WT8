@@ -22,7 +22,7 @@ import { GROUP_LABEL, GROUP_ORDER } from "@/components/pratiche/labels";
 import { StatoBadge } from "@/components/pratiche/stato-badge";
 import { buildRepeatIndex } from "@/components/scheda/conditions";
 import { addPendingWithCascade, applyPending, changeKey, isRowOp, prunePending, type ValueChange } from "@/components/scheda/changes";
-import { buildSheetFromTemplate, defaultOpenSections } from "@/components/scheda/layout";
+import { buildSheetFromTemplate, defaultOpenSections, treeFlowId, visibleTree } from "@/components/scheda/layout";
 import { HistoryPanel } from "@/components/scheda/history";
 import { AssignDialog } from "@/components/scheda/assign-dialog";
 import { StatoDialog } from "@/components/scheda/stato-dialog";
@@ -172,6 +172,12 @@ export function PraticaSheet({
   const repeatOf = React.useMemo(() => (template ? buildRepeatIndex(template) : new Map<string, string>()), [template]);
   const current = React.useMemo(() => (saved ? applyPending(saved, pending) : null), [saved, pending]);
   const shown = viewingPast ? past : current;
+  // D-207 (Q3): sections removed by Incarico / Lavorazione disappear from the sheet and the index.
+  const incaricoFlow = React.useMemo(() => (template ? treeFlowId(template) : null), [template]);
+  const treeGroups = React.useMemo(
+    () => (shown ? visibleTree(groups, { values: shown.values, repeats: shown.repeats, repeatOf }, incaricoFlow) : groups),
+    [groups, shown, repeatOf, incaricoFlow]
+  );
   // Context of the next assistant question: this practice and the iteration on screen.
   const shownIteration = shown?.iteration ?? saved?.iteration;
   useAssistantPageContext(
@@ -506,7 +512,7 @@ export function PraticaSheet({
         <aside className="hidden sm:block">
           <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-auto">
             <SectionIndex
-              groups={groups}
+              groups={treeGroups}
               data={{ values: shown.values, repeats: shown.repeats, repeatOf }}
               alerts={shown.alerts}
               enabledGroups={shown.enabledGroups}
@@ -520,7 +526,7 @@ export function PraticaSheet({
         </aside>
         <div className="min-w-0 space-y-8">
           <SheetSections
-            groups={groups}
+            groups={treeGroups}
             data={{ values: shown.values, repeats: shown.repeats, repeatOf }}
             access={shown.access}
             repeatAccess={shown.repeatAccess}

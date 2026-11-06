@@ -181,7 +181,10 @@ INWIT;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Housing;HOUSING;Organizza
 LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi LEONARDO r.47;Scelta multipla
 LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Sito esistente;SITO_ESISTENTE;Organizzazione Campi LEONARDO r.47;Scelta multipla
 LEONARDO;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Ponte Radio;PONTE_RADIO;Organizzazione Campi LEONARDO r.47;Scelta multipla
-TOWERNET;PM/Permessi;Incarico / Lavorazione;INCOMPLETA;New Site;NEW_SITE;Organizzazione Campi TWN r.45;Un solo valore, mentre il sorgente cita anche Verifica statica e Caratterizzazione + verifica statica
+TOWERNET;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;New Site;NEW_SITE;Organizzazione Campi TWN r.45;Valori completati il 06/11/2026 (D-207, risposte Q11 e Q2)
+TOWERNET;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Verifica Statica;VERIFICA_STATICA;Organizzazione Campi TWN (condizione Assegnazione UT);D-207, risposta Q11
+TOWERNET;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;Caratterizzazione + VS;CARATTERIZZAZIONE_PLUS_VS;Organizzazione Campi TWN (condizione Assegnazione UT);D-207, risposta Q11
+TOWERNET;PM/Permessi;Incarico / Lavorazione;CONFIGURABILE;PE + VS;PE_PLUS_VS;Risposta Q2 del 06/11/2026 (Invio AS/VS);D-207: valore citato dalla regola di Invio AS/VS
 ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Power up;POWER_UP;Organizzazione Campi ILIAD r.58;
 ILIAD;PM/Permessi;Progetto;CONFIGURABILE;2.3;2_3;Organizzazione Campi ILIAD r.58;
 ILIAD;PM/Permessi;Progetto;CONFIGURABILE;Upgrade 5G;UPGRADE_5G;Organizzazione Campi ILIAD r.58;

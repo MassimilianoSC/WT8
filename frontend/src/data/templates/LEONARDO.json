@@ -163,7 +163,7 @@
     "file": "ASSOCIAZIONI_CAMPI_LEONARDO.md",
     "flowIds": 118,
     "rows": 140,
-    "sha256": "cbfdfe3c9eadea606def79d88aa1f2b419b326d7729659909604533133889f5f"
+    "sha256": "b2a01b6fbdfb929dc2c8a64a89190ceff45885fa90d096f32ae9cb37934ca624"
   },
   "template": {
     "baseline": "2026-10-08",
@@ -1681,16 +1681,11 @@
         "condition": null,
         "dataType": "DATE",
         "flowId": "F091",
-        "kind": "MIRROR",
+        "kind": "MASTER",
         "label": "Invio AS/VS",
         "occurrenceKey": "F091@PM_PERMESSI.UT_PE",
         "order": 79,
-        "ownerGroup": "UT_PE",
-        "popup": {
-          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
-          "label": "Da UT+PE",
-          "sourceGroup": "UT_PE"
-        },
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "PM_PERMESSI.UT_PE",
         "universal": "INVIO AS/VS"
@@ -2096,11 +2091,11 @@
         "condition": null,
         "dataType": "DATE",
         "flowId": "F091",
-        "kind": "MASTER",
+        "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F091@UT_PE.UT",
         "order": 106,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "UT_PE.UT",
         "universal": "INVIO AS/VS"
@@ -2897,6 +2892,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.7f2094278411"
+    "version": "2026-10-08.55d75565cff4"
   }
 }

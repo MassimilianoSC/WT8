@@ -380,9 +380,17 @@ export interface SelectValue {
   otherText?: string;
 }
 
+/**
+ * D-208: "Nessuna data" in un campo DATE compilato a mano (non nei calcolati). Conta come compilato
+ * nell'avanzamento e nelle condizioni FILLED; per formule, alert e stato non è una data (le formule che partono da
+ * quel campo restano vuote, l'alert che aspetta quel campo si chiude o non si apre); l'export scrive "Nessuna data".
+ */
+export const NO_DATE = "NESSUNA_DATA";
+export const NO_DATE_LABEL = "Nessuna data";
+
 export type FieldValue =
   | null
-  /** TEXT, LONGTEXT, DATE ("YYYY-MM-DD"). */
+  /** TEXT, LONGTEXT, DATE ("YYYY-MM-DD" oppure NO_DATE). */
   | string
   /** NUMBER. */
   | number

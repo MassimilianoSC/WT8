@@ -82,6 +82,10 @@ La sezione **P (Andamento)** si fa solo se nel menu dell'amministratore c'è **A
 | D10 | PM | In fondo alla scheda aprire **Modifiche ai campi** e **Attività** | Ci sono le modifiche fatte, con valore vecchio → nuovo, autore e ora | |
 | D11 | PM | Nell'indice a sinistra della scheda cliccare **Commenti (n)** e poi **Storico**; poi ripetere con lo zoom del browser al 200% | Ogni voce porta al suo riquadro; il numero dei commenti è giusto; con lo zoom al 200% l'indice è ancora visibile | |
 | D12 | PM | In **Nuova pratica** e nei campi a menu della scheda, aprire un menu lungo (Committente, Cliente Finale) e scorrere con la **rotellina** del mouse; aprire un calendario | L'elenco scorre con la rotellina; la pagina dietro resta ferma | |
+| D13 | PM | In una pratica **INWIT nuova** scegliere Incarico / Lavorazione = **Caratterizzazione**, poi **Verifica Statica**, poi **PE + VS**, poi svuotarlo | Con Caratterizzazione restano Core, Dati secondari, Fase Preliminare (data assegnazione, sopralluogo, Report e Invio report caratterizzazione) e i campi della caratterizzazione UT; con Verifica Statica compaiono Assegnazione UT, Note e Invio AS/VS e la sezione UT; con PE + VS anche la parte PE e il deposito sismico; svuotato, torna tutto. Le sezioni vuote spariscono anche dall'indice | |
+| D14 | PM | In **FASTWEB-VODAFONE** Incarico = **Applicabilità**; in **TIM** Incarico = New Site e poi Collocato Esistente | FASTWEB: restano Core, Applicabilità e Invio applicabilità. TIM: Progetto compare solo con Collocato Esistente; Invio AS/VS si vede in entrambi i casi e sparisce con Demolizione | |
+| D15 | PM, UT | Compilare **Invio AS/VS** come PM; poi aprire la pratica come UT | Il PM lo compila; l'UT lo vede con il lucchetto "Compilato da PM/Permessi" | |
+| D16 | PM | Su una data a mano (per esempio Data sopralluogo) premere **Nessuna data**, salvare, poi **Annulla** e salvare | Il campo mostra "Nessuna data" e il contatore della sezione lo conta compilato; l'export scrive "Nessuna data"; Annulla lo svuota. Sui Forecast il comando non c'è | |
 
 ## E. Assegna (§6)
 
