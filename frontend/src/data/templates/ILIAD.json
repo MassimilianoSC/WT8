@@ -209,7 +209,7 @@
     "file": "ASSOCIAZIONI_CAMPI_ILIAD.md",
     "flowIds": 161,
     "rows": 190,
-    "sha256": "c40d6b2228f5a52de061958131ff1e92d59befe49f36944c06e6ffffa67e63fc"
+    "sha256": "ea8aae3d92285c59f0a8939d3f86884a1114373ad8565d25cccbb1954dbac9fa"
   },
   "template": {
     "baseline": "2026-10-08",
@@ -640,7 +640,22 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "COLLOCATO_NEW_SITE",
+            "COLLOCATO_ESISTENTE",
+            "DEMOLIZIONE",
+            "PONTE_RADIO",
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PACCHETTO_PERMESSI",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F016",
         "kind": "MASTER",
@@ -791,7 +806,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F025",
         "kind": "MASTER",
@@ -810,7 +835,22 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "COLLOCATO_NEW_SITE",
+            "COLLOCATO_ESISTENTE",
+            "DEMOLIZIONE",
+            "PONTE_RADIO",
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PACCHETTO_PERMESSI",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F026",
         "kind": "MASTER",
@@ -847,7 +887,17 @@
           "formula": "FORECAST_PROTOCOLLO_ILIAD",
           "manualOverride": false
         },
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F028",
         "kind": "MASTER",
@@ -874,7 +924,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F030",
         "kind": "MASTER",
@@ -888,7 +948,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F031",
         "kind": "MASTER",
@@ -903,7 +973,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F032",
         "kind": "MASTER",
@@ -923,9 +1003,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F032",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F032",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F033",
@@ -940,7 +1035,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F034",
         "kind": "MASTER",
@@ -953,7 +1058,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F035",
         "kind": "MASTER",
@@ -967,7 +1082,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F036",
         "kind": "MASTER",
@@ -982,9 +1107,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F037",
@@ -1000,9 +1145,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F038",
@@ -1018,9 +1183,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F039",
@@ -1036,9 +1221,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F040",
@@ -1054,9 +1259,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F041",
@@ -1072,9 +1297,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F042",
@@ -1089,7 +1334,16 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F043",
         "kind": "MASTER",
@@ -1109,9 +1363,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F043",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F043",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F044",
@@ -1132,9 +1400,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F043",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F043",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F045",
@@ -1153,7 +1435,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F136",
         "kind": "MIRROR",
@@ -1172,7 +1462,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F137",
         "kind": "MIRROR",
@@ -1197,7 +1495,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F139",
         "kind": "MIRROR",
@@ -1216,7 +1522,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F046",
         "kind": "MASTER",
@@ -1230,7 +1546,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F047",
         "kind": "MASTER",
@@ -1249,7 +1575,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F048",
         "kind": "MASTER",
@@ -1268,7 +1604,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F049",
         "kind": "MASTER",
@@ -1282,7 +1628,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F050",
         "kind": "MASTER",
@@ -1297,9 +1653,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F032",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F032",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F051",
@@ -1314,7 +1685,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F052",
         "kind": "MASTER",
@@ -1332,7 +1713,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F053",
         "kind": "MASTER",
@@ -1351,9 +1742,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F054",
@@ -1369,9 +1775,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F053",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F053",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F055",
@@ -1387,9 +1808,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F056",
@@ -1405,9 +1841,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F057",
@@ -1423,9 +1874,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F119",
@@ -1440,9 +1906,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F121",
@@ -1458,9 +1939,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F122",
@@ -1476,9 +1972,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F123",
@@ -1494,9 +2005,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F124",
@@ -1511,7 +2037,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "TEXT",
         "flowId": "F058",
         "kind": "MASTER",
@@ -1525,7 +2061,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F059",
         "kind": "MASTER",
@@ -1539,7 +2085,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F060",
         "kind": "MASTER",
@@ -1553,7 +2109,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F061",
         "kind": "MASTER",
@@ -1567,7 +2133,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F062",
         "kind": "MASTER",
@@ -1581,7 +2157,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F063",
         "kind": "MASTER",
@@ -1595,7 +2181,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F064",
         "kind": "MASTER",
@@ -1609,7 +2205,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F065",
         "kind": "MASTER",
@@ -1623,7 +2229,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F066",
         "kind": "MASTER",
@@ -1637,7 +2253,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F067",
         "kind": "MASTER",
@@ -1651,7 +2277,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F068",
         "kind": "MASTER",
@@ -1664,7 +2300,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F069",
         "kind": "MASTER",
@@ -1678,7 +2324,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F070",
         "kind": "MASTER",
@@ -1692,7 +2348,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F071",
         "kind": "MASTER",
@@ -1706,7 +2372,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F072",
         "kind": "MASTER",
@@ -1720,7 +2396,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F073",
         "kind": "MASTER",
@@ -1736,8 +2422,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F073",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F073",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F074",
@@ -1754,8 +2455,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F073",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F073",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F075",
@@ -1771,7 +2487,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F076",
         "kind": "MASTER",
@@ -1786,7 +2512,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F077",
         "kind": "MASTER",
@@ -1802,8 +2538,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F077",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F077",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F078",
@@ -1825,9 +2576,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F078",
-          "op": "EQ",
-          "value": "NEGATIVO"
+          "all": [
+            {
+              "flowId": "F078",
+              "op": "EQ",
+              "value": "NEGATIVO"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F079",
@@ -1843,7 +2609,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F080",
         "kind": "MASTER",
@@ -1859,8 +2635,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F031",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F031",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F081",
@@ -1877,8 +2668,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F080",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F080",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F082",
@@ -1895,8 +2701,23 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F080",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F080",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F083",
@@ -1917,7 +2738,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F084",
         "kind": "MASTER",
@@ -1931,7 +2762,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F085",
         "kind": "MASTER",
@@ -1945,7 +2786,31 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F086",
         "kind": "MASTER",
@@ -1964,7 +2829,31 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F087",
         "kind": "MASTER",
@@ -1982,7 +2871,31 @@
           "formula": "FORECAST_GEOLOGICA",
           "manualOverride": false
         },
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F088",
         "kind": "MASTER",
@@ -1996,7 +2909,31 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F089",
         "kind": "MASTER",
@@ -2010,7 +2947,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F090",
         "kind": "MASTER",
@@ -2023,7 +2967,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F091",
         "kind": "MASTER",
@@ -2037,7 +2988,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F092",
         "kind": "MASTER",
@@ -2057,9 +3016,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F092",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F092",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F093",
@@ -2075,9 +3047,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F092",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F092",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F094",
@@ -2092,7 +3079,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F140",
         "kind": "MIRROR",
@@ -2111,7 +3106,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F126",
         "kind": "MIRROR",
@@ -2130,7 +3132,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F141",
         "kind": "MIRROR",
@@ -2149,7 +3159,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F143",
         "kind": "MIRROR",
@@ -2174,7 +3192,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F149",
         "kind": "MIRROR",
@@ -2193,7 +3219,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F127",
         "kind": "MIRROR",
@@ -2212,7 +3245,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F130",
         "kind": "MIRROR",
@@ -2236,7 +3276,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F131",
         "kind": "MIRROR",
@@ -2260,19 +3307,23 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "DEMOLIZIONE",
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "PACCHETTO_PERMESSI"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F135",
-        "kind": "MIRROR",
+        "kind": "MASTER",
         "label": "Invio AS/VS",
         "occurrenceKey": "F135@PM_PERMESSI.UT_PE",
         "order": 111,
-        "ownerGroup": "UT_PE",
-        "popup": {
-          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
-          "label": "Da UT+PE",
-          "sourceGroup": "UT_PE"
-        },
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "PM_PERMESSI.UT_PE",
         "universal": "INVIO AS/VS"
@@ -2280,9 +3331,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F095",
@@ -2298,9 +3369,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F096",
@@ -2315,7 +3406,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F097",
         "kind": "MASTER",
@@ -2329,7 +3430,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "TEXT",
         "flowId": "F098",
         "kind": "MASTER",
@@ -2342,7 +3453,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F099",
         "kind": "MASTER",
@@ -2355,7 +3476,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "TEXT",
         "flowId": "F100",
         "kind": "MASTER",
@@ -2369,7 +3500,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F101",
         "kind": "MASTER",
@@ -2383,7 +3524,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "TEXT",
         "flowId": "F102",
         "kind": "MASTER",
@@ -2398,7 +3549,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F103",
         "kind": "MASTER",
@@ -2414,9 +3575,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F004",
-          "op": "EQ",
-          "value": "CONSORZIO_ERICSSON"
+          "all": [
+            {
+              "flowId": "F004",
+              "op": "EQ",
+              "value": "CONSORZIO_ERICSSON"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F106",
@@ -2436,9 +3612,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F004",
-          "op": "EQ",
-          "value": "CELLNEX"
+          "all": [
+            {
+              "flowId": "F004",
+              "op": "EQ",
+              "value": "CELLNEX"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F107",
@@ -2459,9 +3650,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F004",
-          "op": "EQ",
-          "value": "CELLNEX"
+          "all": [
+            {
+              "flowId": "F004",
+              "op": "EQ",
+              "value": "CELLNEX"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F108",
@@ -2476,7 +3682,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F111",
         "kind": "MASTER",
@@ -2495,7 +3711,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F110",
         "kind": "MASTER",
@@ -2509,7 +3735,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F109",
         "kind": "MASTER",
@@ -2524,9 +3760,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F004",
-          "op": "EQ",
-          "value": "CELLNEX"
+          "all": [
+            {
+              "flowId": "F004",
+              "op": "EQ",
+              "value": "CELLNEX"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F112",
@@ -2541,7 +3792,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F056",
         "kind": "MIRROR",
@@ -2556,9 +3817,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F057",
@@ -2574,9 +3850,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F006",
-          "op": "NEQ",
-          "value": "01"
+          "all": [
+            {
+              "flowId": "F006",
+              "op": "NEQ",
+              "value": "01"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F113",
@@ -2597,9 +3888,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F006",
-          "op": "NEQ",
-          "value": "01"
+          "all": [
+            {
+              "flowId": "F006",
+              "op": "NEQ",
+              "value": "01"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F114",
@@ -2619,7 +3925,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F115",
         "kind": "MASTER",
@@ -2639,7 +3955,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F116",
         "kind": "MASTER",
@@ -2658,7 +3984,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F117",
         "kind": "MASTER",
@@ -2678,7 +4014,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F118",
         "kind": "MASTER",
@@ -2697,7 +4043,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F119",
         "kind": "MASTER",
@@ -2710,7 +4066,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F120",
         "kind": "MASTER",
@@ -2724,7 +4090,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F121",
         "kind": "MASTER",
@@ -2738,7 +4114,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F122",
         "kind": "MASTER",
@@ -2752,7 +4138,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F123",
         "kind": "MASTER",
@@ -2766,7 +4162,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F124",
         "kind": "MASTER",
@@ -2780,7 +4186,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F125",
         "kind": "MASTER",
@@ -2794,7 +4210,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F090",
         "kind": "MIRROR",
@@ -2807,7 +4230,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F091",
         "kind": "MIRROR",
@@ -2821,7 +4251,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F126",
         "kind": "MASTER",
@@ -2835,7 +4272,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F127",
         "kind": "MASTER",
@@ -2849,7 +4293,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F128",
         "kind": "MASTER",
@@ -2869,7 +4320,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F129",
         "kind": "MASTER",
@@ -2889,7 +4347,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F130",
         "kind": "MASTER",
@@ -2908,7 +4373,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F131",
         "kind": "MASTER",
@@ -2927,7 +4399,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F134",
         "kind": "MASTER",
@@ -2941,21 +4420,34 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "DEMOLIZIONE",
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "PACCHETTO_PERMESSI"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F135",
-        "kind": "MASTER",
+        "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F135@UT_PE.UT",
         "order": 156,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "UT_PE.UT",
         "universal": "INVIO AS/VS"
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": "PROGETTO_ESECUTIVO"
+        },
         "dataType": "DATE",
         "flowId": "F136",
         "kind": "MASTER",
@@ -2969,7 +4461,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": "PROGETTO_ESECUTIVO"
+        },
         "dataType": "USER",
         "flowId": "F137",
         "kind": "MASTER",
@@ -2989,7 +4485,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": "PROGETTO_ESECUTIVO"
+        },
         "dataType": "SELECT",
         "flowId": "F138",
         "kind": "MASTER",
@@ -3008,7 +4508,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": "PROGETTO_ESECUTIVO"
+        },
         "dataType": "DATE",
         "flowId": "F139",
         "kind": "MASTER",
@@ -3022,7 +4526,31 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F087",
         "kind": "MIRROR",
@@ -3045,7 +4573,31 @@
           "formula": "FORECAST_GEOLOGICA",
           "manualOverride": false
         },
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F088",
         "kind": "MIRROR",
@@ -3064,7 +4616,31 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F089",
         "kind": "MIRROR",
@@ -3084,9 +4660,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F092",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F092",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F093",
@@ -3102,9 +4691,24 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F092",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F092",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F094",
@@ -3119,7 +4723,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F140",
         "kind": "MASTER",
@@ -3133,7 +4745,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F141",
         "kind": "MASTER",
@@ -3151,7 +4771,15 @@
           "formula": "TIPOLOGIA_ATTIVITA_PE",
           "manualOverride": false
         },
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F142",
         "kind": "MASTER",
@@ -3169,7 +4797,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "USER",
         "flowId": "F143",
         "kind": "MASTER",
@@ -3189,7 +4825,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "USERS",
         "flowId": "F144",
         "kind": "MASTER",
@@ -3210,7 +4854,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F145",
         "kind": "MASTER",
@@ -3229,7 +4881,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F148",
         "kind": "MASTER",
@@ -3243,7 +4903,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F149",
         "kind": "MASTER",
@@ -3258,9 +4926,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F095",
@@ -3281,9 +4969,29 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "COLLOCATO_NEW_SITE",
+                "COLLOCATO_ESISTENTE",
+                "DEMOLIZIONE",
+                "PONTE_RADIO",
+                "CARATTERIZZAZIONE",
+                "PROGETTO_ESECUTIVO",
+                "VERIFICA_STATICA",
+                "PACCHETTO_PERMESSI",
+                "PE_PLUS_VS",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F096",
@@ -3303,7 +5011,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F097",
         "kind": "MIRROR",
@@ -3322,7 +5040,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F150",
         "kind": "MASTER",
@@ -3341,7 +5067,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F151",
         "kind": "MASTER",
@@ -3355,7 +5089,15 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "VERIFICA_STATICA",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F152",
         "kind": "MASTER",
@@ -3370,9 +5112,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "USER",
         "flowId": "F153",
@@ -3394,9 +5149,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F154",
@@ -3417,9 +5185,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F155",
@@ -3440,9 +5221,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F156",
@@ -3458,9 +5252,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F157",
@@ -3476,9 +5283,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F150",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F150",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F015",
+              "op": "NEQ",
+              "value": [
+                "CARATTERIZZAZIONE",
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F158",
@@ -3493,7 +5313,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F159",
         "kind": "MASTER",
@@ -3507,7 +5337,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F160",
         "kind": "MASTER",
@@ -3521,7 +5361,17 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F015",
+          "op": "NEQ",
+          "value": [
+            "CARATTERIZZAZIONE",
+            "PROGETTO_ESECUTIVO",
+            "VERIFICA_STATICA",
+            "PE_PLUS_VS",
+            "CARATTERIZZAZIONE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F161",
         "kind": "MASTER",
@@ -3761,6 +5611,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.cd0d9ed3b0e1"
+    "version": "2026-10-08.e26453e2c2d2"
   }
 }

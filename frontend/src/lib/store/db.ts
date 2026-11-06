@@ -8,7 +8,7 @@
  */
 import type { AnyBulkWriteOperation, Collection, Db, Document, IndexDescription } from "mongodb";
 import { MongoBulkWriteError, ObjectId } from "mongodb";
-import type { TemplateId } from "@/lib/contract";
+import type { ConditionDTO, TemplateDTO, TemplateId } from "@/lib/contract";
 import { getClient } from "@/lib/db";
 import { COMPILED_TEMPLATES } from "@/lib/templates/compiled";
 import type { InitialList } from "@/lib/lists/catalog";
@@ -277,6 +277,23 @@ export async function assertDataVersion(db: Db, now: Date = new Date(), codeVers
   return doc.version;
 }
 
+/** Codici citati (EQ / NEQ / IN) dalle condizioni del template corrente sui campi con quella lista. */
+function conditionCodes(templateId: string, listId: string): Set<string> {
+  const compiled = (COMPILED_TEMPLATES as Record<string, { template: TemplateDTO } | undefined>)[templateId];
+  const out = new Set<string>();
+  if (!compiled) return out;
+  const t = compiled.template;
+  const flows = new Set(t.occurrences.filter((o) => o.kind === "MASTER" && o.list?.listId === listId && o.flowId).map((o) => o.flowId!));
+  const walk = (c: ConditionDTO | null | undefined): void => {
+    if (!c) return;
+    if ("all" in c) return c.all.forEach(walk);
+    if ("any" in c) return c.any.forEach(walk);
+    if ("value" in c && flows.has(c.flowId)) for (const v of Array.isArray(c.value) ? c.value : [c.value]) out.add(v);
+  };
+  t.occurrences.forEach((o) => walk(o.condition));
+  return out;
+}
+
 export async function bootstrapStore(db: Db, now: Date = new Date()): Promise<{ templatesInserted: number; listsInserted: number }> {
   // K6, PR-27: prima di qualunque altra scrittura, dati e programma devono essere della stessa versione.
   await assertDataVersion(db, now);
@@ -304,6 +321,19 @@ export async function bootstrapStore(db: Db, now: Date = new Date()): Promise<{ 
       updateOne: { filter: { templateId: l.templateId, listId: l.listId }, update: { $setOnInsert: { ...l, revision: 1, updatedAt: now } }, upsert: true },
     }))
   );
+  // D-207: un codice citato da una condizione dei template correnti deve esistere nella lista anche in un database già
+  // seminato (es. TOWERNET Incarico: VERIFICA_STATICA…). Si aggiunge SOLO il codice mancante, dalla lista iniziale;
+  // nient'altro della lista dei leader cambia (etichette, ordine, voci disattivate restano come sono).
+  for (const l of INITIAL_LISTS) {
+    if (!l.templateId) continue;
+    const needed = conditionCodes(l.templateId, l.listId);
+    for (const item of l.items.filter((i) => needed.has(i.code))) {
+      await store.lists(db).updateOne(
+        { templateId: l.templateId, listId: l.listId, "items.code": { $ne: item.code } },
+        { $push: { items: item }, $inc: { revision: 1 }, $set: { updatedAt: now } }
+      );
+    }
+  }
   // Soglie degli alert: versione 1 con i default, solo se manca.
   await insertMissing(
     store.ruleConfig(db),

@@ -177,7 +177,7 @@
     "file": "ASSOCIAZIONI_CAMPI_TOWERNET.md",
     "flowIds": 117,
     "rows": 133,
-    "sha256": "326903e00a05d41d7b54f39332558fdb476d7f197b845d45e79448dfeb83ad77"
+    "sha256": "7e962c6ae27d6374bb8f5761e6178e0041fda733db130d56c4f87b4372f69a94"
   },
   "template": {
     "baseline": "2026-10-08",
@@ -750,9 +750,22 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F010",
-          "op": "EQ",
-          "value": "RAW_LAND"
+          "all": [
+            {
+              "flowId": "F010",
+              "op": "EQ",
+              "value": "RAW_LAND"
+            },
+            {
+              "flowId": "F012",
+              "op": "NEQ",
+              "value": [
+                "VERIFICA_STATICA",
+                "CARATTERIZZAZIONE_PLUS_VS",
+                "PE_PLUS_VS"
+              ]
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F026",
@@ -1448,7 +1461,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F012",
+          "op": "NEQ",
+          "value": [
+            "NEW_SITE",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F075",
         "kind": "MASTER",
@@ -1461,7 +1481,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F012",
+          "op": "NEQ",
+          "value": [
+            "NEW_SITE",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F076",
         "kind": "MASTER",
@@ -1552,16 +1579,11 @@
         "condition": null,
         "dataType": "DATE",
         "flowId": "F095",
-        "kind": "MIRROR",
+        "kind": "MASTER",
         "label": "Invio AS/VS",
         "occurrenceKey": "F095@PM_PERMESSI.UT_PE",
         "order": 76,
-        "ownerGroup": "UT_PE",
-        "popup": {
-          "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
-          "label": "Da UT+PE",
-          "sourceGroup": "UT_PE"
-        },
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "PM_PERMESSI.UT_PE",
         "universal": "INVIO AS/VS"
@@ -1853,7 +1875,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F012",
+          "op": "NEQ",
+          "value": [
+            "NEW_SITE",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F075",
         "kind": "MIRROR",
@@ -1866,7 +1895,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F012",
+          "op": "NEQ",
+          "value": [
+            "NEW_SITE",
+            "PE_PLUS_VS"
+          ]
+        },
         "dataType": "LONGTEXT",
         "flowId": "F076",
         "kind": "MIRROR",
@@ -2003,11 +2039,11 @@
         "condition": null,
         "dataType": "DATE",
         "flowId": "F095",
-        "kind": "MASTER",
+        "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F095@UT_PE.UT",
         "order": 105,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "UT_PE.UT",
         "universal": "INVIO AS/VS"
@@ -2707,6 +2743,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.19ed0170561a"
+    "version": "2026-10-08.414e4643e541"
   }
 }

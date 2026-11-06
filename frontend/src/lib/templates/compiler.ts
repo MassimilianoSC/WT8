@@ -28,7 +28,7 @@ import {
 import { GROUP_LABELS } from "@/lib/practice/labels";
 import { parseAssociations, type SourceRow } from "@/lib/templates/source";
 
-export const COMPILER_VERSION = "1.0.0";
+export const COMPILER_VERSION = "1.1.0";
 
 /* ---------- dati curati in ingresso ---------- */
 
@@ -121,6 +121,32 @@ export interface InitialListRow {
   note: string;
 }
 
+/**
+ * D-207: visibilità guidata da Incarico / Lavorazione (Word "Organizzazione Campi", sezione "SE Incarico/Lavorazione").
+ * Voci di un elenco "visible": chiave di sezione ("UT_PE.PE"), occurrenceKey ("F023@PM_PERMESSI.FASE_PRELIMINARE")
+ * o flowId ("F101" = tutte le sue occorrenze).
+ * - sectionRules: per ciascun valore, cosa resta visibile (più "always"); tutto il resto si nasconde per quel valore.
+ *   Restano visibili anche il master di ogni occorrenza visibile e i master dei campi citati dalla sua condizione
+ *   (chiusura: un campo visibile deve poter essere compilato e fatto comparire).
+ * - fieldRules: "compare solo se Incarico = …" sulle occorrenze dei flowId indicati; con `require` una condizione in
+ *   più (es. Tipologia sito = Raw Land).
+ * Il campo nascosto per un insieme di codici riceve `NEQ [codici]`: con Incarico vuoto, "Altro" o un valore nuovo
+ * aggiunto dai team leader tutto resta visibile (risposta Q6).
+ */
+export interface IncaricoRulesData {
+  version: string;
+  parent: string;
+  templates: Partial<
+    Record<
+      TemplateId,
+      {
+        sectionRules?: { always: string[]; values: Record<string, { visible: string[]; source: string }> };
+        fieldRules?: Array<{ flowIds: string[]; visibleFor: string[]; require?: ConditionSpec; source: string }>;
+      }
+    >
+  >;
+}
+
 export interface CompilerInput {
   baseline: string;
   /** Nome file → contenuto dei sei MD. */
@@ -129,6 +155,8 @@ export interface CompilerInput {
   conditions: ConditionsData;
   overrides: OverridesData;
   lists: InitialListRow[];
+  /** D-207; assente = nessuna regola per Incarico (prove del compilatore). */
+  incarico?: IncaricoRulesData;
 }
 
 /* ---------- uscite ---------- */
@@ -168,6 +196,7 @@ export interface CompileResult {
     bindingsVersion: string;
     conditionsVersion: string;
     overridesVersion: string;
+    incaricoVersion: string | null;
     sources: Record<string, string>;
     lists: string;
     templates: Record<string, { version: string; occurrences: number; flowIds: number; sourceRows: number }>;
@@ -703,6 +732,7 @@ export function compileTemplates(input: CompilerInput): CompileResult {
       }
     }
     occurrences.sort((a, b) => sectionOrder.get(a.sectionKey)! - sectionOrder.get(b.sectionKey)! || a.order - b.order);
+    applyIncarico();
     const keys = new Set<string>();
     for (const o of occurrences) {
       if (keys.has(o.occurrenceKey)) diag("ERROR", "OCCURRENCE_KEY_DUPLICATE", `occurrenceKey duplicata ${o.occurrenceKey}`, o.order, o.flowId ?? undefined);
@@ -713,6 +743,122 @@ export function compileTemplates(input: CompilerInput): CompileResult {
       const refs = (c: ConditionDTO | null | undefined): string[] =>
         !c ? [] : "all" in c ? c.all.flatMap(refs) : "any" in c ? c.any.flatMap(refs) : [c.flowId];
       for (const f of refs(o.condition)) if (!masterRow.has(f)) diag("ERROR", "CONDITION_DANGLING", `condizione su ${f} assente`, o.order, o.flowId ?? undefined);
+    }
+
+    /** D-207: regole di visibilità per Incarico / Lavorazione (IncaricoRulesData), composte con la condizione della cella. */
+    function applyIncarico(): void {
+      const rules = input.incarico?.templates[templateId];
+      if (!rules) return;
+      const parentName = input.incarico!.parent;
+      const incFlow = parentFlow.get(parentName);
+      const incList = incFlow ? typeOf.get(incFlow)?.list : undefined;
+      if (!incFlow || !incList) {
+        diag("ERROR", "INCARICO_PARENT_MISSING", `padre "${parentName}" assente o senza lista in ${templateId}`);
+        return;
+      }
+      const known = knownCodes(incList.listId);
+      const listOrder = input.lists
+        .filter((l) => (l.gestore === templateId || l.gestore === "TUTTI") && snake(l.campo.split(" / ")[0]) === incList.listId)
+        .map((l) => l.codice_proposto);
+      const checkCodes = (codes: string[], where: string) => {
+        for (const c of codes) if (!known?.has(c)) diag("ERROR", "INCARICO_CODE_UNKNOWN", `${where}: codice ${c} assente dalla lista ${incList.listId}`);
+      };
+      const byKey = new Map(occurrences.map((o) => [o.occurrenceKey, o]));
+      const sectionKeys = new Set(sections.map((s) => s.key));
+      /** explicit = occorrenze indicate per chiave o flowId (non per sezione intera): portano con sé il loro master. */
+      const expand = (items: string[], where: string): { all: Set<FieldOccurrenceDTO>; explicit: Set<FieldOccurrenceDTO> } => {
+        const all = new Set<FieldOccurrenceDTO>();
+        const explicit = new Set<FieldOccurrenceDTO>();
+        for (const it of items) {
+          const isSection = sectionKeys.has(it);
+          const found = isSection
+            ? occurrences.filter((o) => o.sectionKey === it)
+            : it.includes("@")
+              ? [byKey.get(it)].filter((o): o is FieldOccurrenceDTO => !!o)
+              : occurrences.filter((o) => o.flowId === it);
+          if (!found.length) diag("ERROR", "INCARICO_KEY_UNKNOWN", `${where}: "${it}" non è una sezione, un'occorrenza o un flowId del template`);
+          for (const o of found) {
+            all.add(o);
+            if (!isSection) explicit.add(o);
+          }
+        }
+        return { all, explicit };
+      };
+      const masterOcc = new Map(occurrences.filter((o) => o.kind === "MASTER" && o.flowId).map((o) => [o.flowId!, o]));
+      const refs = (c: ConditionDTO | null | undefined): string[] =>
+        !c ? [] : "all" in c ? c.all.flatMap(refs) : "any" in c ? c.any.flatMap(refs) : [c.flowId];
+      /**
+       * Chiusura: (1) il master di ogni occorrenza indicata esplicitamente; (2) i master dei campi citati dalle condizioni
+       * delle occorrenze visibili (un campo visibile deve poter comparire); (3) un mirror il cui master resta nascosto si
+       * nasconde anch'esso (non c'è nulla da mostrare né chi lo compili).
+       */
+      const close = ({ all: set, explicit }: { all: Set<FieldOccurrenceDTO>; explicit: Set<FieldOccurrenceDTO> }) => {
+        for (const o of explicit) {
+          const m = o.flowId ? masterOcc.get(o.flowId) : undefined;
+          if (m) set.add(m);
+        }
+        const queue = [...set];
+        while (queue.length) {
+          const o = queue.pop()!;
+          for (const f of refs(o.condition)) {
+            const m = masterOcc.get(f);
+            if (m && !set.has(m)) {
+              set.add(m);
+              queue.push(m);
+            }
+          }
+        }
+        for (const o of [...set]) {
+          const m = o.kind === "MIRROR" && o.flowId ? masterOcc.get(o.flowId) : undefined;
+          if (m && !set.has(m)) set.delete(o);
+        }
+        return set;
+      };
+
+      const hiddenFor = new Map<FieldOccurrenceDTO, Set<string>>();
+      const hide = (o: FieldOccurrenceDTO, code: string) => {
+        if (!hiddenFor.has(o)) hiddenFor.set(o, new Set());
+        hiddenFor.get(o)!.add(code);
+      };
+      if (rules.sectionRules) {
+        const always = expand(rules.sectionRules.always, "sempre visibili");
+        for (const [code, v] of Object.entries(rules.sectionRules.values)) {
+          checkCodes([code], `regola di sezione ${code}`);
+          const listed = expand(v.visible, `regola di sezione ${code}`);
+          const visible = close({ all: new Set([...always.all, ...listed.all]), explicit: new Set([...always.explicit, ...listed.explicit]) });
+          for (const o of occurrences) if (!visible.has(o)) hide(o, code);
+        }
+      }
+      const extra = new Map<FieldOccurrenceDTO, ConditionDTO[]>();
+      for (const [i, fr] of (rules.fieldRules ?? []).entries()) {
+        checkCodes(fr.visibleFor, `regola di campo n.${i + 1}`);
+        const targets = expand(fr.flowIds, `regola di campo n.${i + 1}`).all;
+        let req: ConditionDTO | null = null;
+        if (fr.require) {
+          const p = parentFlow.get(fr.require.parent);
+          if (!p) diag("ERROR", "CONDITION_PARENT_MISSING", `padre "${fr.require.parent}" assente in ${templateId} (regola di campo n.${i + 1})`);
+          else if (fr.require.op === "FILLED" || fr.require.op === "EMPTY") req = { flowId: p, op: fr.require.op };
+          else if (fr.require.value !== undefined) req = { flowId: p, op: fr.require.op, value: fr.require.value };
+        }
+        for (const o of targets) {
+          for (const c of known ?? []) if (!fr.visibleFor.includes(c)) hide(o, c);
+          if (req && !refs(o.condition).includes(req.flowId)) extra.set(o, [...(extra.get(o) ?? []), req]);
+        }
+      }
+      for (const o of occurrences) {
+        if (o.flowId === incFlow) {
+          if (hiddenFor.has(o)) diag("ERROR", "INCARICO_SELF", `${o.occurrenceKey}: il campo Incarico non può dipendere da se stesso`);
+          continue;
+        }
+        const codes = [...(hiddenFor.get(o) ?? [])].sort((a, b) => listOrder.indexOf(a) - listOrder.indexOf(b));
+        const parts: ConditionDTO[] = [
+          ...(o.condition ? [o.condition] : []),
+          ...(extra.get(o) ?? []),
+          ...(codes.length ? [{ flowId: incFlow, op: "NEQ" as const, value: codes.length === 1 ? codes[0] : codes }] : []),
+        ];
+        if (parts.length === (o.condition ? 1 : 0)) continue;
+        o.condition = parts.length === 1 ? parts[0] : { all: parts };
+      }
     }
 
     function popupOf(r: SourceRow, sectionKey: string): PopupRefDTO | undefined {
@@ -799,6 +945,7 @@ export function compileTemplates(input: CompilerInput): CompileResult {
       bindingsVersion: input.bindings.version,
       conditionsVersion: input.conditions.version,
       overridesVersion: input.overrides.version,
+      incaricoVersion: input.incarico?.version ?? null,
       sources,
       lists: sha256(JSON.stringify(input.lists)),
       templates: manifestTemplates,

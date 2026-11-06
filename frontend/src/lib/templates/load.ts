@@ -4,7 +4,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import type { BindingsData, CompilerInput, ConditionsData, InitialListRow, OverridesData } from "@/lib/templates/compiler";
+import type { BindingsData, CompilerInput, ConditionsData, IncaricoRulesData, InitialListRow, OverridesData } from "@/lib/templates/compiler";
 
 export const BASELINE = "2026-10-08";
 
@@ -83,5 +83,6 @@ export function loadCompilerInput(paths: RepoPaths): CompilerInput {
     conditions: readJson<ConditionsData>(path.join(paths.dataDir, "template-conditions.json")),
     overrides: readJson<OverridesData>(path.join(paths.dataDir, "template-overrides.json")),
     lists: readInitialLists(paths.listsCsv),
+    incarico: readJson<IncaricoRulesData>(path.join(paths.dataDir, "template-incarico.json")),
   };
 }

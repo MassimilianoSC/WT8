@@ -34,7 +34,8 @@ describe("where an open alert can be seen", () => {
   it("the fixture is the real case: F124 hidden by AIE in Pacchetto Permessi, shown in Fase AIE", () => {
     const mirror = section(PACCHETTO).occurrences.find((o) => o.flowId === "F124")!;
     expect(mirror.kind).toBe("MIRROR");
-    expect(conditionFlows(mirror.condition)).toEqual(["F052"]);
+    // AIE = SÌ, più la regola di sezione per Incarico / Lavorazione (F015, D-207).
+    expect(conditionFlows(mirror.condition)).toEqual(["F052", "F015"]);
     expect(section(FASE_AIE).occurrences.some((o) => o.flowId === "F124" && o.kind === "MASTER")).toBe(true);
   });
 
@@ -56,7 +57,7 @@ describe("where an open alert can be seen", () => {
     const onlyPacchetto = groups.map((g) => ({ ...g, sections: g.sections.filter((s) => s.section.key !== FASE_AIE) }));
     const p = sectionAlerts(section(PACCHETTO), onlyPacchetto, data(), keys);
     expect(p.count).toBe(2);
-    expect(p.hidden[0]).toMatchObject({ controllers: ["AIE"], visibleIn: undefined });
+    expect(p.hidden[0]).toMatchObject({ controllers: ["AIE", "Incarico / Lavorazione"], visibleIn: undefined });
   });
 
   it("'Vai al campo' targets the occurrence that is shown, preferring the alert's section", () => {

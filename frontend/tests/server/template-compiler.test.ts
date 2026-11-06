@@ -16,6 +16,23 @@ const occ = (id: TemplateId, flowId: string) => tpl(id).occurrences.filter((o) =
 const master = (id: TemplateId, flowId: string) => occ(id, flowId).find((o) => o.kind === "MASTER")!;
 const refs = (c: ConditionDTO | null | undefined): string[] =>
   !c ? [] : "all" in c ? c.all.flatMap(refs) : "any" in c ? c.any.flatMap(refs) : [c.flowId];
+/** Parti di una condizione (all: [cella, regole Incarico…] → elenco; singola → [c]). */
+const parts = (c: ConditionDTO | null | undefined): ConditionDTO[] => (!c ? [] : "all" in c ? c.all : [c]);
+/** D-207: flowId di Incarico / Lavorazione per template. */
+const INCARICO: Record<TemplateId, string> = { ILIAD: "F015", TOWERNET: "F012", TIM_FIBERCOP: "F014", INWIT: "F012", FASTWEB_VODAFONE: "F013", LEONARDO: "F013" };
+const onIncarico = (id: TemplateId, p: ConditionDTO) => "flowId" in p && p.flowId === INCARICO[id];
+/** La condizione senza la regola per Incarico (D-207). */
+const cell = (id: TemplateId, c: ConditionDTO | null | undefined): ConditionDTO | null => {
+  const rest = parts(c).filter((p) => !onIncarico(id, p));
+  return rest.length === 0 ? null : rest.length === 1 ? rest[0] : { all: rest };
+};
+/** Codici di Incarico per cui l'occorrenza è nascosta (NEQ della regola D-207). */
+const hiddenFor = (id: TemplateId, c: ConditionDTO | null | undefined): string[] => {
+  const p = parts(c).find((x) => onIncarico(id, x)) as { op: string; value: string | string[] } | undefined;
+  if (!p) return [];
+  expect(p.op).toBe("NEQ");
+  return Array.isArray(p.value) ? [...p.value] : [p.value];
+};
 
 beforeAll(() => {
   input = loadCompilerInput(paths);
@@ -75,14 +92,14 @@ describe("master e mirror", () => {
     }
   });
 
-  it("R-1: B1 master AIE, B2 Forecast AIE master PM, B3 eliminati, B4 Invio AS/VS master UT", () => {
+  it("R-1: B1 master AIE, B2 Forecast AIE master PM, B3 eliminati; B4 superata: Invio AS/VS master PM (D-207)", () => {
     expect(master("TIM_FIBERCOP", "F047").ownerGroup).toBe("AIE"); // B1 (F046 → F047 dopo D-203)
     expect(master("ILIAD", "F119").sectionKey).toBe("AIE.FASE_AIE"); // B1
     expect(master("INWIT", "F043").ownerGroup).toBe("PM_PERMESSI"); // B2
     expect(occ("TIM_FIBERCOP", "F035").map((o) => o.order).sort((a, b) => a - b)).not.toContain(77); // B3 (F034 → F035, riga 76 → 77 dopo D-203)
     expect(master("TIM_FIBERCOP", "F035").sectionKey).toBe("PM_PERMESSI.FASE_PRELIMINARE");
     expect(occ("FASTWEB_VODAFONE", "F033").some((o) => o.order === 61)).toBe(false);
-    expect(master("TIM_FIBERCOP", "F097").sectionKey).toBe("UT_PE.UT"); // B4 (F096 → F097 dopo D-203)
+    expect(master("TIM_FIBERCOP", "F097").sectionKey).toBe("PM_PERMESSI.FASE_PRELIMINARE"); // D-207 (era B4: master UT)
     expect(master("TIM_FIBERCOP", "F097").dataType).toBe("DATE");
   });
 
@@ -111,34 +128,132 @@ describe("master e mirror", () => {
 
 describe("condizioni (§2.3, D-92)", () => {
   it("esempi del §2.3", () => {
-    expect(master("ILIAD", "F093").condition).toEqual({ flowId: "F092", op: "EQ", value: "SI" });
+    expect(cell("ILIAD", master("ILIAD", "F093").condition)).toEqual({ flowId: "F092", op: "EQ", value: "SI" });
     expect(occ("TIM_FIBERCOP", "F071").find((o) => o.kind === "MIRROR")!.condition).toEqual({ flowId: "F087", op: "EQ", value: "SI" });
     const nota = master("ILIAD", "F074");
-    expect(nota.condition).toEqual({ flowId: "F073", op: "FILLED" });
+    expect(cell("ILIAD", nota.condition)).toEqual({ flowId: "F073", op: "FILLED" });
     expect(nota.repeatGroup).toBe("INTEGRAZIONE");
   });
 
   it("Piemonte confrontato col codice ISTAT, deposito sismico sul flag", () => {
-    expect(master("ILIAD", "F113").condition).toEqual({ flowId: "F006", op: "NEQ", value: "01" });
-    const dep = master("ILIAD", "F153").condition as { flowId: string };
+    expect(cell("ILIAD", master("ILIAD", "F113").condition)).toEqual({ flowId: "F006", op: "NEQ", value: "01" });
+    const dep = cell("ILIAD", master("ILIAD", "F153").condition) as { flowId: string };
     expect(master("ILIAD", dep.flowId).dataType).toBe("SELECT");
   });
 
   it("Protocollo autocertificazione sempre visibile (D-77)", () => {
     expect(master("TOWERNET", "F061").condition).toBeNull();
-    expect(master("INWIT", "F068").condition).toBeNull();
+    // INWIT: nessuna condizione di cella; resta solo la regola di sezione per Incarico (D-207).
+    expect(cell("INWIT", master("INWIT", "F068").condition)).toBeNull();
   });
 
-  it("ogni condizione cita un flowId del template; nessuna dipende da Incarico/Lavorazione o Geologica", () => {
+  it("ogni condizione cita un flowId del template; Incarico solo con NEQ (D-207); mai Geologica", () => {
     for (const id of Object.keys(result.templates) as TemplateId[]) {
       const flows = new Set(tpl(id).occurrences.map((o) => o.flowId));
+      expect(master(id, INCARICO[id]).label, id).toBe("Incarico / Lavorazione");
+      expect(master(id, INCARICO[id]).condition, id).toBeNull();
       for (const o of tpl(id).occurrences) {
         for (const f of refs(o.condition)) {
           expect(flows.has(f), `${id} ${o.occurrenceKey} → ${f}`).toBe(true);
-          expect(master(id, f).label, `${id} ${o.occurrenceKey}`).not.toMatch(/incarico|geologica/i);
+          expect(master(id, f).label, `${id} ${o.occurrenceKey}`).not.toMatch(/geologica/i);
         }
+        hiddenFor(id, o.condition); // l'unica forma ammessa su Incarico è NEQ
+        expect(refs(cell(id, o.condition)), `${id} ${o.occurrenceKey}`).not.toContain(INCARICO[id]);
       }
     }
+  });
+});
+
+describe("albero per Incarico / Lavorazione (D-207)", () => {
+  /** Occorrenze visibili con Incarico = code e gli altri valori dati (codici). */
+  const visibleKeys = (id: TemplateId, code: string, extra: Record<string, string> = {}) => {
+    const vals: Record<string, string> = { [INCARICO[id]]: code, ...extra };
+    const ok = (c: ConditionDTO | null | undefined): boolean => {
+      if (!c) return true;
+      if ("all" in c) return c.all.every(ok);
+      if ("any" in c) return c.any.some(ok);
+      const v = vals[c.flowId];
+      if (!("value" in c)) return c.op === "FILLED" ? !!v : !v;
+      const exp = Array.isArray(c.value) ? c.value : [c.value];
+      const m = !!v && exp.includes(v);
+      return c.op === "NEQ" ? !m : m;
+    };
+    return tpl(id).occurrences.filter((o) => ok(o.condition)).map((o) => o.occurrenceKey);
+  };
+
+  it("nessun errore INCARICO_*; il manifest dichiara la versione delle regole", () => {
+    expect(result.diagnostics.filter((d) => d.code.startsWith("INCARICO_"))).toEqual([]);
+    expect(result.manifest.incaricoVersion).toBe(input.incarico!.version);
+  });
+
+  it("INWIT Caratterizzazione: Core, Dati secondari e solo i campi elencati (più la caratterizzazione UT)", () => {
+    const outside = visibleKeys("INWIT", "CARATTERIZZAZIONE").filter((k) => !/@PM_PERMESSI\.(CORE|DATI_SECONDARI)$/.test(k));
+    expect(outside.sort()).toEqual(
+      [
+        "F023@PM_PERMESSI.FASE_PRELIMINARE",
+        "F024@PM_PERMESSI.FASE_PRELIMINARE",
+        "F025@PM_PERMESSI.FASE_PRELIMINARE",
+        "F105@PM_PERMESSI.FASE_PRELIMINARE",
+        "F102@PM_PERMESSI.FASE_PRELIMINARE",
+        "F103@PM_PERMESSI.FASE_PRELIMINARE",
+        "F102@UT_PE.UT",
+        "F103@UT_PE.UT",
+        "F104@UT_PE.UT",
+        "F105@UT_PE.UT",
+      ].sort()
+    );
+  });
+
+  it("INWIT Progetto Esecutivo: Assegnazione PE porta con sé il flag PE; i mirror di campi PM nascosti spariscono", () => {
+    const keys = visibleKeys("INWIT", "PROGETTO_ESECUTIVO", { F078: "SI", F010: "RAW_LAND", F116: "SI" });
+    expect(keys).toContain("F078@PM_PERMESSI.UT_PE");
+    expect(keys).toContain("F079@PM_PERMESSI.UT_PE");
+    expect(keys).toContain("F115@UT_PE.PE");
+    expect(keys).toContain("F120@DL.DIREZIONE_LAVORI");
+    expect(keys).not.toContain("F073@UT_PE.PE"); // Geologica: master PM nascosto
+    expect(keys).not.toContain("F125@DL.DIREZIONE_LAVORI"); // Forecast CIL: non è deposito sismico
+    expect(keys.some((k) => k.endsWith("@AIE.FASE_AIE"))).toBe(false); // Q4
+  });
+
+  it("Incarico vuoto, Altro o valore nuovo: visibile tutto ciò che non ha altre condizioni (Q6)", () => {
+    for (const id of Object.keys(result.templates) as TemplateId[]) {
+      const free = tpl(id).occurrences.filter((o) => cell(id, o.condition) === null && !(o.condition && "all" in o.condition));
+      for (const code of ["", "ALTRO", "VALORE_NUOVO"]) {
+        const keys = new Set(visibleKeys(id, code));
+        for (const o of free) expect(keys.has(o.occurrenceKey), `${id} ${code} ${o.occurrenceKey}`).toBe(true);
+      }
+    }
+  });
+
+  it("Invio AS/VS: master PM in tutti i template, UT in sola lettura; visibilità della risposta Q2", () => {
+    const asvs: Record<TemplateId, string> = { ILIAD: "F135", TOWERNET: "F095", TIM_FIBERCOP: "F097", INWIT: "F101", FASTWEB_VODAFONE: "F072", LEONARDO: "F091" };
+    for (const [id, f] of Object.entries(asvs) as Array<[TemplateId, string]>) {
+      expect(master(id, f).ownerGroup, id).toBe("PM_PERMESSI");
+      expect(occ(id, f).find((o) => o.sectionKey === "UT_PE.UT")!.kind, id).toBe("MIRROR");
+    }
+    expect(hiddenFor("TIM_FIBERCOP", master("TIM_FIBERCOP", "F097").condition)).toEqual(["DEMOLIZIONE"]);
+    expect(hiddenFor("LEONARDO", master("LEONARDO", "F091").condition)).toEqual([]);
+    expect(hiddenFor("FASTWEB_VODAFONE", master("FASTWEB_VODAFONE", "F072").condition).sort()).toEqual(["APPLICABILITA", "DEMOLIZIONE"]);
+    expect(hiddenFor("TOWERNET", master("TOWERNET", "F095").condition)).toEqual([]); // lista TOWERNET: solo i 4 valori ammessi
+    expect(hiddenFor("INWIT", master("INWIT", "F101").condition).sort()).toEqual(["CARATTERIZZAZIONE", "DEMOLIZIONE", "HOUSING", "PROGETTO_ESECUTIVO"]);
+  });
+
+  it("ILIAD Geologica: Raw Land e New Site (Q8, revoca di J18 per ILIAD); TIM Progetto non con New Site", () => {
+    for (const f of ["F086", "F087", "F088", "F089"]) {
+      expect(cell("ILIAD", master("ILIAD", f).condition), f).toEqual({ flowId: "F010", op: "EQ", value: "RAW_LAND" });
+      expect(hiddenFor("ILIAD", master("ILIAD", f).condition), f).not.toContain("NEW_SITE");
+      expect(hiddenFor("ILIAD", master("ILIAD", f).condition), f).toContain("DEMOLIZIONE");
+    }
+    expect(hiddenFor("TIM_FIBERCOP", master("TIM_FIBERCOP", "F015").condition)).toEqual(["NEW_SITE", "COLLOCATO_NEW_SITE"]);
+  });
+
+  it("un codice assente dalla lista o una voce inesistente sono errori", () => {
+    const bad = structuredClone(input);
+    bad.incarico!.templates.TIM_FIBERCOP!.fieldRules![0].visibleFor.push("INVENTATO");
+    expect(compileTemplates(bad).diagnostics.some((d) => d.code === "INCARICO_CODE_UNKNOWN" && d.templateId === "TIM_FIBERCOP")).toBe(true);
+    const bad2 = structuredClone(input);
+    bad2.incarico!.templates.INWIT!.sectionRules!.values.CARATTERIZZAZIONE.visible.push("F999");
+    expect(compileTemplates(bad2).diagnostics.some((d) => d.code === "INCARICO_KEY_UNKNOWN")).toBe(true);
   });
 });
 

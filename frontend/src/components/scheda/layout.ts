@@ -134,3 +134,33 @@ export function sectionProgress(view: SectionView, data: SheetValues): { filled:
   }
   return { filled, total };
 }
+
+/** The template's Incarico / Lavorazione field (list INCARICO), parent of the tree conditions (D-207). */
+export function treeFlowId(template: Pick<TemplateDTO, "occurrences">): string | null {
+  return template.occurrences.find((o) => o.kind === "MASTER" && o.list?.listId === "INCARICO")?.flowId ?? null;
+}
+
+function cites(condition: FieldOccurrenceDTO["condition"], flowId: string): boolean {
+  if (!condition) return false;
+  if ("all" in condition) return condition.all.some((c) => cites(c, flowId));
+  if ("any" in condition) return condition.any.some((c) => cites(c, flowId));
+  return condition.flowId === flowId;
+}
+
+/**
+ * D-207 (Q3): a section disappears when every occurrence is hidden and at least one is hidden by a condition on
+ * Incarico / Lavorazione. A section emptied only by other conditions stays, with its 0/n counter (D-122).
+ */
+export function sectionHiddenByTree(view: SectionView, data: SheetValues, flowId: string | null): boolean {
+  if (!flowId || view.occurrences.length === 0) return false;
+  if (!view.occurrences.some((o) => cites(o.condition, flowId))) return false;
+  return view.occurrences.every((o) => !isVisible(o.condition, data));
+}
+
+/** The sheet without the sections removed by the tree; groups left empty disappear too. */
+export function visibleTree(groups: GroupView[], data: SheetValues, flowId: string | null): GroupView[] {
+  if (!flowId) return groups;
+  return groups
+    .map((g) => ({ ...g, sections: g.sections.filter((s) => !sectionHiddenByTree(s, data, flowId)) }))
+    .filter((g) => g.sections.length > 0);
+}

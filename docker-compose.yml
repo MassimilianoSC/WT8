@@ -50,7 +50,7 @@ services:
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       SMTP_SECURE: ${SMTP_SECURE:-false}
-      SMTP_FROM: ${SMTP_FROM:-PracticeHub <no-reply@practicehub.local>}
+      SMTP_FROM: ${SMTP_FROM:-WT8 <no-reply@practicehub.local>}
 
 volumes:
   mongo_data:
