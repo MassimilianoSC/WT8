@@ -1,4 +1,4 @@
-# PracticeHub — Guida per chi la usa
+# WT8 — Guida per chi la usa
 
 *Versione del 09/10/2026. Schermate della versione definitiva con dati dimostrativi. Hai un problema o un dubbio? Scrivi a **operations@hqe.it**.*
 
@@ -6,7 +6,7 @@
 
 ## 1. Che cos'è
 
-PracticeHub raccoglie in un solo posto le pratiche dei siti che gestiamo per i nostri clienti (ILIAD, TOWERNET, TIM/FIBERCOP, INWIT, FASTWEB-VODAFONE, LEONARDO) e sostituisce i fogli Excel dei team.
+WT8 raccoglie in un solo posto le pratiche dei siti che gestiamo per i nostri clienti (ILIAD, TOWERNET, TIM/FIBERCOP, INWIT, FASTWEB-VODAFONE, LEONARDO) e sostituisce i fogli Excel dei team.
 
 Ogni pratica ha una **scheda** divisa per gruppo di lavoro:
 
@@ -111,6 +111,8 @@ In fondo alla scheda: **Modifiche ai campi** (valore vecchio → nuovo, chi e qu
 ![Il menu delle menzioni](img/04l-scheda-commenti-menzione.png)
 
 ## 6. Assegnare la pratica ad altri gruppi
+
+L'Assegna la possono fare i PM, gli utenti del ruolo Permessi e l'amministratore.
 
 1. Compila e **salva** prima i campi di assegnazione nella sezione PM (data, forecast, note).
 2. **Assegna** → scegli uno o più gruppi (AIE, UT/PE, DL) → eventuale nota per la mail → conferma.

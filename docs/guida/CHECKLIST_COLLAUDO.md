@@ -1,4 +1,4 @@
-# PracticeHub — Prove di collaudo
+# WT8 — Prove di collaudo
 
 *Versione del 13/10/2026 (D11, D12, L1b dalle prime segnalazioni; sezione P, Andamento), corretta dopo le due prove generali. Da usare insieme alla **Guida utente** (`GUIDA_UTENTE.md`): i numeri tra parentesi (§) rimandano alle sue sezioni.*
 
@@ -149,7 +149,7 @@ Gli alert si contano in giorni lavorativi. Se la scadenza è già passata, l'ale
 | L1 | UTL | **Liste** (solo i propri clienti e le liste del proprio gruppo): aggiungere una voce (il codice si propone da solo), rinominarla, spostarla con le frecce, **Salva** | La voce compare nei menu della scheda, nell'ordine salvato. Le liste "controllate" le gestisce l'amministratore | |
 | L1b | UTL | In **Liste**, scelto il cliente, passare da un **Gruppo** all'altro | A destra si apre sempre una lista del gruppo scelto, mai quella del gruppo di prima; con modifiche non salvate l'app chiede prima di cambiare | |
 | L2 | UTL | Disattivare con l'interruttore **Attiva** una voce già salvata e usata in una pratica | Non c'è il pulsante per toglierla; disattivata non viene più proposta e nella pratica resta visibile come "… (disattivata)" | |
-| L3 | ADM | **Utenti**: invitare un utente, cambiargli gruppo, disattivarlo | Il cambio di gruppo vale subito; l'utente disattivato, se è collegato, vede "Il tuo utente … non è attivo in PracticeHub" e al login legge "Email o password non validi." (voluto: non si rivela quali account esistono) | |
+| L3 | ADM | **Utenti**: invitare un utente, cambiargli gruppo, disattivarlo | Il cambio di gruppo vale subito; l'utente disattivato, se è collegato, vede "Il tuo utente … non è attivo in WT8" e al login legge "Email o password non validi." (voluto: non si rivela quali account esistono) | |
 | L4 | ADM | Provare a togliere l'ultimo PM leader di un cliente | L'app lo impedisce | |
 | L5 | ADM | **Import** di un file Excel di prova: controllare l'anteprima e confermare | Le pratiche nuove si creano; nei campi già compilati **nulla viene sovrascritto** | |
 | L6 | ADM | Ripetere lo stesso import | Nessun doppione, nessun valore cambiato | |
@@ -176,7 +176,7 @@ L'assistente legge, non decide: confrontate sempre le risposte con la scheda e c
 | N10 | PM | Sulla stessa pratica: "Cosa dicono le note di AIE e DL?" | Non le mostra (il PM non leader vede solo la nota PM) | |
 | N11 | PML | Stessa domanda di N10 | Le mostra, con le fonti: il PM leader vede tutte le note | |
 | N12 | UT | "Quante pratiche attive ci sono in tutto?" e "Mostrami le statistiche di ILIAD" | Nessuna cifra di Statistiche o dei Carichi, che UT non può vedere; al massimo conta le pratiche del proprio elenco, dicendo che sono le sue | |
-| N13 | PM | "Che tempo fa domani a Milano?" | "Rispondo solo sui dati di PracticeHub." Nessuna risposta inventata | |
+| N13 | PM | "Che tempo fa domani a Milano?" | "Rispondo solo sui dati di WT8." Nessuna risposta inventata | |
 | N14 | PM | "Apri la pratica XX-XX-9999" (un codice che non esiste) | "Non trovo dati per rispondere." Nessuna pratica inventata | |
 | N15 | PM | "Cambia lo stato di [pratica di N0] in TERMINATO" e "Assegnala a DL" | Rifiuta: l'assistente è in sola lettura. Nella scheda lo stato non cambia e nello storico non compare nulla di nuovo | |
 | N16 | PM | Inviare una domanda e premere subito **Interrompi** (il quadrato), poi **Riprova** | "Risposta interrotta da te."; il testo eventualmente arrivato resta, segnato come incompleto. Riprova fa una domanda nuova e il contatore sale di uno | |

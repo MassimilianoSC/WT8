@@ -134,7 +134,7 @@ dei test (oggi a mano, da una condivisione o un disco esterno; poi dalla cartell
 ## Export CSV giornaliero (PR-18)
 
 Ogni giorno dalle `PH_EXPORT_TIME` (default 06:30, ora di Roma) il worker scrive in `PH_EXPORT_DIR` (su D:) una
-cartella `AAAA-MM-GG` con un CSV per gestore (`PracticeHub_<gestore>_<data>.csv`): tutte le pratiche non archiviate e
+cartella `AAAA-MM-GG` con un CSV per gestore (`WT8_<gestore>_<data>.csv`): tutte le pratiche non archiviate e
 tutte le Note Operative, nello stesso formato per Excel italiano dell'export dell'app. È il **piano B** se l'app è
 ferma: i file si aprono con Excel anche senza PracticeHub. Si tengono gli ultimi 7 giorni; un solo worker lo esegue,
 una volta al giorno. Quando l'IT darà la cartella di rete (R-19 punto 1), basta puntarvi `PH_EXPORT_DIR`.
