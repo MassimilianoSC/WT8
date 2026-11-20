@@ -2,7 +2,7 @@
  * Normalizzazione in scrittura dei valori dei campi (B5b, D-110). PURA: niente database.
  *
  * - Testo di soli spazi → null (TEXT, LONGTEXT, DATE); il testo valorizzato si salva così com'è.
- * - DATE: data reale "YYYY-MM-DD"; NUMBER: numero finito.
+ * - DATE: data reale "YYYY-MM-DD" oppure NO_DATE ("Nessuna data", D-208, non nei calcolati); NUMBER: numero finito.
  * - SELECT / USER: codice non vuoto (altrimenti 422); otherText solo con il codice ALTRO e una lista che
  *   ammette "Altro", e allora obbligatorio. USER: id utente o NONE_CODE se la lista lo ammette.
  * - MULTISELECT / USERS: array vuoto → null; codici univoci; NONE_CODE esclusivo.
@@ -10,7 +10,7 @@
  * restituisce solo cosa controllare (`listCodesOf`).
  */
 import { isValidIsoDate } from "@/lib/calendario";
-import { NONE_CODE, type FieldOccurrenceDTO, type ListRefDTO, type FieldValue, type SelectValue } from "@/lib/contract";
+import { NO_DATE, NONE_CODE, type FieldOccurrenceDTO, type ListRefDTO, type FieldValue, type SelectValue } from "@/lib/contract";
 import { HttpError } from "@/lib/http-error";
 
 export const OTHER_CODE = "ALTRO";
@@ -18,7 +18,7 @@ export const TEXT_MAX = 2000;
 export const LONGTEXT_MAX = 20000;
 const USER_ID_RX = /^[0-9a-f]{24}$/;
 
-type Occ = Pick<FieldOccurrenceDTO, "dataType" | "label" | "list">;
+type Occ = Pick<FieldOccurrenceDTO, "dataType" | "label" | "list"> & Partial<Pick<FieldOccurrenceDTO, "computed">>;
 
 const invalid = (occ: Pick<Occ, "label">, why: string) => new HttpError(`${occ.label}: ${why}`, 422);
 
@@ -65,6 +65,11 @@ export function normalizeFieldValue(occ: Occ, value: FieldValue | undefined): Fi
       if (typeof value !== "string") throw invalid(occ, "serve una data");
       const d = value.trim();
       if (d === "") return null;
+      // D-208: "Nessuna data" solo nelle date compilate a mano.
+      if (d === NO_DATE) {
+        if (occ.computed) throw invalid(occ, "\"Nessuna data\" non vale per un campo calcolato");
+        return NO_DATE;
+      }
       if (!isValidIsoDate(d)) throw invalid(occ, "data non valida (formato AAAA-MM-GG)");
       return d;
     }

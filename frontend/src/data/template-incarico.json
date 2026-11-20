@@ -1,0 +1,104 @@
+{
+  "version": "1",
+  "note": "D-207 (ripristino D-200): visibilità guidata da Incarico / Lavorazione. Fonte: Word 'Organizzazione Campi' in DOCS/organizzazione (risposta Q1: fanno fede i DOCS), sezione 'SE Incarico/Lavorazione' e righe 'compare solo se'; risposte Q2-Q11 del 06/11/2026. Voci: chiave di sezione, occurrenceKey o flowId (tutte le occorrenze). Il compilatore aggiunge 'NEQ [codici]' per i valori per cui un'occorrenza non è prevista; Incarico vuoto, Altro o un valore nuovo = tutto visibile (Q6). 'pop-up UT' / 'pop-up PE' = i campi UT / PE che il PM vede in sola lettura nel box 'Da UT+PE' e le sezioni UT / PE del team (Q5).",
+  "parent": "Incarico / Lavorazione",
+  "templates": {
+    "ILIAD": {
+      "sectionRules": {
+        "always": ["PM_PERMESSI.CORE", "PM_PERMESSI.DATI_SECONDARI"],
+        "values": {
+          "CARATTERIZZAZIONE": {
+            "visible": ["F027@PM_PERMESSI.FASE_PRELIMINARE", "F029@PM_PERMESSI.FASE_PRELIMINARE", "F044@PM_PERMESSI.FASE_PRELIMINARE", "F045@PM_PERMESSI.FASE_PRELIMINARE", "F136", "F137", "F138", "F139"],
+            "source": "Word ILIAD: Fase preliminare solo data assegnazione, data sopralluogo, Invio offerta, Conferma offerta; più i campi della caratterizzazione (pop-up UT di Fase Preliminare e loro master UT)"
+          },
+          "PROGETTO_ESECUTIVO": {
+            "visible": ["F027@PM_PERMESSI.FASE_PRELIMINARE", "F029@PM_PERMESSI.FASE_PRELIMINARE", "F093@PM_PERMESSI.UT_PE", "UT_PE.PE", "F140", "F141", "F143", "F149", "F150", "F151", "F152", "F153", "F154", "F155", "F156", "F157", "F158"],
+            "source": "Word ILIAD: UT+PE solo assegnazione PE, pop-up PE e deposito sismico; Fase Preliminare solo data assegnazione e data sopralluogo"
+          },
+          "VERIFICA_STATICA": {
+            "visible": ["F027@PM_PERMESSI.FASE_PRELIMINARE", "F029@PM_PERMESSI.FASE_PRELIMINARE", "F090@PM_PERMESSI.UT_PE", "F091@PM_PERMESSI.UT_PE", "UT_PE.UT", "F126", "F127", "F130", "F131", "F135"],
+            "source": "Word ILIAD: UT+PE solo Assegnazione UT, Note assegnazione UT, pop up informazioni UT e invio AS/VS; Fase Preliminare solo data assegnazione e data sopralluogo"
+          },
+          "CARATTERIZZAZIONE_PLUS_VS": {
+            "visible": ["F027@PM_PERMESSI.FASE_PRELIMINARE", "F029@PM_PERMESSI.FASE_PRELIMINARE", "F090@PM_PERMESSI.UT_PE", "F091@PM_PERMESSI.UT_PE", "UT_PE.UT", "F126", "F127", "F130", "F131", "F135", "F136", "F137", "F138", "F139"],
+            "source": "Word ILIAD: come Verifica Statica più Report caratterizzazione e Invio report caratterizzazione in Fase Preliminare (in ILIAD: pop-up UT Forecast Invio Caratterizzazione, Tecnico, Invio Report Caratterizzazione)"
+          },
+          "PE_PLUS_VS": {
+            "visible": ["F027@PM_PERMESSI.FASE_PRELIMINARE", "F029@PM_PERMESSI.FASE_PRELIMINARE", "F093@PM_PERMESSI.UT_PE", "F090@PM_PERMESSI.UT_PE", "F091@PM_PERMESSI.UT_PE", "UT_PE.UT", "UT_PE.PE", "F126", "F127", "F130", "F131", "F140", "F141", "F143", "F149", "F135", "F150", "F151", "F152", "F153", "F154", "F155", "F156", "F157", "F158"],
+            "source": "Word ILIAD: UT+PE solo Assegnazione PE, assegnazione UT, Note assegnazione UT, pop up informazioni PE e UT, deposito sismico e invio AS/VS; Fase Preliminare solo data assegnazione e data sopralluogo"
+          }
+        }
+      },
+      "fieldRules": [
+        { "flowIds": ["F016"], "visibleFor": ["NEW_SITE"], "source": "Word ILIAD (DOCS, Q1): Progetto si compila solo se New Site" },
+        { "flowIds": ["F026"], "visibleFor": ["NEW_SITE"], "source": "Word ILIAD: Acquisitore compare solo se New site" },
+        { "flowIds": ["F037", "F038", "F039", "F040", "F041", "F042"], "visibleFor": ["NEW_SITE"], "source": "Word ILIAD: rilievo topografico e georadar solo se new site raw land (Raw Land già nella cella; Q8, conferma Ballerio)" },
+        { "flowIds": ["F086", "F087", "F088", "F089"], "visibleFor": ["NEW_SITE"], "require": { "parent": "Tipologia sito", "op": "EQ", "value": "RAW_LAND" }, "source": "Word ILIAD: Progettazione esecutiva e UT, Geologica compare solo se Tipologia sito = Raw Land e Incarico = New Site (Q8, revoca J18 per ILIAD)" },
+        { "flowIds": ["F095", "F096"], "visibleFor": ["NEW_SITE"], "source": "Word ILIAD: scheda richiesta palo e scheda scarichi solo se Raw Land + New Site (Raw Land già nella cella)" },
+        { "flowIds": ["F135"], "visibleFor": ["NEW_SITE", "COLLOCATO_NEW_SITE", "COLLOCATO_ESISTENTE", "PONTE_RADIO", "VERIFICA_STATICA", "PE_PLUS_VS", "CARATTERIZZAZIONE_PLUS_VS"], "source": "Risposta Q2 del 06/11/2026 (Invio AS/VS)" }
+      ]
+    },
+    "INWIT": {
+      "sectionRules": {
+        "always": ["PM_PERMESSI.CORE", "PM_PERMESSI.DATI_SECONDARI"],
+        "values": {
+          "CARATTERIZZAZIONE": {
+            "visible": ["F023@PM_PERMESSI.FASE_PRELIMINARE", "F024@PM_PERMESSI.FASE_PRELIMINARE", "F025", "F105", "F102", "F103", "F104"],
+            "source": "Word INWIT: Fase Preliminare solo data assegnazione, data sopralluogo, Report caratterizzazione e Invio report caratterizzazione; più i campi della caratterizzazione dell'UT (pop-up UT di Fase Preliminare e loro master)"
+          },
+          "PROGETTO_ESECUTIVO": {
+            "visible": ["F023@PM_PERMESSI.FASE_PRELIMINARE", "F024@PM_PERMESSI.FASE_PRELIMINARE", "F079@PM_PERMESSI.UT_PE", "UT_PE.PE", "F116", "F117", "F118", "F119", "F120", "F121", "F122", "F123", "F124"],
+            "source": "Word INWIT: UT+PE solo assegnazione PE, pop-up PE e deposito sismico; Fase Preliminare solo data assegnazione e data sopralluogo"
+          },
+          "VERIFICA_STATICA": {
+            "visible": ["F023@PM_PERMESSI.FASE_PRELIMINARE", "F024@PM_PERMESSI.FASE_PRELIMINARE", "F081@PM_PERMESSI.UT_PE", "F082@PM_PERMESSI.UT_PE", "UT_PE.UT", "F101"],
+            "source": "Word INWIT: UT+PE solo Assegnazione UT, Note assegnazione UT, pop up informazioni UT e invio AS/VS; Fase Preliminare solo data assegnazione e data sopralluogo"
+          },
+          "CARATTERIZZAZIONE_PLUS_VS": {
+            "visible": ["F023@PM_PERMESSI.FASE_PRELIMINARE", "F024@PM_PERMESSI.FASE_PRELIMINARE", "F025", "F105", "F102", "F103", "F104", "F081@PM_PERMESSI.UT_PE", "F082@PM_PERMESSI.UT_PE", "UT_PE.UT", "F101"],
+            "source": "Word INWIT: come Verifica Statica più Report caratterizzazione e Invio report caratterizzazione in Fase Preliminare"
+          },
+          "PE_PLUS_VS": {
+            "visible": ["F023@PM_PERMESSI.FASE_PRELIMINARE", "F024@PM_PERMESSI.FASE_PRELIMINARE", "F079@PM_PERMESSI.UT_PE", "F081@PM_PERMESSI.UT_PE", "F082@PM_PERMESSI.UT_PE", "UT_PE.UT", "UT_PE.PE", "F101", "F116", "F117", "F118", "F119", "F120", "F121", "F122", "F123", "F124"],
+            "source": "Word INWIT: UT+PE solo Assegnazione PE, assegnazione UT, Note assegnazione UT, pop up informazioni PE e UT, deposito sismico e invio AS/VS; Fase Preliminare solo data assegnazione e data sopralluogo"
+          }
+        }
+      },
+      "fieldRules": [
+        { "flowIds": ["F013"], "visibleFor": ["NEW_SITE"], "source": "Word INWIT: Progetto si compila solo se New Site" },
+        { "flowIds": ["F025", "F105"], "visibleFor": ["CARATTERIZZAZIONE", "CARATTERIZZAZIONE_PLUS_VS"], "source": "Word INWIT: Report caratterizzazione e Invio report caratterizzazione solo se Caratterizzazione o Caratterizzazione + VS" },
+        { "flowIds": ["F030"], "visibleFor": ["NEW_SITE"], "source": "Word INWIT: Invio rilievo topografico solo se new site raw land (Raw Land già nella cella)" },
+        { "flowIds": ["F052"], "visibleFor": ["NEW_SITE"], "source": "Word INWIT: Forecast Ottenimento Permessi compare solo quando Incarico = New Site (il calcolo continua anche se nascosto)" },
+        { "flowIds": ["F081", "F082"], "visibleFor": ["VERIFICA_STATICA", "CARATTERIZZAZIONE_PLUS_VS", "PE_PLUS_VS"], "source": "Word INWIT: Assegnazione UT e Note solo se Verifica statica o Caratterizzazione + VS; PE+VS dalla regola di sezione dello stesso Word" },
+        { "flowIds": ["F101"], "visibleFor": ["NEW_SITE", "VERIFICA_STATICA", "CARATTERIZZAZIONE_PLUS_VS", "PE_PLUS_VS"], "source": "Risposta Q2 del 06/11/2026 (Invio AS/VS)" }
+      ]
+    },
+    "TOWERNET": {
+      "fieldRules": [
+        { "flowIds": ["F026"], "visibleFor": ["NEW_SITE"], "source": "Word TOWERNET: Invio rilievo topografico solo se new site raw land (Raw Land già nella cella)" },
+        { "flowIds": ["F075", "F076"], "visibleFor": ["VERIFICA_STATICA", "CARATTERIZZAZIONE_PLUS_VS"], "source": "Word TOWERNET: Assegnazione UT e Note solo se Verifica statica o Caratterizzazione + VS (Q11)" },
+        { "flowIds": ["F095"], "visibleFor": ["NEW_SITE", "VERIFICA_STATICA", "CARATTERIZZAZIONE_PLUS_VS", "PE_PLUS_VS"], "source": "Risposta Q2 del 06/11/2026 (Invio AS/VS)" }
+      ]
+    },
+    "TIM_FIBERCOP": {
+      "fieldRules": [
+        { "flowIds": ["F015"], "visibleFor": ["COLLOCATO_ESISTENTE", "DEMOLIZIONE", "PONTE_RADIO"], "source": "Word TIM: Progetto si compila solo se NON New Site o Collocato New Site" },
+        { "flowIds": ["F097"], "visibleFor": ["NEW_SITE", "COLLOCATO_NEW_SITE", "COLLOCATO_ESISTENTE", "PONTE_RADIO"], "source": "Risposta Q2 del 06/11/2026 (Invio AS/VS)" }
+      ]
+    },
+    "FASTWEB_VODAFONE": {
+      "sectionRules": {
+        "always": ["PM_PERMESSI.CORE"],
+        "values": {
+          "APPLICABILITA": {
+            "visible": ["F030", "F031"],
+            "source": "Word FASTWEB-VODAFONE: con Applicabilità nei box operativi compaiono solo Applicabilità e Invio applicabilità"
+          }
+        }
+      },
+      "fieldRules": [
+        { "flowIds": ["F072"], "visibleFor": ["NEW_SITE", "COLLOCATO_NEW_SITE", "COLLOCATO_ESISTENTE", "PONTE_RADIO", "BONIFICA", "REWATT", "VRUC"], "source": "Risposta Q2 del 06/11/2026 (Invio AS/VS)" }
+      ]
+    }
+  }
+}

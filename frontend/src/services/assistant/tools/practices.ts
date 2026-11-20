@@ -6,7 +6,7 @@
  */
 import { ObjectId } from "mongodb";
 import { z } from "zod";
-import type { FieldOccurrenceDTO, FieldValue, GroupId, PraticaDetailDTO } from "@/lib/contract";
+import { NO_DATE, NO_DATE_LABEL, type FieldOccurrenceDTO, type FieldValue, type GroupId, type PraticaDetailDTO } from "@/lib/contract";
 import { canSeePractice } from "@/lib/engines/access";
 import { HttpError } from "@/lib/http-error";
 import { userFields } from "@/lib/practice/assignees";
@@ -126,6 +126,7 @@ export const getPracticeSchema = z.strictObject({
 const NOTE_MAX = 1500;
 const fmt = (v: FieldValue): string | number | boolean | null => {
   if (v === null || v === undefined) return null;
+  if (v === NO_DATE) return NO_DATE_LABEL; // D-208
   if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") return v;
   if (Array.isArray(v)) return v.map((x) => x.code).join(", ");
   return (v as { code: string; otherText?: string }).otherText ?? (v as { code: string }).code;

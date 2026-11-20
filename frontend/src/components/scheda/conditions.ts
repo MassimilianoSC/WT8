@@ -1,4 +1,4 @@
-import type { ConditionDTO, FieldValue, SelectValue, TemplateDTO } from "@/lib/contract";
+import type { ConditionDTO, FieldOccurrenceDTO, FieldValue, SelectValue, TemplateDTO } from "@/lib/contract";
 
 /**
  * Interface conditions (D-31): they only decide whether an occurrence is
@@ -89,4 +89,27 @@ export function isVisible(condition: ConditionDTO | null | undefined, ctx: Condi
     default:
       return true;
   }
+}
+
+/**
+ * The part of a condition that does not depend on the rows of `group`: atoms on fields of that same repeat group
+ * count as true (they are decided row by row). `any` with such an atom is true.
+ */
+function outsideGroup(c: ConditionDTO | null | undefined, group: string, repeatOf: ReadonlyMap<string, string>): ConditionDTO | null {
+  if (!c) return null;
+  if ("all" in c) {
+    const parts = c.all.map((x) => outsideGroup(x, group, repeatOf)).filter((x): x is ConditionDTO => x !== null);
+    return parts.length ? { all: parts } : null;
+  }
+  if ("any" in c) {
+    const parts = c.any.map((x) => outsideGroup(x, group, repeatOf));
+    return parts.some((x) => x === null) ? null : { any: parts as ConditionDTO[] };
+  }
+  return repeatOf.get(c.flowId) === group ? null : c;
+}
+
+/** D-207: a repeat block is hidden when every occurrence is hidden by conditions outside the block. */
+export function repeatBlockHidden(occurrences: FieldOccurrenceDTO[], group: string, ctx: ConditionContext): boolean {
+  if (occurrences.length === 0) return false;
+  return occurrences.every((o) => !isVisible(outsideGroup(o.condition, group, ctx.repeatOf), ctx));
 }

@@ -1,12 +1,14 @@
 "use client";
 import * as React from "react";
 import { AlertTriangle, Lock } from "lucide-react";
-import type {
-  AlertDTO,
-  FieldOccurrenceDTO,
-  FieldValue,
-  OccurrenceAccessDTO,
-  SelectValue,
+import {
+  NO_DATE,
+  NO_DATE_LABEL,
+  type AlertDTO,
+  type FieldOccurrenceDTO,
+  type FieldValue,
+  type OccurrenceAccessDTO,
+  type SelectValue,
 } from "@/lib/contract";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -167,7 +169,7 @@ function FieldInput({
     case "NUMBER":
       return <NumberInput id={id} value={typeof value === "number" ? value : null} onChange={onChange} />;
     case "DATE":
-      return <DateInput id={id} value={typeof value === "string" ? value : null} onChange={onChange} />;
+      return <DateField id={id} occurrence={occurrence} value={value} onChange={onChange} />;
     case "SELECT":
     case "USER":
       return (
@@ -201,6 +203,48 @@ function FieldInput({
     default:
       return <Input id={id} value={typeof value === "string" ? value : ""} onChange={(e) => onChange(e.target.value)} />;
   }
+}
+
+/**
+ * D-208: a hand-filled date can be set to "Nessuna data" (progress moves on without a made-up date); undone at any
+ * time. Computed dates (Forecast) do not offer it.
+ */
+function DateField({
+  id,
+  occurrence,
+  value,
+  onChange,
+}: {
+  id: string;
+  occurrence: FieldOccurrenceDTO;
+  value: FieldValue | undefined;
+  onChange: (value: FieldValue) => void;
+}) {
+  if (value === NO_DATE) {
+    return (
+      <div className="flex min-h-10 items-center justify-between gap-2 border border-input bg-muted/40 px-3 py-2" data-testid={`${id}-no-date`}>
+        <span className="text-sm">{NO_DATE_LABEL}</span>
+        <button type="button" className="font-mono text-[10px] uppercase underline-offset-2 hover:underline" onClick={() => onChange(null)} data-testid={`${id}-no-date-undo`}>
+          Annulla
+        </button>
+      </div>
+    );
+  }
+  return (
+    <div className="space-y-1">
+      <DateInput id={id} value={typeof value === "string" ? value : null} onChange={onChange} />
+      {!occurrence.computed && (
+        <button
+          type="button"
+          className="font-mono text-[10px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+          onClick={() => onChange(NO_DATE)}
+          data-testid={`${id}-no-date-set`}
+        >
+          {NO_DATE_LABEL}
+        </button>
+      )}
+    </div>
+  );
 }
 
 function ReadOnlyValue({ text, reason }: { text: string; reason: string }) {

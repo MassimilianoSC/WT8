@@ -19,7 +19,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { GROUP_LABEL } from "@/components/pratiche/labels";
-import { isVisible, type ConditionContext } from "@/components/scheda/conditions";
+import { isVisible, repeatBlockHidden, type ConditionContext } from "@/components/scheda/conditions";
 import { Field, readOnlyReason } from "@/components/scheda/fields/field";
 import { Combobox } from "@/components/scheda/fields/combobox";
 import { selectLabel } from "@/components/scheda/fields/format";
@@ -218,7 +218,8 @@ function BlockView({ block, ctx }: { block: Block; ctx: RenderCtx }) {
   }
   if (block.kind === "repeat") return <RepeatBlock repeat={block.repeat} occurrences={block.occurrences} ctx={ctx} />;
 
-  // Pop-up (G §6 case 3): a framed block inside the section (D-122).
+  // Pop-up (G §6 case 3): a framed block inside the section (D-122). No visible field inside: no empty frame.
+  if (!popupHasContent(block, ctx.data)) return null;
   return (
     <div className="border border-foreground" data-testid={`popup-${block.popup.key}`}>
       <div className="flex items-center justify-between border-b border-foreground bg-secondary px-3 py-2 font-mono text-[10px] uppercase tracking-wider">
@@ -232,6 +233,13 @@ function BlockView({ block, ctx }: { block: Block; ctx: RenderCtx }) {
       </div>
     </div>
   );
+}
+
+/** A pop-up shows only if at least one of its fields (or repeat blocks) is visible. */
+export function popupHasContent(block: Block, data: ConditionContext): boolean {
+  if (block.kind === "fields") return block.occurrences.some((o) => isVisible(o.condition, data));
+  if (block.kind === "repeat") return !repeatBlockHidden(block.occurrences, block.repeat.key, data);
+  return block.blocks.some((b) => popupHasContent(b, data));
 }
 
 function FieldGrid({
@@ -297,6 +305,9 @@ function RepeatBlock({
   ctx: RenderCtx;
 }) {
   const [confirm, confirmDialog] = useConfirm();
+  // D-207: the whole block (Vincoli table included) disappears when its fields are hidden by conditions on data
+  // outside the block (e.g. Incarico / Lavorazione); conditions on the block's own rows decide row by row.
+  if (repeatBlockHidden(occurrences, repeat.key, ctx.data)) return null;
   if (repeat.schemaKind === "VINCOLI") return <VincoliTable repeat={repeat} occurrences={occurrences} ctx={ctx} />;
 
   const rows: RepeatRowDTO[] = ctx.data.repeats[repeat.key] ?? [];

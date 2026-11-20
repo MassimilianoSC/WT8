@@ -1,4 +1,4 @@
-# PracticeHub — Guida per chi la usa
+# WT8 — Guida per chi la usa
 
 *Versione del 09/10/2026. Schermate della versione definitiva con dati dimostrativi. Hai un problema o un dubbio? Scrivi a **operations@hqe.it**.*
 
@@ -6,7 +6,7 @@
 
 ## 1. Che cos'è
 
-PracticeHub raccoglie in un solo posto le pratiche dei siti che gestiamo per i nostri clienti (ILIAD, TOWERNET, TIM/FIBERCOP, INWIT, FASTWEB-VODAFONE, LEONARDO) e sostituisce i fogli Excel dei team.
+WT8 raccoglie in un solo posto le pratiche dei siti che gestiamo per i nostri clienti (ILIAD, TOWERNET, TIM/FIBERCOP, INWIT, FASTWEB-VODAFONE, LEONARDO) e sostituisce i fogli Excel dei team.
 
 Ogni pratica ha una **scheda** divisa per gruppo di lavoro:
 
@@ -76,6 +76,8 @@ Le pratiche archiviate non sono nell'elenco: le trovi in **Archivio** (§9).
 - Le sezioni sono raggruppate per gruppo e si aprono e chiudono; a sinistra c'è l'**indice** con i contatori di compilazione e un punto rosso dove ci sono alert. In fondo all'indice, separate dai gruppi, ci sono **Commenti (n)** e **Storico**: un clic porta al riquadro. L'indice resta visibile anche con lo zoom del browser al 200%.
 - Un campo con il **lucchetto** non è modificabile da te; il motivo è scritto sotto (per esempio "Compilato da UT/PE", "Il tuo gruppo non ha ancora ricevuto l'Assegna", "Calcolato: …").
 - Alcuni campi **compaiono solo in certe condizioni** (per esempio i campi AIE solo se AIE = SÌ). Se nascondi un campo cambiando la condizione, il suo valore resta salvato e ricompare.
+- **Incarico / Lavorazione guida la scheda.** In ILIAD e INWIT, con Caratterizzazione, Progetto Esecutivo, Verifica Statica, Caratterizzazione + VS o PE + VS restano solo le sezioni e i campi che servono a quel lavoro (per esempio con Caratterizzazione: Core, Dati secondari e in Fase Preliminare data assegnazione, sopralluogo e i campi della caratterizzazione); le sezioni rimaste senza campi spariscono anche dall'indice. In FASTWEB-VODAFONE con Applicabilità restano Core, Applicabilità e Invio applicabilità. Altri campi dipendono da Incarico in tutti i clienti (per esempio Progetto, Invio AS/VS). Con Incarico vuoto, **Altro** o un valore nuovo si vede tutto.
+- **Nessuna data**: sotto ogni data che si compila a mano c'è il comando **Nessuna data**. Serve quando quella data non ci sarà: il campo conta come compilato e il lavoro va avanti senza scrivere una data finta. **Annulla** lo toglie. Non c'è sui campi calcolati (Forecast).
 - I **riquadri incorniciati** (pop-up) mostrano in sola lettura dati di un altro gruppo utili al tuo lavoro.
 - Alcuni dati si **ripetono** (Tenant, Integrazioni, Enti, ODA, cicli ARPA): usa **Aggiungi** per una nuova riga.
 - La **tabella Vincoli** ha sempre le stesse 11 voci: per ognuna scegli lo stato e, se serve, l'ente. Se un vincolo è **Presente**, nasce da sola la voce corrispondente nel gruppo Enti.
@@ -112,6 +114,8 @@ In fondo alla scheda: **Modifiche ai campi** (valore vecchio → nuovo, chi e qu
 
 ## 6. Assegnare la pratica ad altri gruppi
 
+L'Assegna la possono fare i PM, gli utenti del ruolo Permessi e l'amministratore.
+
 1. Compila e **salva** prima i campi di assegnazione nella sezione PM (data, forecast, note).
 2. **Assegna** → scegli uno o più gruppi (AIE, UT/PE, DL) → eventuale nota per la mail → conferma.
 3. Tutti i colleghi dei gruppi scelti ricevono una **notifica** e una **mail**; da quel momento possono lavorare sulle loro sezioni. Assegnando UT/PE viene avvisato anche il gruppo DL.
@@ -123,7 +127,7 @@ In fondo alla scheda: **Modifiche ai campi** (valore vecchio → nuovo, chi e qu
 
 - Gli **alert** segnalano scadenze del flusso (per esempio sopralluogo non fatto 7 giorni lavorativi dopo la Data assegnazione, Forecast UT a 2 giorni senza Invio AS/VS, Forecast Permessi superato). Si contano **giorni lavorativi** (festività nazionali escluse). Se una scadenza è già passata quando salvi, l'alert si apre subito; altrimenti lo apre il controllo delle **09:00**.
 - Le notifiche degli alert vanno ai **PM leader** del cliente e ai **team leader del gruppo** competente; gli altri vedono l'alert nella scheda e nell'elenco.
-- Un alert **si chiude da solo** quando compili il campo che lo risolve. Alcuni si chiudono **a mano** (pulsante **Chiudi**, per i team leader competenti e gli amministratori): per esempio "Offerta → ODA" quando sono arrivati tutti gli ODA previsti.
+- Un alert **si chiude da solo** quando compili il campo che lo risolve (anche con **Nessuna data**). Un alert su un campo che la scheda nasconde (per esempio perché Incarico / Lavorazione lo esclude) non si apre e, se era aperto, si chiude; ricompare se il campo torna visibile. Alcuni si chiudono **a mano** (pulsante **Chiudi**, per i team leader competenti e gli amministratori): per esempio "Offerta → ODA" quando sono arrivati tutti gli ODA previsti.
 - **Pratica KO**: compare l'alert "decidere se è fatturabile"; si chiude **solo** decidendo Fatturabile (SÌ o NO) in cima alla scheda.
 - La **campanella** mostra le notifiche (Assegna, alert, promemoria, menzioni nei commenti); il clic porta al punto della pratica. **Leggere una notifica non chiude l'alert.**
 - Due alert (Forecast UT, Forecast AIE) arrivano anche **via mail**, agli stessi destinatari, solo nei giorni lavorativi dalle 09:00.

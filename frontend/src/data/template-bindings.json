@@ -1,5 +1,5 @@
 {
-  "version": "1",
+  "version": "2",
   "source": "docs/proposte/ARCHITETTURA_BACKEND_v1.md §2.1, §2.3, §2.6, §5.1 adottati con D-89…D-99; ogni riga è verificata dal compilatore su #riga, flowId ed etichetta dell'MD.",
   "templates": {
     "ILIAD": { "label": "ILIAD", "file": "ASSOCIAZIONI_CAMPI_ILIAD.md" },
@@ -28,6 +28,7 @@
     "flowIds": { "F001": "Codice G7", "F002": "Codice Sito", "F003": "Nome Sito", "F004": "Committente", "F005": "Cliente Finale" }
   },
   "parents": {
+    "Incarico / Lavorazione": { "ILIAD": "#15/F015", "TOWERNET": "#12/F012", "TIM_FIBERCOP": "#14/F014", "INWIT": "#12/F012", "FASTWEB_VODAFONE": "#13/F013", "LEONARDO": "#13/F013" },
     "Tipologia sito": { "ILIAD": "#10/F010", "TOWERNET": "#10/F010", "TIM_FIBERCOP": "#10/F010", "INWIT": "#10/F010", "FASTWEB_VODAFONE": "#10/F010", "LEONARDO": "#10/F010" },
     "Gestore Tenant": { "ILIAD": "#20/F020", "TOWERNET": "#15/F015", "TIM_FIBERCOP": "#22/F022", "INWIT": "#18/F018", "FASTWEB_VODAFONE": "#20/F020", "LEONARDO": "#16/F016" },
     "AIE": { "ILIAD": "#55/F052", "TIM_FIBERCOP": "#44/F043", "FASTWEB_VODAFONE": "#38/F037", "LEONARDO": "#32/F032" },

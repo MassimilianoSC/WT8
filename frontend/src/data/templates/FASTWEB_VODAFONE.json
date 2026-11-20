@@ -152,7 +152,7 @@
     "file": "ASSOCIAZIONI_CAMPI_FASTWEB-VODAFONE.md",
     "flowIds": 108,
     "rows": 122,
-    "sha256": "747b583aafd60bdb79109d8546a2e87d6113a77aaf3dc148cf46e0aa2e4beec7"
+    "sha256": "4a8187c49dbed17295859b9e3406e992df59c44241138a1f2853db78fcf5340c"
   },
   "template": {
     "baseline": "2026-10-08",
@@ -651,7 +651,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F020",
         "kind": "MASTER",
@@ -672,8 +676,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F020",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F020",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F021",
@@ -690,8 +703,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F020",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F020",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F022",
@@ -706,7 +728,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "NUMBER",
         "flowId": "F023",
         "kind": "MASTER",
@@ -719,7 +745,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "NUMBER",
         "flowId": "F024",
         "kind": "MASTER",
@@ -732,7 +762,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F025",
         "kind": "MASTER",
@@ -746,7 +780,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F026",
         "kind": "MASTER",
@@ -759,7 +797,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F027",
         "kind": "MASTER",
@@ -773,7 +815,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F028",
         "kind": "MASTER",
@@ -787,7 +833,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F029",
         "kind": "MASTER",
@@ -834,7 +884,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F032",
         "kind": "MASTER",
@@ -849,7 +903,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F033",
         "kind": "MASTER",
@@ -862,7 +920,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F034",
         "kind": "MASTER",
@@ -876,21 +938,32 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": [
+            "DEMOLIZIONE",
+            "APPLICABILITA"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F072",
-        "kind": "MIRROR",
+        "kind": "MASTER",
         "label": "Invio AS/VS",
         "occurrenceKey": "F072@PM_PERMESSI.FASE_PRELIMINARE",
         "order": 35,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
         "universal": "INVIO AS/VS"
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F035",
         "kind": "MASTER",
@@ -909,7 +982,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F036",
         "kind": "MASTER",
@@ -923,7 +1000,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F037",
         "kind": "MASTER",
@@ -942,9 +1023,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F038",
@@ -960,9 +1050,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F039",
@@ -978,9 +1077,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F040",
@@ -996,9 +1104,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F041",
@@ -1014,9 +1131,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F042",
@@ -1032,9 +1158,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F043",
@@ -1050,9 +1185,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F037",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F037",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F044",
@@ -1067,7 +1211,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F045",
         "kind": "MASTER",
@@ -1081,7 +1229,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F046",
         "kind": "MASTER",
@@ -1095,7 +1247,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F047",
         "kind": "MASTER",
@@ -1109,7 +1265,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F048",
         "kind": "MASTER",
@@ -1123,7 +1283,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F049",
         "kind": "MASTER",
@@ -1137,7 +1301,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F050",
         "kind": "MASTER",
@@ -1152,7 +1320,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F051",
         "kind": "MASTER",
@@ -1168,8 +1340,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F051",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F051",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F052",
@@ -1191,9 +1372,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F052",
-          "op": "EQ",
-          "value": "NEGATIVO"
+          "all": [
+            {
+              "flowId": "F052",
+              "op": "EQ",
+              "value": "NEGATIVO"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F053",
@@ -1209,7 +1399,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F054",
         "kind": "MASTER",
@@ -1224,7 +1418,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F055",
         "kind": "MASTER",
@@ -1240,8 +1438,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F054",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F054",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F056",
@@ -1258,8 +1465,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F054",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F054",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F057",
@@ -1281,8 +1497,17 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F054",
-          "op": "FILLED"
+          "all": [
+            {
+              "flowId": "F054",
+              "op": "FILLED"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F058",
@@ -1298,7 +1523,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F059",
         "kind": "MASTER",
@@ -1312,7 +1541,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F060",
         "kind": "MASTER",
@@ -1332,9 +1565,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F060",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F060",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F061",
@@ -1350,9 +1592,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F060",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F060",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F062",
@@ -1367,7 +1618,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F073",
         "kind": "MASTER",
@@ -1381,7 +1636,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F087",
         "kind": "MASTER",
@@ -1395,14 +1654,21 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": [
+            "DEMOLIZIONE",
+            "APPLICABILITA"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F072",
         "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F072@PM_PERMESSI.UT_PE",
         "order": 66,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "popup": {
           "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
           "label": "Da UT+PE",
@@ -1414,7 +1680,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F039",
         "kind": "MIRROR",
@@ -1428,7 +1698,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F040",
         "kind": "MIRROR",
@@ -1443,9 +1717,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F006",
-          "op": "NEQ",
-          "value": "01"
+          "all": [
+            {
+              "flowId": "F006",
+              "op": "NEQ",
+              "value": "01"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F088",
@@ -1466,9 +1749,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F006",
-          "op": "NEQ",
-          "value": "01"
+          "all": [
+            {
+              "flowId": "F006",
+              "op": "NEQ",
+              "value": "01"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F089",
@@ -1488,7 +1780,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F090",
         "kind": "MASTER",
@@ -1508,7 +1804,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F091",
         "kind": "MASTER",
@@ -1527,7 +1827,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F092",
         "kind": "MASTER",
@@ -1547,7 +1851,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F093",
         "kind": "MASTER",
@@ -1566,7 +1874,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F094",
         "kind": "MASTER",
@@ -1579,7 +1891,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F095",
         "kind": "MASTER",
@@ -1593,7 +1909,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F041",
         "kind": "MASTER",
@@ -1607,7 +1927,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F042",
         "kind": "MASTER",
@@ -1621,7 +1945,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F043",
         "kind": "MASTER",
@@ -1635,7 +1963,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F044",
         "kind": "MASTER",
@@ -1649,7 +1981,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F096",
         "kind": "MASTER",
@@ -1663,7 +1999,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F033",
         "kind": "MIRROR",
@@ -1676,7 +2016,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F034",
         "kind": "MIRROR",
@@ -1690,7 +2034,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F063",
         "kind": "MASTER",
@@ -1704,7 +2052,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F064",
         "kind": "MASTER",
@@ -1718,7 +2070,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F065",
         "kind": "MASTER",
@@ -1738,7 +2094,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F066",
         "kind": "MASTER",
@@ -1758,7 +2118,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F067",
         "kind": "MASTER",
@@ -1777,7 +2141,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F068",
         "kind": "MASTER",
@@ -1796,7 +2164,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F071",
         "kind": "MASTER",
@@ -1810,14 +2182,21 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": [
+            "DEMOLIZIONE",
+            "APPLICABILITA"
+          ]
+        },
         "dataType": "DATE",
         "flowId": "F072",
-        "kind": "MASTER",
+        "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F072@UT_PE.UT",
         "order": 93,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "UT_PE.UT",
         "universal": "INVIO AS/VS"
@@ -1825,9 +2204,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F060",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F060",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F061",
@@ -1843,9 +2231,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F060",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F060",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "LONGTEXT",
         "flowId": "F062",
@@ -1860,7 +2257,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F073",
         "kind": "MIRROR",
@@ -1874,7 +2275,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F074",
         "kind": "MASTER",
@@ -1894,9 +2299,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F074",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F074",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F075",
@@ -1911,7 +2325,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F076",
         "kind": "MASTER",
@@ -1931,7 +2349,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "LONGTEXT",
         "flowId": "F077",
         "kind": "MASTER",
@@ -1945,7 +2367,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F078",
         "kind": "MASTER",
@@ -1959,7 +2385,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F079",
         "kind": "MASTER",
@@ -1977,7 +2407,11 @@
           "formula": "TIPOLOGIA_ATTIVITA_PE",
           "manualOverride": false
         },
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F080",
         "kind": "MASTER",
@@ -1995,7 +2429,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USER",
         "flowId": "F081",
         "kind": "MASTER",
@@ -2015,7 +2453,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "USERS",
         "flowId": "F082",
         "kind": "MASTER",
@@ -2036,7 +2478,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F083",
         "kind": "MASTER",
@@ -2055,7 +2501,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F086",
         "kind": "MASTER",
@@ -2069,7 +2519,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F087",
         "kind": "MIRROR",
@@ -2083,7 +2537,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "SELECT",
         "flowId": "F097",
         "kind": "MASTER",
@@ -2102,7 +2560,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F098",
         "kind": "MASTER",
@@ -2116,7 +2578,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F099",
         "kind": "MASTER",
@@ -2131,9 +2597,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "USER",
         "flowId": "F100",
@@ -2155,9 +2630,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F101",
@@ -2178,9 +2662,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "SELECT",
         "flowId": "F102",
@@ -2201,9 +2694,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "DATE",
         "flowId": "F103",
@@ -2219,9 +2721,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F104",
@@ -2237,9 +2748,18 @@
       {
         "computed": null,
         "condition": {
-          "flowId": "F097",
-          "op": "EQ",
-          "value": "SI"
+          "all": [
+            {
+              "flowId": "F097",
+              "op": "EQ",
+              "value": "SI"
+            },
+            {
+              "flowId": "F013",
+              "op": "NEQ",
+              "value": "APPLICABILITA"
+            }
+          ]
         },
         "dataType": "TEXT",
         "flowId": "F105",
@@ -2254,7 +2774,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F106",
         "kind": "MASTER",
@@ -2268,7 +2792,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F107",
         "kind": "MASTER",
@@ -2282,7 +2810,11 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F013",
+          "op": "NEQ",
+          "value": "APPLICABILITA"
+        },
         "dataType": "DATE",
         "flowId": "F108",
         "kind": "MASTER",
@@ -2505,6 +3037,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.544999dc45f5"
+    "version": "2026-10-08.47cda5914a30"
   }
 }

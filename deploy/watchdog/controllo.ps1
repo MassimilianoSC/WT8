@@ -83,7 +83,7 @@ function Send-Alert($vars, [string]$subject, [string]$body) {
   }
   $from = if ($vars["SMTP_FROM"]) { $vars["SMTP_FROM"] } else { $vars["SMTP_USER"] }
   $msg = New-Object System.Net.Mail.MailMessage
-  $msg.From = New-Object System.Net.Mail.MailAddress($(if ($from -match '<([^>]+)>') { $Matches[1] } else { $from }), "PracticeHub")
+  $msg.From = New-Object System.Net.Mail.MailAddress($(if ($from -match '<([^>]+)>') { $Matches[1] } else { $from }), "WT8")
   foreach ($t in $to) { $msg.To.Add($t) }
   $msg.Subject = $subject
   $msg.Body = $body
@@ -165,15 +165,15 @@ try {
 
   if ($new.Count -gt 0) {
     $lines = $new | ForEach-Object { "- $($problems[$_])" }
-    $body = "PracticeHub su $machine, controllo delle $now`n`nProblemi nuovi:`n$($lines -join "`n")`n`nIndirizzo controllato: $url`nUn'altra mail arriverà quando saranno risolti."
-    if (Send-Alert $vars "[PracticeHub] Guasto: $($new -join ', ')" $body) {
+    $body = "WT8 su $machine, controllo delle $now`n`nProblemi nuovi:`n$($lines -join "`n")`n`nIndirizzo controllato: $url`nUn'altra mail arriverà quando saranno risolti."
+    if (Send-Alert $vars "[WT8] Guasto: $($new -join ', ')" $body) {
       foreach ($k in $new) { $state[$k] = @{ since = (Get-Date).ToString("o"); detail = $problems[$k] } }
     }
   }
   if ($solved.Count -gt 0) {
     $lines = $solved | ForEach-Object { "- $_ (dal $(([datetime]$state[$_].since).ToString('dd/MM/yyyy HH:mm')))" }
-    $body = "PracticeHub su $machine, controllo delle $now`n`nRisolti:`n$($lines -join "`n")"
-    if (Send-Alert $vars "[PracticeHub] Risolto: $($solved -join ', ')" $body) {
+    $body = "WT8 su $machine, controllo delle $now`n`nRisolti:`n$($lines -join "`n")"
+    if (Send-Alert $vars "[WT8] Risolto: $($solved -join ', ')" $body) {
       foreach ($k in $solved) { $state.Remove($k) }
     }
   }

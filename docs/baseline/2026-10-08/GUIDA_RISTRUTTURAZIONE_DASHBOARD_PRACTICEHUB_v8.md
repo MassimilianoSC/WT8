@@ -884,7 +884,7 @@ Snapshot degli ID di flusso correnti:
 |---|---:|
 | ILIAD | `F001-F161` |
 | TOWERNET | `F001-F117` |
-| TIM/FIBERCOP | `F001-F118` |
+| TIM/FIBERCOP | `F001-F119` |
 | INWIT | `F001-F127` |
 | FASTWEB-VODAFONE | `F001-F108` |
 | LEONARDO | `F001-F118` |

@@ -909,67 +909,67 @@
       "semanticId": "CONSEGNA_UT",
       "templateId": "ILIAD",
       "flowId": "F135",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.UT_PE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_UT",
       "templateId": "TOWERNET",
       "flowId": "F095",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.UT_PE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_UT",
       "templateId": "TIM_FIBERCOP",
       "flowId": "F097",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_UT",
       "templateId": "INWIT",
       "flowId": "F101",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.UT_PE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_UT",
       "templateId": "FASTWEB_VODAFONE",
       "flowId": "F072",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_UT",
       "templateId": "LEONARDO",
       "flowId": "F091",
-      "sectionKey": "UT_PE.UT",
+      "sectionKey": "PM_PERMESSI.UT_PE",
       "dateKind": "RECORDED",
       "businessGroup": "UT_PE",
-      "ownerGroup": "UT_PE",
+      "ownerGroup": "PM_PERMESSI",
       "label": "Invio AS/VS",
-      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT)"
+      "sourceDecision": "PROGETTO_ASSISTENTE_AI_v1 §4.3, paragrafo sotto la tabella: consegna UT = Invio AS/VS (conclusione della milestone UT); dal 06/11/2026 il master è del PM (D-207)"
     },
     {
       "semanticId": "CONSEGNA_PE",

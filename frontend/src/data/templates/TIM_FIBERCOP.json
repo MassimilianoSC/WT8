@@ -154,7 +154,7 @@
     "file": "ASSOCIAZIONI_CAMPI_TIM-FIBERCOP.md",
     "flowIds": 119,
     "rows": 143,
-    "sha256": "25490e4d7142d7f0b9fc9ca5f747a27b2d95d3864e39ab32ad0b8fa4d5c8ca3b"
+    "sha256": "2989772a2c69cfe59ef064d2846f3d63d48ce9d741c590897b83b7c5826093c0"
   },
   "template": {
     "baseline": "2026-10-08",
@@ -563,7 +563,14 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F014",
+          "op": "NEQ",
+          "value": [
+            "NEW_SITE",
+            "COLLOCATO_NEW_SITE"
+          ]
+        },
         "dataType": "SELECT",
         "flowId": "F015",
         "kind": "MASTER",
@@ -913,14 +920,18 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F014",
+          "op": "NEQ",
+          "value": "DEMOLIZIONE"
+        },
         "dataType": "DATE",
         "flowId": "F097",
-        "kind": "MIRROR",
+        "kind": "MASTER",
         "label": "Invio AS/VS",
         "occurrenceKey": "F097@PM_PERMESSI.FASE_PRELIMINARE",
         "order": 37,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "PM_PERMESSI.FASE_PRELIMINARE",
         "universal": "INVIO AS/VS"
@@ -1784,14 +1795,18 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F014",
+          "op": "NEQ",
+          "value": "DEMOLIZIONE"
+        },
         "dataType": "DATE",
         "flowId": "F097",
         "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F097@PM_PERMESSI.UT_PE",
         "order": 87,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "popup": {
           "key": "PM_PERMESSI.UT_PE.POPUP_UT_PE",
           "label": "Da UT+PE",
@@ -2199,14 +2214,18 @@
       },
       {
         "computed": null,
-        "condition": null,
+        "condition": {
+          "flowId": "F014",
+          "op": "NEQ",
+          "value": "DEMOLIZIONE"
+        },
         "dataType": "DATE",
         "flowId": "F097",
-        "kind": "MASTER",
+        "kind": "MIRROR",
         "label": "Invio AS/VS",
         "occurrenceKey": "F097@UT_PE.UT",
         "order": 114,
-        "ownerGroup": "UT_PE",
+        "ownerGroup": "PM_PERMESSI",
         "required": false,
         "sectionKey": "UT_PE.UT",
         "universal": "INVIO AS/VS"
@@ -2914,6 +2933,6 @@
         "sectionKey": "TRASV"
       }
     ],
-    "version": "2026-10-08.b6b17509bce3"
+    "version": "2026-10-08.a55ae248e7a8"
   }
 }

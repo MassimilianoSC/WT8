@@ -377,14 +377,6 @@
   },
   {
     "code": "LIST_VALUES_MISSING",
-    "flowId": "F012",
-    "message": "\"Incarico / Lavorazione\": lista INCOMPLETA nel CSV (valori da completare in Configurazione)",
-    "row": 12,
-    "severity": "WARNING",
-    "templateId": "TOWERNET"
-  },
-  {
-    "code": "LIST_VALUES_MISSING",
     "flowId": "F015",
     "message": "\"Gestore Tenant\": lista MANCANTE nel CSV (valori da completare in Configurazione)",
     "row": 15,

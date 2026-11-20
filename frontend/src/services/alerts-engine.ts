@@ -23,6 +23,7 @@ import { cancelAlertDeliveries, enqueueDeliveries } from "@/lib/store/outbox";
 import type { OperationContext } from "@/lib/store/transaction";
 import type { AlertDoc, AlertEventDoc, IterationDoc, PracticeDoc, RepeatRowDoc } from "@/lib/store/types";
 import { toEngineRow } from "@/lib/practice/detail";
+import { evaluateCondition, repeatIndex } from "@/lib/engines/conditions";
 import { alertLabel, countOpenAlerts, thresholdsByVersion } from "@/services/alerts";
 
 /** Versione del calendario delle festività usato per le scadenze (D-97: memorizzata su ogni alert). */
@@ -130,6 +131,7 @@ export async function reconcilePracticeAlerts(input: ReconcileInput): Promise<Re
       repeats: groupRows(rows),
       stato: iteration.stateMeta.stato,
       thresholds: thresholds.current,
+      isVisible: fieldVisibility(template, iteration.values, rows),
     });
     const actions = reconcileAlerts(targets, existingDocs.map(toExisting), ctx.now, undefined, thresholds.at);
     if (actions.some((a) => a.type === "OPEN" || a.type === "REMIND")) {
@@ -295,6 +297,33 @@ export async function reconcilePracticeAlerts(input: ReconcileInput): Promise<Re
   if (!input.log) await log.flushEvents();
   result.openAlerts = await countOpenAlerts(ctx, iteration._id);
   return result;
+}
+
+/**
+ * D-207 (Q10): un campo è visibile se almeno una sua occorrenza lo è per le condizioni del template (sulla riga, per i
+ * campi dei gruppi ripetibili). Un flowId senza occorrenze (escluso) conta come visibile: nessun alert si spegne per
+ * un campo che il template non mostra affatto.
+ */
+export function fieldVisibility(template: TemplateDTO, values: IterationDoc["values"], rows: RepeatRowDoc[]) {
+  const repeatOf = repeatIndex(template);
+  const repeats: Record<string, Array<{ values: RepeatRowDoc["values"]; constraint?: { stato: NonNullable<RepeatRowDoc["constraint"]>["stato"] } }>> = {};
+  for (const r of [...rows].sort((a, b) => a.ordinal - b.ordinal)) {
+    (repeats[r.groupKey] ??= []).push({ values: r.values, ...(r.constraint ? { constraint: { stato: r.constraint.stato } } : {}) });
+  }
+  const byFlow = new Map<string, TemplateDTO["occurrences"]>();
+  for (const o of template.occurrences) if (o.flowId) byFlow.set(o.flowId, [...(byFlow.get(o.flowId) ?? []), o]);
+  return (flowId: string, row: Record<string, unknown> | null): boolean => {
+    const occs = byFlow.get(flowId);
+    if (!occs?.length) return true;
+    return occs.some((o) =>
+      evaluateCondition(o.condition, {
+        values,
+        repeats,
+        repeatOf,
+        ...(row && o.repeatGroup ? { row: { repeat: o.repeatGroup, values: row as RepeatRowDoc["values"] } } : {}),
+      })
+    );
+  };
 }
 
 function groupRows(rows: RepeatRowDoc[]): Record<string, Array<{ rowId: string; values: RepeatRowDoc["values"] }>> {

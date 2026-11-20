@@ -11,7 +11,7 @@
  * - Cella vuota: nessun valore (non compila nulla).
  */
 import { addCalendarDays, isValidIsoDate } from "@/lib/calendario";
-import { NONE_CODE, type FieldOccurrenceDTO, type FieldValue, type SelectValue } from "@/lib/contract";
+import { NO_DATE, NO_DATE_LABEL, NONE_CODE, type FieldOccurrenceDTO, type FieldValue, type SelectValue } from "@/lib/contract";
 
 export type Cell = string | number | boolean | Date | null | undefined;
 
@@ -68,6 +68,8 @@ export function convertCell(
     case "LONGTEXT":
       return { ok: true, value: raw };
     case "DATE": {
+      // D-208: la cella "Nessuna data" (come la scrive l'export) torna "Nessuna data".
+      if (raw.trim().toLowerCase() === NO_DATE_LABEL.toLowerCase()) return { ok: true, value: NO_DATE };
       const d = toDate(cell, !!scope.date1904);
       return d ? { ok: true, value: d } : { ok: false, reason: `data non riconosciuta: ${raw}` };
     }

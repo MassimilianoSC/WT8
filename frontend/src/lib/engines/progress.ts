@@ -23,6 +23,8 @@ export function computeProgress(t: TemplateDTO, s: Pick<EngineSnapshot, "values"
       if (!isEmpty(s.values[o.flowId])) p.filled++;
       continue;
     }
+    // D-207: la tabella Vincoli nascosta da una condizione (es. Incarico / Lavorazione) non conta.
+    if (group === "VINCOLI" && !evaluateCondition(o.condition, base)) continue;
     for (const row of s.repeats[group] ?? []) {
       if (group === "VINCOLI") {
         p.total++;

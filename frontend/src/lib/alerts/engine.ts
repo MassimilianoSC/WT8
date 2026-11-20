@@ -6,6 +6,9 @@
  *    e le condizioni di ambito o di codice valgono; la scadenza si calcola dalle soglie versionate (giorni lavorativi
  *    o di calendario, PRIMA o DOPO, rinvio al primo giorno lavorativo alle 09:00 di Roma, D-43).
  *    FATTURABILE_KO: pending con Stato attività = KO, qualunque origine (D-131).
+ *    D-207 (Q10): con `isVisible` un alert il cui campo di chiusura o di trigger è nascosto da una condizione non è da
+ *    segnalare (`hidden`): non si apre, non notifica e, se aperto, si chiude anche nelle regole a chiusura manuale; se il
+ *    campo torna visibile si apre un nuovo episodio. Le formule continuano a calcolare anche sui campi nascosti.
  * 2. reconcileAlerts: confronta i bersagli con gli episodi esistenti dell'iterazione e restituisce le azioni.
  *    - Un episodio si apre solo a scadenza raggiunta (prima non esiste); finché è aperto, un trigger cambiato sposta
  *      la scadenza (nessun doppione).
@@ -92,6 +95,8 @@ export interface AlertTarget {
   sourceFingerprint: string;
   /** Data del trigger (null per FATTURABILE_KO o trigger vuoto): serve a ricalcolare con la soglia di un'altra versione. */
   trigger?: IsoDate | null;
+  /** D-207 (Q10): campo di chiusura o di trigger nascosto da una condizione. */
+  hidden?: boolean;
 }
 
 export interface TargetInput {
@@ -100,6 +105,11 @@ export interface TargetInput {
   repeats: Record<string, ReadonlyArray<{ rowId: string; values: Record<string, FieldValue | undefined> }>>;
   stato: StatoAttivita;
   thresholds: Partial<Record<string, Threshold>>;
+  /**
+   * D-207 (Q10): visibilità di un campo (flowId) per le condizioni del template, sulla riga del gruppo ripetibile se
+   * l'alert è di riga. Assente = tutto visibile.
+   */
+  isVisible?: (flowId: string, row: Record<string, FieldValue | undefined> | null) => boolean;
 }
 
 const dateIn = (v: FieldValue | undefined): IsoDate | null => (typeof v === "string" && isValidIsoDate(v) ? v : null);
@@ -129,7 +139,11 @@ export function evaluateTargets(input: TargetInput, specs: AlertRuleSpec[] = ALE
         codeMatches(input.values[spec.openWhen.flowId], spec.openWhen.codes) ||
         (!!spec.openWhen.emptyMatches && codeIn(input.values[spec.openWhen.flowId]) === null);
       const closeEmpty = !binding.close || isEmpty(vals[binding.close]);
-      const pending = !!trigger && scopeOk && openOk && closeEmpty;
+      const row = rowId ? vals : null;
+      const hidden =
+        !!input.isVisible &&
+        [binding.close, binding.trigger].some((f) => !!f && !input.isVisible!(f, row));
+      const pending = !hidden && !!trigger && scopeOk && openOk && closeEmpty;
       out.push({
         ruleId: spec.ruleId,
         rowId,
@@ -140,6 +154,7 @@ export function evaluateTargets(input: TargetInput, specs: AlertRuleSpec[] = ALE
         // Solo il trigger: una soglia cambiata vale per gli alert non ancora emessi (D-97), non sposta quelli aperti.
         sourceFingerprint: trigger ?? "-",
         trigger,
+        ...(hidden ? { hidden: true } : {}),
       });
     };
     if (spec.repeatGroup) for (const row of input.repeats[spec.repeatGroup] ?? []) evalOn(row.values, row.rowId);
@@ -276,7 +291,11 @@ export function reconcileAlerts(
       continue;
     }
 
-    // Non da segnalare.
+    // Non da segnalare. Campo nascosto (D-207, Q10): si chiude anche a chiusura manuale e non si ricorda più.
+    if (last?.status === "OPEN" && t.hidden) {
+      actions.push({ type: "CLOSE", alertId: last.id, reason: "Campo nascosto da una condizione: l'alert non si applica" });
+      continue;
+    }
     if (last?.status === "OPEN" && !spec.manualClose) actions.push({ type: "CLOSE", alertId: last.id, reason: closeReason(t) });
     // Risoluzione registrata subito, anche se l'episodio a chiusura manuale resta aperto (D-137 A-01: uscita da KO
     // prima della decisione su Fatturabile): dopo la chiusura un nuovo ingresso apre la generazione successiva.
