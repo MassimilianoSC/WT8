@@ -48,6 +48,16 @@ describe("alert sui campi nascosti (D-207, Q10)", () => {
     expect(actions).toEqual([expect.objectContaining({ type: "OPEN", generation: 2 })]);
   });
 
+  it("regressione (collaudo guida 20/11): la tabella Vincoli nascosta da Incarico non conta nell'avanzamento PM", () => {
+    const vincoli = Array.from({ length: 11 }, (_, i) => ({ rowId: `v${i}`, ordinal: i, values: {}, constraint: { code: "ALTRO", stato: null, ente: null } }));
+    const repeats = { VINCOLI: vincoli } as never;
+    const nuovo = computeProgress(INWIT, { values: { F012: { code: "NEW_SITE" } }, repeats }).PM_PERMESSI;
+    const caratt = computeProgress(INWIT, { values: { F012: { code: "CARATTERIZZAZIONE" } }, repeats }).PM_PERMESSI;
+    expect(caratt.total).toBeLessThan(nuovo.total - 11);
+    const ridotto = computeProgress(INWIT, { values: { F012: { code: "CARATTERIZZAZIONE" } }, repeats: {} }).PM_PERMESSI;
+    expect(caratt.total).toBe(ridotto.total);
+  });
+
   it("senza isVisible il motore resta quello di prima (tutto visibile)", () => {
     const [t] = evaluateTargets({ templateId: "INWIT", values: { F012: { code: "CARATTERIZZAZIONE" }, F092: "2026-11-10" }, repeats: {}, stato: "CREATA", thresholds: { PROVA: th } }, [SPEC]);
     expect(t.pending).toBe(true);

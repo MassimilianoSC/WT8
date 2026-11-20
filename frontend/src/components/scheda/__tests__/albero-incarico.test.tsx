@@ -2,10 +2,11 @@ import * as React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { NO_DATE, type FieldOccurrenceDTO, type TemplateDTO } from "@/lib/contract";
-import { buildRepeatIndex } from "@/components/scheda/conditions";
+import { buildRepeatIndex, repeatBlockHidden } from "@/components/scheda/conditions";
 import { buildSheetFromTemplate, sectionHiddenByTree, treeFlowId, visibleTree, type SheetValues } from "@/components/scheda/layout";
 import { Field } from "@/components/scheda/fields/field";
 import { formatValue } from "@/components/scheda/fields/format";
+import { popupHasContent } from "@/components/scheda/sections";
 // The committed output of the template compiler, read only in tests.
 import INWIT from "@/data/templates/INWIT.json";
 
@@ -34,6 +35,26 @@ describe("tree by Incarico / Lavorazione (Q3)", () => {
     const all = groups.flatMap((g) => g.sections.map((s) => s.section.key));
     expect(sectionKeys({})).toEqual(all);
     expect(sectionKeys({ F012: { code: "NEW_SITE" } })).toEqual(all);
+  });
+
+  it("regression (guide test run 20/11): repeat blocks hidden by Incarico disappear, row-level conditions do not hide a block", () => {
+    const fase = groups.flatMap((g) => g.sections).find((s) => s.section.key === "PM_PERMESSI.FASE_PRELIMINARE")!;
+    const vincoli = fase.occurrences.filter((o) => o.repeatGroup === "VINCOLI");
+    const repeatOf = buildRepeatIndex(template);
+    expect(repeatBlockHidden(vincoli, "VINCOLI", data({ F012: { code: "CARATTERIZZAZIONE" } }))).toBe(true);
+    expect(repeatBlockHidden(vincoli, "VINCOLI", data({ F012: { code: "NEW_SITE" } }))).toBe(false);
+    // Integrazione: Note/Invio depend on Richiesta in the same row → the block stays even with no rows.
+    const integr = template.occurrences.filter((o) => o.repeatGroup === "INTEGRAZIONE" && o.kind === "MASTER");
+    expect(integr.length).toBeGreaterThan(0);
+    expect(repeatBlockHidden(integr, "INTEGRAZIONE", { values: { F012: { code: "NEW_SITE" } }, repeats: {}, repeatOf })).toBe(false);
+  });
+
+  it("regression (guide test run 20/11): a pop-up with every field hidden is not drawn as an empty frame", () => {
+    const fase = groups.flatMap((g) => g.sections).find((s) => s.section.key === "PM_PERMESSI.FASE_PRELIMINARE")!;
+    const popup = fase.blocks.find((b) => b.kind === "popup")!;
+    expect(popupHasContent(popup, data({ F012: { code: "VERIFICA_STATICA" } }))).toBe(false);
+    expect(popupHasContent(popup, data({ F012: { code: "CARATTERIZZAZIONE" } }))).toBe(true);
+    expect(popupHasContent(popup, data({}))).toBe(true);
   });
 
   it("a section emptied by other conditions only stays with its 0/n (D-122)", () => {
